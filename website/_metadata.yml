@@ -1,21 +1,21 @@
 workshop:
-  title: "Programming with LLMs"
+  title: "Programming with LLMs in R and Python"
   conference:
-    name: "posit::conf(2025)"
-    link: "https://posit.co/conference"
-    location: Atlanta, GA
-  date: September 16, 2025
+    name: "posit::conf(2026)"
+    link: "https://conf.posit.co/2026/"
+    location: Houston, TX
+  date: September 14, 2026
   time: 09:00 - 17:00
-  location: "**Room:** Regency VII"
-  discord_channel: "#workshop-llm"
+  location: "**Venue:** Hilton Americas-Houston | **Room:** TBD"
+  discord_channel: TODO
   links:
-    repo: https://github.com/posit-conf-2025/llm
-    website: https://posit-conf-2025.github.io/llm
+    repo: https://github.com/posit-conf-2026/llms
+    website: https://posit-conf-2026.github.io/llms
     cloud: TODO
     cloud_short:
       href: "https://posit.cloud/"
       text: TODO
-    discord: https://discord.com/channels/1381993558437007490/1402378610861408266
+    discord: https://pos.it/joinconf26
     conf:
-      name: posit::conf(2025)
-      href: http://pos.it/conf-event-portal
+      name: posit::conf(2026)
+      href: https://conf.posit.co/2026/

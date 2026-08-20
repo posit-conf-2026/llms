@@ -1,7 +1,7 @@
 # ---- ✦ I can get the weather with R! ✦ ----
 library(weathR)
 
-posit_conf <- list(lat = 33.761627, lon = -84.386963)
+posit_conf <- list(lat = 29.7515551, lon = -95.3606597)
 
 weathR::point_forecast(posit_conf$lat, posit_conf$lon)
 
@@ -30,4 +30,4 @@ chat <- chat_openai(model = "gpt-4.1-nano", echo = "output")
 # Register the tool with the chatbot
 chat$register_tool(get_weather)
 
-chat$chat("What should I wear to posit::conf(2025) in Atlanta?")
+chat$chat("What should I wear to posit::conf(2026) in Houston?")

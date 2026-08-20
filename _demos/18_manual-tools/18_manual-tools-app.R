@@ -59,7 +59,7 @@ server <- function(input, output, session) {
   chat <- chat_mod_server("chat", client)
   observe({
     chat$update_user_input(
-      "What should I wear to posit::conf() in Atlanta?"
+      "What should I wear to posit::conf(2026) in Houston?"
     )
   })
 }

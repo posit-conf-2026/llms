@@ -1,16 +1,16 @@
 Type: Project
 Package: level-up-shiny
-Title: Programming with LLMs at posit::conf(2025)
+Title: Programming with LLMs in R and Python at posit::conf(2026)
 Version: 0.0.0.9000
 Authors@R: c(
     person("Garrick", "Aden-Buie", , "garrick@adenbuie.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7111-0077")),
-    person("Joe", "Cheng", , "joe@posit.co", role = "ctb")
+    person("Sara", "Altman", role = "aut")
   )
-Description: Programming with LLMs at posit::conf(2025).
+Description: Programming with LLMs in R and Python at posit::conf(2026).
 License: CC BY-SA 4.0
-URL: https://github.com/posit-conf-2025/llm
-BugReports: https://github.com/posit-conf-2025/llm/issues
+URL: https://github.com/posit-conf-2026/llms
+BugReports: https://github.com/posit-conf-2026/llms/issues
 Imports:
     askpass,
     base64enc,

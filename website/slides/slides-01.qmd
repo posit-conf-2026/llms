@@ -1,10 +1,10 @@
 ---
 title: Welcome!
-subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
-author: <code>posit::conf(2025)</code>
-date: 2025-09-16
+subtitle: Programming with LLMs in R and Python
+author: <code>posit::conf(2026)</code>
+date: 2026-09-14
 
-footer: posit-conf-2025.github.io/llm
+footer: posit-conf-2026.github.io/llms
 
 editor:
   render-on-save: true
@@ -15,11 +15,13 @@ editor:
 * Find a seat where you can see the screen!
 
 * Update your local copy of the workshop: \
-  [posit-conf-2025.github.io/llm/setup.html]{.code .b .orange}
+  [posit-conf-2026.github.io/llms/setup.html]{.code .b .orange}
 
-* Join the Discord: [https://pos.it/conf]{.code .orange .b}
+* Join the Discord: [pos.it/joinconf26](https://pos.it/joinconf26){.code .orange .b}
 
-* [wifi(<br>&nbsp;&nbsp;network="Posit Conf 2025",<br>&nbsp;&nbsp;password="conf2025"<br>)]{.code}
+* [wifi(<br>&nbsp;&nbsp;network="{{< meta workshop.wifi.network >}}",<br>&nbsp;&nbsp;password="{{< meta workshop.wifi.password >}}"<br>)]{.code}
+
+* Conference details: [conf.posit.co/2026]{.code .orange .b}
 
 ```{=html}
 <style>
@@ -31,11 +33,15 @@ editor:
 
 # 🤝 Introductions 🤝 {.middle}
 
-## [Meet us]{.hidden} {.no-invert-dark-mode background-image="assets/team.png" background-size="contain" footer=false}
+## Meet us {.center .text-center}
 
-::: visually-hidden
-Our team: Joe Cheng, Garrick Aden-Buie, Karan Gathani, Julia Silge, Sam Clark, James Blair
-:::
+**Instructors**
+
+Garrick Aden-Buie and Sara Altman
+
+**Teaching assistants**
+
+Kristin Bott, Alex Chisholm, and Carson Sievert
 
 ## Code of Conduct
 
@@ -57,31 +63,38 @@ Our team: Joe Cheng, Garrick Aden-Buie, Karan Gathani, Julia Silge, Sam Clark, J
 
 * ⚡ Share a moment when AI surprised you
 
-# About posit::conf(2025)
+# About posit::conf(2026)
 
-## [WiFi]{.hidden} {.text-center .center}
+## Wi-Fi {.text-center .center}
 
-[wifi("Posit Conf 2025", password="conf2025")]{.code .f1}
+[wifi("{{< meta workshop.wifi.network >}}", password="{{< meta workshop.wifi.password >}}")]{.code .f1}
 
-## posit::conf(2025) Things to Know
+## posit::conf(2026) Things to Know
 
 ::: incremental
-*  🚻 **Gender-neutral bathroom**: LL2 next to Chicago A
+*  🚻 **Gender-neutral bathroom**: _____
 
-*  🧘 **Meditation/prayer room**: LL2 Chicago A
+*  🧘 **Meditation/prayer room**: _____
 
-*  🤱 **Lactation room**: LL2 Chicago B
+*  🤱 **Lactation room**: _____
 
-*  🎉 **Welcome reception**: Tonight 5-7 pm, LL2 Grand Hall West
+*  🎉 **Welcome reception**: _____
 
-*  🐠 **Aquarium Night**: Tomorrow 7-10 pm, Georgia Aquarium
 :::
 
-## posit::conf(2025) Social Media
+## posit::conf(2026) Social Media
 
 * [Red lanyards]{.red .b} available to those who don't wish to be photographed
 
-* `#PositConf2025` for all things conf
+* Conference hashtag: `TODO`
+
+## Conference details {.center .text-center}
+
+**September 14-16, 2026**
+
+Hilton Americas-Houston
+
+[conf.posit.co/2026](https://conf.posit.co/2026/)
 
 ## [Questions]{.hidden} {.center}
 
@@ -92,25 +105,23 @@ Please ask questions!
 
 # About this workshop
 
-## 🏡 [posit-conf-2025.github.io/llm]{.code} {.center .text-center}
+## 🏡 [posit-conf-2026.github.io/llms]{.code} {.center .text-center}
 
 Everything you need, in one place.
-
 
 ## Discord
 
 ::: {.easy-columns .items-center}
 ::: col
-1. Go [posit.co/conference](https://posit.co/conference)
-1. Click **Login**
-1. Find and click the discord banner
-1. Join us in [#workshop-llm]{.code .purple}
+1. Open [pos.it/joinconf26](https://pos.it/joinconf26)
+1. Accept the Discord invitation
+1. Set your display name to the name you used to register
+1. Join us in [{{< meta workshop.discord_channel >}}]{.code .purple}
 :::
 ::: text-center
 ![](assets/discord-banner.png){style="max-height: 80vh"}
 :::
 :::
-
 
 ## Schedule
 
@@ -145,9 +156,9 @@ Need time or help
 
 ## Setup
 
-1. Head to [posit-conf-2025.github.io/llm/setup.html](https://posit-conf-2025.github.io/llm/setup.html)
+1. Head to [posit-conf-2026.github.io/llms/setup.html](https://posit-conf-2026.github.io/llms/setup.html)
 
-2. Clone our workshop repo `posit-conf-2025/llm`
+2. Clone our workshop repo `posit-conf-2026/llms`
 
 3. Open the project in **Positron**
 
@@ -241,7 +252,7 @@ RStudio and VS Code are great, too!
       or run [uv run secret.py decrypt .env.secret > .env]{class="b--blue blue ph2 pv1 ba br2 code"}
 
 2. 🤫 The special phrase is: \
-   [positconf2025-llm-workshop]{class="b--purple purple ph2 pv1 ba br2 code" contenteditable="true" style="font-size: 1.25em"}
+   [positconf2026-llms-workshop]{class="b--purple purple ph2 pv1 ba br2 code" contenteditable="true" style="font-size: 1.25em"}
 
 3. 🤖 Run the code in [_exercises/01_hello-llm]{.b}
 :::

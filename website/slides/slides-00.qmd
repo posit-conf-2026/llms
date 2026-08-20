@@ -1,15 +1,15 @@
 ---
 title: Welcome!
-subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
-author: <code>posit::conf(2025)</code>
-date: 2025-09-16
+subtitle: Programming with LLMs in R and Python
+author: <code>posit::conf(2026)</code>
+date: 2026-09-14
 
 format:
   revealjs:
     auto-slide: 15000
     loop: true
 
-footer: posit-conf-2025.github.io/llm
+footer: posit-conf-2026.github.io/llms
 
 title-slide-attributes:
     class: no-invert-dark-mode title-slide-white
@@ -41,11 +41,13 @@ editor:
 * Find a seat where you can see the screen!
 
 * Update your local copy of the workshop: \
-  [posit-conf-2025.github.io/llm/setup.html]{.code .b .orange}
+  [posit-conf-2026.github.io/llms/setup.html]{.code .b .orange}
 
-* Join the Discord: [https://pos.it/conf]{.code .orange .b}
+* Join the Discord: [pos.it/joinconf26](https://pos.it/joinconf26){.code .orange .b}
 
-* [wifi(<br>&nbsp;&nbsp;network="Posit Conf 2025",<br>&nbsp;&nbsp;password="conf2025"<br>)]{.code}
+* [wifi(<br>&nbsp;&nbsp;network="{{< meta workshop.wifi.network >}}",<br>&nbsp;&nbsp;password="{{< meta workshop.wifi.password >}}"<br>)]{.code}
+
+* Conference details: [conf.posit.co/2026]{.code .orange .b}
 
 ```{=html}
 <style>

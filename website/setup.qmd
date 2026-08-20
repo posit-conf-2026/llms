@@ -56,11 +56,11 @@ If you'd like to also use or try local models during the workshop, you should [i
 In this workshop, we'll be using a few different online services.
 If you don't already have accounts with these services, you'll need to create them before we get started.
 
--   [Discord](https://discord.com/register)
+-   [posit::conf(2026) Discord]({{< meta workshop.links.discord >}})
     -   Used to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.
     -   Make sure your [display name](https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C) is the one you used to register for the conference.
-    -   Join the `{{< meta workshop.conference.name >}}` Discord server via [the posit::conf event portal]({{< meta workshop.links.conf.href >}}).
-    -   Our workshop channel is [`{{< meta workshop.discord_channel >}}`]({{< meta workshop.links.discord >}}).
+    -   Join using the [posit::conf(2026) Discord invitation]({{< meta workshop.links.discord >}}).
+    -   Workshop channel: `{{< meta workshop.discord_channel >}}`
 -   [GitHub](https://github.com/join)
     -   The workshop materials are hosted on GitHub and we may use GitHub in an activity during the workshop.
 
@@ -180,9 +180,9 @@ You can use the [usethis](https://usethis.r-lib.org) package to quickly clone th
 
 ``` r
 usethis::create_from_github(
-  "posit-conf-2025/llm",
+  "posit-conf-2026/llms",
   # Decide where to put the project here:
-  destdir = "~/Desktop/llm"
+  destdir = "~/Desktop/llms"
 )
 ```
 
@@ -193,8 +193,8 @@ This will download the repository and open the project in RStudio.
 ``` bash
 cd ~/Desktop # or somewhere you can find easily
 
-gh repo clone posit-conf-2025/llm
-cd llm
+gh repo clone posit-conf-2026/llms
+cd llms
 ```
 
 #### ![](assets/icons/git-icon.svg){width="32px"} git
@@ -202,8 +202,8 @@ cd llm
 ``` bash
 cd ~/Desktop # or somewhere you can find easily
 
-git clone https://github.com/posit-conf-2025/llm.git
-cd llm
+git clone https://github.com/posit-conf-2026/llms.git
+cd llms
 ```
 :::::::
 

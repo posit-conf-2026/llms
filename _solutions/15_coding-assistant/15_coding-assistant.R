@@ -27,7 +27,7 @@ chat$chat(
     "and returns the weather forecast for that location using the {weathR}",
     "package. Keep the function concise and simple and don't include error",
     "handling or data re-formatting. Include documentation in roxygen2 format,",
-    "including examples for NYC and Atlanta, GA."
+    "including examples for NYC and Houston, TX."
   )
 )
 
@@ -47,7 +47,7 @@ chat$chat(
 #' # Get forecast for New York City (Central Park)
 #' get_forecast(40.768473, -73.976004)
 #'
-#' # Get forecast for Atlanta, GA
+#' # Get forecast for Houston, TX
 #' get_forecast(33.749045, -84.388792)
 get_forecast <- function(lat, lon) {
   weathR::point_forecast(lat = lat, lon = lon)

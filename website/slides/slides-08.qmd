@@ -1,8 +1,8 @@
 ---
 title: Tool Calling
-subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
-author: <code>posit::conf(2025)</code>
-date: 2025-09-16
+subtitle: Programming with LLMs in R and Python
+author: <code>posit::conf(2026)</code>
+date: 2026-09-14
 
 editor:
   render-on-save: true
@@ -35,8 +35,8 @@ library(ellmer)
 
 chat <- chat("openai/gpt-4.1-nano")
 
-chat$chat("What's the weather like in Atlanta, GA?")
-chat$chat("Who are the keynote speakers at posit::conf(2025)?")
+chat$chat("What's the weather like in Houston, TX?")
+chat$chat("Who are the keynote speakers at posit::conf(2026)?")
 chat$chat("What day is it?")
 ```
 
@@ -45,8 +45,8 @@ chat$chat("What day is it?")
 import chatlas
 
 chat = chatlas.Chat(model="openai/gpt-4.1-nano")
-chat.chat("What's the weather like in Atlanta, GA?")
-chat.chat("Who are the keynote speakers at posit::conf(2025)?")
+chat.chat("What's the weather like in Houston, TX?")
+chat.chat("Who are the keynote speakers at posit::conf(2026)?")
 chat.chat("What day is it?")
 ```
 :::
@@ -74,7 +74,7 @@ a.k.a. _functions_, _tool calling_ or _function calling_
 :::
 
 ::: notes
-Tools are extra capabilities that you give to the LLM, like the ability to search the posit::conf(2025) schedule.
+Tools are extra capabilities that you give to the LLM, like the ability to search the posit::conf(2026) schedule.
 These capabilities are things that the model can't do on its own.
 The goal is let the model pull in real-time, or up-to-date, or high-quality information as needed, depending on the conversation.
 
@@ -133,7 +133,7 @@ user vs. programmer
 
 ## How do tool calls work? {.center}
 
-What should I wear to posit::conf(2025) in Atlanta?
+What should I wear to posit::conf(2026) in Houston?
 
 ::: notes
 So how do we connect the LLM to the code that this data scientist has written (or could write) to give the model new abilities?
@@ -157,19 +157,19 @@ So how do we connect the LLM to the code that this data scientist has written (o
 Zooming out again, the conversation starts with a user sending a message to the chatbot.
 
 In this case, the user asks the model whether they can go to the pool today.
-(I live in Atlanta, GA.)
+(I live in Houston, TX.)
 
-How much does the model know about the weather in Atlanta, GA?
+How much does the model know about the weather in Houston, TX?
 
-**What's the weather like today in Atlanta, GA?**
+**What's the weather like today in Houston, TX?**
 
-> I'm unable to provide real-time weather updates. For the latest weather forecast in Atlanta, GA, please check a trusted weather service such as
+> I'm unable to provide real-time weather updates. For the latest weather forecast in Houston, TX, please check a trusted weather service such as
 the National Weather Service, Weather.com, or a weather app on your device.
 
 **Go ahead and guess**
 
-> Sure! Since it's July in Atlanta, GA, you can generally expect hot and humid weather. Temperatures might range from the mid-80s to mid-90s
-Fahrenheit (around 29-35°C). There could also be some afternoon thunderstorms or showers, which are common during summer months in Georgia. Keep a
+> Sure! Since it's September in Houston, TX, you can generally expect hot and humid weather. Temperatures might range from the mid-80s to low 90s
+Fahrenheit (around 29-34°C). There could also be some afternoon thunderstorms or showers, which are common along the Gulf Coast. Keep a
 fan or air conditioning handy if you're indoors, and stay hydrated!
 :::
 
@@ -179,10 +179,10 @@ fan or air conditioning handy if you're indoors, and stay hydrated!
 
 ::: notes
 Now imagine we've told the LLM that it has access to a tool called `get_weather()`.
-Knowing that it 1) needs to know the weather in Atlanta and 2) it doesn't know the weather in Atlanta, GA; the model decides to use the weather tool.
+Knowing that it 1) needs to know the weather in Houston and 2) it doesn't know the weather in Houston, TX; the model decides to use the weather tool.
 
-It sends back a message that includes a tool call, basically instructions to call the `get_weather()` function with the argument `30303`.
-Notice that the model _does know_ that Atlanta, GA is in the 30303 ZIP code.
+It sends back a message that includes a tool call, basically instructions to call the `get_weather()` function with the argument `77010`.
+Notice that the model _does know_ that the Hilton Americas-Houston is in the 77010 ZIP code.
 :::
 
 ## {.center style="text-align: center" transition="fade"}
@@ -190,7 +190,7 @@ Notice that the model _does know_ that Atlanta, GA is in the 30303 ZIP code.
 ![](assets/tools-how-it-works-03.excalidraw.svg)
 
 ::: notes
-The programmer can then take that message from the LLM with the instructions to call the tool and they go off and run the code that that satisfies the tool request, in this case querying the weather API for the weather in 30303 because that has been a stable fact for a long time.
+The programmer can then take that message from the LLM with the instructions to call the tool and they go off and run the code that satisfies the tool request, in this case querying the weather API for the weather in 77010 because that has been a stable fact for a long time.
 :::
 
 ## {.center style="text-align: center" transition="fade"}

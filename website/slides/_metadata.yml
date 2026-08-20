@@ -1,6 +1,12 @@
 filters:
   - tachyons
 
+workshop:
+  discord_channel: TODO
+  wifi:
+    network: TODO
+    password: TODO
+
 format:
   revealjs:
     html-math-method: plain

@@ -23,6 +23,6 @@ chat$chat(
     "and returns the weather forecast for that location using the {weathR}",
     "package. Keep the function concise and simple and don't include error",
     "handling or data re-formatting. Include documentation in roxygen2 format,",
-    "including examples for NYC and Atlanta, GA."
+    "including examples for NYC and Houston, TX."
   )
 )

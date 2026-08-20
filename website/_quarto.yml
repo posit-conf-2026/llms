@@ -10,9 +10,9 @@ project:
     - slides
 
 website:
-  title: "Programming with LLMs"
+  title: "Programming with LLMs in R and Python"
   description: "A beginner's guide to programming with large language models in R and Python"
-  site-url: https://posit-conf-2025.github.io/llm
+  site-url: https://posit-conf-2026.github.io/llms
 
   favicon: assets/posit-conf-favicon.svg
   twitter-card:
@@ -26,19 +26,19 @@ website:
   #   icon: ""
   #   dismissable: false
   #   content: |
-  #     🍑 Thanks for joining us at <code>posit::conf(2025)</code>!
+  #     Thanks for joining us at <code>posit::conf(2026)</code>!
   #     Please fill out our <a href="https://pos.it/conf-workshop-survey" target="_blank">workshop feedback form</a>, it's quick and easy!
   #   type: info
 
   page-footer: |
-    <a href="https:://posi.it/conf-event-portal">posit::conf(2025)</a>
+    <a href="https://conf.posit.co/2026/">posit::conf(2026)</a>
 
-  repo-url: https://github.com/posit-conf-2025/llm
+  repo-url: https://github.com/posit-conf-2026/llms
   repo-subdir: website
   repo-actions: [edit, issue]
 
   navbar:
-    title: "Programming with LLMs"
+    title: "Programming with LLMs in R and Python"
     background: "#000"
     foreground: white
     left:
@@ -52,11 +52,11 @@ website:
         text: Team
     tools:
       - icon: github
-        href: https://github.com/posit-conf-2025/llm
+        href: https://github.com/posit-conf-2026/llms
         aria-label: Workshop materials
       - icon: discord
-        href: https://discord.com/channels/1381993558437007490/1402378610861408266
-        aria-label: Discord channel
+        href: https://pos.it/joinconf26
+        aria-label: Join the posit::conf Discord
 
   page-navigation: true
 

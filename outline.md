@@ -15,7 +15,7 @@
   - Activity: introduce yourself to your neighbors
 
 - (10m) Set-up and verify API access
-  - Activity: simple script to verify API access (write an "I'm at posit::conf(2025) social media post")
+  - Activity: simple script to verify API access (write an "I'm at posit::conf(2026) social media post")
 
 - (10m) Think empirically, be pragmatic
   - Getting into the right mindset for working with LLMs

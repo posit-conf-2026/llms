@@ -1,6 +1,6 @@
 ---
-title: Programming with LLMs
-subtitle: posit::conf(2025)
+title: Programming with LLMs in R and Python
+subtitle: posit::conf(2026)
 
 image: assets/erik-skof-Xn8ilXVKntg-unsplash.png
 
@@ -216,8 +216,6 @@ Designed for AI newcomers and experienced developers, the session covers LLM int
 🔧 [Getting Setup](setup.qmd)
 
 <!-- 🧑‍💻 [Join Posit Cloud Space](setup.qmd#using-posit-cloud) -->
-
-👾 [Discord]({{< meta workshop.links.discord >}}) ([signup instructions](setup.qmd#create-accounts))
 
 📦 [Repository]({{< meta workshop.links.repo >}})
 

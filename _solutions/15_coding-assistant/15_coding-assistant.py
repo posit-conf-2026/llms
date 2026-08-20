@@ -28,7 +28,7 @@ chat.chat(
     "and returns the weather forecast for that location using the NWS "
     "package. Keep the function concise and simple and don't include error "
     "handling or data re-formatting. Include a short docstring, including "
-    "including examples for NYC and Atlanta, GA.",
+    "including examples for NYC and Houston, TX.",
 )
 
 

@@ -8,14 +8,6 @@ page-navigation: false
 listing:
   template: about.ejs
   contents:
-    - name: Joe Cheng
-      instructor: true
-      role: "CTO, Posit"
-      image: joe-cheng.jpg
-      links:
-      - icon: github
-        text: GitHub
-        href: https://github.com/jcheng5
     - name: Garrick Aden-Buie
       instructor: true
       role: "Software Engineer, Shiny"
@@ -30,18 +22,11 @@ listing:
       - icon: linkedin
         text: LinkedIn
         href: https://www.linkedin.com/in/garrick-aden-buie/
-    - name: Karan Gathani
-      role: "Software QA Engineer, Shiny"
-      image: karan.png
-    - name: Julia Silge
-      image: julia.png
-      role: "Engineering Manager, Positron"
-    - name: Sam Clark
-      role: "Software Engineer, Positron"
-      image: sam.png
-    - name: James Blair
-      role: "Senior Product Manager, Posit Cloud"
-      image: james.png
+    - name: Sara Altman
+      instructor: true
+    - name: Kristin Bott
+    - name: Alex Chisholm
+    - name: Carson Sievert
 ---
 
 ::: column-body
