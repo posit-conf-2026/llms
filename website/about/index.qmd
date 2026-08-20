@@ -1,0 +1,36 @@
+---
+title: "Our Team"
+
+sidebar: false
+repo-actions: false
+page-navigation: false
+
+listing:
+  template: about.ejs
+  contents:
+    - name: Garrick Aden-Buie
+      instructor: true
+      role: "Software Engineer, Shiny"
+      image: garrick.jpg
+      links:
+      - icon: github
+        text: GitHub
+        href: https://github.com/gadenbuie
+      - icon: bluesky
+        text: Bluesky
+        href: https://bsky.app/profile/@grrrck.xyz
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/garrick-aden-buie/
+    - name: Sara Altman
+      instructor: true
+    - name: Kristin Bott
+    - name: Alex Chisholm
+    - name: Carson Sievert
+---
+
+::: column-body
+::: {#listing}
+
+:::
+:::
