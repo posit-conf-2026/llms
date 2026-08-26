@@ -1,36 +1,15 @@
 # %% [markdown]
-# In this workshop, we'll be using
-# [chatlas](https://posit-dev.github.io/chatlas) to interact with large language
-# models (LLMs) like OpenAI's GPT and Anthropic's Claude.
+# We'll use chatlas to interact with models provided by Posit AI.
 
 # %%
 import chatlas
 
 # %% [markdown]
-# To load the API keys for these services, we'll use the the `dotenv` package to
-# load them from the `.env` file in the root of this project.
-# %%
-import dotenv
-
-dotenv.load_dotenv()
-
-# %% [markdown]
-# ## OpenAI
+# The first call opens a browser so you can sign in to Posit AI.
 
 # %%
-chat_gpt = chatlas.ChatOpenAI()
-chat_gpt.chat(
-    "I'm at posit::conf(2026) to learn about programming with LLMs and ellmer! "
+chat = chatlas.ChatPosit()
+chat.chat(
+    "I'm at posit::conf(2026) to learn about programming with LLMs in R and Python! "
     "Write a short social media post for me."
-)
-
-
-# %% [markdown]
-# ## Anthropic
-
-# %%
-chat_claude = chatlas.ChatAnthropic()
-chat_claude.chat(
-    "I'm at posit::conf(2026) to learn about programming with LLMs and ellmer!",
-    "Write a short poem to celebrate.",
 )
