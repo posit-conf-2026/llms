@@ -1,5 +1,5 @@
 Type: Project
-Package: level-up-shiny
+Package: llms
 Title: Programming with LLMs in R and Python at posit::conf(2026)
 Version: 0.0.0.9000
 Authors@R: c(
@@ -11,6 +11,8 @@ Description: Programming with LLMs in R and Python at posit::conf(2026).
 License: CC BY-SA 4.0
 URL: https://github.com/posit-conf-2026/llms
 BugReports: https://github.com/posit-conf-2026/llms/issues
+Depends:
+    R (>= 4.1)
 Imports:
     askpass,
     base64enc,
@@ -18,14 +20,20 @@ Imports:
     brio,
     bsicons,
     bslib (>= 0.9.0.9000),
+    cli,
     digest,
     dotenv,
     dplyr,
     ellmer,
+    fontawesome,
     forcats,
     fs,
     ggplot2,
+    glue,
     here (>= 1.0.2),
+    htmltools,
+    janitor,
+    jsonlite,
     leaflet,
     magick,
     mcptools,
@@ -35,6 +43,7 @@ Imports:
     ragnar,
     reactable,
     readr,
+    rlang,
     scales,
     shiny (>= 1.11.1.9000),
     shinychat (>= 0.2.0.9000),
