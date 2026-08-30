@@ -4,7 +4,6 @@ on:
       - main
     paths:
       - "website/**"
-      - "renv.lock"
       - ".github/workflows/publish.yml"
   workflow_dispatch:
 
