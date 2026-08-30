@@ -30,12 +30,11 @@ py-upgrade:
 
 .PHONY: r-setup
 r-setup:  ## [r] Setup R environment
-	Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")'
-	Rscript -e 'renv::restore()'
+	Rscript -e 'if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")'
+	Rscript -e 'pak::local_install_deps()'
 
 .PHONY: r-setup-dev
-r-setup-dev: ## [r] Setup R environment for dev
-	Rscript -e "if (!requireNamespace('pak', quietly = TRUE)) install.packages('pak')"
+r-setup-dev: r-setup ## [r] Setup R environment for dev
 	Rscript -e "pak::local_install_dev_deps(dependencies = 'Config/Needs/dev')"
 
 .PHONY: secret-encrypt
