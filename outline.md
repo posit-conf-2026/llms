@@ -21,14 +21,14 @@
 
 - (10m) Set-up and verify API access
   - Explain that API access requires a way to verify, a provider account, payment method, (sometimes) an API key
-  - Explain that we will be using Posit AI as our model provider today
+  - Explain that we will be using Posit AI Pass to access models today
     - Explain any setup still needed
   - Briefly introduce Posit Assistant and workshop skill so that learners can use it to get help throughout the workshop
     - Don't explain what a skill is, just mention that it will know about the workshop
   - *Activity* `_exercises/01_hello-llm`
     - Simple script to verify API access (write an "I'm at posit::conf(2026) social media post")
     - Paste into Posit Assistant and ask to critique it
-    - Goal is to verify `chat_posit()` and Posit Assistant connected to Posit AI are both working
+    - Goal is to verify `chat_posit()` and Posit Assistant connected through Posit AI Pass are both working
 
 - (10m) Think empirically, be pragmatic
   - Getting into the right mindset for working with LLMs
@@ -88,9 +88,33 @@
 > A deeper dive into the things you can do with LLMs when you're programming with them that are harder to do in a chat UI.
 
 - (15m) Choosing a model
-  - Overview of major providers: OpenAI, Anthropic, Google, ollama
-  - Tradeoffs: capability, context length, speed, cost, intelligence
-  - Activity: same question, change one string to switch models, e.g. `chat("openai")`, `chat("anthropic")`.
+  - Distinguish between a provider, which hosts and serves models, and a model, which is a specific LLM with particular capabilities
+  - Briefly introduce the major model families from OpenAI, Anthropic, and Google, with Ollama as an example of running models locally
+  - Compare the dimensions that matter when choosing a model:
+    - Context window: how much content the model can accept
+    - Capabilities: support for images, documents, reasoning, tool use, and structured output
+    - Speed and cost: smaller models are generally faster and less expensive
+    - Intelligence: larger or reasoning-focused models may perform better on complex tasks
+  - Explain how model families commonly offer different size tiers and generations (shorten this section)
+    - Moving to a larger tier may improve quality at the cost of speed and price
+    - Moving to a newer generation may improve quality without requiring the largest model
+    - Model names and availability change frequently, so use provider documentation and independent comparisons rather than memorizing a fixed recommendation
+  - Use a practical default: start with a capable general-purpose model, try a smaller model for simple or high-volume work, and move to a larger or reasoning model when evaluation shows that it is needed
+  - Posit AI Pass: lets you use models from various providers. We only support models we think are useful for data or coding work.
+  - Introduce the provider-specific chat functions/chat() function in `ellmer` and classes in `chatlas`
+  - Show how `chat()` and `ChatAuto()` make it easy to switch providers or select a specific model
+  - *Activity* `_exercises/07_models`
+    - List the models available from Anthropic and OpenAI
+    - Send the same prompt to different models
+    - Change only the provider or model name, then compare the responses
+  - Possible revisions:
+    - Move more quickly from the provider/model distinction to the criteria for choosing a model; shorten the seven-slide provider/model diagram sequence
+    - Replace the detailed Claude version history with concise, current examples of how Anthropic and OpenAI model families encode size and generation
+    - Give local and open-weight models more context, including Ollama, Hugging Face, LM Studio, parameter counts, and common model-naming conventions
+    - Replace fixed task-by-model and "favorite models" recommendations with a durable heuristic: start with a recent frontier model, then try a smaller or cheaper model when needed
+    - Introduce evaluation with `vitals` as the systematic way to compare model quality and cost for a specific task
+    - Keep the existing compare-the-same-prompt activity, adapted for both `ellmer` and `chatlas`
+    - Update the provider and model examples to reflect current package support and current model availability
 
 - (15m) Multi-modal input (vision, PDF)
   - Activity: images of food and ask for recipes

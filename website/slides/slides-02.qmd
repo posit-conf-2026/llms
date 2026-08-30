@@ -11,7 +11,7 @@ editor:
 # How to think about LLMs {.dark-blue background-image="assets/retro-mac.jpg" background-size="cover" background-position="bottom left"}
 
 ```{r}
-source(here::here("slides/_incremental_slides.R"))
+source(here::here("website/slides/_incremental_slides.R"))
 ```
 
 ::: notes
@@ -80,8 +80,8 @@ Some motivational words by Joe urging everyone to approach LLMs with curiosity a
 
 ## {.center}
 
-![](assets/intro-conversation-01.png)
-![](assets/intro-conversation-02.png){.fragment}
+![](assets/cat-fact-1.png)
+![](assets/cat-fact-2.png){.fragment}
 
 ::: notes
 Those conversations often look something like this:
@@ -90,99 +90,120 @@ You ask a question and ChatGPT responds.
 You can keep talking to ChatGPT and it keeps responding,
 almost like you're having a conversation with a person.
 
-The entire conversation happens via HTTP requests and responses
+We can do the same thing from R and Python.
 :::
 
-## What's an HTTP request?
-
-::: notes
-HTTP requests power the internet.
-When you visit a website, your browser sends an HTTP request to the server hosting that website.
-The server responds to the request by sending back the HTML of the webpage.
-And then your browser makes a bunch more requests to get the images, stylesheets, and scripts that make up the page, etc.
-:::
-
-```{r}
-#| output: asis
-
-incremental_slides(
-  pattern = "intro-conversation-google-.+[.]svg$",
-  template = r"(::: {{.mt6}}
-{{{{< include {path} >}}}}
-:::)",
-  collapse = "\n\n## What's an HTTP request?\n\n"
-)
-```
-
-## Talking with ChatGPT happens via HTTP
-
-::: notes
-Talking to an LLM like ChatGPT also happens via HTTP requests.
-When you send a message to ChatGPT, you're sending an HTTP request to OpenAI's servers, this time a `POST` request.
-
-OpenAI processes the request, runs the model, gets the answer and sends it back to you as the response to that POST request.
-:::
-
-```{r}
-#| output: asis
-
-incremental_slides(
-  pattern = "intro-conversation-chat-.+[.]svg$",
-  template = r"(::: {{.mt6}}
-{{{{< include {path} >}}}}
-:::
-  )",
-  collapse = "\n\n## Talking with ChatGPT happens via HTTP\n\n"
-)
-```
-
-## Messages have roles
-
-```{r}
-#| output: asis
-
-incremental_slides(
-  pattern = "intro-conversation-roles-.+[.]svg$",
-  template = r"(::: {{.tc}}
-{{{{< include {path} >}}}}
-:::)",
-  collapse = "\n\n## Messages have roles\n\n"
-)
-```
-
-## Message roles
-
-| Role        | Description                                                       |
-|:-----------|:---------------------------------------------------------------|
-| `system_prompt` | Instructions from the developer (that's you!)<br>to set the behavior of the assistant |
-| `user`       | Messages from the person interacting<br>with the assistant        |
-| `assistant`  | The AI model's responses to the user                           |
-
-## Hello, ellmer and chatlas!
+## We can do this from R and Python!
 
 ::: {.easy-columns}
 ::: tc
 ![](../assets/logos/ellmer.png){style="max-width: 100%; max-height: 500px"}
 
-R
+**R**
 :::
 
 ::: tc
 ![](../assets/logos/chatlas.png){style="max-width: 100%; max-height: 500px"}
 
-Python
+**Python**
 :::
 :::
 
-## {.no-invert-dark-mode background-image="assets/ellmer-and-chatlas.webp" background-size="cover" background-position="center"}
+## A complete example
 
-## Hello, ellmer and chatlas! {transition="fade"}
-
-::: {.smaller style="--code-font-size: 0.66em"}
-::: col
+::: {style="--code-font-size: 0.82em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```r
+library(ellmer)
+
+chat <- chat_posit()
+
+chat$chat("Tell me a fact about cats.")
+```
+
+::: fragment
+```text
+#> **Cats can't taste sweetness.**
+#> They lack the specific taste receptor gene
+#> (Tas1r2) that allows most mammals to
+#> detect sugary flavors.
+```
+:::
+:::
+
+::: notes
+You just saw a conversation in a chat UI. This is the same basic interaction
+from R.
+
+At a high level, this loads a package, creates a chat client, and sends it a
+message.
+:::
+
+## A complete example {transition="fade"}
+
+::: {style="--code-font-size: 0.82em"}
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```python
+import chatlas
+
+chat = chatlas.ChatPosit()
+
+chat.chat("Tell me a fact about cats.")
+```
+
+::: fragment
+```text
+#> **Cats can't taste sweetness.**
+#> They lack the specific taste receptor gene
+#> (Tas1r2) that allows most mammals to
+#> detect sugary flavors.
+```
+:::
+:::
+
+::: notes
+The same three steps work in Python: import a package, create a chat client,
+and send it a message.
+:::
+
+## How does this work?
+
+Most LLMs are accessible through HTTP APIs
+
+::: notes
+This is pretty much a normal API. If you have queried an API to get data, this
+is fundamentally the same thing.
+:::
+
+## 
+
+::: notes
+Talking to an LLM like ChatGPT happens through HTTP requests and responses.
+When you send a message, the chat client sends a POST request. The server runs
+the model, then returns the response.
+:::
+
+```{r}
+#| output: asis
+
+incremental_slides(
+  pattern = "intro-conversation-api-.+[.]svg$",
+  template = r"(::: {{.mt6}}
+<img src="{path}" style="max-width: 100%; max-height: 500px; display: block; margin: 0 auto;">
+:::)",
+  collapse = "\n\n## \n\n"
+)
+```
+
+## {transition="fade"}
+
+::: {.easy-columns .smaller style="--code-font-size: 0.66em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="1"}
 library(ellmer)
 ```
 :::
@@ -190,22 +211,22 @@ library(ellmer)
 ::: col
 [![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
-```python
+```{.python code-line-numbers="1"}
 import chatlas
 ```
 :::
 :::
 
-## Hello, ellmer and chatlas! {transition="fade"}
+## {transition="fade"}
 
-::: {.smaller style="--code-font-size: 0.66em"}
+::: {.easy-columns .smaller style="--code-font-size: 0.66em"}
 ::: col
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="3"}
 library(ellmer)
 
-chat <- chat_openai()
+chat <- chat_posit()
 ```
 :::
 
@@ -215,23 +236,23 @@ chat <- chat_openai()
 ```{.python code-line-numbers="3"}
 import chatlas
 
-chat = chatlas.ChatOpenAI()
+chat = chatlas.ChatPosit()
 ```
 :::
 :::
 
-## Hello, ellmer and chatlas! {transition="fade"}
+## {transition="fade"}
 
-::: {.smaller style="--code-font-size: 0.66em"}
+::: {.easy-columns .smaller style="--code-font-size: 0.66em"}
 ::: col
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="5"}
 library(ellmer)
 
-chat <- chat_openai()
+chat <- chat_posit()
 
-chat$chat("Tell me a joke about R.")
+chat$chat("Tell me a fact about cats.")
 ```
 :::
 
@@ -241,52 +262,160 @@ chat$chat("Tell me a joke about R.")
 ```{.python code-line-numbers="5"}
 import chatlas
 
-chat = chatlas.ChatOpenAI()
+chat = chatlas.ChatPosit()
 
-chat.chat("Tell me a joke about Python.")
+chat.chat("Tell me a fact about cats.")
 ```
 :::
 :::
 
-## Hello, ellmer and chatlas! {transition="fade"}
+## 
 
-::: {.smaller style="--code-font-size: 0.66em"}
+::: {style="--code-font-size: 0.56em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```r
+chat
+```
+```{.markdown code-line-numbers="|2|2,4"}
+<Chat Posit turns=2>
+── user ─────────────────────────────────────────────
+Tell me a fact about cats.
+── assistant ────────────────────────────────────────
+Cats have a special reflective layer behind their retinas that
+helps them see in very low light.
+```
+
+::: fragment
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```python
+print(chat)
+```
+```{.markdown code-line-numbers=false}
+## User turn:
+
+Tell me a fact about cats.
+
+## Assistant turn:
+
+Cats have a special reflective layer behind their retinas that
+helps them see in very low light.
+```
+:::
+
+:::
+
+::: {.fragment .absolute top=100 right=50 class="w-50 ba b--dark-teal bg-washed-green dark-green pa3 br2 flex items-start tl"}
+Messages have **roles**.
+:::
+
+::: notes
+The chat objects contain the conversation history. What do you notice?
+
+Each message has a role. The user supplies a prompt, and the assistant supplies
+the model's response.
+:::
+
+## Messages have roles
+
+![](assets/intro-conversation-roles-01.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+
+## Messages have roles
+
+![](assets/intro-conversation-roles-02.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+
+## Messages have roles
+
+![](assets/intro-conversation-roles-03.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+
+## Messages have roles
+
+![](assets/intro-conversation-roles-04.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+
+## Message roles
+
+| Role        | Description                                                       |
+|:-----------|:------------------------------------------------------------------|
+| <code style="color: #868e96 !important">system_prompt</code> | Instructions from the developer that set the behavior of the assistant |
+| <code style="color: #1971c2 !important">user</code>       | Messages from the person interacting with the assistant          |
+| <code style="color: #f08c00 !important">assistant</code>  | The AI model's responses to the user                              |
+
+## System prompts {transition="fade"}
+
+::: {.easy-columns .smaller style="--code-font-size: 0.56em"}
 ::: col
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
-```{.r code-line-numbers="5-7"}
+```{.r code-line-numbers="3-6"}
 library(ellmer)
 
-chat <- chat_openai()
+chat <- chat_posit(
+  system_prompt = "Answer in haikus."
+)
 
-chat$chat("Tell me a joke about R.")
-#> Why did the R programmer go broke?
-#> Because he kept using `sample()` and lost all his data!
+chat$chat("Tell me a fact about sheep.")
 ```
 :::
 
 ::: col
 [![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
-```{.python code-line-numbers="5-7"}
+```{.python code-line-numbers="3-6"}
 import chatlas
 
-chat = chatlas.ChatOpenAI()
+chat = chatlas.ChatPosit(
+    system_prompt="Answer in haikus."
+)
 
-chat.chat("Tell me a joke about Python.")
-#> Why do Python programmers prefer using snakes as pets?
-#> Because they don't mind the indentation!
+chat.chat("Tell me a fact about sheep.")
 ```
 :::
 :::
 
-::: {.fragment .absolute top=100 right=50 class="w-50 ba b--dark-red bg-washed-red dark-red pa3 br2 flex items-start tr"}
-❓ What are the **user** and **assistant** roles in this example?
+## System prompts {transition="fade"}
+
+::: {.easy-columns .smaller style="--code-font-size: 0.52em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="8-11"}
+library(ellmer)
+
+chat <- chat_posit(
+  # Set the response style
+  system_prompt = "Answer in haikus."
+)
+
+chat$chat("Tell me a fact about sheep.")
+#> Woolly white cloud grows
+#> Sheep never sleep flat on ground
+#> Fear keeps them standing.
+```
 :::
 
-## Hello, ellmer and chatlas! {transition="fade"}
+::: col
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
-::: {.smaller style="--code-font-size: 0.66em"}
+```{.python code-line-numbers="8-11"}
+import chatlas
+
+chat = chatlas.ChatPosit(
+    # Set the response style
+    system_prompt="Answer in haikus."
+)
+
+chat.chat("Tell me a fact about sheep.")
+#> Woolly white cloud grows
+#> Sheep never sleep flat on ground
+#> Fear keeps them standing.
+```
+:::
+:::
+
+## The chat object {transition="fade"}
+
+::: {.easy-columns .smaller style="--code-font-size: 0.46em"}
 ::: col
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
@@ -294,13 +423,15 @@ chat.chat("Tell me a joke about Python.")
 chat
 ```
 ```{.markdown code-line-numbers=false}
-<Chat OpenAI/gpt-4.1 turns=2 tokens=14/29 $0.00>
-── user [14] ────────────────────────────────────────
-Tell me a joke about R.
-── assistant [29] ───────────────────────────────────
-Why did the R programmer go broke?
-
-Because he kept using `sample()` and lost all his data!
+<Chat Posit turns=3>
+── system ─────────────────────────
+Answer in haikus.
+── user ───────────────────────────
+Tell me a fact about sheep.
+── assistant ──────────────────────
+Woolly white cloud grows
+Sheep never sleep flat on ground
+Fear keeps them standing.
 ```
 :::
 
@@ -310,136 +441,33 @@ Because he kept using `sample()` and lost all his data!
 ```python
 print(chat)
 ```
-:::
-:::
-
-## Hello, ellmer and chatlas! {transition="fade"}
-
-::: {.smaller style="--code-font-size: 0.66em"}
-::: col
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
-
-```r
-chat
-```
-:::
-
-::: col
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
-
-```python
-print(chat)
-```
 ```{.markdown code-line-numbers=false}
-## 👤 User turn:
+## System turn:
+Answer in haikus.
 
-Tell me a joke about Python.
+## User turn:
+Tell me a fact about sheep.
 
-## 🤖 Assistant turn:
-
-Why do Python programmers prefer using snakes as pets?
-
-Because they don't mind the indentation!
-```
-:::
-:::
-
-::: {.fragment .absolute top=100 right=50 class="w-50 ba b--dark-red bg-washed-red dark-red pa3 br2 flex items-start tr"}
-❓ What about the **system prompt?**
-:::
-
-## Hello, ellmer and chatlas! {transition="fade"}
-
-::: {.smaller style="--code-font-size: 0.66em"}
-::: col
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
-
-```{.r code-line-numbers="3-5"}
-library(ellmer)
-
-chat <- chat_openai(
-  system_prompt = "You are a dad joke machine."
-)
-
-chat$chat("Tell me a joke about R.")
-```
-:::
-
-::: col
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
-
-```{.python code-line-numbers="3-5"}
-import chatlas
-
-chat = chatlas.ChatOpenAI(
-  system_prompt="You are a dad joke machine."
-)
-
-chat.chat("Tell me a joke about Python.")
-```
-:::
-:::
-
-## Hello, ellmer and chatlas! {transition="fade"}
-
-::: {.smaller style="--code-font-size: 0.66em"}
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
-
-```{.r code-line-numbers="7"}
-library(ellmer)
-
-chat <- chat_openai(
-  system_prompt = "You are a dad joke machine."
-)
-
-chat$chat("Tell me a joke about R.")
-```
-
-::: fragment
-```{.markdown code-line-numbers=false}
-Why did the letter R get invited to all the pirate parties?
-
-Because it always knows how to *arr-r-ive* in style!
-```
-:::
-:::
-
-## Hello, ellmer and chatlas! {transition="fade"}
-
-::: {.smaller style="--code-font-size: 0.66em"}
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
-
-```{.r code-line-numbers="7"}
-chat
-```
-
-::: fragment
-```{.markdown code-line-numbers=false}
-<Chat OpenAI/gpt-4.1 turns=3 tokens=25/28 $0.00>
-── system [0] ───────────────────────────────────────
-You are a dad joke machine.
-── user [25] ────────────────────────────────────────
-Tell me a joke about R.
-── assistant [28] ───────────────────────────────────
-Why did the letter R get invited to all the pirate parties?
-
-Because it always knows how to *arr-r-ive* in style!
+## Assistant turn:
+Woolly white cloud grows
+Sheep never sleep flat on ground
+Fear keeps them standing.
 ```
 :::
 :::
 
 
-# Your Turn `02_word-game` {.slide-your-turn}
+# Your Turn `02_conversation` {.slide-your-turn}
 
-1. Set up a `chat` with a system prompt:
+1. Set up a `chat` with this system prompt:
 
-   > You are playing a word guessing game. At each turn, guess the word and tell us what it is.
+   > Answer in as few words as possible.
 
-2. **Ask:** _In British English, guess the word for the person who lives next door._
+1. **Ask:** _What ellmer and chatlas functions create an Anthropic chat?_
 
-3. **Ask:** _What helps a car move smoothly down the road?_
+1. **Ask:** _What about OpenAI?_
 
-4. Create a new, empty `chat` and ask the second question again.
+5. Then, create a new `chat` with no system prompt and ask only the second question: _What about OpenAI?_
 
 5. How do the answers to 3 and 4 differ? Why?
 
@@ -450,27 +478,31 @@ Because it always knows how to *arr-r-ive* in style!
 **System prompt:**
 
 ```{.markdown code-line-numbers=false}
-You are playing a word guessing game. At each turn, guess the word and tell us what it is.
+Answer in as few words as possible.
 ```
 
 **First question:**
 
 ```{.markdown code-line-numbers=false}
-In British English, guess the word for the person who lives next door.
+What ellmer and chatlas functions create an Anthropic chat?
 ```
 
 **Second question:**
 
 ```{.markdown code-line-numbers=false}
-What helps a car move smoothly down the road?
+What about OpenAI?
 ```
 
 # [How to talk to robots]{.dib .bg-black .ph4 .white style="position: relative; top: -3em;"} {.no-invert-dark-mode background-image="assets/andy-kelly-0E_vhMVqL9g-unsplash.jpg" background-size="cover" background-position="center"}
 
+::: {.footer style="color: rgba(255,255,255,0.5);"}
+Photo by <a href="https://unsplash.com/@askkell?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Andy Kelly</a> on <a href="https://unsplash.com/photos/0E_vhMVqL9g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a>
+:::
+
 ## {.center}
 
-![](assets/intro-conversation-01.png)
-![](assets/intro-conversation-02.png){.fragment}
+![](assets/cat-fact-1.png)
+![](assets/cat-fact-2.png){.fragment}
 
 ::: notes
 Those conversations often look something like this:
@@ -480,7 +512,11 @@ You can keep talking to ChatGPT and it keeps responding,
 almost like you're having a conversation with a person.
 :::
 
-## {.center background-image="assets/not-a-conversation2.png" background-size="contain" background-color="#E3CCA4"}
+## [Is this actually a conversation?]{.dib .bg-black .ph4 .white} {.no-invert-dark-mode background-image="assets/marija-zaric-wFWXRDilwKo-unsplash.jpg" background-size="cover" background-position="center"}
+
+::: {.footer style="color: rgba(255,255,255,0.5);"}
+Photo by <a href="https://unsplash.com/@simplicity?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Marija Zaric</a> on <a href="https://unsplash.com/photos/wFWXRDilwKo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a>
+:::
 
 ::: notes
 But this is not a conversation.
