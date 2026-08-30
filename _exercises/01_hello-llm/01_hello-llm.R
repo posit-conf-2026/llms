@@ -1,7 +1,7 @@
-# We'll use ellmer to interact with models provided by Posit AI.
+# We'll use ellmer to interact with models available through Posit AI Pass.
 library(ellmer)
 
-# The first call opens a browser so you can sign in to Posit AI.
+# The first call opens a browser so you can sign in to Posit AI Pass.
 chat <- chat_posit()
 chat$chat(
   "I'm at posit::conf(2026) to learn about programming with LLMs in R and Python!",

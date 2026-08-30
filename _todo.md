@@ -5,7 +5,7 @@
 - [ ] Quarto website
 - [x] Set up description and uv lockfiles
 - [ ] Check that package dependencies are correct and functional 
-- [ ] Add set up instructions for Posit AI and Posit Assistant
+- [ ] Add set up instructions for Posit AI Pass and Posit Assistant
 - [ ] Add Posit Cloud project instructions and update the workspace screenshot
 - [ ] Fill in 2026 conference metadata: hashtag, Discord channel, Cloud link/text, and Wi-Fi
 - [x] Remove `quarto.path` from `.vscode/settings.json`
@@ -13,7 +13,7 @@
 
 ### Morning 1
 
-- [ ] 01_hello: Exercise to verify Posit AI and Posit Assistant access
+- [ ] 01_hello: Exercise to verify Posit AI Pass and Posit Assistant access
 - [ ] 02_word-games: Word guessing game
 - [ ] 03_demo_clearbot
 - [ ] 04_demo_token-possibilities

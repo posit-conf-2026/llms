@@ -1,11 +1,11 @@
 # %% [markdown]
-# We'll use chatlas to interact with models provided by Posit AI.
+# We'll use chatlas to interact with models available through Posit AI Pass.
 
 # %%
 import chatlas
 
 # %% [markdown]
-# The first call opens a browser so you can sign in to Posit AI.
+# The first call opens a browser so you can sign in to Posit AI Pass.
 
 # %%
 chat = chatlas.ChatPosit()

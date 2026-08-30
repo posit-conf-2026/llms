@@ -231,7 +231,7 @@ RStudio and VS Code are great, too!
 4. 💾 Store your credentials securely
 :::
 
-## Today, we'll use Posit AI {.center}
+## Today, we'll use Posit AI Pass {.center}
 
 ::: incremental
 <!-- TODO: sign in instructions --> 
