@@ -19,7 +19,7 @@ Imports:
     beepr,
     brio,
     bsicons,
-    bslib (>= 0.9.0.9000),
+    bslib (>= 0.12.0),
     cli,
     digest,
     dotenv,
@@ -37,18 +37,22 @@ Imports:
     mcptools,
     pak,
     purrr,
-    querychat (>= 0.0.1.9000),
+    querychat (>= 0.3.0.9000),
     reactable,
     readr,
     rlang,
     scales,
     shiny (>= 1.11.1.9000),
-    shinychat (>= 0.4.0),
+    shinychat (>= 0.4.0.9000),
     weathR
+Remotes:
+    posit-dev/querychat,
+    posit-dev/shinychat
 Config/Needs/bonus: ragnar
 Config/Needs/data: janitor
 Config/Needs/dev: lionel-/codegrip, gt, gtExtras
-Config/Needs/website: dplyr, ellmer, fs, gt, gtExtras, here, jsonlite, purrr, reticulate, rmarkdown, tidyr
+Config/Needs/website: dplyr, ellmer, fs, gt, gtExtras, here, jsonlite,
+    purrr, reticulate, rmarkdown, tidyr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
