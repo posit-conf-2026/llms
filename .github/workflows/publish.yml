@@ -57,7 +57,7 @@ jobs:
         shell: Rscript {0}
         run: |
           install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
-          pak::repo_add("https://packagemanager.posit.co/cran/__linux__/resolute/latest")
+          pak::repo_add("https://packagemanager.posit.co/cran/__linux__/noble/latest")
           pak::local_install_dev_deps(dependencies = "Config/Needs/website")
 
       - name: 📰 Render and Publish to GitHub Pages
