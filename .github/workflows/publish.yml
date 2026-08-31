@@ -4,6 +4,7 @@ on:
       - main
     paths:
       - "website/**"
+      - "DESCRIPTION"
       - ".github/workflows/publish.yml"
   workflow_dispatch:
 
