@@ -3,5 +3,7 @@
 .RData
 .Ruserdata
 .env
+.venv/
+.python-version
 .DS_Store
 people.json

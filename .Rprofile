@@ -1,7 +1,3 @@
-if (!nzchar(Sys.getenv("CI", ""))) {
-  # source("renv/activate.R")
-}
-
 local({
   # Make sure posit/rstudio r-universe repos are set
   repos <- getOption("repos")

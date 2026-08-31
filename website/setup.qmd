@@ -222,7 +222,7 @@ First, make sure you're using [a recent version of R](https://r-project.org).
 I used [R 4.5](https://r-project.org) but any recent version of R (\>= 4.1) should work.
 I also use [rig](https://github.com/r-lib/rig) to manage my R installations, since it makes it easy to install new versions of R and switch between them.
 
-Then, open the project in your IDE and run the following commands in the R console:
+Then, open the project in your IDE and run the following commands in the R console to install the required packages with [pak]:
 
 ```r
 # Install pak if you don't have it already
@@ -232,7 +232,7 @@ Then, open the project in your IDE and run the following commands in the R conso
 pak::repo_add("https://posit-dev.r-universe.dev")
 pak::repo_add("https://rstudio.r-universe.dev")
 
-pak::local_install_deps()
+pak::local_install()
 ```
 
 <details><summary>Alternative: Direct package installation</summary>
@@ -359,7 +359,7 @@ To be completely ready-to-go on the day of the workshop, make sure that you get 
 
 -   **Update your R packages:**
 
-    If you're using R, run `renv::restore()` again to make sure you have the latest package versions.
+    If you're using R, run `pak::local_install()` again to make sure you have the latest package versions.
 
 -   **Update your Python packages:**
 
