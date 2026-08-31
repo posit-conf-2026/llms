@@ -3,5 +3,6 @@
 .RData
 .Ruserdata
 .env
+.venv/
 .DS_Store
 people.json
