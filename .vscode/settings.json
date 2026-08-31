@@ -1,0 +1,20 @@
+{
+  "cSpell.words": [
+    "chatlas",
+    "ellmer",
+    "ollama",
+    "qwen",
+    "renv",
+    "rstudio",
+    "tabset",
+    "usethis"
+  ],
+  "chat.detectParticipant.enabled": false,
+  "ai.enabled": true,
+  "assistant.enabled": true,
+  "assistant.showTips": true,
+  "assistant.aiExcludes": [
+    ".env"
+  ],
+  "console.assistantActions.enabled": true
+}
