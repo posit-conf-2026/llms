@@ -1,0 +1,12 @@
+{
+  "model": {
+    "id": "claude-haiku-4-5"
+  },
+  "modelTiers": {
+    "low": ["haiku"],
+    "medium": ["haiku"]
+  },
+  "permission": {
+    "read": "allow"
+  }
+}
