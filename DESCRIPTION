@@ -46,9 +46,10 @@ Imports:
     shinychat (>= 0.4.0.9000),
     weathR
 Remotes:
+    posit-dev/btw,
     posit-dev/querychat,
     posit-dev/shinychat
-Config/Needs/bonus: ragnar
+Config/Needs/bonus: btw, ragnar
 Config/Needs/data: janitor
 Config/Needs/dev: lionel-/codegrip, gt, gtExtras
 Config/Needs/website: dplyr, ellmer, fs, gt, gtExtras, here, jsonlite,
