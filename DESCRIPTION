@@ -52,8 +52,9 @@ Remotes:
 Config/Needs/bonus: btw, ragnar
 Config/Needs/data: janitor
 Config/Needs/dev: lionel-/codegrip, gt, gtExtras
-Config/Needs/website: dplyr, ellmer, fs, gt, gtExtras, here, jsonlite,
-    purrr, reticulate, rmarkdown, tidyr
+Config/Needs/website: dplyr, ellmer, fs, gt,
+    gadenbuie/gtExtras@fix/magrittr-pipe, here, jsonlite, purrr,
+    reticulate, rmarkdown, tidyr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
