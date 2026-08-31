@@ -1,5 +1,5 @@
 # Use qvm to manage quarto
-QUARTO_VERSION ?= 1.8.24
+QUARTO_VERSION ?= 1.10.18
 QUARTO_PATH = ~/.local/share/qvm/versions/v${QUARTO_VERSION}/bin/quarto
 
 .PHONY: install-quarto

@@ -14,7 +14,7 @@ permissions:
     pages: write
 
 env:
-  QUARTO_VERSION: 1.8.24
+  QUARTO_VERSION: 1.10.18
 
 jobs:
   build-deploy:
