@@ -164,7 +164,7 @@ Need time or help
 
 4. Install all the packages:
 
-    * R: `renv::restore()`
+    * R: `pak::local_install()`
     * Python: `uv sync`
 
 ## We're using Positron

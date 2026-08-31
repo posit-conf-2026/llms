@@ -11,3 +11,4 @@
 [ollama-gemma3-4b]: https://ollama.com/library/gemma3:4b
 [ellmer]: https://ellmer.tidyverse.org
 [chatlas]: https://posit-dev.github.io/chatlas
+[pak]: https://pak.r-lib.org/
