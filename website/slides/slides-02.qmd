@@ -22,7 +22,7 @@ Some motivational words by Joe urging everyone to approach LLMs with curiosity a
 
 ## Think Empirically, Not Theoretically {.center .text-center}
 
-- It's okay to treat LLMs as **black boxes**. \
+- It's okay to (mostly) treat LLMs as **black boxes**. \
   We're not going to focus on how they work internally
 
 - **Just try it!** When wondering if an LLM can do something,\
@@ -31,29 +31,35 @@ Some motivational words by Joe urging everyone to approach LLMs with curiosity a
 - You might think they could not possibly do things\
   _that they clearly can do today_
 
+- And you might think _surely_ they can do something\
+  that it turns out they're _terrible_ at
+
 ::: notes
 - Understanding the technical details can lead to **bad intuition** about capabilities
 - You might think "they could not possibly do things that they clearly can do today"
 - Empirical testing reveals actual capabilities vs. theoretical limitations
 :::
 
-## Embrace the Experimental Process {.center .text-center}
-
-## Embrace the Experimental Process {.center .text-center}
-
-- **Don't worry about ROI** during exploration. \
-  Focus on learning and engaging with the technology
-
-- **Failure is valuable!** \
-  _those are some of the most interesting conversations that we have_
-
-- **It doesn't have to be a success.** \
-  Attempts that don't work still provide insights
+## {.center}
 
 ::: notes
-- Use the **best models available** for experimentation
-- Don't constrain yourself to "practical" applications initially
-- Think of it as forming your own independent conclusions about usefulness
+Don't expect smooth, predictable performance across tasks. LLMs can surprise you - excelling at some complex tasks while struggling with seemingly simple ones.
+:::
+
+![](assets/task-llm-smooth.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+
+## LLMs are jagged {.center}
+
+![](assets/task-llm-jagged.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+
+## [Embrace the Experimental Process]{.dib .bg-black .ph4 .white} {.center .text-center background-image="assets/national-cancer-institute-Okk-eID2Z9k-unsplash.jpg" background-size="cover" background-position="center"}
+
+::: {.footer style="color: rgba(255,255,255,0.5);"}
+Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">National Cancer Institute</a> on <a href="https://unsplash.com/photos/Okk-eID2Z9k?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a>
+:::
+
+::: notes
+We will talk about ways to formally run experiments in the next section.
 :::
 
 ## Start Simple, Build Understanding {.center .text-center}
@@ -76,7 +82,11 @@ Some motivational words by Joe urging everyone to approach LLMs with curiosity a
 :::
 
 
-# [Anatomy of a Conversation]{.white} {.no-invert-dark-mode background-image="assets/eduard-delputte-1P6LZ8S8XJc-unsplash.jpg" background-size="cover" background-position="bottom left"}
+# [Anatomy of a Conversation]{.white} {.no-invert-dark-mode background-image="assets/jaroslaw-glogowski-oAYKzeP0qF4-unsplash.jpg" background-size="cover" background-position="left 30%"}
+
+::: {.footer style="color: rgba(255,255,255,0.5);"}
+Photo by <a href="https://unsplash.com/@jglogowski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Jaroslaw Glogowski</a> on <a href="https://unsplash.com/photos/oAYKzeP0qF4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a>
+:::
 
 ## {.center}
 
@@ -525,17 +535,23 @@ It certainly _feels_ like a conversation,
 but something else is happening behind the scenes.
 :::
 
-
-## When you talk to ChatGPT {.center}
+## LLMs are stateless {.center}
 
 ::: incremental
-1. You write some words
+- The LLM doesn't remember anything between requests
 
-2. The ChatGPT continues writing words
+- You have to send the **entire conversation history** with every message
 
-3. You think you're having a conversation
+- The LLM reconstructs the "conversation" from what you send
 :::
 
+::: notes
+The LLM has amnesia - it forgets everything after each response. Each API request is completely independent.
+
+Just like if you were talking to someone with amnesia, you have to recap the entire conversation every time you want to continue. That's what clearbot showed you - the full history being sent with each request.
+
+This isn't a limitation of transformers specifically - it's how the HTTP API is designed. Though it aligns with how transformers work (each forward pass is independent).
+:::
 
 ## ChatGPT {.center}
 
@@ -678,13 +694,8 @@ one or the other would start to feel unnatural to use.
 # Your Turn `05_live` {.slide-your-turn}
 
 ::: {style="--li-margin: 0.66em;"}
-1. Your job: write a groan-worthy roast of Hadley Wickham
+<!-- TODO: rewrite exercise --> 
 
-2. Bonus points for puns, rhymes, and one-liners
-
-3. Don't be mean
-
-4. Share your best with a neighbor.
 :::
 
 {{< countdown 3:00 top="-1em" >}}
