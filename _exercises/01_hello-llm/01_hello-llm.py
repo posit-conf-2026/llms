@@ -21,13 +21,14 @@ chat_posit_ai.chat(
 )
 
 # %% [markdown]
-# At home, you'd typically connect to a provider directly with an API key:
+# Many providers, like OpenAI and Anthropic, require API keys to connect.
+# Typically, you would:
 #
 # 1. Sign up for an account with OpenAI or Anthropic
 # 2. Add a payment method and get an API key
 # 3. Store it in a `.env` file as `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
 #
-# Then use `ChatOpenAI()` or `ChatAnthropic()`, which pick the keys up
+# Then you can use `ChatOpenAI()` or `ChatAnthropic()`, which pick the keys up
 # automatically:
 #
 # ```python
