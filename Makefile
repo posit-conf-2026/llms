@@ -55,6 +55,8 @@ py-format:
 	uv run ruff format
 
 .PHONY: py-ipynb
+# A pre-commit hook in .githooks/pre-commit runs py-ipynb on staged files.
+# Enable it in a new clone with: git config core.hooksPath .githooks
 py-ipynb:  py-format ## Convert all Python scripts to Jupyter notebooks
 	@echo "\n"
 	@echo "📝 Converting Python scripts to Jupyter notebooks"
