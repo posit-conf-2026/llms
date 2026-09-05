@@ -22,7 +22,6 @@ Imports:
     bslib (>= 0.12.0),
     cli,
     digest,
-    dotenv,
     dplyr,
     ellmer (>= 0.4.2),
     fontawesome,

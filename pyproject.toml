@@ -6,7 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "chatlas[posit]==0.21.1",
-    "dotenv>=0.9.9",
     "duckduckgo-search>=8.1.1",
     "faicons>=0.2.2",
     "htmltools>=0.7.0",
