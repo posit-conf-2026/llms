@@ -1,13 +1,10 @@
 from typing import TypedDict
 
 import chatlas
-import dotenv
 import polars as pl
 from faicons import icon_svg
 from pyhere import here
 from shiny import App, reactive, render, ui
-
-dotenv.load_dotenv()
 
 # UI ---------------------------------------------------------------------------
 
@@ -56,8 +53,8 @@ def server(input, output, session):
     chat_ui = ui.Chat(id="chat")
 
     # Set up the chat instance
-    client = chatlas.ChatAnthropic(
-        model="claude-3-7-sonnet-20250219",
+    client = chatlas.ChatPosit(
+        model="zai-org/GLM-5.3-Flash",
         # Use your quiz game system prompt, or switch to _solutions to use ours
         # STEP 1: Add instructions about when to use the score-keeping tool ----
         system_prompt=f"""

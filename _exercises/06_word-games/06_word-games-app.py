@@ -1,8 +1,5 @@
 import chatlas
-import dotenv
 from shiny import App, ui
-
-dotenv.load_dotenv()
 
 system_prompt = """
 We are playing a word guessing game. You are going to think of a random word.

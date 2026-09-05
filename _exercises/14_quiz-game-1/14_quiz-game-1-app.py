@@ -1,10 +1,6 @@
 import chatlas
-import dotenv
 from pyhere import here
 from shiny import App, reactive, ui
-
-dotenv.load_dotenv()
-
 
 # UI ---------------------------------------------------------------------------
 
@@ -16,8 +12,8 @@ app_ui = ui.page_fillable(
 def server(input, output, session):
     chat_ui = ui.Chat(id="chat")
 
-    client = chatlas.ChatAnthropic(
-        model="claude-3-7-sonnet-20250219",
+    client = chatlas.ChatPosit(
+        model="zai-org/GLM-5.3-Flash",
         # Step 1: Edit `prompt.md` to get the model to play the quiz game.
         system_prompt=here("_exercises/14_quiz-game-1/prompt.md").read_text(),
     )

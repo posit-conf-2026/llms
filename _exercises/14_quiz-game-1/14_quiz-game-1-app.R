@@ -12,8 +12,8 @@ ui <- page_fillable(
 # Server -----------------------------------------------------------------------
 
 server <- function(input, output, session) {
-  client <- chat(
-    "anthropic/claude-3-7-sonnet-20250219",
+  client <- chat_posit(
+    model = "zai-org/GLM-5.3-Flash",
     # Step 1: Edit `prompt.md` to get the model to play the quiz game.
     system_prompt = interpolate_file(
       here::here("_exercises/14_quiz-game-1/prompt.md")

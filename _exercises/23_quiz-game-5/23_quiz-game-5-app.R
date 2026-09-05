@@ -33,8 +33,8 @@ ui <- page_sidebar(
 # Server -----------------------------------------------------------------------
 
 server <- function(input, output, session) {
-  client <- chat(
-    "anthropic/claude-3-7-sonnet-20250219",
+  client <- chat_posit(
+    model = "zai-org/GLM-5.3-Flash",
     system_prompt = interpolate_file(
       # Use your quiz game system prompt, or switch to `_solutions` to use ours
       here::here("_exercises/14_quiz-game-1/prompt.md")
