@@ -12,7 +12,12 @@ library(ellmer)
 ellmer::create_tool_def(weathR::point_forecast, verbose = TRUE)
 
 get_weather <- tool(
-  \(lat, lon) weathR::point_forecast(lat, lon),
+  \(lat, lon) {
+    # Tools must return a string, JSON, or Content object.
+    # ellmer 0.5.0 no longer auto-converts data frames.
+    forecast <- sf::st_drop_geometry(weathR::point_forecast(lat, lon))
+    jsonlite::toJSON(forecast, auto_unbox = TRUE)
+  },
   name = "point_forecast",
   description = "Get forecast data for a specific latitude and longitude.",
   arguments = list(

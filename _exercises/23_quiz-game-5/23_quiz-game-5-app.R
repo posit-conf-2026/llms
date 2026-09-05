@@ -70,8 +70,12 @@ server <- function(input, output, session) {
     # Now that we have new scores, update the `scores()` reactive value
     scores(the_scores)
     correct <- sum(the_scores$answer == the_scores$your_answer)
-    # And return the current tally of correct and incorrect answers
-    list(correct = correct, incorrect = nrow(the_scores) - correct)
+    # Tools must return a string, JSON, or Content object.
+    # ellmer 0.5.0 no longer auto-converts lists to JSON.
+    jsonlite::toJSON(
+      list(correct = correct, incorrect = nrow(the_scores) - correct),
+      auto_unbox = TRUE
+    )
   }
 
   client$register_tool(tool(

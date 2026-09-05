@@ -73,7 +73,12 @@ server <- function(input, output, session) {
     scores(the_scores)
 
     correct <- sum(the_scores$answer == the_scores$your_answer)
-    list(correct = correct, incorrect = nrow(the_scores) - correct)
+    # Tools must return a string, JSON, or Content object.
+    # ellmer 0.5.0 no longer auto-converts lists or data frames.
+    jsonlite::toJSON(
+      list(correct = correct, incorrect = nrow(the_scores) - correct),
+      auto_unbox = TRUE
+    )
   }
 
   client$register_tool(tool(
