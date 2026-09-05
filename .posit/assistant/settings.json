@@ -1,10 +1,11 @@
 {
   "model": {
-    "id": "claude-haiku-4-5"
+    "id": "glm-5.3-flash"
   },
   "modelTiers": {
-    "low": ["haiku"],
-    "medium": ["haiku"]
+    "low": ["glm-5.3-flash", "haiku"],
+    "medium": ["glm-5.3", "sonnet"],
+    "high": ["kimi-k3"]
   },
   "permission": {
     "read": "allow"
