@@ -232,27 +232,26 @@ RStudio and VS Code are great, too!
 4. 💾 Store it in `.Renviron` or `.env` file<br>as `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
 :::
 
-## But we'll give you API keys to use today! {.center}
+## Today we'll use Posit AI Pass! {.center style="height: 90%"}
+
+![](../assets/logos/posit-ai.svg){height="175" .absolute bottom=0 right=450}
 
 ::: incremental
-1. Use these keys for all of our activities today
+1. Go to [posit.ai](https://posit.ai/) and log in \
+   with the email you used to sign up for the workshop
 
-2. Play and explore! But please be considerate :)
+2. You'll have access for the day -- \
+   no API keys, no payment info needed
 
-3. We'll turn them off at the end of the workshop
+3. Use it for all of our activities today. \
+   Play and explore! But please be considerate :)
 :::
 
 ## Your Turn `01_hello-llm` {background-image="assets/your-turn.png" background-size="30%" background-position="bottom right"}
 
 ::: {style="--li-margin: 0.66em;"}
-1. 🔓 Decrypt the `.env.secret` &rarr; `.env`:
-    a. **R**: Run [secret.R]{class="b--light-red red ph2 pv1 ba br2 code"}
+1. 🔑 Log in at [posit.ai](https://posit.ai/) with the email you \
+   used to sign up for the workshop
 
-    b. **Python:** Run [make secret-decrypt]{class="b--blue blue ph2 pv1 ba br2 code"} in terminal \
-      or run [uv run secret.py decrypt .env.secret > .env]{class="b--blue blue ph2 pv1 ba br2 code"}
-
-2. 🤫 The special phrase is: \
-   [positconf2026-llms-workshop]{class="b--purple purple ph2 pv1 ba br2 code" contenteditable="true" style="font-size: 1.25em"}
-
-3. 🤖 Run the code in [_exercises/01_hello-llm]{.b}
+2. 🤖 Run the code in [_exercises/01_hello-llm]{.b}
 :::

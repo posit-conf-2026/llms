@@ -16,10 +16,6 @@ install-quarto:
 	@awk -v ver="${QUARTO_VERSION}" '/QUARTO_VERSION:/ {gsub(/QUARTO_VERSION: .*/, "QUARTO_VERSION: " ver)} 1' .github/workflows/publish.yml > .github/workflows/publish.yml.tmp && mv .github/workflows/publish.yml.tmp .github/workflows/publish.yml
 
 
-.PHONY: secret-decrypt
-secret-decrypt: ## [setup] Decrypt the secret env file
-	./secret.py decrypt .env.secret > .env
-
 .PHONY: py-setup
 py-setup:  ## [py] Setup Python environment
 	uv sync --all-extras
@@ -36,10 +32,6 @@ r-setup:  ## [r] Setup R environment
 .PHONY: r-setup-dev
 r-setup-dev: r-setup ## [r] Setup R environment for dev
 	Rscript -e "pak::local_install_dev_deps(dependencies = 'Config/Needs/dev')"
-
-.PHONY: secret-encrypt
-secret-encrypt:
-	./secret.py encrypt .env > .env.secret
 
 .PHONY: render
 render: ## [docs] Build the workshop website
