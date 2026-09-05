@@ -8,14 +8,18 @@ library(ragnar)
 #' The first step is to crawl the R for Data Science website to find all the
 #' pages we'll need to read in.
 #'
-#' Then, we create a new ragnar document store that will use OpenAI's
-#' `text-embedding-3-small` model to create embeddings for each chunk of text.
+#' Then, we create a new ragnar document store that will use the LM Studio
+#' (https://lmstudio.ai/) `text-embedding-nomic-embed-text-v2-moe` model to
+#' create embeddings for each chunk of text. LM Studio exposes an
+#' OpenAI-compatible API at http://localhost:1234/v1, so make sure it is
+#' running with that model loaded:
+#' https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe-GGUF
 #'
 #' Finally, we read each page as markdown, use `markdown_chunk()` to split that
 #' markdown into reasonably-sized chunks, finally inserting each chunk into the
 #' vector store. That insertion step automatically sends the chunk text to
-#' OpenAI to create the embedding, and ragnar stores the embedding alongside the
-#' original text of the chunk.
+#' LM Studio to create the embedding, and ragnar stores the embedding alongside
+#' the original text of the chunk.
 
 #+ create-store
 
@@ -29,7 +33,9 @@ store <- ragnar_store_create(
   title = "R for Data Science",
   # Need to start over? Set `overwrite = TRUE`.
   # overwrite = TRUE,
-  embed = \(x) embed_openai(x, model = "text-embedding-3-small")
+  embed = \(x) {
+    embed_lm_studio(x, model = "text-embedding-nomic-embed-text-v2-moe")
+  }
 )
 
 cli::cli_progress_bar(total = length(pages))
