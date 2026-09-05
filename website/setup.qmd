@@ -1,5 +1,5 @@
 ---
-title: Getting Setup
+title: Getting set up
 ---
 
 {{< include partials/links.qmd >}}
@@ -9,19 +9,20 @@ title: Getting Setup
 **Bring your [personal laptop]{.text-danger} and a power cord.** This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.
 
 
-::: {.callout-important title="You need an API key!"}
-We'll be using APIs from [OpenAI][openai-api] and [Anthropic][anthropic-api], so you will need to create an account with each service and get an API key.
+::: {.callout-important title="Set up Posit AI Pass"}
+![](assets/logos/posit-ai.svg){.img-fluid style="max-height: 80px; margin-bottom: 0.5em"}
 
-Head to [OpenAI][openai-api] and [Anthropic][anthropic-api] to create your accounts and get your API keys.
-Once you have your API keys, store them in [the project folder](#clone-the-repository) in a file named `.env`:
+We'll use [Posit AI](https://posit.ai) for every activity in this workshop. Posit AI Pass is a subscription from Posit. It gives you access to LLMs in Posit Assistant, and from [ellmer] and [chatlas] in your R or Python code.
 
-```{.env filename=".env"}
-OPENAI_API_KEY=sk-proj-...
-ANTHROPIC_API_KEY=sk-ant-...
-```
+You don't need an API key, a payment method, or a Posit AI subscription. A free Posit AI account is enough:
 
-If you're using the exercises in this workshop, it's unlikely that your API usage will exceed a few dollars.
-Alternatively, if you want to use or try local models (which are free) during the workshop, you should [install ollama and download a model](#local-models).
+1. Go to [posit.ai](https://posit.ai) and sign up for a **Free** account with the email you used to register for posit::conf(2026). You can sign up with email, Google, or GitHub.
+
+That's it. Your workshop pass gives you a credit grant for the day of the workshop. (If you're already a paid Posit AI Pass subscriber, you'll receive the credit grant too.)
+
+The first time you call an LLM from ellmer or chatlas, your browser opens so you can log in. After that, you stay logged in for the rest of the day.
+
+If you'd also like to try local models (they're free), [install ollama and download a model](#local-models).
 :::
 
 <!--
@@ -42,16 +43,9 @@ And a bottle of water to stay hydrated (for you, not your laptop)!
 :::
 :::::
 ::::::
-
-::: {.callout-tip title="We'll give you an API key"}
-We'll be using APIs from [OpenAI][openai-api] and [Anthropic][anthropic-api], but don't worry, you don't need to bring an API key.
-We'll provide an API key for you to use during the workshop and we'll walk you through set up in-person.
-
-If you'd like to also use or try local models during the workshop, you should [install ollama and download a model](#local-models).
-:::
 -->
 
-## Create Accounts
+## Create accounts
 
 In this workshop, we'll be using a few different online services.
 If you don't already have accounts with these services, you'll need to create them before we get started.
@@ -140,7 +134,7 @@ To prepare for the workshop, you need to [clone the repository]({{< meta worksho
 #### ![](assets/icons/positron.svg){width="32px"} Positron
 
 In Positron, use **File** \> **New Folder from Git...**.
-Enter the repository link---`{{< meta workshop.links.repo >}}.git`---and choose a location on your computer to save the project.
+Enter the repository link `{{< meta workshop.links.repo >}}.git` and choose a location on your computer to save the project.
 
 ::: text-center
 ![](assets/positron-new-folder-from-git.png)
@@ -155,7 +149,7 @@ Choose **Version Control** and then pick **Git**.
 ![Step 1: Choose "Version Control" and "Git".](assets/rstudio-new-project-wizard.png){style="max-width:400px"}
 :::
 
-Enter the repository link---`{{< meta workshop.links.repo >}}.git`---and choose a location on your computer to save the project.
+Enter the repository link `{{< meta workshop.links.repo >}}.git` and choose a location on your computer to save the project.
 
 ::: text-center
 ![Step 2: Enter the repo URL and choose a location for the project.](assets/rstudio-new-project-clone.png){style="max-width:400px"}
@@ -213,7 +207,7 @@ This workshop is designed so that you can use either R or Python.
 You can choose to use only one language throughout, or you can even switch between R and Python during the workshop!
 
 Even if you're only planning to use R, consider installing [`uv`, a package and environment manager for Python](https://docs.astral.sh/uv/) (see the Python instructions below).
-That way, could easily try out the Python examples during the workshop if you want to.
+That way, you can easily try the Python examples during the workshop if you want to.
 
 :::: {.panel-tabset group="lang"}
 #### ![](assets/icons/r-color.svg){height="36px" alt="R"}

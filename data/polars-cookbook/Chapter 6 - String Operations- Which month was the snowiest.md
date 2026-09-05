@@ -4,8 +4,8 @@ import polars.selectors as cs
 import seaborn as sbn
 import matplotlib.pyplot as plt
 
-plt.style.use('ggplot')
-plt.rcParams['figure.figsize'] = (15, 5)
+plt.style.use("ggplot")
+plt.rcParams["figure.figsize"] = (15, 5)
 print(pl.__version__)
 ```
 
@@ -16,7 +16,7 @@ We saw earlier that polars is really good at dealing with dates. It is also amaz
 
 
 ```python
-weather_2012 = pl.read_csv('../data/weather_2012.csv', try_parse_dates=True)
+weather_2012 = pl.read_csv("../data/weather_2012.csv", try_parse_dates=True)
 weather_2012.head()
 ```
 
@@ -42,7 +42,7 @@ polars provides vectorized string functions, to make it easy to operate on colum
 
 
 ```python
-is_snowing = weather_2012['Weather'].str.contains('Snow')
+is_snowing = weather_2012["Weather"].str.contains("Snow")
 # Not super useful
 is_snowing.head()
 ```
@@ -66,7 +66,7 @@ This gives us a binary vector, which is a bit hard to look at, so we'll plot it.
 
 ```python
 # More useful!
-is_snowing=is_snowing.cast(pl.Int8)
+is_snowing = is_snowing.cast(pl.Int8)
 sbn.lineplot(is_snowing)
 ```
 
@@ -90,17 +90,16 @@ If we wanted the median temperature each month, we could use the `groupby_dynami
 
 ```python
 # group_by_dynamic function requires the key to be pre-sorted
-if not weather_2012['Date/Time'].is_sorted():
-    weather_2012 = weather_2012.sort('Date/Time')
-weather_2012 = weather_2012.set_sorted('Date/Time')
+if not weather_2012["Date/Time"].is_sorted():
+    weather_2012 = weather_2012.sort("Date/Time")
+weather_2012 = weather_2012.set_sorted("Date/Time")
 
-temp_by_month = weather_2012.group_by_dynamic(
-    'Date/Time',
-    every='1mo'
-).agg(pl.col('Temp (C)').median())
+temp_by_month = weather_2012.group_by_dynamic("Date/Time", every="1mo").agg(
+    pl.col("Temp (C)").median()
+)
 plt.xticks(rotation=45)
 display(temp_by_month)
-sbn.barplot(temp_by_month, x='Date/Time', y='Temp (C)')
+sbn.barplot(temp_by_month, x="Date/Time", y="Temp (C)")
 ```
 
 
@@ -154,11 +153,8 @@ and then use `groupby_dynamic` to find the percentage of time it was snowing eac
 
 
 ```python
-snow_by_month = weather_2012.group_by_dynamic(
-    'Date/Time',
-    every='1mo'
-).agg(
-    is_snowing=pl.col('Weather').str.contains('Snow').cast(pl.Int8).mean()
+snow_by_month = weather_2012.group_by_dynamic("Date/Time", every="1mo").agg(
+    is_snowing=pl.col("Weather").str.contains("Snow").cast(pl.Int8).mean()
 )
 snow_by_month
 ```
@@ -180,7 +176,7 @@ snow_by_month
 
 ```python
 plt.xticks(rotation=45)
-sbn.barplot(snow_by_month, x='Date/Time', y='is_snowing')
+sbn.barplot(snow_by_month, x="Date/Time", y="is_snowing")
 ```
 
 
@@ -205,14 +201,12 @@ We can also combine these two statistics (temperature, and snowiness) into one d
 
 ```python
 by_month = (
-    weather_2012
-    .group_by_dynamic(
-        pl.col('Date/Time').alias('Date'),
-        every='1mo')
+    weather_2012.group_by_dynamic(pl.col("Date/Time").alias("Date"), every="1mo")
     .agg(
-        pl.col('Temp (C)').median(),
-        pl.col('Weather').str.contains('Snow').cast(pl.Int8).mean().alias('is_snowing'))
-    .sort('Date')
+        pl.col("Temp (C)").median(),
+        pl.col("Weather").str.contains("Snow").cast(pl.Int8).mean().alias("is_snowing"),
+    )
+    .sort("Date")
 )
 display(by_month)
 ```
@@ -231,8 +225,8 @@ display(by_month)
 
 ```python
 fig, ax = plt.subplots(2, sharex=True)
-sbn.barplot(by_month, x='Date', y='Temp (C)', ax=ax[0])
-sbn.barplot(by_month, x='Date', y='is_snowing', ax=ax[1])
+sbn.barplot(by_month, x="Date", y="Temp (C)", ax=ax[0])
+sbn.barplot(by_month, x="Date", y="is_snowing", ax=ax[1])
 ```
 
 
@@ -250,7 +244,7 @@ sbn.barplot(by_month, x='Date', y='is_snowing', ax=ax[1])
 
 
 ```python
-sbn.lineplot(by_month, x='Temp (C)', y='is_snowing')
+sbn.lineplot(by_month, x="Temp (C)", y="is_snowing")
 ```
 
 

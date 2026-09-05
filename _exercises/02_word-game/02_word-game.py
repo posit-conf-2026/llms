@@ -1,8 +1,5 @@
 # %%
 import chatlas
-import dotenv
-
-dotenv.load_dotenv()
 
 # %% [markdown]
 # ## Ley's play a word game!

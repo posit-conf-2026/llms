@@ -1,8 +1,5 @@
 import chatlas
-import dotenv
 from shiny import App, ui
-
-dotenv.load_dotenv()
 
 system_prompt = """
 We are playing a word guessing game. You are going to think of a random word.
@@ -20,7 +17,7 @@ app_ui = ui.page_fillable(
 
 def server(input, output, session):
     # Step 2: Initialize the chat client with the system prompt
-    client = ____
+    client = chatlas.ChatPosit(____=____)
     # Step 3: Add the chat UI server setup
     chat = ____
 

@@ -25,7 +25,7 @@ weather
 # ---- 🧰 Teach an LLM that we have this tool ----
 import chatlas
 
-chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
+chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
 # register the tool
 
 # %%

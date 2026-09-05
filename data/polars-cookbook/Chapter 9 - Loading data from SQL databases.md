@@ -21,7 +21,7 @@ This example reads from a SQLite database, but any other database would work the
 
 
 ```python
-read_db_path = Path('../data/weather_2012.sqlite').absolute()
+read_db_path = Path("../data/weather_2012.sqlite").absolute()
 read_uri = f"sqlite:////{read_db_path}"
 df = pl.read_database_uri("SELECT * from weather_2012 LIMIT 3", read_uri)
 df
@@ -47,8 +47,8 @@ Polars has a `write_database` function which creates a database table from a dat
 
 
 ```python
-weather_df = pl.read_csv('../data/weather_2012.csv')
-write_db_path = Path('../data/test_db.sqlite').absolute()
+weather_df = pl.read_csv("../data/weather_2012.csv")
+write_db_path = Path("../data/test_db.sqlite").absolute()
 write_uri = f"sqlite:////{write_db_path}"
 
 con = sqlite3.connect(write_db_path)
@@ -90,7 +90,9 @@ The nice thing about having your data in a database is that you can do arbitrary
 
 
 ```python
-df = pl.read_database_uri("SELECT * from weather_2012 ORDER BY Weather LIMIT 3", write_uri)
+df = pl.read_database_uri(
+    "SELECT * from weather_2012 ORDER BY Weather LIMIT 3", write_uri
+)
 df
 ```
 

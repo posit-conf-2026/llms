@@ -1,9 +1,5 @@
 # %%
 import chatlas
-import dotenv
-from pyhere import here
-
-dotenv.load_dotenv()
 
 # %% [markdown]
 # Python has a plethora of options for working with knowledge stores
@@ -26,13 +22,24 @@ dotenv.load_dotenv()
 #
 # Creating the vector store index can take a while, so we write it to disk to
 # persist between sessions.
-
 # %%
 from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
+from llama_index.embeddings.openai import OpenAIEmbedding
+from pyhere import here
+
+# Embeddings are served by LM Studio (https://lmstudio.ai/), which exposes an
+# OpenAI-compatible API on localhost. Make sure LM Studio is running with the
+# text-embedding-nomic-embed-text-v2-moe model loaded:
+# https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe-GGUF
+embed_model = OpenAIEmbedding(
+    model_name="text-embedding-nomic-embed-text-v2-moe",
+    api_key="lm-studio",
+    api_base="http://localhost:1234/v1",
+)
 
 polars_cookbook = here("data/polars-cookbook")
 docs = SimpleDirectoryReader(polars_cookbook).load_data()
-index = VectorStoreIndex.from_documents(docs)
+index = VectorStoreIndex.from_documents(docs, embed_model=embed_model)
 
 index.storage_context.persist(
     persist_dir=here("_exercises/16_rag/polars_cookbook_index")
@@ -48,7 +55,7 @@ from llama_index.core import StorageContext, load_index_from_storage
 
 index_polars_cookbook = here("_exercises/16_rag/polars_cookbook_index")
 storage_context = StorageContext.from_defaults(persist_dir=index_polars_cookbook)
-index = load_index_from_storage(storage_context)
+index = load_index_from_storage(storage_context, embed_model=embed_model)
 
 
 def retrieve_polars_knowledge(query: str) -> list[str]:
@@ -114,7 +121,7 @@ retrieve_polars_knowledge(task)
 # works!
 
 # %%
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
 
 chat.register_tool(retrieve_polars_knowledge)
 

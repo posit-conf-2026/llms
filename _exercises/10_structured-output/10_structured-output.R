@@ -55,6 +55,6 @@ type_recipe <- type_____(
   instructions = type_array(____())
 )
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat_posit(model = "zai-org/GLM-5.3-Flash")
 
 chat$chat_structured(txt_waffles, type = type_recipe)

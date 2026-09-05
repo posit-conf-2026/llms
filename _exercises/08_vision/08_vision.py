@@ -1,9 +1,6 @@
 # %%
 import chatlas
-import dotenv
 from pyhere import here
-
-dotenv.load_dotenv()
 
 # %%
 recipe_images = here("data/recipes/images/")
@@ -11,8 +8,8 @@ img_ziti = recipe_images / "ClassicBakedZiti.jpg"
 img_mac_cheese = recipe_images / "CreamyCrockpotMacAndCheese.jpg"
 
 # %% [markdown]
-# Ask OpenAI's `gpt-4.1-nano` to give a creative recipe title and description
-# for the ziti image.
+# Ask the model to give a creative recipe title and description for the ziti
+# image.
 chat = ____
 chat.chat(
     "Give the food in this image a creative recipe title and description.",

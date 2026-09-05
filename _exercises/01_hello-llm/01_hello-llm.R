@@ -1,23 +1,30 @@
 # In this workshop, we'll be using the ellmer package to interact with Large
-# Language Models (LLMs) like OpenAI's GPT and Anthropic's Claude.
+# Language Models (LLMs).
 # https://ellmer.tidyverse.org/
 library(ellmer)
 
-# I've configured this project to automatically load the API keys from `.env` in
-# the project root. If you need to load them manually, you can use:
+# Today we're using Posit AI Pass, so you don't need any API keys!
 #
-# dotenv::load_dot_env(here::here(".env"))
+# The first time you run this, a browser window opens asking you to log in at
+# posit.ai with the email you used to sign up for the workshop.
 
-# ---- OpenAI ----
-chat_gpt <- chat_openai()
-chat_gpt$chat(
+# ---- Posit AI ----
+chat_posit_ai <- chat_posit()
+chat_posit_ai$chat(
   "I'm at posit::conf(2026) to learn about programming with LLMs and ellmer!",
   "Write a short social media post for me."
 )
 
-# ---- Anthropic ----
-chat_claude <- chat_anthropic()
-chat_claude$chat(
-  "I'm at posit::conf(2026) to learn about programming with LLMs and ellmer!",
-  "Write a short poem to celebrate."
-)
+# At home, you'd typically connect to a provider directly with an API key:
+#
+#   1. Sign up for an account with OpenAI or Anthropic
+#   2. Add a payment method and get an API key
+#   3. Store it in your `.Renviron` as OPENAI_API_KEY or ANTHROPIC_API_KEY
+#
+# Then chat_openai() and chat_anthropic() pick the keys up automatically:
+#
+# chat_gpt <- chat_openai()
+# chat_gpt$chat("Hello!")
+#
+# chat_claude <- chat_anthropic()
+# chat_claude$chat("Hello!")

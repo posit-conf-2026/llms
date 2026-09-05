@@ -1,0 +1,29 @@
+#!/bin/sh
+# Mirrors `make py-ipynb` for staged Python files: format, sync paired
+# notebooks, clear outputs, and re-stage.
+
+set -eu
+
+staged_py=$(git diff --cached --name-only --diff-filter=ACMR \
+    -- '_exercises/*.py' '_solutions/*.py' '_demos/19_tools/*.py' \
+    | grep -v '/app\.py$' || true)
+
+[ -z "$staged_py" ] && exit 0
+
+echo "📝 Syncing Jupyter notebooks from staged Python files"
+
+echo "$staged_py" | tr '\n' '\0' | xargs -0 uv run ruff check --fix --select I
+echo "$staged_py" | tr '\n' '\0' | xargs -0 uv run ruff format
+
+while IFS= read -r py; do
+    [ -z "$py" ] && continue
+    uv run jupytext --update --to ipynb "$py"
+    nb="${py%.py}.ipynb"
+    if [ -f "$nb" ]; then
+        uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "$nb"
+    fi
+    git add -- "$py"
+    [ -f "$nb" ] && git add -- "$nb"
+done <<EOF
+$staged_py
+EOF

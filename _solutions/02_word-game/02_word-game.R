@@ -1,6 +1,6 @@
 library(ellmer)
 
-chat <- chat_openai(
+chat <- chat_posit(
   system_prompt = paste(
     "We are playing a word guessing game.",
     "At each turn, you guess the word and tell us what it is."
@@ -15,5 +15,5 @@ chat$chat("What helps a car move smoothly down the road?")
 
 
 # Compare with...
-chat <- chat_openai()
+chat <- chat_posit()
 chat$chat("What helps a car move smoothly down the road?")
