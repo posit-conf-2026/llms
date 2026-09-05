@@ -1,9 +1,6 @@
 # %% setup
 import chatlas
-import dotenv
 from pyhere import here
-
-dotenv.load_dotenv()
 
 # %% [markdown]
 # **Step 1:** Run the code below as-is to try the task without any extra
@@ -18,7 +15,7 @@ dotenv.load_dotenv()
 # try again.
 
 # %% task
-chat = chatlas.ChatAuto("anthropic/claude-3-5-sonnet-20241022")
+chat = chatlas.ChatPosit()
 
 chat.chat(
     # Extra context from package docs

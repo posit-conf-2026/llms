@@ -102,8 +102,8 @@ ragnar_store_inspect(store)
 
 library(ellmer)
 
-chat <- chat(
-  name = "openai/gpt-4.1-nano",
+chat <- chat_posit(
+  model = "zai-org/GLM-5.3-Flash",
   system_prompt = r"--(
 You are an expert R programmer and mentor. You are concise.
 

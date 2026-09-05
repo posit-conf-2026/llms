@@ -12,8 +12,8 @@ library(ellmer)
 # **Step 3:** Uncomment the extra lines to include these docs in the prompt and
 # try again.
 
-chat <- chat(
-  "anthropic/claude-3-5-sonnet-20241022",
+chat <- chat_posit(
+  model = "zai-org/GLM-5.3-Flash",
   echo = "output",
   system_prompt = brio::read_file(here::here(
     "_solutions/15_coding-assistant/docs.R.md"

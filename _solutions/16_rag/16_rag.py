@@ -1,9 +1,5 @@
 # %%
 import chatlas
-import dotenv
-from pyhere import here
-
-dotenv.load_dotenv()
 
 # %% [markdown]
 # Python has a plethora of options for working with knowledge stores
@@ -26,9 +22,9 @@ dotenv.load_dotenv()
 #
 # Creating the vector store index can take a while, so we write it to disk to
 # persist between sessions.
-
 # %%
 from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
+from pyhere import here
 
 polars_cookbook = here("data/polars-cookbook")
 docs = SimpleDirectoryReader(polars_cookbook).load_data()
@@ -114,7 +110,7 @@ retrieve_polars_knowledge(task)
 # works!
 
 # %%
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
 
 chat.register_tool(retrieve_polars_knowledge)
 

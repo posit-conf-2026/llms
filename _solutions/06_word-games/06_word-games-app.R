@@ -18,7 +18,7 @@ ui <- page_fillable(
 )
 
 server <- function(input, output, session) {
-  client <- chat_openai(system_prompt = system_prompt)
+  client <- chat_posit(system_prompt = system_prompt)
   chat_mod_server("chat", client)
 }
 

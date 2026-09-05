@@ -25,7 +25,7 @@ type_recipe <- type_object(
 # straightforward for our 8 recipes, but would be slow (and expensive) for a
 # larger dataset.
 recipes_data <- ____(
-  chat("openai/gpt-4.1-nano"),
+  chat_posit(model = "zai-org/GLM-5.3-Flash"),
   prompts = ____,
   type = ____
 )
@@ -45,7 +45,7 @@ recipes_tbl
 # costs less per token than the standard API.
 
 res <- ____(
-  chat("anthropic/claude-3-haiku-20240307"),
+  chat_posit(model = "zai-org/GLM-5.3-Flash"),
   prompts = ____,
   type = ____,
   path = here::here("data/recipes/batch_results_r_claude.json")
