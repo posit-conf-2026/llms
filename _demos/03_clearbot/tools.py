@@ -30,17 +30,18 @@ def get_current_dir() -> str:
 
 
 @safe_errors
-def set_current_dir(path: str) -> None:
+def set_current_dir(path: str) -> str:
     """Sets the current directory to the given (relative or absolute) path"""
 
     os.chdir(path)
+    return f"Current directory is now {os.getcwd()}."
 
 
 @safe_errors
-def list_dir(path: str = ".") -> list[str]:
-    """Returns a list of files and directories in the given directory."""
+def list_dir(path: str = ".") -> str:
+    """Returns a JSON array of files and directories in the given directory."""
 
-    return os.listdir(path)
+    return json.dumps(os.listdir(path))
 
 
 @safe_errors
@@ -117,12 +118,15 @@ def google_search(query: str, start: int = 1):
 
 
 @safe_errors
-def duckduckgo_search(query: str, max_results: int = 20):
-    """Searches the web using the DuckDuckGo search engine."""
+def duckduckgo_search(query: str, max_results: int = 20) -> str:
+    """Searches the web using the DuckDuckGo search engine.
+
+    Returns a JSON array of results, each with title, href, and body keys.
+    """
 
     # In theory, max_results shouldn't need to be coerced to an int. In
     # practice, Llama 3.2 passes the wrong type sometimes.
-    return DDGS().text(query, max_results=int(max_results))
+    return json.dumps(DDGS().text(query, max_results=int(max_results)))
 
 
 @safe_errors

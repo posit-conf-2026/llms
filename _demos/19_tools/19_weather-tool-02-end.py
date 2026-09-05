@@ -1,4 +1,6 @@
 # %%
+import json
+
 import NWS
 
 posit_conf = {"lat": "29.7515551", "lon": "-95.3606597"}
@@ -23,7 +25,7 @@ def get_weather(lat: float, lon: float):
     lon : str
         Longitude of the location.
     """
-    return NWS.GetCurrentForecast(lat, lon)
+    return json.dumps(NWS.GetCurrentForecast(lat, lon))
 
 
 # %%

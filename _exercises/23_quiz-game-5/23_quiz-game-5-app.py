@@ -1,3 +1,4 @@
+import json
 from typing import TypedDict
 
 import chatlas
@@ -111,7 +112,7 @@ After every question, use the "Update Score" tool to... ____
 
         correct = len([d for d in val_scores if d["is_correct"]])
         incorrect = len(val_scores) - correct
-        return {"correct": correct, "incorrect": incorrect}
+        return json.dumps({"correct": correct, "incorrect": incorrect})
 
     client.register_tool(
         update_score,
