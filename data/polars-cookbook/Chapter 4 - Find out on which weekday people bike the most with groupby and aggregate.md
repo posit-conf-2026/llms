@@ -4,8 +4,8 @@ import polars.selectors as cs
 import seaborn as sbn
 import matplotlib.pyplot as plt
 
-plt.style.use('ggplot')
-plt.rcParams['figure.figsize'] = (15, 5)
+plt.style.use("ggplot")
+plt.rcParams["figure.figsize"] = (15, 5)
 print(pl.__version__)
 ```
 
@@ -20,9 +20,11 @@ First, we need to load up the data. We've done this before.
 
 
 ```python
-bikes = pl.read_csv('../data/bikes.csv', separator=';', encoding='latin1', try_parse_dates=True)
-bikes.plot.line(x='Date', y='Berri 1').properties(width='container')
-sbn.lineplot(bikes, x='Date', y='Berri 1')
+bikes = pl.read_csv(
+    "../data/bikes.csv", separator=";", encoding="latin1", try_parse_dates=True
+)
+bikes.plot.line(x="Date", y="Berri 1").properties(width="container")
+sbn.lineplot(bikes, x="Date", y="Berri 1")
 ```
 
 
@@ -44,7 +46,7 @@ So we're going to create a dataframe with just the Berri bikepath in it
 
 
 ```python
-berri_bikes = bikes.select('Date', 'Berri 1')
+berri_bikes = bikes.select("Date", "Berri 1")
 ```
 
 
@@ -70,7 +72,7 @@ Next, we need to add a 'weekday' column. Firstly, we can get the weekday from th
 
 
 ```python
-berri_bikes['Date']
+berri_bikes["Date"]
 ```
 
 
@@ -93,7 +95,7 @@ Polars has a bunch of really great time series functionality, so if we wanted to
 
 
 ```python
-berri_bikes['Date'].dt.ordinal_day()
+berri_bikes["Date"].dt.ordinal_day()
 ```
 
 
@@ -114,7 +116,7 @@ We actually want the weekday, though:
 
 
 ```python
-berri_bikes['Date'].dt.weekday()
+berri_bikes["Date"].dt.weekday()
 ```
 
 
@@ -137,9 +139,7 @@ Now that we know how to *get* the weekday, we can add it as a column in our data
 
 
 ```python
-berri_bikes = berri_bikes.with_columns(
-    weekday = pl.col('Date').dt.weekday()
-)
+berri_bikes = berri_bikes.with_columns(weekday=pl.col("Date").dt.weekday())
 berri_bikes.head()
 ```
 
@@ -168,10 +168,7 @@ In this case, `berri_bikes.group_by('weekday').agg(sum)` means "Group the rows b
 
 ```python
 weekday_counts = (
-    berri_bikes
-    .group_by('weekday')
-    .agg(pl.col('Berri 1').sum())
-    .sort('weekday')
+    berri_bikes.group_by("weekday").agg(pl.col("Berri 1").sum()).sort("weekday")
 )
 weekday_counts
 ```
@@ -196,12 +193,22 @@ It's hard to remember what 1, 2, 3, 4, 5, 6, 7 mean, so we can fix it up and gra
 ```python
 days_df = pl.DataFrame(
     data={
-        "weekday" :range(1, 8),
-        "weekday_name": ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        "weekday": range(1, 8),
+        "weekday_name": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ],
     },
-    schema_overrides={'weekday':pl.Int8} # Make sure the type matches our weekday_counts dataframe
+    schema_overrides={
+        "weekday": pl.Int8
+    },  # Make sure the type matches our weekday_counts dataframe
 )
-weekday_counts = weekday_counts.join(days_df, on='weekday')
+weekday_counts = weekday_counts.join(days_df, on="weekday")
 weekday_counts
 ```
 
@@ -221,7 +228,7 @@ weekday_counts
 
 
 ```python
-sbn.barplot(weekday_counts, x='weekday_name', y='Berri 1')
+sbn.barplot(weekday_counts, x="weekday_name", y="Berri 1")
 ```
 
 
@@ -246,19 +253,21 @@ We scan and join the dataframes in lazy mode so data is only computed when requr
 
 ```python
 # scan_csv is lazy method that optimizes query only once data is needed to plot.
-bikes = pl.scan_csv('../data/bikes.csv', separator=';', encoding='utf8', try_parse_dates=True)
+bikes = pl.scan_csv(
+    "../data/bikes.csv", separator=";", encoding="utf8", try_parse_dates=True
+)
 
 # get weekday data for Berri 1 path
-berri_bikes = bikes.select('Berri 1', weekday = pl.col('Date').dt.weekday())
+berri_bikes = bikes.select("Berri 1", weekday=pl.col("Date").dt.weekday())
 
 # Add up the number of cyclists by weekday
 weekday_counts = (
-    berri_bikes.group_by('weekday')
-    .agg(pl.col('Berri 1').sum())
-    .join(days_df.lazy(), on='weekday')
-    .sort('weekday')
+    berri_bikes.group_by("weekday")
+    .agg(pl.col("Berri 1").sum())
+    .join(days_df.lazy(), on="weekday")
+    .sort("weekday")
 )
-sbn.barplot(weekday_counts.collect(), x='weekday_name', y='Berri 1')
+sbn.barplot(weekday_counts.collect(), x="weekday_name", y="Berri 1")
 ```
 
 

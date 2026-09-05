@@ -5,8 +5,8 @@ import seaborn as sbn
 import matplotlib.pyplot as plt
 
 # Make the graphs a bit prettier, and bigger
-plt.style.use('ggplot')
-plt.rcParams['figure.figsize'] = (15, 5)
+plt.style.use("ggplot")
+plt.rcParams["figure.figsize"] = (15, 5)
 
 print(pl.__version__)
 ```
@@ -28,7 +28,7 @@ This dataset is a list of how many people were on 7 different bike paths
 in Montreal, each day.
 
 ``` python
-broken_df = pl.read_csv('../data/bikes.csv',encoding = "ISO-8859-1")
+broken_df = pl.read_csv("../data/bikes.csv", encoding="ISO-8859-1")
 broken_df.head(3)
 ```
 
@@ -51,12 +51,15 @@ options that will let us fix that, though. Here we\'ll
   sheet
 
 ``` python
-fixed_df = pl.read_csv('../data/bikes.csv',
-                       separator=';',
-                       encoding='latin1',
-                       try_parse_dates=True,
-                       schema_overrides={'Brébeuf (données non disponibles)': pl.Int64,
-                               'St-Urbain (données non disponibles)': pl.Int64}
+fixed_df = pl.read_csv(
+    "../data/bikes.csv",
+    separator=";",
+    encoding="latin1",
+    try_parse_dates=True,
+    schema_overrides={
+        "Brébeuf (données non disponibles)": pl.Int64,
+        "St-Urbain (données non disponibles)": pl.Int64,
+    },
 )
 fixed_df.head(3)
 ```
@@ -79,7 +82,7 @@ the same way you get elements out of a dictionary.
 Here\'s an example:
 
 ``` python
-fixed_df['Berri 1']
+fixed_df["Berri 1"]
 ```
 
 <div><style>
@@ -97,7 +100,7 @@ We can see that, unsurprisingly, not many people are biking in January,
 February, and March,
 
 ``` python
-sbn.lineplot(fixed_df, x='Date', y='Berri 1')
+sbn.lineplot(fixed_df, x="Date", y="Berri 1")
 ```
 
     <Axes: xlabel='Date', ylabel='Berri 1'>
@@ -110,10 +113,10 @@ bike paths behave basically the same \-- if it\'s a bad day for
 cyclists, it\'s a bad day everywhere.
 
 ``` python
-melt_df = fixed_df.unpivot(index='Date', variable_name='trail', value_name='distance')
+melt_df = fixed_df.unpivot(index="Date", variable_name="trail", value_name="distance")
 
-with plt.rc_context({'figure.figsize': (15, 10)}):
-    sbn.lineplot(melt_df, x='Date', y='distance', hue='trail')
+with plt.rc_context({"figure.figsize": (15, 10)}):
+    sbn.lineplot(melt_df, x="Date", y="distance", hue="trail")
 ```
 
 ![png](Chapter%201%20-%20Reading%20from%20a%20CSV_files/Chapter%201%20-%20Reading%20from%20a%20CSV_13_0.png)
@@ -123,8 +126,10 @@ with plt.rc_context({'figure.figsize': (15, 10)}):
 Here\'s the code we needed to write do draw that graph, all together:
 
 ``` python
-fixed_df = pl.read_csv('../data/bikes.csv', separator=';', encoding='latin1', try_parse_dates=True)
-sbn.lineplot(fixed_df, x='Date', y='Berri 1')
+fixed_df = pl.read_csv(
+    "../data/bikes.csv", separator=";", encoding="latin1", try_parse_dates=True
+)
+sbn.lineplot(fixed_df, x="Date", y="Berri 1")
 ```
 
     <Axes: xlabel='Date', ylabel='Berri 1'>

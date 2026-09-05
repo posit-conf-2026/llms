@@ -1,6 +1,7 @@
 ```python
 import polars as pl
 import polars.selectors as cs
+
 print(pl.__version__)
 ```
 
@@ -16,13 +17,12 @@ Here's an [explanation of how this file works](http://popcon.ubuntu.com/README).
 
 ```python
 # Read it, and remove the last row
-popcon = (
-    pl.read_csv('../data/popularity-contest',
-                separator=' ',
-                ignore_errors=True,
-                new_columns=['atime', 'ctime', 'package-name', 'mru-program', 'tag'])
-    .filter(~pl.all_horizontal(pl.all().is_null()))
-)
+popcon = pl.read_csv(
+    "../data/popularity-contest",
+    separator=" ",
+    ignore_errors=True,
+    new_columns=["atime", "ctime", "package-name", "mru-program", "tag"],
+).filter(~pl.all_horizontal(pl.all().is_null()))
 popcon.shape
 ```
 
@@ -59,8 +59,8 @@ We can explicitly convert the integers to datetimes using the `from_epoch` funct
 
 ```python
 popcon = popcon.with_columns(
-    pl.from_epoch('atime', time_unit='s'),
-    pl.from_epoch('ctime') #time_unit='s' is default
+    pl.from_epoch("atime", time_unit="s"),
+    pl.from_epoch("ctime"),  # time_unit='s' is default
 )
 ```
 
@@ -68,7 +68,7 @@ If we look at the dtype now, it's `pl.Datetime`.
 
 
 ```python
-popcon['atime'].dtype
+popcon["atime"].dtype
 ```
 
 
@@ -104,12 +104,10 @@ Now suppose we want to look at all packages that aren't libraries. First, I want
 
 ```python
 print("before filter")
-display(popcon.bottom_k(3, by='atime'))
-popcon = popcon.filter(
-    pl.col('atime') > pl.datetime(1970, 1, 1)
-)
+display(popcon.bottom_k(3, by="atime"))
+popcon = popcon.filter(pl.col("atime") > pl.datetime(1970, 1, 1))
 print("after filter")
-display(popcon.bottom_k(3, by='atime'))
+display(popcon.bottom_k(3, by="atime"))
 ```
 
     before filter
@@ -144,10 +142,8 @@ Now we can use polars' `filter` and `str` look at rows where the package name do
 
 
 ```python
-nonlibraries = popcon.filter(
-    ~pl.col('package-name').str.contains('lib')
-)
-nonlibraries.top_k(10, by='ctime')
+nonlibraries = popcon.filter(~pl.col("package-name").str.contains("lib"))
+nonlibraries.top_k(10, by="ctime")
 ```
 
 
