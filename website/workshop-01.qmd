@@ -17,5 +17,5 @@ editor: { render-on-save: true }
 - Welcome, introductions, workshop expectations
   - Activity: introduce yourself to your neighbors
 
-- Set-up and verify API access
-  - Activity: Set up our API keys and make our first API calls!
+- Set up Posit AI access
+  - Activity: Set up Posit AI Pass and make our first API calls!

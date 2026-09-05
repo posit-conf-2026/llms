@@ -215,10 +215,10 @@ RStudio and VS Code are great, too!
 ## To use an AI API... {.center}
 
 ::: {.fragment style="font-size: 2em;"}
-...you need an API key!
+...you need an account with a provider!
 :::
 
-## How to get an API key, the usual way {.center}
+## How to use an AI provider, the usual way {.center}
 
 [aka. how to give OpenAI your money]{.i .gray}
 
@@ -227,7 +227,8 @@ RStudio and VS Code are great, too!
 
 2. 💳 Add a payment method
 
-3. 🔑 Get an API key
+3. 📋 Follow their setup instructions, \
+   which typically means getting an API key
 
 4. 💾 Store it in `.Renviron` or `.env` file<br>as `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
 :::
