@@ -1,6 +1,9 @@
 {
-  "model": {
-    "id": "glm-5.3-flash"
+  "$schema": "https://assistant.posit.co/schemas/settings.schema.json",
+  "preferredModel": {
+    "id": "zai-org/GLM-5.3-Flash",
+    "provider": "positai",
+    "thinkingEffort": "low"
   },
   "modelTiers": {
     "low": ["glm-5.3-flash", "haiku"],
