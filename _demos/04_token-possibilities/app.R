@@ -5,6 +5,8 @@ library(purrr)
 
 `%||%` <- function(x, y) if (is.null(x)) y else x
 
+# This demo needs OpenAI's `log_probs` response, so it uses a real OpenAI API
+# key (set in the environment) rather than Posit AI Pass.
 chat_with_completion_log_probs <- function(
   input,
   system_prompt = NULL,

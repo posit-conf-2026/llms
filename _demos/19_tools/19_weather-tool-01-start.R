@@ -17,7 +17,7 @@ get_weather <- tool()
 get_weather(posit_conf$lat, posit_conf$lon)
 
 # ---- 🧰 Teach an LLM that we have this tool ----
-chat <- chat_openai(model = "gpt-4.1-nano")
+chat <- chat_posit(model = "zai-org/GLM-5.3-Flash")
 
 # Register the tool with the chatbot
 
