@@ -17,7 +17,7 @@ app_ui = ui.page_fillable(
 
 def server(input, output, session):
     # Step 2: Initialize the chat client with the system prompt
-    client = ____
+    client = chatlas.ChatPosit(____=____)
     # Step 3: Add the chat UI server setup
     chat = ____
 
