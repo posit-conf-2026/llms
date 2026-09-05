@@ -227,8 +227,7 @@ RStudio and VS Code are great, too!
 
 2. 💳 Add a payment method
 
-3. 📋 Follow their setup instructions, \
-   which typically means getting an API key
+3. 🔑 Get an API key
 
 4. 💾 Store it in `.Renviron` or `.env` file<br>as `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
 :::
