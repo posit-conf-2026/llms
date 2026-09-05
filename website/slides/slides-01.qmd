@@ -237,11 +237,11 @@ RStudio and VS Code are great, too!
 ![](../assets/logos/posit-ai.svg){height="175" .absolute bottom=0 right=450}
 
 ::: incremental
-1. Go to [posit.ai](https://posit.ai/) and log in \
+1. Go to [posit.ai](https://posit.ai/) and sign up for a **Free** account \
    with the email you used to sign up for the workshop
 
-2. You'll have access for the day -- \
-   no API keys, no payment info needed
+2. You'll get a credit grant for the day -- \
+   no API keys, no payment info, no subscription needed
 
 3. Use it for all of our activities today. \
    Play and explore! But please be considerate :)
