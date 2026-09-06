@@ -51,9 +51,9 @@ ui <- page_navbar(
 )
 
 server <- function(input, output, session) {
-  client <- chat_openai(
+  client <- chat_posit(
     system_prompt = system_prompt,
-    model = "gpt-4.1-nano"
+    model = "zai-org/GLM-5.3-Flash"
   )
 
   chat <- chat_mod_server("chat", client)

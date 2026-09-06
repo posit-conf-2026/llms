@@ -2,12 +2,9 @@
 from math import floor, sqrt
 
 import chatlas
-import dotenv
 import numpy as np
 from matplotlib import pyplot as plt
 from plotnine import aes, geom_point, ggplot, labs, theme_bw
-
-dotenv.load_dotenv()
 
 # %%
 m = 32
@@ -38,7 +35,7 @@ p.show()
 # Register the plot with matplotlib's current figure
 plt.figure(p.draw())
 
-chat = chatlas.ChatAuto("anthropic/claude-sonnet-4-20250514")
+chat = chatlas.ChatPosit(model="zai-org/GLM-5.3")
 chat.chat(
     "Interpret this plot of mtcars.",
     chatlas.content_image_plot(),

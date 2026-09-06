@@ -1,5 +1,5 @@
 # Use qvm to manage quarto
-QUARTO_VERSION ?= 1.8.24
+QUARTO_VERSION ?= 1.10.18
 QUARTO_PATH = ~/.local/share/qvm/versions/v${QUARTO_VERSION}/bin/quarto
 
 .PHONY: install-quarto
@@ -16,10 +16,6 @@ install-quarto:
 	@awk -v ver="${QUARTO_VERSION}" '/QUARTO_VERSION:/ {gsub(/QUARTO_VERSION: .*/, "QUARTO_VERSION: " ver)} 1' .github/workflows/publish.yml > .github/workflows/publish.yml.tmp && mv .github/workflows/publish.yml.tmp .github/workflows/publish.yml
 
 
-.PHONY: secret-decrypt
-secret-decrypt: ## [setup] Decrypt the secret env file
-	./secret.py decrypt .env.secret > .env
-
 .PHONY: py-setup
 py-setup:  ## [py] Setup Python environment
 	uv sync --all-extras
@@ -30,17 +26,12 @@ py-upgrade:
 
 .PHONY: r-setup
 r-setup:  ## [r] Setup R environment
-	Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")'
-	Rscript -e 'renv::restore()'
+	Rscript -e 'if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")'
+	Rscript -e 'pak::local_install()'
 
 .PHONY: r-setup-dev
-r-setup-dev: ## [r] Setup R environment for dev
-	Rscript -e "if (!requireNamespace('pak', quietly = TRUE)) install.packages('pak')"
+r-setup-dev: r-setup ## [r] Setup R environment for dev
 	Rscript -e "pak::local_install_dev_deps(dependencies = 'Config/Needs/dev')"
-
-.PHONY: secret-encrypt
-secret-encrypt:
-	./secret.py encrypt .env > .env.secret
 
 .PHONY: render
 render: ## [docs] Build the workshop website
@@ -64,6 +55,8 @@ py-format:
 	uv run ruff format
 
 .PHONY: py-ipynb
+# A pre-commit hook in .githooks/pre-commit runs py-ipynb on staged files.
+# Enable it in a new clone with: git config core.hooksPath .githooks
 py-ipynb:  py-format ## Convert all Python scripts to Jupyter notebooks
 	@echo "\n"
 	@echo "📝 Converting Python scripts to Jupyter notebooks"

@@ -1,8 +1,5 @@
 # %%
 import chatlas
-import dotenv
-
-dotenv.load_dotenv()
 
 # %%
 from pyhere import here
@@ -75,7 +72,7 @@ class Recipe(BaseModel):
 
 
 # %%
-chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
+chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
 recipe = chat.chat_structured(txt_cheesecake, data_model=Recipe)
 
 # %% [markdown]

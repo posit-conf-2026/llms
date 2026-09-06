@@ -33,8 +33,8 @@ ui <- page_sidebar(
 # Server -----------------------------------------------------------------------
 
 server <- function(input, output, session) {
-  client <- chat(
-    "anthropic/claude-3-7-sonnet-20250219",
+  client <- chat_posit(
+    model = "zai-org/GLM-5.3-Flash",
     system_prompt = interpolate_file(
       # Use your quiz game system prompt, or switch to `_solutions` to use ours
       here::here("_exercises/14_quiz-game-1/prompt.md")
@@ -70,8 +70,12 @@ server <- function(input, output, session) {
     # Now that we have new scores, update the `scores()` reactive value
     scores(the_scores)
     correct <- sum(the_scores$answer == the_scores$your_answer)
-    # And return the current tally of correct and incorrect answers
-    list(correct = correct, incorrect = nrow(the_scores) - correct)
+    # Tools must return a string, JSON, or Content object.
+    # ellmer 0.5.0 no longer auto-converts lists to JSON.
+    jsonlite::toJSON(
+      list(correct = correct, incorrect = nrow(the_scores) - correct),
+      auto_unbox = TRUE
+    )
   }
 
   client$register_tool(tool(

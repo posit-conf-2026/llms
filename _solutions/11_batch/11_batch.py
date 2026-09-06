@@ -1,8 +1,5 @@
 # %%
 import chatlas
-import dotenv
-
-dotenv.load_dotenv()
 
 # %%
 # Read in the recipes from the text files (this time all of the files)
@@ -53,7 +50,7 @@ from tqdm import tqdm
 
 
 def extract_recipe(recipe_text: str) -> Recipe:
-    chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
+    chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
     return chat.chat_structured(recipe_text, data_model=Recipe)
 
 
@@ -84,7 +81,7 @@ recipes_df
 # %%
 from chatlas import batch_chat_structured
 
-chat = chatlas.ChatAnthropic(model="claude-3-haiku-20240307")
+chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
 res = batch_chat_structured(
     chat=chat,
     prompts=recipes,

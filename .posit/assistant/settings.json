@@ -1,0 +1,16 @@
+{
+  "$schema": "https://assistant.posit.co/schemas/settings.schema.json",
+  "preferredModel": {
+    "id": "zai-org/GLM-5.3-Flash",
+    "provider": "positai",
+    "thinkingEffort": "low"
+  },
+  "modelTiers": {
+    "low": ["glm-5.3-flash", "haiku"],
+    "medium": ["glm-5.3", "sonnet"],
+    "high": ["kimi-k3"]
+  },
+  "permission": {
+    "read": "allow"
+  }
+}

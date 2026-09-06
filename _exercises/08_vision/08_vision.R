@@ -4,7 +4,7 @@ recipe_images <- here::here("data/recipes/images")
 img_pancakes <- file.path(recipe_images, "EasyBasicPancakes.jpg")
 img_pad_thai <- file.path(recipe_images, "PadThai.jpg")
 
-#' Ask OpenAI's `gpt-4.1-nano` to give a creative recipe title and description
+#' Ask the model to give a creative recipe title and description
 #' for the pancakes image.
 chat <- ____
 chat$chat(

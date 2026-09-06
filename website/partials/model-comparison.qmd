@@ -51,6 +51,7 @@ if (!file.exists(path_models_csv)) {
 }
 
 table_provider <- function(provider) {
+  library(magrittr)
   library(gt)
   library(gtExtras)
 

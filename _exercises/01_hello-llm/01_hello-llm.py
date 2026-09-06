@@ -1,15 +1,43 @@
 # %% [markdown]
-# We'll use chatlas to interact with models available through Posit AI Pass.
+# In this workshop, we'll be using
+# [chatlas](https://posit-dev.github.io/chatlas) to interact with large
+# language models (LLMs).
+#
+# Today we're using Posit AI Pass, so you don't need any API keys! The first
+# time you run this, a browser window opens asking you to log in at posit.ai
+# with the email you used to sign up for the workshop.
 
 # %%
 import chatlas
 
 # %% [markdown]
-# The first call opens a browser so you can sign in to Posit AI Pass.
+# ## Posit AI
 
 # %%
-chat = chatlas.ChatPosit()
-chat.chat(
-    "I'm at posit::conf(2026) to learn about programming with LLMs in R and Python! "
+chat_posit_ai = chatlas.ChatPosit()
+chat_posit_ai.chat(
+    "I'm at posit::conf(2026) to learn about programming with LLMs and chatlas! "
     "Write a short social media post for me."
 )
+
+# %% [markdown]
+# Many providers, like OpenAI and Anthropic, require API keys to connect.
+# Typically, you would:
+#
+# 1. Sign up for an account with OpenAI or Anthropic
+# 2. Add a payment method and get an API key
+# 3. Store it in a `.env` file as `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
+#
+# Then you can use `ChatOpenAI()` or `ChatAnthropic()`, which pick the keys up
+# automatically:
+#
+# ```python
+# import dotenv
+#
+# dotenv.load_dotenv()
+#
+# chat_gpt = chatlas.ChatOpenAI()
+# chat_gpt.chat("Hello!")
+# ```
+
+# %%

@@ -1,12 +1,9 @@
 # %%
 import chatlas
-import dotenv
 import polars as pl
 from matplotlib import pyplot as plt
 from plotnine import aes, geom_point, ggplot, labs, theme_bw
 from pyhere import here
-
-dotenv.load_dotenv()
 
 # %%
 mtcars = pl.read_csv(here("data/mtcars.csv"))
@@ -26,7 +23,7 @@ p.show()
 # Register the plot with matplotlib's current figure
 plt.figure(p.draw())
 
-chat = chatlas.ChatAuto("anthropic/claude-sonnet-4-20250514")
+chat = chatlas.ChatPosit(model="zai-org/GLM-5.3")
 chat.chat(
     "Interpret this plot.",
     chatlas.content_image_plot(),

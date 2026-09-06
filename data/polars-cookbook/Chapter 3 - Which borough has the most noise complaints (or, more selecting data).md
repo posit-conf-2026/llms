@@ -5,8 +5,8 @@ import seaborn as sbn
 import matplotlib.pyplot as plt
 
 # Make the graphs a bit prettier, and bigger
-plt.style.use('ggplot')
-plt.rcParams['figure.figsize'] = (15, 5)
+plt.style.use("ggplot")
+plt.rcParams["figure.figsize"] = (15, 5)
 print(pl.__version__)
 ```
 
@@ -18,7 +18,9 @@ Let's continue with our NYC 311 service requests example.
 
 ```python
 # because of mixed types we specify dtype to prevent any errors
-complaints = pl.read_csv('../data/311-service-requests.csv', schema_overrides={'Incident Zip':pl.String})
+complaints = pl.read_csv(
+    "../data/311-service-requests.csv", schema_overrides={"Incident Zip": pl.String}
+)
 ```
 
 # 3.1 Selecting only noise complaints
@@ -48,7 +50,9 @@ To get the noise complaints, we need to find the rows where the "Complaint Type"
 
 
 ```python
-noise_complaints = complaints.filter(pl.col('Complaint Type') == "Noise - Street/Sidewalk")
+noise_complaints = complaints.filter(
+    pl.col("Complaint Type") == "Noise - Street/Sidewalk"
+)
 noise_complaints.head(3)
 ```
 
@@ -70,7 +74,7 @@ If you look at `noise_complaints`, you'll see that this worked, and it only cont
 
 
 ```python
-pl.col('Complaint Type') == "Noise - Street/Sidewalk"
+pl.col("Complaint Type") == "Noise - Street/Sidewalk"
 ```
 
 
@@ -86,8 +90,8 @@ You can also store and combine more than one expression with the `&` operator li
 
 
 ```python
-is_noise = pl.col('Complaint Type') == "Noise - Street/Sidewalk"
-in_brooklyn = pl.col('Borough') == "BROOKLYN"
+is_noise = pl.col("Complaint Type") == "Noise - Street/Sidewalk"
+in_brooklyn = pl.col("Borough") == "BROOKLYN"
 complaints.filter(is_noise & in_brooklyn).head()
 ```
 
@@ -109,7 +113,9 @@ Or if we just wanted a few columns:
 
 
 ```python
-complaints.filter(is_noise & in_brooklyn).select('Complaint Type', 'Borough', 'Created Date', 'Descriptor').head(10)
+complaints.filter(is_noise & in_brooklyn).select(
+    "Complaint Type", "Borough", "Created Date", "Descriptor"
+).head(10)
 ```
 
 
@@ -130,8 +136,10 @@ complaints.filter(is_noise & in_brooklyn).select('Complaint Type', 'Borough', 'C
 
 
 ```python
-noise_complaints = complaints.filter(pl.col('Complaint Type') == "Noise - Street/Sidewalk")
-noise_complaints['Borough'].value_counts(sort=True)
+noise_complaints = complaints.filter(
+    pl.col("Complaint Type") == "Noise - Street/Sidewalk"
+)
+noise_complaints["Borough"].value_counts(sort=True)
 ```
 
 
@@ -153,10 +161,13 @@ It's Manhattan! But Manhattan probably has a lot of complaints in total. Maybe i
 
 ```python
 complaint_avgs = (
-    complaints
-    .group_by("Borough")
-    .agg(noise_complaint_avg=(pl.col('Complaint Type') == "Noise - Street/Sidewalk").mean())
-    .sort('noise_complaint_avg', descending=True)
+    complaints.group_by("Borough")
+    .agg(
+        noise_complaint_avg=(
+            pl.col("Complaint Type") == "Noise - Street/Sidewalk"
+        ).mean()
+    )
+    .sort("noise_complaint_avg", descending=True)
 )
 complaint_avgs
 ```
@@ -179,7 +190,7 @@ It looks like noise complaints make up about 3.7% of all complaints in Manhattan
 
 
 ```python
-sbn.barplot(complaint_avgs, x='Borough', y='noise_complaint_avg')
+sbn.barplot(complaint_avgs, x="Borough", y="noise_complaint_avg")
 ```
 
 

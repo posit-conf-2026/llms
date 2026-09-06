@@ -165,7 +165,7 @@ Need time or help
 
 4. Install all the packages:
 
-    * R: `renv::restore()`
+    * R: `pak::local_install()`
     * Python: `uv sync`
 
 ## We're using Positron
@@ -216,10 +216,12 @@ RStudio and VS Code are great, too!
 ## To use an AI API... {.center}
 
 ::: {.fragment style="font-size: 2em;"}
-...you need a way to authenticate!
+...you need an account with a provider!
 :::
 
-## How API access usually works {.center}
+## How to use an AI provider, the usual way {.center}
+
+[aka. how to give OpenAI your money]{.i .gray}
 
 ::: {.incremental .mt4}
 1. 🆙 Sign up with a model provider (OpenAI, Anthropic, etc.)
@@ -231,10 +233,19 @@ RStudio and VS Code are great, too!
 4. 💾 Store your credentials securely
 :::
 
-## Today, we'll use Posit AI Pass {.center}
+## Today we'll use Posit AI Pass! {.center style="height: 90%"}
+
+![](../assets/logos/posit-ai.svg){height="175" .absolute bottom=0 right=450}
 
 ::: incremental
-<!-- TODO: sign in instructions --> 
+1. Go to [posit.ai](https://posit.ai/) and sign up for a **Free** account \
+   with the email you used to sign up for the workshop
+
+2. You'll get a credit grant for the day -- \
+   no API keys, no payment info, no subscription needed
+
+3. Use it for all of our activities today. \
+   Play and explore! But please be considerate :)
 :::
 
 ## Set up Posit Assistant
@@ -244,10 +255,8 @@ RStudio and VS Code are great, too!
 ## Your Turn `01_hello-llm` {background-image="assets/your-turn.png" background-size="30%" background-position="bottom right"}
 
 ::: {style="--li-margin: 0.66em;"}
-🤖 Open Posit Assistant and paste in the following instructions:
+1. 🔑 Log in at [posit.ai](https://posit.ai/) with the email you \
+   used to sign up for the workshop
 
-I'm just starting the posit::conf LLM workshop. Point me to the first exercise (`01_hello-llm`), explain the purpose to me, and tell me how to complete it. 
-
-
-Once you've successfully chatted with Posit Assistant and run the code in `01_hello-llm`, you're done!
+2. 🤖 Run the code in [_exercises/01_hello-llm]{.b}
 :::

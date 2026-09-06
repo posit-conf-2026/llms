@@ -2,12 +2,9 @@ from pathlib import Path
 from typing import Literal
 
 import chatlas
-import dotenv
 from playsound3 import playsound
 from pyhere import here
 from shiny import App, reactive, ui
-
-dotenv.load_dotenv()
 
 # Tools ------------------------------------------------------------------------
 SoundChoice = Literal["correct", "incorrect", "new-round", "you-win"]
@@ -57,8 +54,8 @@ def server(input, output, session):
     chat_ui = ui.Chat(id="chat")
 
     # Set up the chat instance
-    client = chatlas.ChatAnthropic(
-        model="claude-3-7-sonnet-20250219",
+    client = chatlas.ChatPosit(
+        model="zai-org/GLM-5.3-Flash",
         system_prompt=here("_solutions/14_quiz-game-1/prompt.md").read_text(),
     )
     client.register_tool(play_sound)

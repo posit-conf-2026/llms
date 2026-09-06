@@ -12,7 +12,12 @@ library(ellmer)
 ellmer::create_tool_def(weathR::point_forecast, verbose = TRUE)
 
 get_weather <- tool(
-  \(lat, lon) weathR::point_forecast(lat, lon),
+  \(lat, lon) {
+    # Tools must return a string, JSON, or Content object.
+    # ellmer 0.5.0 no longer auto-converts data frames.
+    forecast <- sf::st_drop_geometry(weathR::point_forecast(lat, lon))
+    jsonlite::toJSON(forecast, auto_unbox = TRUE)
+  },
   name = "point_forecast",
   description = "Get forecast data for a specific latitude and longitude.",
   arguments = list(
@@ -25,7 +30,7 @@ get_weather <- tool(
 get_weather(posit_conf$lat, posit_conf$lon)
 
 # ---- 🧰 Teach an LLM that we have this tool ----
-chat <- chat_openai(model = "gpt-4.1-nano", echo = "output")
+chat <- chat_posit(model = "zai-org/GLM-5.3-Flash", echo = "output")
 
 # Register the tool with the chatbot
 chat$register_tool(get_weather)

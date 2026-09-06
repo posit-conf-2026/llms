@@ -1,12 +1,9 @@
 # %%
 import chatlas
-import dotenv
 import polars as pl
 from matplotlib import pyplot as plt
 from plotnine import aes, geom_point, ggplot, labs, theme_bw
 from pyhere import here
-
-dotenv.load_dotenv()
 
 # %% [markdown]
 # Step 1: Create a scatter plot of `mpg` vs `wt` from the `mtcars` dataset using
@@ -31,11 +28,11 @@ p.show()
 plt.figure(p.draw())
 
 # %% [markdown]
-# Step 2: Ask Claude 4 Sonnet to interpret the plot.
+# Step 2: Ask the model to interpret the plot.
 # (Hint: see `content_image_...`)
 
 # %%
-chat = chatlas.ChatAuto("____")
+chat = chatlas.ChatPosit(model="____")
 chat.chat(
     "Interpret this plot.",
     chatlas.____(),

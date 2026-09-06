@@ -5,8 +5,8 @@ import seaborn as sbn
 import matplotlib.pyplot as plt
 
 # Make the graphs a bit prettier, and bigger
-plt.style.use('ggplot')
-plt.rcParams['figure.figsize'] = (15, 5)
+plt.style.use("ggplot")
+plt.rcParams["figure.figsize"] = (15, 5)
 print(pl.__version__)
 ```
 
@@ -18,7 +18,9 @@ We're going to use a new dataset here, to demonstrate how to deal with larger da
 
 ```python
 # because of mixed types we specify dtype to prevent any errors
-complaints = pl.read_csv('../data/311-service-requests.csv', schema_overrides={'Incident Zip':pl.String})
+complaints = pl.read_csv(
+    "../data/311-service-requests.csv", schema_overrides={"Incident Zip": pl.String}
+)
 ```
 
 Notice that we had to explicitly specify the dtype of the 'Incident Zip' column as a string type. This means that it's encountered a problem reading in our data. In this case it almost certainly means that it has columns where some of the entries are strings and some are integers.
@@ -54,7 +56,9 @@ Polars offers two methods to get a single column (ie, a pl.Series object). The r
 
 
 ```python
-single_column = complaints.get_column('Complaint Type') # can also use complaints['Complaint Type']
+single_column = complaints.get_column(
+    "Complaint Type"
+)  # can also use complaints['Complaint Type']
 display(type(single_column))
 display(single_column)
 ```
@@ -78,7 +82,7 @@ display(single_column)
 
 
 ```python
-complaints['Complaint Type'].head()
+complaints["Complaint Type"].head()
 ```
 
 
@@ -101,7 +105,7 @@ What if we just want to know the complaint type and the borough, but not the res
 
 
 ```python
-complaints.select('Complaint Type', 'Borough').head()
+complaints.select("Complaint Type", "Borough").head()
 ```
 
 
@@ -122,7 +126,7 @@ The `polars.selectors` module (imported as `cs`) offers a powerful syntax for fi
 
 
 ```python
-complaints.select('Created Date', cs.contains('School')).head()
+complaints.select("Created Date", cs.contains("School")).head()
 ```
 
 
@@ -145,7 +149,7 @@ This is a really easy question to answer! There's a `value_counts()` method that
 
 
 ```python
-complaints['Complaint Type'].value_counts(sort=True)
+complaints["Complaint Type"].value_counts(sort=True)
 ```
 
 
@@ -166,7 +170,7 @@ If we just wanted the top 10 most common complaints, we can use the `top_k` func
 
 
 ```python
-complaint_counts = complaints['Complaint Type'].value_counts().top_k(10, by='count')
+complaint_counts = complaints["Complaint Type"].value_counts().top_k(10, by="count")
 complaint_counts
 ```
 
@@ -189,7 +193,7 @@ But it gets better! We can plot them!
 
 ```python
 plt.xticks(rotation=45)
-sbn.barplot(complaint_counts, x='Complaint Type', y='count')
+sbn.barplot(complaint_counts, x="Complaint Type", y="count")
 ```
 
 

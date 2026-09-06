@@ -1,6 +1,7 @@
 ```python
 import polars as pl
 import polars.selectors as cs
+
 print(pl.__version__)
 ```
 
@@ -13,7 +14,7 @@ We're going to use the NYC 311 service request dataset again here, since it's bi
 
 
 ```python
-requests = pl.read_csv('../data/311-service-requests.csv')
+requests = pl.read_csv("../data/311-service-requests.csv")
 ```
 
 
@@ -150,7 +151,7 @@ We can force polars to try harder to infer the data type by setting `infer_schem
 
 
 ```python
-requests = pl.read_csv('../data/311-service-requests.csv', infer_schema_length=None)
+requests = pl.read_csv("../data/311-service-requests.csv", infer_schema_length=None)
 display(requests.head())
 display(requests.schema)
 ```
@@ -244,7 +245,7 @@ What we can do:
 
 
 ```python
-requests['Incident Zip'].unique().sort()
+requests["Incident Zip"].unique().sort()
 ```
 
 
@@ -267,9 +268,13 @@ We can pass a `null_values` option to `pl.read_csv` to clean this up a little bi
 
 
 ```python
-null_values = ['NO CLUE', 'N/A', '0', 'NA']
-requests = pl.read_csv('../data/311-service-requests.csv', null_values=null_values, dtypes={'Incident Zip':pl.String})
-requests['Incident Zip'].unique().sort()
+null_values = ["NO CLUE", "N/A", "0", "NA"]
+requests = pl.read_csv(
+    "../data/311-service-requests.csv",
+    null_values=null_values,
+    dtypes={"Incident Zip": pl.String},
+)
+requests["Incident Zip"].unique().sort()
 ```
 
     /var/folders/sz/c22f1dwn4pz41534xrybbydc0000gn/T/ipykernel_26170/480128266.py:2: DeprecationWarning: The argument `dtypes` for `read_csv` is deprecated. It has been renamed to `schema_overrides`.
@@ -294,10 +299,8 @@ requests['Incident Zip'].unique().sort()
 
 
 ```python
-rows_with_dashes = requests.filter(
-    pl.col('Incident Zip').str.contains('-')
-)
-print('number of zip codes with dashes: ', rows_with_dashes.height)
+rows_with_dashes = requests.filter(pl.col("Incident Zip").str.contains("-"))
+print("number of zip codes with dashes: ", rows_with_dashes.height)
 rows_with_dashes.head()
 ```
 
@@ -322,9 +325,7 @@ I thought these were missing data and originally deleted them. But then my frien
 
 
 ```python
-requests.filter(
-    pl.col('Incident Zip').str.contains('-')
-)['Incident Zip'].unique()
+requests.filter(pl.col("Incident Zip").str.contains("-"))["Incident Zip"].unique()
 ```
 
 
@@ -345,12 +346,8 @@ Those all look okay to truncate to me.
 
 
 ```python
-requests = requests.with_columns(
-    pl.col('Incident Zip').str.slice(0, 5)
-)
-requests.filter(
-    pl.col('Incident Zip').str.contains('-')
-)['Incident Zip'].unique()
+requests = requests.with_columns(pl.col("Incident Zip").str.slice(0, 5))
+requests.filter(pl.col("Incident Zip").str.contains("-"))["Incident Zip"].unique()
 ```
 
 
@@ -373,9 +370,7 @@ Earlier I thought 00083 was a broken zip code, but turns out Central Park's zip 
 
 
 ```python
-requests.filter(
-    pl.col('Incident Zip') == '00000'
-)
+requests.filter(pl.col("Incident Zip") == "00000")
 ```
 
 
@@ -397,11 +392,12 @@ This looks bad to me. Let's set these to nan.
 
 ```python
 requests = requests.with_columns(
-    pl.when(pl.col('Incident Zip') == '00000').then(None).otherwise(pl.col('Incident Zip')).alias('Incident Zip')
+    pl.when(pl.col("Incident Zip") == "00000")
+    .then(None)
+    .otherwise(pl.col("Incident Zip"))
+    .alias("Incident Zip")
 )
-requests.filter(
-    pl.col('Incident Zip') == '00000'
-)
+requests.filter(pl.col("Incident Zip") == "00000")
 ```
 
 
@@ -422,7 +418,7 @@ Great. Let's see where we are now:
 
 
 ```python
-unique_zips = requests['Incident Zip'].unique().sort()
+unique_zips = requests["Incident Zip"].unique().sort()
 unique_zips
 ```
 
@@ -446,13 +442,9 @@ Let's take a closer look:
 
 
 ```python
-requests.lazy().select(
-    'Incident Zip',
-    'Descriptor',
-    'City'
-).filter(
-    pl.col('Incident Zip') == "77056"
-).sort('Incident Zip').collect()
+requests.lazy().select("Incident Zip", "Descriptor", "City").filter(
+    pl.col("Incident Zip") == "77056"
+).sort("Incident Zip").collect()
 ```
 
 
@@ -473,7 +465,7 @@ Okay, there really are requests coming from Houston! Good to know. Filtering by 
 
 
 ```python
-requests['City'].str.to_uppercase().value_counts(sort=True)
+requests["City"].str.to_uppercase().value_counts(sort=True)
 ```
 
 
@@ -494,13 +486,9 @@ There are 12,215 `null` values in the `City` column. Upon closer look, it seems 
 
 
 ```python
-requests.select(
-    'Incident Zip',
-    'Descriptor',
-    'City'
-).filter(
-    pl.col('City').is_null()
-).sort('Incident Zip')
+requests.select("Incident Zip", "Descriptor", "City").filter(
+    pl.col("City").is_null()
+).sort("Incident Zip")
 ```
 
 
@@ -523,22 +511,27 @@ Here's what we ended up doing to clean up our zip codes, all together:
 
 
 ```python
-null_values = ['NO CLUE', 'N/A', '0', 'NA']
+null_values = ["NO CLUE", "N/A", "0", "NA"]
+requests = pl.scan_csv(
+    "../data/311-service-requests.csv",
+    null_values=null_values,
+    schema_overrides={"Incident Zip": pl.String},
+).with_columns(pl.col("Incident Zip").str.slice(0, 5))
 requests = (
-    pl.scan_csv('../data/311-service-requests.csv', null_values=null_values, schema_overrides={'Incident Zip':pl.String})
-    .with_columns(pl.col('Incident Zip').str.slice(0, 5))
-)
-requests = (
-    requests
-    .with_columns(pl.when(pl.col('Incident Zip') == '00000').then(None).otherwise(pl.col('Incident Zip')).alias('Incident Zip'))
-    .filter(pl.col('Incident Zip').is_not_null())
+    requests.with_columns(
+        pl.when(pl.col("Incident Zip") == "00000")
+        .then(None)
+        .otherwise(pl.col("Incident Zip"))
+        .alias("Incident Zip")
+    )
+    .filter(pl.col("Incident Zip").is_not_null())
     .collect()
 )
 ```
 
 
 ```python
-requests['Incident Zip'].unique().sort()
+requests["Incident Zip"].unique().sort()
 ```
 
 

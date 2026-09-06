@@ -57,8 +57,8 @@ ui <- page_fillable(
 # Server -----------------------------------------------------------------------
 
 server <- function(input, output, session) {
-  client <- chat(
-    "anthropic/claude-3-7-sonnet-20250219",
+  client <- chat_posit(
+    model = "zai-org/GLM-5.3-Flash",
     system_prompt = interpolate_file(
       # Replace `_solutions` with `_exercises` to get your own prompt from before
       here::here("_solutions/14_quiz-game-1/prompt.md")

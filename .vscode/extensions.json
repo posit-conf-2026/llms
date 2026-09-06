@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "posit.shiny",
-    "posit.databot"
+    "posit.shiny"
   ]
 }
