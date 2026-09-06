@@ -1,5 +1,6 @@
 import chatlas
 from shiny import App, ui
+from shinychat import Chat, chat_ui
 
 system_prompt = """
 We are playing a word guessing game. You are going to think of a random word.
@@ -19,12 +20,7 @@ app_ui = ui.page_fillable(
 
 def server(input, output, session):
     client = chatlas.ChatPosit(system_prompt=system_prompt)
-    chat = ui.Chat("chat")
-
-    @chat.on_user_submit
-    async def _(user_input: str):
-        response = await client.stream_async(user_input)
-        await chat.append_message_stream(response)
+    chat = Chat("chat", client=client)
 
 
 app = App(app_ui, server)

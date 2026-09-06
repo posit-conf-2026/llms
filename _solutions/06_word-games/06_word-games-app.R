@@ -21,7 +21,7 @@ ui <- page_chat(
 
 server <- function(input, output, session) {
   client <- chat_posit(system_prompt = system_prompt)
-  chat_mod_server("chat", client)
+  chat_server("chat", client)
 }
 
 shinyApp(ui, server)

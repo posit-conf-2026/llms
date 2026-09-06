@@ -1,5 +1,6 @@
 import chatlas
 from shiny import App, ui
+from shinychat import Chat, chat_ui
 
 system_prompt = """
 We are playing a word guessing game. You are going to think of a random word.
@@ -19,7 +20,7 @@ app_ui = ui.page_fillable(
 def server(input, output, session):
     # Step 2: Initialize the chat client with the system prompt
     client = chatlas.ChatPosit(____=____)
-    # Step 3: Add the chat UI server setup
+    # Step 3: Connect the chat UI to the chat client
     chat = ____
 
 
