@@ -26,7 +26,7 @@ website:
     icon: "rocket-takeoff"
     dismissable: false
     content: |
-      Welcome to <a href="https://conf.posit.co/2026/" target="_blank"><code>posit::conf(2026)</code></a>! Materials are still settling, so check back as the workshop approaches. To get ready, follow the <a href="setup.qmd">Setup</a> guide before the course starts.
+      Welcome to <a href="https://conf.posit.co/2026/" target="_blank"><code>posit::conf(2026)</code></a>! Materials are still settling, so check back as the workshop approaches. To get ready, follow <a href="setup.qmd">the Setup guide</a> before the course starts.
     type: primary
 
   page-footer: |
