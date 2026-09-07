@@ -4,7 +4,7 @@
     "href": "about/index.html",
     "title": "Our Team",
     "section": "",
-    "text": "Garrick Aden-Buie\n        \n        Software Engineer, Shiny\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        Sara Altman\n        \n        \n            Instructor\n        \n        \n    \n\n    \n        \n        Kristin Bott\n        \n        \n            Teaching Assistant\n        \n        \n    \n\n    \n        \n        Alex Chisholm\n        \n        \n            Teaching Assistant\n        \n        \n    \n\n    \n        \n        Carson Sievert\n        \n        \n            Teaching Assistant\n        \n        \n    \n\n\nNo matching items"
+    "text": "Garrick Aden-Buie\n        \n        Software Engineer, Shiny\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        \n        \n        Sara Altman\n        \n        Data Scientist, AI\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        \n        \n        Kristin Bott\n        \n        Manager, Data Science Mentors\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        \n        \n        Alex Chisholm\n        \n        Product Manager, Posit Cloud\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        \n        \n        Carson Sievert\n        \n        Software Engineer, Shiny\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n\nNo matching items"
   },
   {
     "objectID": "slides/slides-09.html#querychat-in-r",
@@ -473,7 +473,7 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
   },
   {
     "objectID": "slides/slides-00.html#welcome-to-programming-with-llm-apis",
@@ -630,7 +630,7 @@
     "href": "index.html",
     "title": "Programming with LLMs in R and Python",
     "section": "",
-    "text": "Workshop at posit::conf(2026) in Houston, TXSeptember 14, 2026 :: 09:00 - 17:00Venue: Hilton Americas-Houston | Room: TBD"
+    "text": "Workshop at posit::conf(2026) in Houston, TXSeptember 14, 2026 :: 09:00 - 17:00Venue: Hilton Americas-Houston | Room: Lanier I"
   },
   {
     "objectID": "index.html#introduction",
