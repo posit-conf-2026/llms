@@ -22,13 +22,12 @@ website:
   open-graph:
     image: assets/open-graph-card.png
 
-  # announcement:
-  #   icon: ""
-  #   dismissable: false
-  #   content: |
-  #     Thanks for joining us at <code>posit::conf(2026)</code>!
-  #     Please fill out our <a href="https://pos.it/conf-workshop-survey" target="_blank">workshop feedback form</a>, it's quick and easy!
-  #   type: info
+  announcement:
+    icon: "rocket-takeoff"
+    dismissable: false
+    content: |
+      Welcome to <a href="https://conf.posit.co/2026/" target="_blank"><code>posit::conf(2026)</code></a>! Materials are still settling, so check back as the workshop approaches. To get ready, follow the <a href="setup.qmd">Setup</a> guide before the course starts.
+    type: primary
 
   page-footer: |
     <a href="https://conf.posit.co/2026/">posit::conf(2026)</a>
