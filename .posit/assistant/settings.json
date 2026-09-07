@@ -11,6 +11,13 @@
     "high": ["kimi-k3"]
   },
   "permission": {
-    "read": "allow"
+    "read": {
+      "*": "allow"
+    },
+    "webfetch": {
+      "https://posit-dev.github.io/*": "allow",
+      "https://ellmer.tidyverse.org/*": "allow",
+      "https://rstudio.github.io/*": "allow"
+    }
   }
 }
