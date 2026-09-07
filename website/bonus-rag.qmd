@@ -65,7 +65,7 @@ embed = EmbeddingOpenAI(
 
 ## Slides
 
-{{< revealjs "slides/slides-07.html" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-50.html" class="ratio ratio-16x9" >}}
 
 ## Outline
 

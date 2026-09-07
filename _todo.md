@@ -40,15 +40,15 @@
 - [x] 51_rag: Create dynamic RAG system with dplyr or polars documentation (bonus material, uses `ragnar` in R and `raghilda` in Python)
 - [x] 18_demo_manual-tools: Human-in-the-loop weather tool
 - [x] 19_demo_tools: Automated weather tool
-- [x] 20_quiz-game-2: Quiz game show with tools for sounds
-- [x] 21_quiz-game-3: Quiz game show, add icon and title to tool def
-- [x] 22_quiz-game-4: Quiz game show, set title and icon in tool result
-- [x] 23_quiz-game-5: Quiz game show, reactive updates via tool
+- [x] 15_quiz-game-2: Quiz game show with tools for sounds
+- [x] 16_quiz-game-3: Quiz game show, add icon and title to tool def
+- [x] 17_quiz-game-4: Quiz game show, set title and icon in tool result
+- [x] 18_quiz-game-5: Quiz game show, reactive updates via tool
 - [ ] (considering) 24_quiz-game-6: Quiz game show, add new tool to finish each round
 
 ### Afternoon 2
 
-- [x] 25_querychat
+- [x] 19_querychat
   - [x] Rewrite Python examples to use pandas instead of polars
-- [x] 26_mcp
+- [x] 20_mcp
 - [x] 27_demo_databot
