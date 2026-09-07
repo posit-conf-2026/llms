@@ -74,25 +74,7 @@
   - Prompt engineering best practices, in particular the system prompt
   - Activity: create [the prompt for the quiz game show](https://github.com/jcheng5/llm-quickstart/blob/main/02-tools-prompt.md)
 
-## Afternoon 1: Augmented Generation (90m)
-
-> How to add knowledge to LLMs and make them more useful for specific tasks. We implement a simple RAG system, which also naturally introduces the concept of tool calling.
-
-- (10m) Manual RAG
-  - Activity: Data science coding assistant
-    - Given a data science task using `polars` or `dplyr`, ask an LLM to generate or explain code, first without any context.
-    - Then, give it the relevant section of the `polars` or `dplyr` documentation and see how much better the response is.
-
-- (30m) RAG
-  - High-level overview of how RAG works
-  - Activity: Build a dynamic RAG system
-    - We'll have the complete, raw `dplyr` or `polars` documentation.
-    - Preprocess and compute embeddings for each chunk using `ragnar` or `llama-index`
-      - https://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval
-      - https://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag
-    - Add a tool that searches the embeddings and returns the top few chunks
-      - chatlas: this means writing a function
-      - ellmer: Use `ragnar`
+## Afternoon 1: Tool Calling (50m)
 
 - (20m) Tool calling
   - Explain how tool calling pattern, mostly following <https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny>
@@ -139,3 +121,23 @@
 
 - (5m) Wrap-up
   - Feedback survey
+
+## Bonus: Augmented Generation (40m)
+
+> We won't cover this unit during the workshop, but the materials are included for anyone who wants to go further on their own. How to add knowledge to LLMs and make them more useful for specific tasks.
+
+- (10m) Manual RAG
+  - Activity: Data science coding assistant
+    - Given a data science task using `polars` or `dplyr`, ask an LLM to generate or explain code, first without any context.
+    - Then, give it the relevant section of the `polars` or `dplyr` documentation and see how much better the response is.
+
+- (30m) RAG
+  - High-level overview of how RAG works
+  - Activity: Build a dynamic RAG system
+    - We'll have the complete, raw `dplyr` or `polars` documentation.
+    - Preprocess and compute embeddings for each chunk using `ragnar` (R) or `raghilda` (Python)
+      - https://posit-dev.github.io/raghilda/user-guide/chatlas-integration.html
+      - https://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag
+    - Add a tool that searches the embeddings and returns the top few chunks
+      - ellmer: Use `ragnar`
+      - chatlas: this means writing a function

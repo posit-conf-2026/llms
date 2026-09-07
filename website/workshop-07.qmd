@@ -1,8 +1,8 @@
 ---
-title: Augmented Generation
-description: How to add knowledge to LLMs and make them more useful for specific tasks.
-description-short: Adding knowledge to LLMs
-duration: 40min
+title: Tool Calling
+description: Giving LLMs the ability to interact with the world through tools.
+description-short: Help LLMs interact with the world
+duration: 50min
 ---
 
 ## Slides
@@ -11,20 +11,16 @@ duration: 40min
 
 ## Outline
 
-- (10m) Manual RAG
-  - Activity `15_coding-assistant`: Use an LLM as a coding assistant
-    - Write a function that uses `{weathR}` (R) or `NWS` (Python) to get the weather for a location.
-    - Then, give the LLM the `{weathR}` (R) or `NWS` (Python) README and see how much better the response is.
+- (20m) Tool calling
+  - Explain how tool calling pattern, mostly following <https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny>
+  - Activity: quiz show
+    - We've provided an R/Python function that plays a sound
+      - R: `beepr`, Python: [playsound](https://pypi.org/project/playsound3/)
+    - Document the function and register it as a tool in the Quiz Show app
 
-- (30m) RAG
-  - High-level overview of how RAG works
-  - Activity `16_rag`: Build a dynamic RAG system
-    - Make a chatbot that can draw from the knowledge of:
-      - [The R for Data Science book](https://r4ds.hadley.nz)
-      - [The Polars Cookbook](https://github.com/escobar-west/polars-cookbook)
-    - Preprocess and compute embeddings for each chunk using `ragnar` or `llama-index`
-      - https://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval
-      - https://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag
-    - Add a tool that searches the embeddings and returns the top few chunks
-      - chatlas: this means writing a function
-      - ellmer: Use `ragnar`
+- (30m) Tool calling UI
+  - Primarily a series of activities that progressively enhance the quiz show app
+  - Activity: Add tool annotations to give the tool an icon and title
+  - Activity: Use `ContentToolResult` to return custom title and icon
+  - Activity: Track answers and score in the app (add/update value boxes)
+

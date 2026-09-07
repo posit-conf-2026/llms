@@ -26,7 +26,7 @@ library(ragnar)
 base_url <- "https://r4ds.hadley.nz"
 pages <- ragnar_find_links(base_url, children_only = TRUE)
 
-store_location <- here::here("_solutions/16_rag/r4ds.ragnar.duckdb")
+store_location <- here::here("_solutions/51_rag/r4ds.ragnar.duckdb")
 
 store <- ragnar_store_create(
   store_location,

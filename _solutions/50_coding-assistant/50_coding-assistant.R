@@ -16,7 +16,7 @@ chat <- chat_posit(
   model = "zai-org/GLM-5.3-Flash",
   echo = "output",
   system_prompt = brio::read_file(here::here(
-    "_solutions/15_coding-assistant/docs.R.md"
+    "_solutions/50_coding-assistant/docs.R.md"
   ))
 )
 
