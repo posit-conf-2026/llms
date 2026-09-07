@@ -106,6 +106,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-bonus .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-time','listing-description-short',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-bonus'] = new List('listing-bonus', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 <meta name="theme-color" content="black">
 
@@ -140,11 +168,13 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="Overview – Programming with LLMs in R and Python">
+<meta property="og:description" content="A beginner’s guide to programming with large language models in R and Python">
 <meta property="og:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs in R and Python">
 <meta property="og:image:height" content="400">
 <meta property="og:image:width" content="765">
 <meta name="twitter:title" content="Overview – Programming with LLMs in R and Python">
+<meta name="twitter:description" content="A beginner’s guide to programming with large language models in R and Python">
 <meta name="twitter:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
 <meta name="twitter:site" content="@posit-dev">
@@ -265,18 +295,12 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workshop-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Augmented Generation</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tool Calling</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-09-break.html" class="sidebar-item-text sidebar-link">
+  <a href="./workshop-08-break.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">☕ Break</span></a>
   </div>
 </li>
@@ -285,8 +309,17 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-10.html" class="sidebar-item-text sidebar-link">
+  <a href="./workshop-09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Beyond Tools</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text"><div class="sidebar-divider font-monospace">Bonus</div></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bonus-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Augmented Generation</span></a>
   </div>
 </li>
     </ul>
@@ -300,6 +333,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#schedule" id="toc-schedule" class="nav-link active" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#bonus-material" id="toc-bonus-material" class="nav-link" data-scroll-target="#bonus-material">Bonus material</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -358,7 +392,7 @@ Description
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-file-modified-sort="1788633749997" data-listing-reading-time-sort="1" data-listing-word-count-sort="39" data-listing-title-sort="Welcome and getting started" data-listing-filename-sort="workshop-01.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1788810808900" data-listing-reading-time-sort="1" data-listing-word-count-sort="39" data-listing-title-sort="Welcome and getting started" data-listing-filename-sort="workshop-01.qmd">
 <td>
 <a href="./workshop-01.html" class="title listing-title">Welcome and getting started</a>
 </td>
@@ -371,7 +405,7 @@ Description
 
 </tr>
 
-<tr data-index="1" data-listing-file-modified-sort="1788633749997" data-listing-reading-time-sort="1" data-listing-word-count-sort="167" data-listing-title-sort="Anatomy of a conversation" data-listing-filename-sort="workshop-02.qmd">
+<tr data-index="1" data-listing-file-modified-sort="1788810808900" data-listing-reading-time-sort="1" data-listing-word-count-sort="167" data-listing-title-sort="Anatomy of a conversation" data-listing-filename-sort="workshop-02.qmd">
 <td>
 <a href="./workshop-02.html" class="title listing-title">Anatomy of a conversation</a>
 </td>
@@ -384,7 +418,7 @@ Description
 
 </tr>
 
-<tr data-index="2" data-listing-file-modified-sort="1788633749997" data-listing-reading-time-sort="1" data-listing-word-count-sort="21" data-listing-title-sort="☕ Break" data-listing-filename-sort="workshop-03-break.qmd">
+<tr data-index="2" data-listing-file-modified-sort="1788810808900" data-listing-reading-time-sort="1" data-listing-word-count-sort="21" data-listing-title-sort="☕ Break" data-listing-filename-sort="workshop-03-break.qmd">
 <td>
 <a href="./workshop-03-break.html" class="title listing-title">☕ Break</a>
 </td>
@@ -397,7 +431,7 @@ Description
 
 </tr>
 
-<tr data-index="3" data-listing-file-modified-sort="1788633749997" data-listing-reading-time-sort="1" data-listing-word-count-sort="111" data-listing-title-sort="Programming with LLMs" data-listing-filename-sort="workshop-04.qmd">
+<tr data-index="3" data-listing-file-modified-sort="1788810808900" data-listing-reading-time-sort="1" data-listing-word-count-sort="111" data-listing-title-sort="Programming with LLMs" data-listing-filename-sort="workshop-04.qmd">
 <td>
 <a href="./workshop-04.html" class="title listing-title">Programming with LLMs</a>
 </td>
@@ -410,7 +444,7 @@ Description
 
 </tr>
 
-<tr data-index="4" data-listing-file-modified-sort="1788633749998" data-listing-reading-time-sort="1" data-listing-word-count-sort="86" data-listing-title-sort="Prompt Engineering" data-listing-filename-sort="workshop-05.qmd">
+<tr data-index="4" data-listing-file-modified-sort="1788810808900" data-listing-reading-time-sort="1" data-listing-word-count-sort="86" data-listing-title-sort="Prompt Engineering" data-listing-filename-sort="workshop-05.qmd">
 <td>
 <a href="./workshop-05.html" class="title listing-title">Prompt Engineering</a>
 </td>
@@ -423,7 +457,7 @@ Description
 
 </tr>
 
-<tr data-index="5" data-listing-file-modified-sort="1788633749998" data-listing-reading-time-sort="1" data-listing-word-count-sort="21" data-listing-title-sort="🍱 Lunch" data-listing-filename-sort="workshop-06-break.qmd">
+<tr data-index="5" data-listing-file-modified-sort="1788810808900" data-listing-reading-time-sort="1" data-listing-word-count-sort="21" data-listing-title-sort="🍱 Lunch" data-listing-filename-sort="workshop-06-break.qmd">
 <td>
 <a href="./workshop-06-break.html" class="title listing-title">🍱 Lunch</a>
 </td>
@@ -436,22 +470,9 @@ Description
 
 </tr>
 
-<tr data-index="6" data-listing-file-modified-sort="1788633749998" data-listing-reading-time-sort="1" data-listing-word-count-sort="186" data-listing-title-sort="Augmented Generation" data-listing-filename-sort="workshop-07.qmd">
+<tr data-index="6" data-listing-file-modified-sort="1788810808900" data-listing-reading-time-sort="1" data-listing-word-count-sort="122" data-listing-title-sort="Tool Calling" data-listing-filename-sort="workshop-07.qmd">
 <td>
-<a href="./workshop-07.html" class="title listing-title">Augmented Generation</a>
-</td>
-<td>
-<span class="listing-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-description-short">Adding knowledge to LLMs</span>
-</td>
-
-</tr>
-
-<tr data-index="7" data-listing-file-modified-sort="1788633749998" data-listing-reading-time-sort="1" data-listing-word-count-sort="122" data-listing-title-sort="Tool Calling" data-listing-filename-sort="workshop-08.qmd">
-<td>
-<a href="./workshop-08.html" class="title listing-title">Tool Calling</a>
+<a href="./workshop-07.html" class="title listing-title">Tool Calling</a>
 </td>
 <td>
 <span class="listing-time">&nbsp;</span>
@@ -462,9 +483,9 @@ Description
 
 </tr>
 
-<tr data-index="8" data-listing-file-modified-sort="1788633749998" data-listing-reading-time-sort="1" data-listing-word-count-sort="21" data-listing-title-sort="☕ Break" data-listing-filename-sort="workshop-09-break.qmd">
+<tr data-index="7" data-listing-file-modified-sort="1788810808900" data-listing-reading-time-sort="1" data-listing-word-count-sort="21" data-listing-title-sort="☕ Break" data-listing-filename-sort="workshop-08-break.qmd">
 <td>
-<a href="./workshop-09-break.html" class="title listing-title">☕ Break</a>
+<a href="./workshop-08-break.html" class="title listing-title">☕ Break</a>
 </td>
 <td>
 <span class="listing-time">15:00 - 15:30</span>
@@ -475,15 +496,57 @@ Description
 
 </tr>
 
-<tr data-index="9" data-listing-file-modified-sort="1788633749998" data-listing-reading-time-sort="1" data-listing-word-count-sort="165" data-listing-title-sort="Beyond Tools" data-listing-filename-sort="workshop-10.qmd">
+<tr data-index="8" data-listing-file-modified-sort="1788810808900" data-listing-reading-time-sort="1" data-listing-word-count-sort="165" data-listing-title-sort="Beyond Tools" data-listing-filename-sort="workshop-09.qmd">
 <td>
-<a href="./workshop-10.html" class="title listing-title">Beyond Tools</a>
+<a href="./workshop-09.html" class="title listing-title">Beyond Tools</a>
 </td>
 <td>
 <span class="listing-time">&nbsp;</span>
 </td>
 <td>
 <span class="listing-description-short">Exploring the future of AI</span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="bonus-material" class="level2">
+<h2 class="anchored" data-anchor-id="bonus-material">Bonus material</h2>
+<p>We won’t cover these units during the workshop, but they’re included in case you want to go further on your own. You’ll find them in the <code>Bonus</code> section of the sidebar, or in the table below.</p>
+<div id="listing-bonus" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+Title
+</th>
+
+<th>
+time
+</th>
+
+<th>
+Description
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-listing-file-modified-sort="1788810808648" data-listing-reading-time-sort="3" data-listing-word-count-sort="442" data-listing-title-sort="Augmented Generation" data-listing-filename-sort="bonus-rag.qmd">
+<td>
+<a href="./bonus-rag.html" class="title listing-title">Augmented Generation</a>
+</td>
+<td>
+<span class="listing-time">&nbsp;</span>
+</td>
+<td>
+<span class="listing-description-short">Adding knowledge to LLMs</span>
 </td>
 
 </tr>

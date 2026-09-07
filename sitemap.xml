@@ -2,90 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://posit-conf-2026.github.io/llms/about/index.html</loc>
-    <lastmod>2026-09-05T18:42:29.677Z</lastmod>
+    <lastmod>2026-09-07T19:53:28.596Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2026.github.io/llms/slides/slides-08.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
+    <loc>https://posit-conf-2026.github.io/llms/slides/slides-09.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2026.github.io/llms/slides/slides-05.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
+    <lastmod>2026-09-07T19:53:28.899Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2026.github.io/llms/slides/slides-02.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
+    <lastmod>2026-09-07T19:53:28.899Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2026.github.io/llms/slides/slides-00.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
+    <lastmod>2026-09-07T19:53:28.899Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2026.github.io/llms/workshop-10.html</loc>
-    <lastmod>2026-09-05T18:42:29.998Z</lastmod>
-  </url>
-  <url>
-    <loc>https://posit-conf-2026.github.io/llms/workshop-08.html</loc>
-    <lastmod>2026-09-05T18:42:29.998Z</lastmod>
-  </url>
-  <url>
-    <loc>https://posit-conf-2026.github.io/llms/workshop-06-break.html</loc>
-    <lastmod>2026-09-05T18:42:29.998Z</lastmod>
-  </url>
-  <url>
-    <loc>https://posit-conf-2026.github.io/llms/workshop-04.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
-  </url>
-  <url>
-    <loc>https://posit-conf-2026.github.io/llms/workshop-02.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
-  </url>
-  <url>
-    <loc>https://posit-conf-2026.github.io/llms/setup.html</loc>
-    <lastmod>2026-09-05T18:42:29.728Z</lastmod>
-  </url>
-  <url>
-    <loc>https://posit-conf-2026.github.io/llms/index.html</loc>
-    <lastmod>2026-09-05T18:42:29.728Z</lastmod>
-  </url>
-  <url>
-    <loc>https://posit-conf-2026.github.io/llms/workshop-01.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
-  </url>
-  <url>
-    <loc>https://posit-conf-2026.github.io/llms/workshop-03-break.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
-  </url>
-  <url>
-    <loc>https://posit-conf-2026.github.io/llms/workshop-05.html</loc>
-    <lastmod>2026-09-05T18:42:29.998Z</lastmod>
+    <loc>https://posit-conf-2026.github.io/llms/workshop-09.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2026.github.io/llms/workshop-07.html</loc>
-    <lastmod>2026-09-05T18:42:29.998Z</lastmod>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2026.github.io/llms/workshop-09-break.html</loc>
-    <lastmod>2026-09-05T18:42:29.998Z</lastmod>
+    <loc>https://posit-conf-2026.github.io/llms/workshop-05.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posit-conf-2026.github.io/llms/workshop-03-break.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posit-conf-2026.github.io/llms/workshop-01.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posit-conf-2026.github.io/llms/index.html</loc>
+    <lastmod>2026-09-07T19:53:28.648Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posit-conf-2026.github.io/llms/bonus-rag.html</loc>
+    <lastmod>2026-09-07T19:53:28.648Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posit-conf-2026.github.io/llms/setup.html</loc>
+    <lastmod>2026-09-07T19:53:28.648Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posit-conf-2026.github.io/llms/workshop-02.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posit-conf-2026.github.io/llms/workshop-04.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posit-conf-2026.github.io/llms/workshop-06-break.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://posit-conf-2026.github.io/llms/workshop-08-break.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2026.github.io/llms/workshop.html</loc>
-    <lastmod>2026-09-05T18:42:29.998Z</lastmod>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2026.github.io/llms/slides/slides-01.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
+    <lastmod>2026-09-07T19:53:28.899Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2026.github.io/llms/slides/slides-04.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
+    <lastmod>2026-09-07T19:53:28.899Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2026.github.io/llms/slides/slides-07.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2026.github.io/llms/slides/slides-10.html</loc>
-    <lastmod>2026-09-05T18:42:29.997Z</lastmod>
+    <loc>https://posit-conf-2026.github.io/llms/slides/slides-50.html</loc>
+    <lastmod>2026-09-07T19:53:28.900Z</lastmod>
   </url>
 </urlset>

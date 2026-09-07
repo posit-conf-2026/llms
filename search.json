@@ -7,221 +7,67 @@
     "text": "Garrick Aden-Buie\n        \n        Software Engineer, Shiny\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        Sara Altman\n        \n        \n            Instructor\n        \n        \n    \n\n    \n        \n        Kristin Bott\n        \n        \n            Teaching Assistant\n        \n        \n    \n\n    \n        \n        Alex Chisholm\n        \n        \n            Teaching Assistant\n        \n        \n    \n\n    \n        \n        Carson Sievert\n        \n        \n            Teaching Assistant\n        \n        \n    \n\n\nNo matching items"
   },
   {
-    "objectID": "slides/slides-08.html#recall-how-do-llms-work",
-    "href": "slides/slides-08.html#recall-how-do-llms-work",
-    "title": "Tool Calling",
-    "section": "Recall: How do LLMs work?",
-    "text": "Recall: How do LLMs work?\n\nYou write some words\nThe LLM writes some more words\nYou use those words\n\n\nOn their own, can LLMs… access the internet? send an email? interact with the world?"
+    "objectID": "slides/slides-09.html#querychat-in-r",
+    "href": "slides/slides-09.html#querychat-in-r",
+    "title": "Beyond Tools",
+    "section": "querychat in R",
+    "text": "querychat in R\nlibrary(shiny)\nlibrary(bslib)\nlibrary(querychat)\n\nmtcars_qc_config &lt;- querychat_init(mtcars)\n\nui &lt;- page_sidebar(\n  sidebar = querychat_sidebar(\"mtcars\"),\n  # plots, tables, etc.\n)\n\nserver &lt;- function(input, output, session) {\n  mtcars_qc &lt;- querychat_server(\"mtcars\", mtcars_qc_config)\n\n  output$table &lt;- renderTable({\n    mtcars_qc$df()\n  })\n}\n\nshinyApp(ui, server)"
   },
   {
-    "objectID": "slides/slides-08.html#lets-try-it",
-    "href": "slides/slides-08.html#lets-try-it",
-    "title": "Tool Calling",
-    "section": "Let’s try it",
-    "text": "Let’s try it\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\n\nchat$chat(\"What's the weather like in Houston, TX?\")\nchat$chat(\"Who are the keynote speakers at posit::conf(2026)?\")\nchat$chat(\"What day is it?\")\n\nimport chatlas\n\nchat = chatlas.Chat(model=\"openai/gpt-4.1-nano\")\nchat.chat(\"What's the weather like in Houston, TX?\")\nchat.chat(\"Who are the keynote speakers at posit::conf(2026)?\")\nchat.chat(\"What day is it?\")\n\n\nRun these in the terminal.\nAsk: how could we get the model to know these answers? Let’s start with the easiest one: what day is it?\nAnswer: we could just tell it in the system prompt.\nWhat about keynote speakers? We could include that in the system prompt too. But what if the schedule changes?\nWhat about the weather? The model can’t know that because it’s not connected to the internet."
+    "objectID": "slides/slides-09.html#querychat-in-python",
+    "href": "slides/slides-09.html#querychat-in-python",
+    "title": "Beyond Tools",
+    "section": "querychat in Python",
+    "text": "querychat in Python\nimport polars as pl\nimport querychat\nfrom shiny import App, render, ui\n\nmtcars = pl.read_csv(\"data/mtcars.csv\")\n\nmtcars_qc_config = querychat.init(mtcars, \"mtcars\")\n\napp_ui = ui.page_sidebar(\n    querychat.sidebar(\"mtcars\"),\n    # plots, tables, etc.\n)\n\ndef server(input, output, session):\n    mtcars_qc = querychat.server(\"mtcars\", mtcars_qc_config)\n\n    @render.data_frame\n    def data_table():\n        return qc.df()\n\napp = App(app_ui, server)"
   },
   {
-    "objectID": "slides/slides-08.html#tools",
-    "href": "slides/slides-08.html#tools",
-    "title": "Tool Calling",
-    "section": "Tools",
-    "text": "Tools\na.k.a. functions, tool calling or function calling\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world\n\n\nTools are extra capabilities that you give to the LLM, like the ability to search the posit::conf(2026) schedule. These capabilities are things that the model can’t do on its own. The goal is let the model pull in real-time, or up-to-date, or high-quality information as needed, depending on the conversation.\nThey can also give the model new abilities to take action on behalf of the user."
+    "objectID": "slides/slides-09.html#recall-tools",
+    "href": "slides/slides-09.html#recall-tools",
+    "title": "Beyond Tools",
+    "section": "Recall: Tools",
+    "text": "Recall: Tools\na.k.a. functions, tool calling or function calling\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world"
   },
   {
-    "objectID": "slides/slides-08.html#section",
-    "href": "slides/slides-08.html#section",
-    "title": "Tool Calling",
+    "objectID": "slides/slides-09.html#what-other-tools-could-be-useful",
+    "href": "slides/slides-09.html#what-other-tools-could-be-useful",
+    "title": "Beyond Tools",
+    "section": "🤔 What other tools could be useful?",
+    "text": "🤔 What other tools could be useful?\n\nGet the weather\nSearch the posit::conf() schedule\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
+  },
+  {
+    "objectID": "slides/slides-09.html#what-github-related-tools-would-be-useful",
+    "href": "slides/slides-09.html#what-github-related-tools-would-be-useful",
+    "title": "Beyond Tools",
+    "section": "🤔 What GitHub-related tools would be useful?",
+    "text": "🤔 What GitHub-related tools would be useful?\n\nList issues\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
+  },
+  {
+    "objectID": "slides/slides-09.html#who-should-write-tools-for-github",
+    "href": "slides/slides-09.html#who-should-write-tools-for-github",
+    "title": "Beyond Tools",
+    "section": "Who should write tools for GitHub?",
+    "text": "Who should write tools for GitHub?\n\nMCP solves this problem! GitHub writes tools…\n\n\nand lets you your models use them.\nGitHub MCP Server"
+  },
+  {
+    "objectID": "slides/slides-09.html#whats-an-agent",
+    "href": "slides/slides-09.html#whats-an-agent",
+    "title": "Beyond Tools",
+    "section": "What’s an agent?",
+    "text": "What’s an agent?\n\nHadley/Willison definition: Agents are LLMs with a read tool and a write tool\nThe “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention"
+  },
+  {
+    "objectID": "slides/slides-09.html#demo-databot",
+    "href": "slides/slides-09.html#demo-databot",
+    "title": "Beyond Tools",
+    "section": "Demo: Databot",
+    "text": "Demo: Databot\n👨‍💻 _demos/27_demo_databot/README.md\n\nLet’s look at data/airbnb-asheville.csv, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC."
+  },
+  {
+    "objectID": "slides/slides-09.html#section-3",
+    "href": "slides/slides-09.html#section-3",
+    "title": "Beyond Tools",
     "section": "",
-    "text": "user vs. programmer"
-  },
-  {
-    "objectID": "slides/slides-08.html#how-do-tool-calls-work",
-    "href": "slides/slides-08.html#how-do-tool-calls-work",
-    "title": "Tool Calling",
-    "section": "How do tool calls work?",
-    "text": "How do tool calls work?\nWhat should I wear to posit::conf(2026) in Houston?\n\nSo how do we connect the LLM to the code that this data scientist has written (or could write) to give the model new abilities?"
-  },
-  {
-    "objectID": "slides/slides-08.html#human-in-the-loop",
-    "href": "slides/slides-08.html#human-in-the-loop",
-    "title": "Tool Calling",
-    "section": "Human in the loop",
-    "text": "Human in the loop\n👨‍💻 _demos/18_manual-tools/app.R"
-  },
-  {
-    "objectID": "slides/slides-08.html#wait-i-can-write-code",
-    "href": "slides/slides-08.html#wait-i-can-write-code",
-    "title": "Tool Calling",
-    "section": "Wait… I can write code!",
-    "text": "Wait… I can write code!\n👨‍💻 _demos/19_tools/19_weather-tool.R\n👨‍💻 _demos/19_tools/19_weather-tool.py"
-  },
-  {
-    "objectID": "slides/slides-08.html#section-9",
-    "href": "slides/slides-08.html#section-9",
-    "title": "Tool Calling",
-    "section": "",
-    "text": "Zooming out again, the conversation starts with a user sending a message to the chatbot.\nIn this case, the user asks the model whether they can go to the pool today. (I live in Houston, TX.)\nHow much does the model know about the weather in Houston, TX?\nWhat’s the weather like today in Houston, TX?\n\nI’m unable to provide real-time weather updates. For the latest weather forecast in Houston, TX, please check a trusted weather service such as the National Weather Service, Weather.com, or a weather app on your device.\n\nGo ahead and guess\n\nSure! Since it’s September in Houston, TX, you can generally expect hot and humid weather. Temperatures might range from the mid-80s to low 90s Fahrenheit (around 29-34°C). There could also be some afternoon thunderstorms or showers, which are common along the Gulf Coast. Keep a fan or air conditioning handy if you’re indoors, and stay hydrated!"
-  },
-  {
-    "objectID": "slides/slides-08.html#section-10",
-    "href": "slides/slides-08.html#section-10",
-    "title": "Tool Calling",
-    "section": "",
-    "text": "Now imagine we’ve told the LLM that it has access to a tool called get_weather(). Knowing that it 1) needs to know the weather in Houston and 2) it doesn’t know the weather in Houston, TX; the model decides to use the weather tool.\nIt sends back a message that includes a tool call, basically instructions to call the get_weather() function with the argument 77010. Notice that the model does know that the Hilton Americas-Houston is in the 77010 ZIP code."
-  },
-  {
-    "objectID": "slides/slides-08.html#section-11",
-    "href": "slides/slides-08.html#section-11",
-    "title": "Tool Calling",
-    "section": "",
-    "text": "The programmer can then take that message from the LLM with the instructions to call the tool and they go off and run the code that satisfies the tool request, in this case querying the weather API for the weather in 77010 because that has been a stable fact for a long time."
-  },
-  {
-    "objectID": "slides/slides-08.html#section-12",
-    "href": "slides/slides-08.html#section-12",
-    "title": "Tool Calling",
-    "section": "",
-    "text": "The weather API sends back some data:\n\nThe forecast is mostly sunny\nHigh of 98ºF\nLow of 78ºF"
-  },
-  {
-    "objectID": "slides/slides-08.html#section-13",
-    "href": "slides/slides-08.html#section-13",
-    "title": "Tool Calling",
-    "section": "",
-    "text": "The programmer sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON. Not the kind of thing you’d want to read directly unless you’re the kind of person who likes reading computer data formats."
-  },
-  {
-    "objectID": "slides/slides-08.html#section-14",
-    "href": "slides/slides-08.html#section-14",
-    "title": "Tool Calling",
-    "section": "",
-    "text": "The LLM doesn’t mind JSON though, so it reads the data and generates a response that incorporates the data from the tool call."
-  },
-  {
-    "objectID": "slides/slides-08.html#recap-tool-definitions-in-r",
-    "href": "slides/slides-08.html#recap-tool-definitions-in-r",
-    "title": "Tool Calling",
-    "section": "Recap: Tool definitions in R",
-    "text": "Recap: Tool definitions in R\ntool_get_weather &lt;- tool(\n  tool_fn,\n  description = \"How and when to use the tool\",\n  arguments = list(\n    .... = type_string(),\n    .... = type_integer(),\n    .... = type_enum(\n      c(\"choice1\", \"choice2\"),\n      required = FALSE\n    )\n  )\n)"
-  },
-  {
-    "objectID": "slides/slides-08.html#recap-tool-definitions-in-python",
-    "href": "slides/slides-08.html#recap-tool-definitions-in-python",
-    "title": "Tool Calling",
-    "section": "Recap: Tool definitions in Python",
-    "text": "Recap: Tool definitions in Python\ndef get_weather(lat, lon):\n    return NWS.GetCurrentForecast(lat, lon)"
-  },
-  {
-    "objectID": "slides/slides-08.html#recap-tool-definitions-in-python-1",
-    "href": "slides/slides-08.html#recap-tool-definitions-in-python-1",
-    "title": "Tool Calling",
-    "section": "Recap: Tool definitions in Python",
-    "text": "Recap: Tool definitions in Python\ndef get_weather(lat: float, lon: float):\n    return NWS.GetCurrentForecast(lat, lon)"
-  },
-  {
-    "objectID": "slides/slides-08.html#recap-tool-definitions-in-python-2",
-    "href": "slides/slides-08.html#recap-tool-definitions-in-python-2",
-    "title": "Tool Calling",
-    "section": "Recap: Tool definitions in Python",
-    "text": "Recap: Tool definitions in Python\ndef get_weather(lat: float, lon: float):\n    \"\"\"\n    Get forecast data for a specific latitude and longitude.\n\n    Parameters\n    ----------\n    lat : str\n        Latitude of the location.\n    lon : str\n        Longitude of the location.\n    \"\"\"\n    return NWS.GetCurrentForecast(lat, lon)"
-  },
-  {
-    "objectID": "slides/slides-08.html#tool-annotations",
-    "href": "slides/slides-08.html#tool-annotations",
-    "title": "Tool Calling",
-    "section": "Tool Annotations",
-    "text": "Tool Annotations\n\nProvide hints to clients about tool behavior\nHelp humans and AI systems make informed decisions about tool usage\nAll properties are hints only - not guaranteed to be accurate\nMCP Tool Annotations Spec"
-  },
-  {
-    "objectID": "slides/slides-08.html#key-properties",
-    "href": "slides/slides-08.html#key-properties",
-    "title": "Tool Calling",
-    "section": "Key Properties",
-    "text": "Key Properties\n\n\n\n\n\n\n\nProperty\nDescription\n\n\n\n\ntitle\nHuman-readable tool name\n\n\nreadOnlyHint\nTool doesn’t modify environment\n\n\ndestructiveHint\nMay perform destructive updates\n\n\nidempotentHint\nRepeated calls with same arguments return same\n\n\nopenWorldHint\nInteracts with external entities vs. closed domain"
-  },
-  {
-    "objectID": "slides/slides-08.html#tool-annotations-in-r",
-    "href": "slides/slides-08.html#tool-annotations-in-r",
-    "title": "Tool Calling",
-    "section": "Tool Annotations in R",
-    "text": "Tool Annotations in R\ntool_get_weather &lt;- tool(\n  get_weather,\n  # description, arguments, ...\n  annotations = tool_annotations(\n    title = \"Get Weather\",\n    readOnlyHint = TRUE,\n    icon = fontawesome::fa_i(\"cloud-sun\")\n  )\n)\n\nellmer: Tool Annotations"
-  },
-  {
-    "objectID": "slides/slides-08.html#tool-annotations-in-python",
-    "href": "slides/slides-08.html#tool-annotations-in-python",
-    "title": "Tool Calling",
-    "section": "Tool Annotations in Python",
-    "text": "Tool Annotations in Python\nchat.register_tool(\n    get_weather,\n    annotations={\n        \"title\": \"Get Weather\",\n        \"readOnlyHint\": True,\n        \"extra\": {\n            \"icon\": faicons.fa_i(\"cloud-sun\"),\n        },\n    },\n)\n\nchatlas (Python): ToolAnnotations"
-  },
-  {
-    "objectID": "slides/slides-08.html#your-turn-21_quiz-game-3",
-    "href": "slides/slides-08.html#your-turn-21_quiz-game-3",
-    "title": "Tool Calling",
-    "section": "Your Turn 21_quiz-game-3",
-    "text": "Your Turn 21_quiz-game-3\n\nAdd tool annotations to our play_sound tools.\nPick an icon from FontAwesome free icons\n\n\n  \n    −\n    +\n \n 08:00"
-  },
-  {
-    "objectID": "slides/slides-08.html#what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool",
-    "href": "slides/slides-08.html#what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool",
-    "title": "Tool Calling",
-    "section": "What if we want to decide title and icon dynamically in the tool?",
-    "text": "What if we want to decide title and icon dynamically in the tool?"
-  },
-  {
-    "objectID": "slides/slides-08.html#ellmercontenttoolresult",
-    "href": "slides/slides-08.html#ellmercontenttoolresult",
-    "title": "Tool Calling",
-    "section": "ellmer::ContentToolResult",
-    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon) {\n  weathR::point_forecast(lat, lon)\n}\n\nellmer: ContentToolResult"
-  },
-  {
-    "objectID": "slides/slides-08.html#ellmercontenttoolresult-1",
-    "href": "slides/slides-08.html#ellmercontenttoolresult-1",
-    "title": "Tool Calling",
-    "section": "ellmer::ContentToolResult",
-    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon) {\n  forecast &lt;- weathR::point_forecast(lat, lon)\n\n  ContentToolResult(\n    forecast\n  )\n}\n\nellmer: ContentToolResult"
-  },
-  {
-    "objectID": "slides/slides-08.html#ellmercontenttoolresult-2",
-    "href": "slides/slides-08.html#ellmercontenttoolresult-2",
-    "title": "Tool Calling",
-    "section": "ellmer::ContentToolResult",
-    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon) {\n  forecast &lt;- weathR::point_forecast(lat, lon)\n\n  ContentToolResult(\n    forecast,\n    extra = list(\n      display = list(\n        title = paste(\"Weather for\", lat, lon),\n        icon = fontawesome::fa_i(\"cloud-sun\")\n      )\n    )\n  )\n}\n\nellmer: ContentToolResult"
-  },
-  {
-    "objectID": "slides/slides-08.html#ellmercontenttoolresult-3",
-    "href": "slides/slides-08.html#ellmercontenttoolresult-3",
-    "title": "Tool Calling",
-    "section": "ellmer::ContentToolResult",
-    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon, location_name) {\n  forecast &lt;- weathR::point_forecast(lat, lon)\n\n  ContentToolResult(\n    forecast,\n    extra = list(\n      display = list(\n        title = paste(\"Weather for\", location_name),\n        icon = fontawesome::fa_i(\"cloud-sun\")\n      )\n    )\n  )\n}\n\nellmer: ContentToolResult"
-  },
-  {
-    "objectID": "slides/slides-08.html#chatlas.contenttoolresult",
-    "href": "slides/slides-08.html#chatlas.contenttoolresult",
-    "title": "Tool Calling",
-    "section": "chatlas.ContentToolResult",
-    "text": "chatlas.ContentToolResult\ndef get_weather(lat: float, lon: float, location_name: str):\n    forecast = NWS.GetCurrentForecast(lat, lon)\n\n    return ContentToolResult(\n        forecast,\n        extra={\n            \"display\": {\n                \"title\": f\"Weather for {location_name}\",\n                \"icon\": faicons.fa_i(\"cloud-sun\"),\n            }\n        },\n    )\n\nchatlas: ContentToolResult"
-  },
-  {
-    "objectID": "slides/slides-08.html#your-turn-22_quiz-game-4",
-    "href": "slides/slides-08.html#your-turn-22_quiz-game-4",
-    "title": "Tool Calling",
-    "section": "Your Turn 22_quiz-game-4",
-    "text": "Your Turn 22_quiz-game-4\n\nPick an icon and a title for each action in the Quiz show app.\nReturn a ContentToolResult from each tool that sets the icon and title.\nPlay the game again to see the icons and titles in action.\n\n\n  \n    −\n    +\n \n 08:00"
-  },
-  {
-    "objectID": "slides/slides-08.html#tools-in-shiny",
-    "href": "slides/slides-08.html#tools-in-shiny",
-    "title": "Tool Calling",
-    "section": "Tools in Shiny",
-    "text": "Tools in Shiny\n\nDefine the tool function inside the server\nYou can update reactive values in the tool function!\nYou can read reactive values, if you isolate() reads. (Be careful!)"
-  },
-  {
-    "objectID": "slides/slides-08.html#your-turn-23_quiz-game-5",
-    "href": "slides/slides-08.html#your-turn-23_quiz-game-5",
-    "title": "Tool Calling",
-    "section": "Your Turn 23_quiz-game-5",
-    "text": "Your Turn 23_quiz-game-5\nI’ve updated the app to show the score in value boxes.\n(And turned off the sounds.)\n\nIn the system prompt, tell the model when to use update_score.\nRead update_score(). It should update a reactive value in the app when called. Finish implementing it.\nComplete the tool definition.\nAdd tool annotations (optional, but fun!)\n\n\n  \n    −\n    +\n \n 08:00"
+    "text": "Enjoy posit::conf(2026)!"
   },
   {
     "objectID": "slides/slides-05.html#three-questions-to-ask-yourself",
@@ -627,7 +473,7 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is sandwich.'"
   },
   {
     "objectID": "slides/slides-00.html#welcome-to-programming-with-llm-apis",
@@ -637,8 +483,8 @@
     "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2026.github.io/llms/setup.html\nJoin the Discord: pos.it/joinconf26\nwifi(  network=“TODO”,  password=“TODO”)\nConference details: conf.posit.co/2026"
   },
   {
-    "objectID": "workshop-10.html",
-    "href": "workshop-10.html",
+    "objectID": "workshop-09.html",
+    "href": "workshop-09.html",
     "title": "Beyond Tools",
     "section": "",
     "text": "View slides in full screen",
@@ -648,8 +494,8 @@
     ]
   },
   {
-    "objectID": "workshop-10.html#slides",
-    "href": "workshop-10.html#slides",
+    "objectID": "workshop-09.html#slides",
+    "href": "workshop-09.html#slides",
     "title": "Beyond Tools",
     "section": "",
     "text": "View slides in full screen",
@@ -659,8 +505,8 @@
     ]
   },
   {
-    "objectID": "workshop-10.html#outline",
-    "href": "workshop-10.html#outline",
+    "objectID": "workshop-09.html#outline",
+    "href": "workshop-09.html#outline",
     "title": "Beyond Tools",
     "section": "Outline",
     "text": "Outline\n\n(10m) querychat\n\nActivity: Add querychat into an existing shiny app\n\n(10m) MCP\n\nOverview of MCP and how it works\nActivity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)\n\nArXiV: https://github.com/andybrandt/mcp-simple-arxiv\nwebpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp\nstocky: https://github.com/joelio/stocky\nfetcher: https://github.com/jae-jae/fetcher-mcp\ngit-ingest: https://github.com/adhikasp/mcp-git-ingest\ngithub: https://arc.net/l/quote/bvfqahnx\ncontext7: https://github.com/upstash/context7\n\n\n(30m) Agents\n\nHadley/Willison definition: Agents are LLMs with a read tool and a write tool\nThe “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention\nDemobot demo\n\n(30m) The Future of AI\n\nWhere do we go from here? Let’s talk fears and hopes.\n\n(5m) Wrap-up\n\nFeedback survey",
@@ -670,8 +516,8 @@
     ]
   },
   {
-    "objectID": "workshop-10.html#workshop-survey",
-    "href": "workshop-10.html#workshop-survey",
+    "objectID": "workshop-09.html#workshop-survey",
+    "href": "workshop-09.html#workshop-survey",
     "title": "Beyond Tools",
     "section": "Workshop Survey",
     "text": "Workshop Survey\nPlease take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!\npos.it/conf-workshop-survey",
@@ -681,8 +527,8 @@
     ]
   },
   {
-    "objectID": "workshop-08.html",
-    "href": "workshop-08.html",
+    "objectID": "workshop-07.html",
+    "href": "workshop-07.html",
     "title": "Tool Calling",
     "section": "",
     "text": "View slides in full screen",
@@ -692,8 +538,8 @@
     ]
   },
   {
-    "objectID": "workshop-08.html#slides",
-    "href": "workshop-08.html#slides",
+    "objectID": "workshop-07.html#slides",
+    "href": "workshop-07.html#slides",
     "title": "Tool Calling",
     "section": "",
     "text": "View slides in full screen",
@@ -703,8 +549,8 @@
     ]
   },
   {
-    "objectID": "workshop-08.html#outline",
-    "href": "workshop-08.html#outline",
+    "objectID": "workshop-07.html#outline",
+    "href": "workshop-07.html#outline",
     "title": "Tool Calling",
     "section": "Outline",
     "text": "Outline\n\n(20m) Tool calling\n\nExplain how tool calling pattern, mostly following https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny\nActivity: quiz show\n\nWe’ve provided an R/Python function that plays a sound\n\nR: beepr, Python: playsound\n\nDocument the function and register it as a tool in the Quiz Show app\n\n\n(30m) Tool calling UI\n\nPrimarily a series of activities that progressively enhance the quiz show app\nActivity: Add tool annotations to give the tool an icon and title\nActivity: Use ContentToolResult to return custom title and icon\nActivity: Track answers and score in the app (add/update value boxes)",
@@ -714,69 +560,134 @@
     ]
   },
   {
-    "objectID": "workshop-04.html",
-    "href": "workshop-04.html",
-    "title": "Programming with LLMs",
+    "objectID": "workshop-05.html",
+    "href": "workshop-05.html",
+    "title": "Prompt Engineering",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Programming with LLMs"
+      "Prompt Engineering"
     ]
   },
   {
-    "objectID": "workshop-04.html#slides",
-    "href": "workshop-04.html#slides",
-    "title": "Programming with LLMs",
+    "objectID": "workshop-05.html#slides",
+    "href": "workshop-05.html#slides",
+    "title": "Prompt Engineering",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Programming with LLMs"
+      "Prompt Engineering"
     ]
   },
   {
-    "objectID": "workshop-04.html#resources",
-    "href": "workshop-04.html#resources",
-    "title": "Programming with LLMs",
-    "section": "Resources",
-    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
-    "crumbs": [
-      "Workshop",
-      "Programming with LLMs"
-    ]
-  },
-  {
-    "objectID": "workshop-02.html",
-    "href": "workshop-02.html",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "workshop-02.html#slides",
-    "href": "workshop-02.html#slides",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "workshop-02.html#outline",
-    "href": "workshop-02.html#outline",
-    "title": "Anatomy of a conversation",
+    "objectID": "workshop-05.html#outline",
+    "href": "workshop-05.html#outline",
+    "title": "Prompt Engineering",
     "section": "Outline",
-    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nTo get a get a response, you send a message via HTTP\nMessage roles: system, user, assistant\nActivity (02_word-game): Word guessing game\nHow does the LLM remember the conversation? demos/03_clearbot\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides\nTokens as the fundamental unit\nExample: _demos/04_token-possibilities\n\n(20m) Shinychat basics\n\nActivity (05_live): live_console() and live_browser() (or chat.console() and chat.app())\nMaking your own shinychat app with chat.ui() and chat.append(). R users can use the chat module with chat_mod_server().\nActivity (06_word-games): Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.",
+    "text": "Outline\n\n(35m) Prompting engineering and hallucinations\n\nActivity: images of mpg vs weight and ask for interpretation\nActivity (part 1): same question, but we’ve replaced the image with random noise\nActivity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image\nPrompt engineering best practices, in particular the system prompt\nActivity: create the prompt for the quiz game show",
     "crumbs": [
       "Workshop",
-      "Anatomy of a conversation"
+      "Prompt Engineering"
+    ]
+  },
+  {
+    "objectID": "workshop-01.html",
+    "href": "workshop-01.html",
+    "title": "Welcome and getting started",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Welcome and getting started"
+    ]
+  },
+  {
+    "objectID": "workshop-01.html#slides",
+    "href": "workshop-01.html#slides",
+    "title": "Welcome and getting started",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Welcome and getting started"
+    ]
+  },
+  {
+    "objectID": "workshop-01.html#outline",
+    "href": "workshop-01.html#outline",
+    "title": "Welcome and getting started",
+    "section": "Outline",
+    "text": "Outline\n\nWelcome, introductions, workshop expectations\n\nActivity: introduce yourself to your neighbors\n\nSet up Posit AI access\n\nActivity: Set up Posit AI Pass and make our first API calls!",
+    "crumbs": [
+      "Workshop",
+      "Welcome and getting started"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programming with LLMs in R and Python",
+    "section": "",
+    "text": "Workshop at posit::conf(2026) in Houston, TXSeptember 14, 2026 :: 09:00 - 17:00Venue: Hilton Americas-Houston | Room: TBD"
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Programming with LLMs in R and Python",
+    "section": "Introduction",
+    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and tool calling. Attendees will gain hands-on experience through guided exercises, providing the confidence to start their LLM journey. Bonus material on Retrieval-Augmented Generation (RAG) is included for self-guided study after the workshop."
+  },
+  {
+    "objectID": "index.html#links",
+    "href": "index.html#links",
+    "title": "Programming with LLMs in R and Python",
+    "section": "Links",
+    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n\n📦 Repository\n🍑 posit::conf(2026)"
+  },
+  {
+    "objectID": "bonus-rag.html",
+    "href": "bonus-rag.html",
+    "title": "Augmented Generation",
+    "section": "",
+    "text": "NoteBonus material\n\n\n\nWe won’t cover this unit during the workshop. It’s included for anyone who wants to go further on their own. Expect to spend about 40 minutes on the activities. Start with the setup steps below.",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "bonus-rag.html#before-you-start",
+    "href": "bonus-rag.html#before-you-start",
+    "title": "Augmented Generation",
+    "section": "Before you start",
+    "text": "Before you start\nInstall the extra packages for this unit:\n\n\n\n\npak::local_install_dev_deps(dependencies = \"Config/Needs/bonus\")\n\n\nuv sync --group bonus\n\n\n\nThe activities also need an embedding model to compute the vectors used for retrieval. You can use any embedding model you like, local or hosted. Both exercises use nomic-embed-text-v2-moe, which you can run locally with LM Studio or ollama:\n\nLM Studio: text-embedding-nomic-embed-text-v2-moe (512MB).\nollama: nomic-embed-text-v2-moe (958MB). Pull it with ollama pull nomic-embed-text-v2-moe.\n\nThe LM Studio copy is half the size because it’s a quantized build of the same model. Quantization stores each model weight in fewer bits, which shrinks the file with a small cost to accuracy. For this exercise the difference doesn’t matter. If you already use one of these tools, stick with it.\n\n\n\n\nThe exercise as written talks to LM Studio on localhost:1234. To use ollama instead, switch the embedding call. In R, use ragnar::embed_ollama() in place of embed_lm_studio():\nstore &lt;- ragnar_store_create(\n  store_location,\n  title = \"R for Data Science\",\n  embed = \\(x) {\n    embed_ollama(x, model = \"nomic-embed-text-v2-moe\")\n  }\n)\n\n\nThe exercise as written talks to LM Studio on localhost:1234. To use ollama instead, switch the embedding call. In Python, point EmbeddingOpenAI() at base_url=\"http://localhost:11434/v1\", since ollama also exposes an OpenAI-compatible API:\nembed = EmbeddingOpenAI(\n    model=\"nomic-embed-text-v2-moe\",\n    base_url=\"http://localhost:11434/v1\",\n)",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "bonus-rag.html#slides",
+    "href": "bonus-rag.html#slides",
+    "title": "Augmented Generation",
+    "section": "Slides",
+    "text": "Slides\n    View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "bonus-rag.html#outline",
+    "href": "bonus-rag.html#outline",
+    "title": "Augmented Generation",
+    "section": "Outline",
+    "text": "Outline\n\n(10m) Manual RAG\n\nActivity 50_coding-assistant: Use an LLM as a coding assistant\n\nWrite a function that uses {weathR} (R) or NWS (Python) to get the weather for a location.\nThen, give the LLM the {weathR} (R) or NWS (Python) README and see how much better the response is.\n\n\n(30m) RAG\n\nHigh-level overview of how RAG works\nActivity 51_rag: Build a dynamic RAG system\n\nMake a chatbot that can draw from the knowledge of:\n\nThe R for Data Science book\nThe Polars Cookbook\n\nPreprocess and compute embeddings for each chunk using ragnar (R) or raghilda (Python)\n\nhttps://posit-dev.github.io/raghilda/user-guide/chatlas-integration.html\nhttps://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag\n\nAdd a tool that searches the embeddings and returns the top few chunks\n\nellmer: Use ragnar\nchatlas: this means writing a function",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
     ]
   },
   {
@@ -829,123 +740,69 @@
     "text": "Footnotes\n\n\nThe best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is [gpt-oss:20b][ollama-gpt-oss]. For something a little bit smaller, try [qwen3:8b][ollama-qwen3-8b].↩︎"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Programming with LLMs in R and Python",
-    "section": "",
-    "text": "Workshop at posit::conf(2026) in Houston, TXSeptember 14, 2026 :: 09:00 - 17:00Venue: Hilton Americas-Houston | Room: TBD"
-  },
-  {
-    "objectID": "index.html#introduction",
-    "href": "index.html#introduction",
-    "title": "Programming with LLMs in R and Python",
-    "section": "Introduction",
-    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and touches on advanced topics like Retrieval-Augmented Generation (RAG) and tool calling. Attendees will gain hands-on experience through guided exercises, providing the confidence to start their LLM journey."
-  },
-  {
-    "objectID": "index.html#links",
-    "href": "index.html#links",
-    "title": "Programming with LLMs in R and Python",
-    "section": "Links",
-    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n\n📦 Repository\n🍑 posit::conf(2026)"
-  },
-  {
-    "objectID": "workshop-01.html",
-    "href": "workshop-01.html",
-    "title": "Welcome and getting started",
+    "objectID": "workshop-02.html",
+    "href": "workshop-02.html",
+    "title": "Anatomy of a conversation",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Welcome and getting started"
+      "Anatomy of a conversation"
     ]
   },
   {
-    "objectID": "workshop-01.html#slides",
-    "href": "workshop-01.html#slides",
-    "title": "Welcome and getting started",
+    "objectID": "workshop-02.html#slides",
+    "href": "workshop-02.html#slides",
+    "title": "Anatomy of a conversation",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Welcome and getting started"
+      "Anatomy of a conversation"
     ]
   },
   {
-    "objectID": "workshop-01.html#outline",
-    "href": "workshop-01.html#outline",
-    "title": "Welcome and getting started",
+    "objectID": "workshop-02.html#outline",
+    "href": "workshop-02.html#outline",
+    "title": "Anatomy of a conversation",
     "section": "Outline",
-    "text": "Outline\n\nWelcome, introductions, workshop expectations\n\nActivity: introduce yourself to your neighbors\n\nSet up Posit AI access\n\nActivity: Set up Posit AI Pass and make our first API calls!",
+    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nTo get a get a response, you send a message via HTTP\nMessage roles: system, user, assistant\nActivity (02_word-game): Word guessing game\nHow does the LLM remember the conversation? demos/03_clearbot\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides\nTokens as the fundamental unit\nExample: _demos/04_token-possibilities\n\n(20m) Shinychat basics\n\nActivity (05_live): live_console() and live_browser() (or chat.console() and chat.app())\nMaking your own shinychat app with chat.ui() and chat.append(). R users can use the chat module with chat_mod_server().\nActivity (06_word-games): Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.",
     "crumbs": [
       "Workshop",
-      "Welcome and getting started"
+      "Anatomy of a conversation"
     ]
   },
   {
-    "objectID": "workshop-05.html",
-    "href": "workshop-05.html",
-    "title": "Prompt Engineering",
+    "objectID": "workshop-04.html",
+    "href": "workshop-04.html",
+    "title": "Programming with LLMs",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Programming with LLMs"
     ]
   },
   {
-    "objectID": "workshop-05.html#slides",
-    "href": "workshop-05.html#slides",
-    "title": "Prompt Engineering",
+    "objectID": "workshop-04.html#slides",
+    "href": "workshop-04.html#slides",
+    "title": "Programming with LLMs",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Programming with LLMs"
     ]
   },
   {
-    "objectID": "workshop-05.html#outline",
-    "href": "workshop-05.html#outline",
-    "title": "Prompt Engineering",
-    "section": "Outline",
-    "text": "Outline\n\n(35m) Prompting engineering and hallucinations\n\nActivity: images of mpg vs weight and ask for interpretation\nActivity (part 1): same question, but we’ve replaced the image with random noise\nActivity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image\nPrompt engineering best practices, in particular the system prompt\nActivity: create the prompt for the quiz game show",
+    "objectID": "workshop-04.html#resources",
+    "href": "workshop-04.html#resources",
+    "title": "Programming with LLMs",
+    "section": "Resources",
+    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
-    ]
-  },
-  {
-    "objectID": "workshop-07.html",
-    "href": "workshop-07.html",
-    "title": "Augmented Generation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
-    ]
-  },
-  {
-    "objectID": "workshop-07.html#slides",
-    "href": "workshop-07.html#slides",
-    "title": "Augmented Generation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
-    ]
-  },
-  {
-    "objectID": "workshop-07.html#outline",
-    "href": "workshop-07.html#outline",
-    "title": "Augmented Generation",
-    "section": "Outline",
-    "text": "Outline\n\n(10m) Manual RAG\n\nActivity 15_coding-assistant: Use an LLM as a coding assistant\n\nWrite a function that uses {weathR} (R) or NWS (Python) to get the weather for a location.\nThen, give the LLM the {weathR} (R) or NWS (Python) README and see how much better the response is.\n\n\n(30m) RAG\n\nHigh-level overview of how RAG works\nActivity 16_rag: Build a dynamic RAG system\n\nMake a chatbot that can draw from the knowledge of:\n\nThe R for Data Science book\nThe Polars Cookbook\n\nPreprocess and compute embeddings for each chunk using ragnar or llama-index\n\nhttps://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval\nhttps://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag\n\nAdd a tool that searches the embeddings and returns the top few chunks\n\nchatlas: this means writing a function\nellmer: Use ragnar",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
+      "Programming with LLMs"
     ]
   },
   {
@@ -953,7 +810,7 @@
     "href": "workshop.html",
     "title": "Overview",
     "section": "",
-    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Workshop",
       "Overview"
@@ -964,7 +821,18 @@
     "href": "workshop.html#schedule",
     "title": "Overview",
     "section": "",
-    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Workshop",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "workshop.html#bonus-material",
+    "href": "workshop.html#bonus-material",
+    "title": "Overview",
+    "section": "Bonus material",
+    "text": "Bonus material\nWe won’t cover these units during the workshop, but they’re included in case you want to go further on your own. You’ll find them in the Bonus section of the sidebar, or in the table below.\n\n\n\n\n\n\nTitle\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Workshop",
       "Overview"
@@ -1489,157 +1357,311 @@
     "text": "chatlas.batch_chat_structured\nfrom chatlas import ChatAuto, batch_chat_structured\n\nchat = chatlas.ChatAuto(\"anthropic/claude-3-haiku-20240307\")\nres = batch_chat_structured(\n    chat=chat,\n    prompts=age_free_text,\n    data_model=Person,\n    path=\"people.json\",\n)"
   },
   {
-    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag",
-    "href": "slides/slides-07.html#retrieval-augmented-generation-rag",
+    "objectID": "slides/slides-07.html#recall-how-do-llms-work",
+    "href": "slides/slides-07.html#recall-how-do-llms-work",
+    "title": "Tool Calling",
+    "section": "Recall: How do LLMs work?",
+    "text": "Recall: How do LLMs work?\n\nYou write some words\nThe LLM writes some more words\nYou use those words\n\n\nOn their own, can LLMs… access the internet? send an email? interact with the world?"
+  },
+  {
+    "objectID": "slides/slides-07.html#lets-try-it",
+    "href": "slides/slides-07.html#lets-try-it",
+    "title": "Tool Calling",
+    "section": "Let’s try it",
+    "text": "Let’s try it\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\n\nchat$chat(\"What's the weather like in Houston, TX?\")\nchat$chat(\"Who are the keynote speakers at posit::conf(2026)?\")\nchat$chat(\"What day is it?\")\n\nimport chatlas\n\nchat = chatlas.Chat(model=\"openai/gpt-4.1-nano\")\nchat.chat(\"What's the weather like in Houston, TX?\")\nchat.chat(\"Who are the keynote speakers at posit::conf(2026)?\")\nchat.chat(\"What day is it?\")\n\n\nRun these in the terminal.\nAsk: how could we get the model to know these answers? Let’s start with the easiest one: what day is it?\nAnswer: we could just tell it in the system prompt.\nWhat about keynote speakers? We could include that in the system prompt too. But what if the schedule changes?\nWhat about the weather? The model can’t know that because it’s not connected to the internet."
+  },
+  {
+    "objectID": "slides/slides-07.html#tools",
+    "href": "slides/slides-07.html#tools",
+    "title": "Tool Calling",
+    "section": "Tools",
+    "text": "Tools\na.k.a. functions, tool calling or function calling\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world\n\n\nTools are extra capabilities that you give to the LLM, like the ability to search the posit::conf(2026) schedule. These capabilities are things that the model can’t do on its own. The goal is let the model pull in real-time, or up-to-date, or high-quality information as needed, depending on the conversation.\nThey can also give the model new abilities to take action on behalf of the user."
+  },
+  {
+    "objectID": "slides/slides-07.html#section",
+    "href": "slides/slides-07.html#section",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "user vs. programmer"
+  },
+  {
+    "objectID": "slides/slides-07.html#how-do-tool-calls-work",
+    "href": "slides/slides-07.html#how-do-tool-calls-work",
+    "title": "Tool Calling",
+    "section": "How do tool calls work?",
+    "text": "How do tool calls work?\nWhat should I wear to posit::conf(2026) in Houston?\n\nSo how do we connect the LLM to the code that this data scientist has written (or could write) to give the model new abilities?"
+  },
+  {
+    "objectID": "slides/slides-07.html#human-in-the-loop",
+    "href": "slides/slides-07.html#human-in-the-loop",
+    "title": "Tool Calling",
+    "section": "Human in the loop",
+    "text": "Human in the loop\n👨‍💻 _demos/18_manual-tools/app.R"
+  },
+  {
+    "objectID": "slides/slides-07.html#wait-i-can-write-code",
+    "href": "slides/slides-07.html#wait-i-can-write-code",
+    "title": "Tool Calling",
+    "section": "Wait… I can write code!",
+    "text": "Wait… I can write code!\n👨‍💻 _demos/19_tools/19_weather-tool.R\n👨‍💻 _demos/19_tools/19_weather-tool.py"
+  },
+  {
+    "objectID": "slides/slides-07.html#section-9",
+    "href": "slides/slides-07.html#section-9",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "Zooming out again, the conversation starts with a user sending a message to the chatbot.\nIn this case, the user asks the model whether they can go to the pool today. (I live in Houston, TX.)\nHow much does the model know about the weather in Houston, TX?\nWhat’s the weather like today in Houston, TX?\n\nI’m unable to provide real-time weather updates. For the latest weather forecast in Houston, TX, please check a trusted weather service such as the National Weather Service, Weather.com, or a weather app on your device.\n\nGo ahead and guess\n\nSure! Since it’s September in Houston, TX, you can generally expect hot and humid weather. Temperatures might range from the mid-80s to low 90s Fahrenheit (around 29-34°C). There could also be some afternoon thunderstorms or showers, which are common along the Gulf Coast. Keep a fan or air conditioning handy if you’re indoors, and stay hydrated!"
+  },
+  {
+    "objectID": "slides/slides-07.html#section-10",
+    "href": "slides/slides-07.html#section-10",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "Now imagine we’ve told the LLM that it has access to a tool called get_weather(). Knowing that it 1) needs to know the weather in Houston and 2) it doesn’t know the weather in Houston, TX; the model decides to use the weather tool.\nIt sends back a message that includes a tool call, basically instructions to call the get_weather() function with the argument 77010. Notice that the model does know that the Hilton Americas-Houston is in the 77010 ZIP code."
+  },
+  {
+    "objectID": "slides/slides-07.html#section-11",
+    "href": "slides/slides-07.html#section-11",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "The programmer can then take that message from the LLM with the instructions to call the tool and they go off and run the code that satisfies the tool request, in this case querying the weather API for the weather in 77010 because that has been a stable fact for a long time."
+  },
+  {
+    "objectID": "slides/slides-07.html#section-12",
+    "href": "slides/slides-07.html#section-12",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "The weather API sends back some data:\n\nThe forecast is mostly sunny\nHigh of 98ºF\nLow of 78ºF"
+  },
+  {
+    "objectID": "slides/slides-07.html#section-13",
+    "href": "slides/slides-07.html#section-13",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "The programmer sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON. Not the kind of thing you’d want to read directly unless you’re the kind of person who likes reading computer data formats."
+  },
+  {
+    "objectID": "slides/slides-07.html#section-14",
+    "href": "slides/slides-07.html#section-14",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "The LLM doesn’t mind JSON though, so it reads the data and generates a response that incorporates the data from the tool call."
+  },
+  {
+    "objectID": "slides/slides-07.html#recap-tool-definitions-in-r",
+    "href": "slides/slides-07.html#recap-tool-definitions-in-r",
+    "title": "Tool Calling",
+    "section": "Recap: Tool definitions in R",
+    "text": "Recap: Tool definitions in R\ntool_get_weather &lt;- tool(\n  tool_fn,\n  description = \"How and when to use the tool\",\n  arguments = list(\n    .... = type_string(),\n    .... = type_integer(),\n    .... = type_enum(\n      c(\"choice1\", \"choice2\"),\n      required = FALSE\n    )\n  )\n)"
+  },
+  {
+    "objectID": "slides/slides-07.html#recap-tool-definitions-in-python",
+    "href": "slides/slides-07.html#recap-tool-definitions-in-python",
+    "title": "Tool Calling",
+    "section": "Recap: Tool definitions in Python",
+    "text": "Recap: Tool definitions in Python\ndef get_weather(lat, lon):\n    return NWS.GetCurrentForecast(lat, lon)"
+  },
+  {
+    "objectID": "slides/slides-07.html#recap-tool-definitions-in-python-1",
+    "href": "slides/slides-07.html#recap-tool-definitions-in-python-1",
+    "title": "Tool Calling",
+    "section": "Recap: Tool definitions in Python",
+    "text": "Recap: Tool definitions in Python\ndef get_weather(lat: float, lon: float):\n    return NWS.GetCurrentForecast(lat, lon)"
+  },
+  {
+    "objectID": "slides/slides-07.html#recap-tool-definitions-in-python-2",
+    "href": "slides/slides-07.html#recap-tool-definitions-in-python-2",
+    "title": "Tool Calling",
+    "section": "Recap: Tool definitions in Python",
+    "text": "Recap: Tool definitions in Python\ndef get_weather(lat: float, lon: float):\n    \"\"\"\n    Get forecast data for a specific latitude and longitude.\n\n    Parameters\n    ----------\n    lat : str\n        Latitude of the location.\n    lon : str\n        Longitude of the location.\n    \"\"\"\n    return NWS.GetCurrentForecast(lat, lon)"
+  },
+  {
+    "objectID": "slides/slides-07.html#tool-annotations",
+    "href": "slides/slides-07.html#tool-annotations",
+    "title": "Tool Calling",
+    "section": "Tool Annotations",
+    "text": "Tool Annotations\n\nProvide hints to clients about tool behavior\nHelp humans and AI systems make informed decisions about tool usage\nAll properties are hints only - not guaranteed to be accurate\nMCP Tool Annotations Spec"
+  },
+  {
+    "objectID": "slides/slides-07.html#key-properties",
+    "href": "slides/slides-07.html#key-properties",
+    "title": "Tool Calling",
+    "section": "Key Properties",
+    "text": "Key Properties\n\n\n\n\n\n\n\nProperty\nDescription\n\n\n\n\ntitle\nHuman-readable tool name\n\n\nreadOnlyHint\nTool doesn’t modify environment\n\n\ndestructiveHint\nMay perform destructive updates\n\n\nidempotentHint\nRepeated calls with same arguments return same\n\n\nopenWorldHint\nInteracts with external entities vs. closed domain"
+  },
+  {
+    "objectID": "slides/slides-07.html#tool-annotations-in-r",
+    "href": "slides/slides-07.html#tool-annotations-in-r",
+    "title": "Tool Calling",
+    "section": "Tool Annotations in R",
+    "text": "Tool Annotations in R\ntool_get_weather &lt;- tool(\n  get_weather,\n  # description, arguments, ...\n  annotations = tool_annotations(\n    title = \"Get Weather\",\n    readOnlyHint = TRUE,\n    icon = fontawesome::fa_i(\"cloud-sun\")\n  )\n)\n\nellmer: Tool Annotations"
+  },
+  {
+    "objectID": "slides/slides-07.html#tool-annotations-in-python",
+    "href": "slides/slides-07.html#tool-annotations-in-python",
+    "title": "Tool Calling",
+    "section": "Tool Annotations in Python",
+    "text": "Tool Annotations in Python\nchat.register_tool(\n    get_weather,\n    annotations={\n        \"title\": \"Get Weather\",\n        \"readOnlyHint\": True,\n        \"extra\": {\n            \"icon\": faicons.fa_i(\"cloud-sun\"),\n        },\n    },\n)\n\nchatlas (Python): ToolAnnotations"
+  },
+  {
+    "objectID": "slides/slides-07.html#your-turn-16_quiz-game-3",
+    "href": "slides/slides-07.html#your-turn-16_quiz-game-3",
+    "title": "Tool Calling",
+    "section": "Your Turn 16_quiz-game-3",
+    "text": "Your Turn 16_quiz-game-3\n\nAdd tool annotations to our play_sound tools.\nPick an icon from FontAwesome free icons\n\n\n  \n    −\n    +\n \n 08:00"
+  },
+  {
+    "objectID": "slides/slides-07.html#what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool",
+    "href": "slides/slides-07.html#what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool",
+    "title": "Tool Calling",
+    "section": "What if we want to decide title and icon dynamically in the tool?",
+    "text": "What if we want to decide title and icon dynamically in the tool?"
+  },
+  {
+    "objectID": "slides/slides-07.html#ellmercontenttoolresult",
+    "href": "slides/slides-07.html#ellmercontenttoolresult",
+    "title": "Tool Calling",
+    "section": "ellmer::ContentToolResult",
+    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon) {\n  weathR::point_forecast(lat, lon)\n}\n\nellmer: ContentToolResult"
+  },
+  {
+    "objectID": "slides/slides-07.html#ellmercontenttoolresult-1",
+    "href": "slides/slides-07.html#ellmercontenttoolresult-1",
+    "title": "Tool Calling",
+    "section": "ellmer::ContentToolResult",
+    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon) {\n  forecast &lt;- weathR::point_forecast(lat, lon)\n\n  ContentToolResult(\n    forecast\n  )\n}\n\nellmer: ContentToolResult"
+  },
+  {
+    "objectID": "slides/slides-07.html#ellmercontenttoolresult-2",
+    "href": "slides/slides-07.html#ellmercontenttoolresult-2",
+    "title": "Tool Calling",
+    "section": "ellmer::ContentToolResult",
+    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon) {\n  forecast &lt;- weathR::point_forecast(lat, lon)\n\n  ContentToolResult(\n    forecast,\n    extra = list(\n      display = list(\n        title = paste(\"Weather for\", lat, lon),\n        icon = fontawesome::fa_i(\"cloud-sun\")\n      )\n    )\n  )\n}\n\nellmer: ContentToolResult"
+  },
+  {
+    "objectID": "slides/slides-07.html#ellmercontenttoolresult-3",
+    "href": "slides/slides-07.html#ellmercontenttoolresult-3",
+    "title": "Tool Calling",
+    "section": "ellmer::ContentToolResult",
+    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon, location_name) {\n  forecast &lt;- weathR::point_forecast(lat, lon)\n\n  ContentToolResult(\n    forecast,\n    extra = list(\n      display = list(\n        title = paste(\"Weather for\", location_name),\n        icon = fontawesome::fa_i(\"cloud-sun\")\n      )\n    )\n  )\n}\n\nellmer: ContentToolResult"
+  },
+  {
+    "objectID": "slides/slides-07.html#chatlas.contenttoolresult",
+    "href": "slides/slides-07.html#chatlas.contenttoolresult",
+    "title": "Tool Calling",
+    "section": "chatlas.ContentToolResult",
+    "text": "chatlas.ContentToolResult\ndef get_weather(lat: float, lon: float, location_name: str):\n    forecast = NWS.GetCurrentForecast(lat, lon)\n\n    return ContentToolResult(\n        forecast,\n        extra={\n            \"display\": {\n                \"title\": f\"Weather for {location_name}\",\n                \"icon\": faicons.fa_i(\"cloud-sun\"),\n            }\n        },\n    )\n\nchatlas: ContentToolResult"
+  },
+  {
+    "objectID": "slides/slides-07.html#your-turn-17_quiz-game-4",
+    "href": "slides/slides-07.html#your-turn-17_quiz-game-4",
+    "title": "Tool Calling",
+    "section": "Your Turn 17_quiz-game-4",
+    "text": "Your Turn 17_quiz-game-4\n\nPick an icon and a title for each action in the Quiz show app.\nReturn a ContentToolResult from each tool that sets the icon and title.\nPlay the game again to see the icons and titles in action.\n\n\n  \n    −\n    +\n \n 08:00"
+  },
+  {
+    "objectID": "slides/slides-07.html#tools-in-shiny",
+    "href": "slides/slides-07.html#tools-in-shiny",
+    "title": "Tool Calling",
+    "section": "Tools in Shiny",
+    "text": "Tools in Shiny\n\nDefine the tool function inside the server\nYou can update reactive values in the tool function!\nYou can read reactive values, if you isolate() reads. (Be careful!)"
+  },
+  {
+    "objectID": "slides/slides-07.html#your-turn-18_quiz-game-5",
+    "href": "slides/slides-07.html#your-turn-18_quiz-game-5",
+    "title": "Tool Calling",
+    "section": "Your Turn 18_quiz-game-5",
+    "text": "Your Turn 18_quiz-game-5\nI’ve updated the app to show the score in value boxes.\n(And turned off the sounds.)\n\nIn the system prompt, tell the model when to use update_score.\nRead update_score(). It should update a reactive value in the app when called. Finish implementing it.\nComplete the tool definition.\nAdd tool annotations (optional, but fun!)\n\n\n  \n    −\n    +\n \n 08:00"
+  },
+  {
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag",
     "title": "Augmented Generation",
     "section": "Retrieval-Augmented Generation (RAG)",
     "text": "Retrieval-Augmented Generation (RAG)\n\nRAG is a technique to automatically find and add relevant context to your prompts, rather than needing you to go out and copy-pasting it into the prompt yourself.\nIn a RAG system, you have a whole pile of documents. They’re not all immediately relevant to every question you might ask, but there’s a lot of useful information in this pile of document.\nWhen you talk to the LLM, the RAG system can take your prompt, search for documents that seem related to your prompt and then add those documents to your prompt. Then the LLM sees both your prompt and these extra documents, and it uses both when generating a response.\nIn the end, you get a much better response that’s more likely to be correct and to include accurate information."
   },
   {
-    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag-1",
-    "href": "slides/slides-07.html#retrieval-augmented-generation-rag-1",
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-1",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-1",
     "title": "Augmented Generation",
     "section": "Retrieval-Augmented Generation (RAG)",
     "text": "Retrieval-Augmented Generation (RAG)"
   },
   {
-    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag-2",
-    "href": "slides/slides-07.html#retrieval-augmented-generation-rag-2",
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-2",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-2",
     "title": "Augmented Generation",
     "section": "Retrieval-Augmented Generation (RAG)",
     "text": "Retrieval-Augmented Generation (RAG)"
   },
   {
-    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag-3",
-    "href": "slides/slides-07.html#retrieval-augmented-generation-rag-3",
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-3",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-3",
     "title": "Augmented Generation",
     "section": "Retrieval-Augmented Generation (RAG)",
     "text": "Retrieval-Augmented Generation (RAG)"
   },
   {
-    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag-4",
-    "href": "slides/slides-07.html#retrieval-augmented-generation-rag-4",
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-4",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-4",
     "title": "Augmented Generation",
     "section": "Retrieval-Augmented Generation (RAG)",
     "text": "Retrieval-Augmented Generation (RAG)"
   },
   {
-    "objectID": "slides/slides-07.html#how-do-we-find-relevant-documents",
-    "href": "slides/slides-07.html#how-do-we-find-relevant-documents",
+    "objectID": "slides/slides-50.html#how-do-we-find-relevant-documents",
+    "href": "slides/slides-50.html#how-do-we-find-relevant-documents",
     "title": "Augmented Generation",
     "section": "How do we find relevant documents?",
     "text": "How do we find relevant documents?\n\nAnswer: word vector embeddings → turn words into vectors\n\n\nHow do we actually find the most relevant documents?\nWord vector embeddings are a way to represent words as dense, real-valued vectors in a continuous space.\nThe idea is to capture semantic and syntactic relationships between words such that geometrical relationships in the vector space correspond to linguistic relationships in the language.\nEach word is mapped to a fixed-length vector with real-valued components. Distances and directions in this space encode similarity and relational structure. Words with similar meanings or usage tend to have similar vectors (small cosine distance, or Euclidean distance). Beyond meaning, embeddings can capture grammatical or functional similarities (e.g., verbs in present tense vs. past tense, or plural vs. singular forms)."
   },
   {
-    "objectID": "slides/slides-07.html#section-4",
-    "href": "slides/slides-07.html#section-4",
+    "objectID": "slides/slides-50.html#section-4",
+    "href": "slides/slides-50.html#section-4",
     "title": "Augmented Generation",
     "section": "🤴 - 🧔‍♂️ + 💁‍♀️ = ❓",
     "text": "🤴 - 🧔‍♂️ + 💁‍♀️ = ❓"
   },
   {
-    "objectID": "slides/slides-07.html#section-5",
-    "href": "slides/slides-07.html#section-5",
+    "objectID": "slides/slides-50.html#section-5",
+    "href": "slides/slides-50.html#section-5",
     "title": "Augmented Generation",
     "section": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = ❓",
     "text": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = ❓"
   },
   {
-    "objectID": "slides/slides-07.html#section-6",
-    "href": "slides/slides-07.html#section-6",
+    "objectID": "slides/slides-50.html#section-6",
+    "href": "slides/slides-50.html#section-6",
     "title": "Augmented Generation",
     "section": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = 👸",
     "text": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = 👸"
   },
   {
-    "objectID": "slides/slides-07.html#openai-text-embedding-3-small",
-    "href": "slides/slides-07.html#openai-text-embedding-3-small",
+    "objectID": "slides/slides-50.html#openai-text-embedding-3-small",
+    "href": "slides/slides-50.html#openai-text-embedding-3-small",
     "title": "Augmented Generation",
     "section": "OpenAI: text-embedding-3-small",
     "text": "OpenAI: text-embedding-3-small\ntext_embedding_3_small(\"dplyr::left_join\")\n#&gt; [-0.0384574,  0.00796838,  0.04896307, ..., -0.01687562, 0.00051399,  0.01020856]\n\ntext_embedding_3_small(\"LEFT JOIN\")\n#&gt; [-0.0114895,  0.01873610,  0.04436858, ...,  0.0055124, 0.01100459, -0.00588281],\n\n\ntext_embedding_3_small(\"suitcase\")\n#&gt; [ 0.01323017, -0.00844115, -0.02530578, ..., -0.00054488, -0.0285338, -0.02933492]"
   },
   {
-    "objectID": "slides/slides-07.html#two-ways-that-users-encounter-rag",
-    "href": "slides/slides-07.html#two-ways-that-users-encounter-rag",
+    "objectID": "slides/slides-50.html#two-ways-that-users-encounter-rag",
+    "href": "slides/slides-50.html#two-ways-that-users-encounter-rag",
     "title": "Augmented Generation",
     "section": "Two ways that users encounter RAG",
     "text": "Two ways that users encounter RAG\n\nEvery prompt you send gets passed through\na RAG system and is augmented\nThe LLM can decide when to call the RAG system"
   },
   {
-    "objectID": "slides/slides-07.html#ragnar",
-    "href": "slides/slides-07.html#ragnar",
+    "objectID": "slides/slides-50.html#ragnar",
+    "href": "slides/slides-50.html#ragnar",
     "title": "Augmented Generation",
     "section": "In R…",
     "text": "In R…\n\n\n\n\n\n\n\nhttps://ragnar.tidyverse.org/"
   },
   {
-    "objectID": "slides/slides-07.html#llama-index",
-    "href": "slides/slides-07.html#llama-index",
+    "objectID": "slides/slides-50.html#raghilda",
+    "href": "slides/slides-50.html#raghilda",
     "title": "Augmented Generation",
     "section": "In Python…",
-    "text": "In Python…\n\n\n\n\n\nLlamaIndex\npinecone\nchromadb\n\n\n\nchatlas: RAG"
-  },
-  {
-    "objectID": "slides/slides-10.html#querychat-in-r",
-    "href": "slides/slides-10.html#querychat-in-r",
-    "title": "Beyond Tools",
-    "section": "querychat in R",
-    "text": "querychat in R\nlibrary(shiny)\nlibrary(bslib)\nlibrary(querychat)\n\nmtcars_qc_config &lt;- querychat_init(mtcars)\n\nui &lt;- page_sidebar(\n  sidebar = querychat_sidebar(\"mtcars\"),\n  # plots, tables, etc.\n)\n\nserver &lt;- function(input, output, session) {\n  mtcars_qc &lt;- querychat_server(\"mtcars\", mtcars_qc_config)\n\n  output$table &lt;- renderTable({\n    mtcars_qc$df()\n  })\n}\n\nshinyApp(ui, server)"
-  },
-  {
-    "objectID": "slides/slides-10.html#querychat-in-python",
-    "href": "slides/slides-10.html#querychat-in-python",
-    "title": "Beyond Tools",
-    "section": "querychat in Python",
-    "text": "querychat in Python\nimport polars as pl\nimport querychat\nfrom shiny import App, render, ui\n\nmtcars = pl.read_csv(\"data/mtcars.csv\")\n\nmtcars_qc_config = querychat.init(mtcars, \"mtcars\")\n\napp_ui = ui.page_sidebar(\n    querychat.sidebar(\"mtcars\"),\n    # plots, tables, etc.\n)\n\ndef server(input, output, session):\n    mtcars_qc = querychat.server(\"mtcars\", mtcars_qc_config)\n\n    @render.data_frame\n    def data_table():\n        return qc.df()\n\napp = App(app_ui, server)"
-  },
-  {
-    "objectID": "slides/slides-10.html#recall-tools",
-    "href": "slides/slides-10.html#recall-tools",
-    "title": "Beyond Tools",
-    "section": "Recall: Tools",
-    "text": "Recall: Tools\na.k.a. functions, tool calling or function calling\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world"
-  },
-  {
-    "objectID": "slides/slides-10.html#what-other-tools-could-be-useful",
-    "href": "slides/slides-10.html#what-other-tools-could-be-useful",
-    "title": "Beyond Tools",
-    "section": "🤔 What other tools could be useful?",
-    "text": "🤔 What other tools could be useful?\n\nGet the weather\nSearch the posit::conf() schedule\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
-  },
-  {
-    "objectID": "slides/slides-10.html#what-github-related-tools-would-be-useful",
-    "href": "slides/slides-10.html#what-github-related-tools-would-be-useful",
-    "title": "Beyond Tools",
-    "section": "🤔 What GitHub-related tools would be useful?",
-    "text": "🤔 What GitHub-related tools would be useful?\n\nList issues\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
-  },
-  {
-    "objectID": "slides/slides-10.html#who-should-write-tools-for-github",
-    "href": "slides/slides-10.html#who-should-write-tools-for-github",
-    "title": "Beyond Tools",
-    "section": "Who should write tools for GitHub?",
-    "text": "Who should write tools for GitHub?\n\nMCP solves this problem! GitHub writes tools…\n\n\nand lets you your models use them.\nGitHub MCP Server"
-  },
-  {
-    "objectID": "slides/slides-10.html#whats-an-agent",
-    "href": "slides/slides-10.html#whats-an-agent",
-    "title": "Beyond Tools",
-    "section": "What’s an agent?",
-    "text": "What’s an agent?\n\nHadley/Willison definition: Agents are LLMs with a read tool and a write tool\nThe “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention"
-  },
-  {
-    "objectID": "slides/slides-10.html#demo-databot",
-    "href": "slides/slides-10.html#demo-databot",
-    "title": "Beyond Tools",
-    "section": "Demo: Databot",
-    "text": "Demo: Databot\n👨‍💻 _demos/27_demo_databot/README.md\n\nLet’s look at data/airbnb-asheville.csv, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC."
-  },
-  {
-    "objectID": "slides/slides-10.html#section-3",
-    "href": "slides/slides-10.html#section-3",
-    "title": "Beyond Tools",
-    "section": "",
-    "text": "Enjoy posit::conf(2026)!"
+    "text": "In Python…\n\n\n\n\n\n\n\nhttps://posit-dev.github.io/raghilda/"
   }
 ]

@@ -73,7 +73,7 @@ def server(input, output, session):
 app = App(app_ui, server)
 ```
 
-# Your Turn `25_querychat` {.slide-your-turn}
+# Your Turn `19_querychat` {.slide-your-turn}
 
 1. I've made a Shiny dashboard to explore Airbnb listings in Asheville, NC.
    * Spend 1-2 min: which Neighborhood has most private rooms?
@@ -156,7 +156,7 @@ and lets ~~you~~ your models use them.
 
 <!-- TODO: Adding MCP tools to ellmer, chatlas -->
 
-# Your Turn `26_mcp` {.slide-your-turn}
+# Your Turn `20_mcp` {.slide-your-turn}
 
 Follow the instructions in `README.R.md` or `README.py.md` for this task.
 
