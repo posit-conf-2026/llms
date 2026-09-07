@@ -9,8 +9,8 @@ title: Getting set up
 **Bring your [personal laptop]{.text-danger} and a power cord.** This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.
 
 
-::: {.callout-important title="Set up Posit AI Pass"}
-![](assets/logos/posit-ai.svg){.img-fluid style="max-height: 80px; margin-bottom: 0.5em"}
+::: {.callout-tip title="Set up Posit AI Pass"}
+![](assets/logos/posit-ai.svg){.img-fluid style="display: block; margin-inline: auto; max-height: 80px; margin-bottom: 0.5em"}
 
 We'll use [Posit AI](https://posit.ai) for every activity in this workshop. Posit AI Pass is a subscription from Posit. It gives you access to LLMs in Posit Assistant, and from [ellmer] and [chatlas] in your R or Python code.
 
@@ -25,25 +25,15 @@ The first time you call an LLM from ellmer or chatlas, your browser opens so you
 If you'd also like to try local models (they're free), [install ollama and download a model](#local-models).
 :::
 
-<!--
-:::::: {.callout-caution title="Bring your own laptop"}
+:::::: {.callout-important title="Bring your own laptop"}
 You'll need a computer with internet access and the ability to install R or Python packages.
 
-::::: {.grid .gap-2}
-::: {.g-col-12 .g-col-sm-6 .g-col-lg-8}
 We **strongly recommend** using a *personal laptop* rather than a work laptop.
 Many work laptops have restrictions that may prevent you from installing necessary software or accessing certain websites.
 
 You'll also want to bring a power cord to keep your laptop charged throughout the workshop.
 And a bottle of water to stay hydrated (for you, not your laptop)!
-:::
-
-::: {.g-col-12 .g-col-sm-6 .g-col-lg-4 .text-end .align-self-center}
-![Frustrated man holding his head in his hands and looking confused at his laptop.](assets/frustrated-man.png)
-:::
-:::::
 ::::::
--->
 
 ## Create accounts
 
@@ -103,6 +93,24 @@ TODO: Update posit cloud workspace screenshot
 -->
 ```
 
+## Use Posit Cloud (recommended)
+
+The easiest way to follow along is our Posit Cloud workspace.
+It comes with R, Python, and every package and file used in the workshop, already installed.
+You work in your browser, so there's nothing to install on your laptop.
+
+::: {.callout-warning title="Workspace link coming soon"}
+The link to join the Posit Cloud workspace will be posted here shortly before the workshop starts.
+:::
+
+If you don't have a Posit Cloud account, [sign up for a free one](https://posit.cloud/plans).
+You can sign up with your email, Google, GitHub, or Clever.
+When the workspace link is available, join the space and launch the workshop project.
+
+When the project opens, pick your editor: **Positron** or **RStudio**.
+Both work for every activity in the workshop.
+
+
 ## Choose your IDE
 
 You can use any IDE you like to follow along with the workshop.
@@ -124,7 +132,118 @@ Using Positron offers you the opportunity to try out two new AI-powered features
 * [Databot](https://positron.posit.co/databot.html), an AI assistant specifically designed to accelerate exploratory data analysis.
 :::
 
-## Prepping for the workshop
+
+## Posit Assistant and Posit AI Pass
+
+You use the same steps to set up Posit Assistant in Posit Cloud and in Positron on your own computer.
+Open Posit Assistant, sign in to Posit AI, and you're done.
+After that, [ellmer] and [chatlas] use the same sign-in from your R and Python code.
+
+:::::: {.panel-tabset}
+
+#### Step 1: Open Posit Assistant
+
+Click the Posit Assistant icon in the left activity bar, then click **Help me set it up**.
+
+::: text-center
+![](assets/posit-cloud-setup-01.png){.img-fluid}
+:::
+
+#### Step 2: Start setup
+
+Click **Configure AI providers**.
+
+::: text-center
+![](assets/posit-cloud-setup-02.png){.img-fluid}
+:::
+
+#### Step 3: Choose Posit AI
+
+Select **Posit AI** as the provider, leave **OAuth** selected, then click **Sign in**.
+
+::: text-center
+![](assets/posit-cloud-setup-03.png){.img-fluid}
+:::
+
+#### Step 4: Sign in
+
+Positron shows a code and copies it to your clipboard.
+Click **OK**, and your browser opens.
+Sign in to Posit AI with the account you created above and paste the code when asked.
+
+::: text-center
+![](assets/posit-cloud-setup-04.png){.img-fluid}
+:::
+
+#### Step 5: You're ready
+
+Back in Positron, you'll see "Posit Assistant is ready!".
+
+::: text-center
+![](assets/posit-cloud-setup-05.png){.img-fluid}
+:::
+
+![](assets/posit-cloud-setup-06.png){.img-fluid}
+
+#### Step 6: Pick a model
+
+Open the model picker at the bottom of the Posit Assistant pane to see the models included with Posit AI Pass.
+
+::: text-center
+![](assets/posit-cloud-setup-07.png){.img-fluid}
+:::
+
+#### Step 7: Try it out
+
+Ask a question to confirm everything works.
+
+::: text-center
+![](assets/posit-cloud-setup-08.png){.img-fluid}
+:::
+
+::::::
+
+### Use Posit AI Pass from ellmer and chatlas
+
+The first time you call an LLM from ellmer or chatlas, your browser opens so you can log in to Posit AI.
+After that, you stay logged in for the rest of the day.
+
+::: {.panel-tabset group="lang"}
+
+#### ![](assets/icons/r-color.svg){height="36px" alt="R"}
+
+``` r
+library(ellmer)
+
+# The first time, ellmer opens your browser so you can log in to Posit AI:
+chat <- chat_posit()
+#> Copy XXXX-XXXX and paste when requested by the browser.
+#> Press <enter> to proceed:
+
+chat$chat("What is the capital of France?")
+#> The capital of France is Paris.
+```
+
+#### ![](assets/icons/python-icon-color.svg){height="36px" alt="Python"}
+
+``` python
+from chatlas import ChatPosit
+
+# The first time, chatlas opens your browser so you can log in to Posit AI:
+chat = ChatPosit()
+# Copy XXXX-XXXX and paste when requested by the browser.
+# Press <enter> to proceed:
+
+chat.chat("What is the capital of France?")
+# The capital of France is Paris.
+```
+
+:::
+
+## Use your own computer
+
+If you're using Posit Cloud, you can skip this section.
+Everything below is for running the materials on your own computer.
 
 To prepare for the workshop, you need to [clone the repository]({{< meta workshop.links.repo >}}) and install the necessary packages.
 
