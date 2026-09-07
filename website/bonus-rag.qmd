@@ -1,0 +1,88 @@
+---
+title: Augmented Generation
+description: How to add knowledge to LLMs and make them more useful for specific tasks.
+description-short: Adding knowledge to LLMs
+duration: 40min
+---
+
+::: {.callout-note title="Bonus material"}
+
+We won't cover this unit during the workshop. It's included for anyone who wants to go further on their own. Expect to spend about 40 minutes on the activities. Start with the [setup steps](#before-you-start) below.
+
+:::
+
+## Before you start
+
+Install the extra packages for this unit:
+
+::::: {.panel-tabset group="lang"}
+#### ![](assets/icons/r-color.svg){height="36px" alt="R"}
+
+```r
+pak::local_install_dev_deps(dependencies = "Config/Needs/bonus")
+```
+
+#### ![](assets/icons/python-icon-color.svg){height="36px" alt="Python"}
+
+```bash
+uv sync --group bonus
+```
+:::::
+
+The activities also need an embedding model to compute the vectors used for retrieval. You can use any embedding model you like, local or hosted. Both exercises use [nomic-embed-text-v2-moe](https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe-GGUF), which you can run locally with [LM Studio](https://lmstudio.ai/) or [ollama](setup.qmd#local-models):
+
+- LM Studio: `text-embedding-nomic-embed-text-v2-moe` (512MB).
+- [ollama: `nomic-embed-text-v2-moe`](https://ollama.com/library/nomic-embed-text-v2-moe) (958MB). Pull it with `ollama pull nomic-embed-text-v2-moe`.
+
+The LM Studio copy is half the size because it's a quantized build of the same model. Quantization stores each model weight in fewer bits, which shrinks the file with a small cost to accuracy. For this exercise the difference doesn't matter. If you already use one of these tools, stick with it.
+
+::::: {.panel-tabset group="lang"}
+#### ![](assets/icons/r-color.svg){height="36px" alt="R"}
+
+The exercise as written talks to LM Studio on `localhost:1234`. To use ollama instead, switch the embedding call. In R, use `ragnar::embed_ollama()` in place of `embed_lm_studio()`:
+
+```r
+store <- ragnar_store_create(
+  store_location,
+  title = "R for Data Science",
+  embed = \(x) {
+    embed_ollama(x, model = "nomic-embed-text-v2-moe")
+  }
+)
+```
+
+#### ![](assets/icons/python-icon-color.svg){height="36px" alt="Python"}
+
+The exercise as written talks to LM Studio on `localhost:1234`. To use ollama instead, switch the embedding call. In Python, point `EmbeddingOpenAI()` at `base_url="http://localhost:11434/v1"`, since ollama also exposes an OpenAI-compatible API:
+
+```python
+embed = EmbeddingOpenAI(
+    model="nomic-embed-text-v2-moe",
+    base_url="http://localhost:11434/v1",
+)
+```
+:::::
+
+## Slides
+
+{{< revealjs "slides/slides-07.html" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- (10m) Manual RAG
+  - Activity `50_coding-assistant`: Use an LLM as a coding assistant
+    - Write a function that uses `{weathR}` (R) or `NWS` (Python) to get the weather for a location.
+    - Then, give the LLM the `{weathR}` (R) or `NWS` (Python) README and see how much better the response is.
+
+- (30m) RAG
+  - High-level overview of how RAG works
+  - Activity `51_rag`: Build a dynamic RAG system
+    - Make a chatbot that can draw from the knowledge of:
+      - [The R for Data Science book](https://r4ds.hadley.nz)
+      - [The Polars Cookbook](https://github.com/escobar-west/polars-cookbook)
+    - Preprocess and compute embeddings for each chunk using `ragnar` (R) or `raghilda` (Python)
+      - https://posit-dev.github.io/raghilda/user-guide/chatlas-integration.html
+      - https://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag
+    - Add a tool that searches the embeddings and returns the top few chunks
+      - ellmer: Use `ragnar`
+      - chatlas: this means writing a function

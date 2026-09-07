@@ -82,6 +82,8 @@ website:
         - workshop-09-break.qmd
         - text: '<div class="sidebar-divider font-monospace">Afternoon 2</div>'
         - workshop-10.qmd
+        - text: '<div class="sidebar-divider font-monospace">Bonus</div>'
+        - bonus-rag.qmd
 
 format:
   html:

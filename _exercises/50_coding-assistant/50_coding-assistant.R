@@ -16,7 +16,7 @@ chat <- chat_posit(model = "zai-org/GLM-5.3-Flash", echo = "output")
 
 chat$chat(
   ## Extra context from package docs
-  # brio::read_file(here::here("_exercises/15_coding-assistant/docs.R.md")),
+  # brio::read_file(here::here("_exercises/50_coding-assistant/docs.R.md")),
   ## Task prompt
   paste(
     "Write a simple function that takes latitude and longitude as inputs",

@@ -27,7 +27,7 @@ dependencies = [
 
 [dependency-groups]
 bonus = [
-    "llama-index>=0.14.24",
+    "raghilda>=0.2.1",
 ]
 dev = [
     "jupytext>=1.19.5",

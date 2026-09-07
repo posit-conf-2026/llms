@@ -10,7 +10,7 @@ editor:
 
 # [Welcome back to work]{.hidden} {.no-invert-dark-mode background-image="assets/jwww26np0drm80cs98ytx6znmg.jpg" background-size="cover" background-position="center"}
 
-# Your Turn `15_coding-assistant` {.slide-your-turn}
+# Your Turn `50_coding-assistant` {.slide-your-turn}
 
 1. Use Claude 3.5 Sonnet to write a function that gets the weather. \
    The first time, use Claude on its own.
@@ -145,7 +145,7 @@ text_embedding_3_small("suitcase")
 <https://ragnar.tidyverse.org/>
 :::
 
-## In Python... {#llama-index .center transition="fade"}
+## In Python... {#raghilda .center transition="fade"}
 
 :::::: {style="display: flex; flex-direction: row; align-items: center; gap: 1em; text-align: center;"}
 ::::: {.column}
@@ -153,21 +153,17 @@ text_embedding_3_small("suitcase")
 :::::
 
 ::::: {.column}
-* [LlamaIndex](https://docs.llamaindex.ai/en/stable/)
-
-* [pinecone](https://docs.pinecone.io/reference/python-sdk)
-
-* [chromadb](https://www.trychroma.com/)
+![](/assets/logos/raghilda.png){width="400px"}
 :::::
 ::::::
 
 ::: footer
-[chatlas: RAG](https://posit-dev.github.io/chatlas/misc/RAG.html)
+<https://posit-dev.github.io/raghilda/>
 :::
 
-# Your Turn `16_rag` {.slide-your-turn}
+# Your Turn `51_rag` {.slide-your-turn}
 
-Follow the steps in the `16_rag` exercise, which are roughly:
+Follow the steps in the `51_rag` exercise, which are roughly:
 
 1. First, you'll create a vector database from a set of documents:
    * In R: *[R for Data Science](https://r4ds.had.co.nz/)* (R4DS)

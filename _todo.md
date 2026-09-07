@@ -36,8 +36,8 @@
 
 ### Afternoon 1
 
-- [x] 15_coding-assistant: Getting the weather with a niche R/Python package
-- [x] 16_rag: Create dynamic RAG system with dplyr or polars documentation
+- [x] 50_coding-assistant: Getting the weather with a niche R/Python package
+- [x] 51_rag: Create dynamic RAG system with dplyr or polars documentation (bonus material, uses `ragnar` in R and `raghilda` in Python)
 - [x] 18_demo_manual-tools: Human-in-the-loop weather tool
 - [x] 19_demo_tools: Automated weather tool
 - [x] 20_quiz-game-2: Quiz game show with tools for sounds
