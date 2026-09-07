@@ -6,7 +6,7 @@ workshop:
     location: Houston, TX
   date: September 14, 2026
   time: 09:00 - 17:00
-  location: "**Venue:** Hilton Americas-Houston | **Room:** TBD"
+  location: "**Venue:** Hilton Americas-Houston | **Room:** Lanier I"
   discord_channel: TODO
   links:
     repo: https://github.com/posit-conf-2026/llms
