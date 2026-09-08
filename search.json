@@ -459,7 +459,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is sandwich."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
@@ -473,7 +473,7 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is sandwich.'"
   },
   {
     "objectID": "slides/slides-00.html#welcome-to-programming-with-llm-apis",
@@ -1179,7 +1179,7 @@
     "href": "slides/slides-04.html#your-turn-08_vision",
     "title": "Programming with LLMs",
     "section": "Your Turn 08_vision",
-    "text": "Your Turn 08_vision\n\nI’ve put some images of food in the data/recipes/images folder.\nYour job: show the food to the LLM and see if it gets hungry.\n\n\n  \n    −\n    +\n \n 05:00"
+    "text": "Your Turn 08_vision\n\nI’ve put some images of food in the data/recipes/images folder.\nYour job: show the food to the LLM and see if it gets hungry."
   },
   {
     "objectID": "slides/slides-04.html#content_pdf_file",
@@ -1200,7 +1200,7 @@
     "href": "slides/slides-04.html#your-turn-09_pdf",
     "title": "Programming with LLMs",
     "section": "Your Turn 09_pdf",
-    "text": "Your Turn 09_pdf\n\nWe have the actual recipes as PDFs in the data/recipes/pdf folder.\nYour job: ask the LLM to convert the recipes to markdown.\n\n\n  \n    −\n    +\n \n 05:00"
+    "text": "Your Turn 09_pdf\n\nWe have the actual recipes as PDFs in the data/recipes/pdf folder.\nYour job: ask the LLM to convert the recipes to markdown."
   },
   {
     "objectID": "slides/slides-04.html#how-would-you-extract-name-and-age",
@@ -1522,7 +1522,7 @@
     "href": "slides/slides-07.html#your-turn-16_quiz-game-3",
     "title": "Tool Calling",
     "section": "Your Turn 16_quiz-game-3",
-    "text": "Your Turn 16_quiz-game-3\n\nAdd tool annotations to our play_sound tools.\nPick an icon from FontAwesome free icons\n\n\n  \n    −\n    +\n \n 08:00"
+    "text": "Your Turn 16_quiz-game-3\n\nAdd tool annotations to our play_sound tools.\nPick an icon from FontAwesome free icons"
   },
   {
     "objectID": "slides/slides-07.html#what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool",
@@ -1571,7 +1571,7 @@
     "href": "slides/slides-07.html#your-turn-17_quiz-game-4",
     "title": "Tool Calling",
     "section": "Your Turn 17_quiz-game-4",
-    "text": "Your Turn 17_quiz-game-4\n\nPick an icon and a title for each action in the Quiz show app.\nReturn a ContentToolResult from each tool that sets the icon and title.\nPlay the game again to see the icons and titles in action.\n\n\n  \n    −\n    +\n \n 08:00"
+    "text": "Your Turn 17_quiz-game-4\n\nPick an icon and a title for each action in the Quiz show app.\nReturn a ContentToolResult from each tool that sets the icon and title.\nPlay the game again to see the icons and titles in action."
   },
   {
     "objectID": "slides/slides-07.html#tools-in-shiny",
@@ -1585,7 +1585,7 @@
     "href": "slides/slides-07.html#your-turn-18_quiz-game-5",
     "title": "Tool Calling",
     "section": "Your Turn 18_quiz-game-5",
-    "text": "Your Turn 18_quiz-game-5\nI’ve updated the app to show the score in value boxes.\n(And turned off the sounds.)\n\nIn the system prompt, tell the model when to use update_score.\nRead update_score(). It should update a reactive value in the app when called. Finish implementing it.\nComplete the tool definition.\nAdd tool annotations (optional, but fun!)\n\n\n  \n    −\n    +\n \n 08:00"
+    "text": "Your Turn 18_quiz-game-5\nI’ve updated the app to show the score in value boxes.\n(And turned off the sounds.)\n\nIn the system prompt, tell the model when to use update_score.\nRead update_score(). It should update a reactive value in the app when called. Finish implementing it.\nComplete the tool definition.\nAdd tool annotations (optional, but fun!)"
   },
   {
     "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag",
