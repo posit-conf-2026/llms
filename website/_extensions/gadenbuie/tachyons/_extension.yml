@@ -6,3 +6,5 @@ contributes:
   filters:
     - tachyons.lua
 
+source: gadenbuie/quarto-tachyons@v1.1.0
+source-type: github

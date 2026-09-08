@@ -85,7 +85,7 @@ website:
 
 format:
   html:
-    theme: [zephyr, styles.scss, styles-page-transition.scss]
+    theme: [zephyr, styles.scss]
     toc: true
     lightbox: true
     include-in-header:
