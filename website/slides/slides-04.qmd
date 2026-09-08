@@ -73,7 +73,7 @@ dd:before {
 ![](assets/providers-models-08.excalidraw.svg)
 
 ::: notes
-Posit AI is the provider we will use today. It hosts models from several
+Posit AI Pass is the provider we will use today. It hosts models from several
 companies, including Anthropic's Claude models.
 :::
 
@@ -89,8 +89,8 @@ companies, including Anthropic's Claude models.
 
 ::: notes
 1. Context: 1M tokens is common among the newest models here. Smaller models can still have shorter windows like 200k for Claude Haiku 4.5.
-1. Speed: Current measurements range from about 50 to 300 output tokens/sec: GLM-5.3-Flash 51, Claude Sonnet 5 75, GPT-5.6 Terra 117, and Gemini 3.8 Flash 292.
-1. Cost: Current list prices range from $0.15 input / $0.50 output per 1M tokens for GLM-5.3-Flash to $5 / $25 for Claude Opus 5. Output tokens usually cost more than input tokens.
+1. Speed: In the table, output speed ranges from about 38 tokens/sec (Claude Opus 4.6) to 85 (Gemma 4 26B). These are Artificial Analysis measurements.
+1. Cost: Relative Posit AI Pass costs range from 0.1x for Gemma 4 26B to 1.67x for the Claude Opus models. Output tokens usually cost more than input tokens.
 :::
 
 ## {transition="fade"}
@@ -141,7 +141,7 @@ license determines how you can use, modify, and redistribute it.
 A model running on your computer is local. A model running on infrastructure
 managed by your organization is self-hosted.
 
-Open weight model doesn't necessarily mean local.
+Open-weight models aren't necessarily local.
 :::
 
 
@@ -257,7 +257,7 @@ to Anthropic, OpenAI, or Google requires credentials for that provider.
 
 Posit AI Pass is also a provider. It hosts models created by several companies.
 For example, `ChatPosit(model="moonshotai/Kimi-K3")` sends the request through
-Posit AI, not directly to Moonshot AI.
+Posit AI Pass, not directly to Moonshot AI.
 :::
 
 ## Switch models with `model=`
@@ -333,8 +333,8 @@ chat = chatlas.ChatAuto(
 
 ::: notes
 `chat()` and `ChatAuto()` provide a common interface across providers. Give
-them a provider name to use that provider's default model. Posit currently
-selects Claude Sonnet 5 by default.
+them a provider name to use that provider's default model. Posit AI Pass
+currently selects Claude Sonnet 5 by default.
 :::
 
 ## Shortcut: `chat()` and `ChatAuto()` {transition="fade"}
@@ -366,8 +366,8 @@ chat = chatlas.ChatAuto(
 :::
 
 ::: notes
-Use `"provider/model"` to select both at once. This example still uses Posit AI
-as the provider and selects Kimi K3 as the model.
+Use `"provider/model"` to select both at once. This example still uses
+Posit AI Pass as the provider and selects Kimi K3 as the model.
 :::
 
 ## List models available through Posit AI Pass

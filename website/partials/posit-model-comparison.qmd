@@ -7,7 +7,7 @@ posit_models <- tibble::tribble(
   "Gemma 4 26B (A4B)" , "Google"      , "Fastest"                                             , 0.10  , 84.8   ,
   "Claude Haiku 4.5"  , "Anthropic"   , "Fast"                                                , 0.33  , 80.2   ,
   "Claude Sonnet 4.6" , "Anthropic"   , "Balanced"                                            , 1.00  , 44.3   ,
-  "Claude Sonnet 5"   , "Anthropic"   , "Balanced"                                            , 0.67  , 75.3   ,
+  "Claude Sonnet 5"   , "Anthropic"   , "Balanced"                                            , 1.00  , 75.3   ,
   "Claude Opus 4.6"   , "Anthropic"   , "Smart"                                               , 1.67  , 38.2   ,
   "Claude Opus 4.8"   , "Anthropic"   , "Smartest"                                            , 1.67  , 59.0   ,
   "GLM 5.2"           , "Z.ai"        , "Strong in agentic coding, less so in data analysis"  , 0.38  , 76.4   ,
@@ -70,13 +70,13 @@ posit_models |>
 ```
 
 ::: notes
-The cost column reports the relative cost shown in the Posit AI model picker,
-not each model creator's public API price.
+The cost column reports the relative cost shown in the Posit AI Pass model
+picker, not each model creator's public API price.
 
 Artificial Analysis measures output speed after generation starts. It does not
 include time to the first token. These are Artificial Analysis measurements for
-the model configuration shown on each model page, not measurements of the Posit
-AI deployments.
+the model configuration shown on each model page, not measurements of the
+Posit AI Pass deployments.
 
 The descriptions reproduce the model picker and the Posit post about GLM 5.2
 and Kimi K3.
