@@ -36,6 +36,20 @@ listing:
       - icon: linkedin
         text: LinkedIn
         href: https://www.linkedin.com/in/sarakaltman/
+    - name: Carson Sievert
+      instructor: true
+      role: "Software Engineer, Shiny"
+      image: carson.jpg
+      links:
+      - icon: github
+        text: GitHub
+        href: https://github.com/cpsievert
+      - icon: bluesky
+        text: Bluesky
+        href: https://bsky.app/profile/cpsievert.bsky.social
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/carsonsievert
     - name: Kristin Bott
       instructor: true
       role: "Manager, Data Science Mentors"
@@ -58,23 +72,10 @@ listing:
       - icon: linkedin
         text: LinkedIn
         href: https://www.linkedin.com/in/chisholm1/
-    - name: Carson Sievert
-      instructor: true
-      role: "Software Engineer, Shiny"
-      image: carson.jpg
-      links:
-      - icon: github
-        text: GitHub
-        href: https://github.com/cpsievert
-      - icon: bluesky
-        text: Bluesky
-        href: https://bsky.app/profile/cpsievert.bsky.social
-      - icon: linkedin
-        text: LinkedIn
-        href: https://www.linkedin.com/in/carsonsievert
 ---
 
-::: column-body
+::: column-body-outset
+
 ::: {#listing}
 
 :::
