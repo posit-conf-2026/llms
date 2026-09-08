@@ -1,0 +1,90 @@
+```{r}
+#| echo: false
+#| message: false
+
+posit_models <- tibble::tribble(
+  ~model              , ~creator      , ~description                                          , ~cost , ~speed ,
+  "Gemma 4 26B (A4B)" , "Google"      , "Fastest"                                             , 0.10  , 84.8   ,
+  "Claude Haiku 4.5"  , "Anthropic"   , "Fast"                                                , 0.33  , 80.2   ,
+  "Claude Sonnet 4.6" , "Anthropic"   , "Balanced"                                            , 1.00  , 44.3   ,
+  "Claude Sonnet 5"   , "Anthropic"   , "Balanced"                                            , 0.67  , 75.3   ,
+  "Claude Opus 4.6"   , "Anthropic"   , "Smart"                                               , 1.67  , 38.2   ,
+  "Claude Opus 4.8"   , "Anthropic"   , "Smartest"                                            , 1.67  , 59.0   ,
+  "GLM 5.2"           , "Z.ai"        , "Strong in agentic coding, less so in data analysis"  , 0.38  , 76.4   ,
+  "Kimi K3"           , "Moonshot AI" , "Smart and balanced"                                  , 1.00  , 41.6
+)
+
+posit_models |>
+  gt::gt(id = "posit-model-comparison-table") |>
+  gt::cols_label(
+    model = "Model",
+    creator = "Creator",
+    description = "Description",
+    cost = "Posit cost (relative)",
+    speed = "Speed (tokens/second)"
+  ) |>
+  gt::fmt_number(
+    columns = cost,
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    pattern = "{x}x"
+  ) |>
+  gt::fmt_number(columns = speed, decimals = 1) |>
+  gt::data_color(
+    columns = cost,
+    palette = c("#fff5ed", "#e77d38"),
+    domain = c(0, 1.7)
+  ) |>
+  gt::data_color(
+    columns = speed,
+    palette = c("#eef9f7", "#3a9994"),
+    domain = c(0, 100)
+  ) |>
+  gt::cols_align(
+    align = "left",
+    columns = c(model, creator, description)
+  ) |>
+  gt::cols_align(
+    align = "center",
+    columns = c(cost, speed)
+  ) |>
+  gt::cols_width(
+    model ~ gt::pct(22),
+    creator ~ gt::pct(13),
+    description ~ gt::pct(33),
+    cost ~ gt::pct(14),
+    speed ~ gt::pct(18)
+  ) |>
+  gt::tab_options(
+    table.width = gt::pct(100),
+    table.font.size = gt::px(22),
+    column_labels.font.size = gt::px(19),
+    column_labels.padding = gt::px(8),
+    data_row.padding = gt::px(9),
+    source_notes.font.size = gt::px(14),
+    source_notes.padding = gt::px(7),
+    table_body.hlines.color = "#d9d9d9",
+    table.border.top.style = "none",
+    table.border.bottom.style = "none"
+  )
+```
+
+::: notes
+The cost column reports the relative cost shown in the Posit AI model picker,
+not each model creator's public API price.
+
+Artificial Analysis measures output speed after generation starts. It does not
+include time to the first token. These are Artificial Analysis measurements for
+the model configuration shown on each model page, not measurements of the Posit
+AI deployments.
+
+The descriptions reproduce the model picker and the Posit post about GLM 5.2
+and Kimi K3.
+
+Model creators:
+
+* Gemma: Google
+* Claude: Anthropic
+* GLM: Z.ai
+* Kimi: Moonshot AI
+:::
