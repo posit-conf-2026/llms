@@ -37,6 +37,10 @@ r-setup-dev: r-setup ## [r] Setup R environment for dev
 render: ## [docs] Build the workshop website
 	cd website && ${QUARTO_PATH} render
 
+.PHONY: optimize-images
+optimize-images:  ## [docs] Optimize images in website/ with oxipng
+	find website \( -path website/_site -prune \) -o \( -type f \( -name '*.png' -o -name '*.apng' \) -print0 \) | xargs -0 oxipng --strip safe
+
 .PHONY: preview
 preview:  ## [docs] Preview the workshop website
 	cd website && ${QUARTO_PATH} preview
