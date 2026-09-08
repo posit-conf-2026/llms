@@ -694,8 +694,13 @@ one or the other would start to feel unnatural to use.
 # Your Turn `05_live` {.slide-your-turn}
 
 ::: {style="--li-margin: 0.66em;"}
-<!-- TODO: rewrite exercise --> 
+1. Your job: write a groan-worthy roast of Hadley Wickham
 
+2. Bonus points for puns, rhymes, and one-liners
+
+3. Don't be mean
+
+4. Share your best with a neighbor.
 :::
 
 {{< countdown 3:00 top="-1em" >}}
