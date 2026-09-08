@@ -155,6 +155,16 @@ Posit AI Pass gives you access to models from various providers.
 {{< include ../partials/posit-model-comparison.qmd >}}
 :::
 
+## Artificial Analysis 
+
+![](assets/artificial-analysis.png){alt="Screenshot of the Artificial Analysis website home page, showing independent rankings of AI models by intelligence, speed, and cost per task."}
+
+[artificialanalysis.ai](https://artificialanalysis.ai/leaderboards/models)
+
+::: notes
+Ranking of models.
+:::
+
 ## Start capable, then test smaller
 
 ::: incremental
