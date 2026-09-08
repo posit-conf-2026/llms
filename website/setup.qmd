@@ -40,11 +40,11 @@ And a bottle of water to stay hydrated (for you, not your laptop)!
 In this workshop, we'll be using a few different online services.
 If you don't already have accounts with these services, you'll need to create them before we get started.
 
--   [posit::conf(2026) Discord]({{< meta workshop.links.discord >}})
+-   [posit::conf(2026) Discord]({{< meta workshop.links.discord_join >}})
     -   Used to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.
     -   Make sure your [display name](https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C) is the one you used to register for the conference.
-    -   Join using the [posit::conf(2026) Discord invitation]({{< meta workshop.links.discord >}}).
-    -   Workshop channel: `{{< meta workshop.discord_channel >}}`
+    -   Join using the [posit::conf(2026) Discord invitation]({{< meta workshop.links.discord_join >}}).
+    -   Workshop channel: [`{{< meta workshop.discord_channel >}}`]({{< meta workshop.links.discord >}})
 -   [GitHub](https://github.com/join)
     -   The workshop materials are hosted on GitHub and we may use GitHub in an activity during the workshop.
 
