@@ -22,13 +22,12 @@ website:
   open-graph:
     image: assets/open-graph-card.png
 
-  # announcement:
-  #   icon: ""
-  #   dismissable: false
-  #   content: |
-  #     Thanks for joining us at <code>posit::conf(2026)</code>!
-  #     Please fill out our <a href="https://pos.it/conf-workshop-survey" target="_blank">workshop feedback form</a>, it's quick and easy!
-  #   type: info
+  announcement:
+    icon: "rocket-takeoff"
+    dismissable: false
+    content: |
+      Welcome to <a href="https://conf.posit.co/2026/" target="_blank"><code>posit::conf(2026)</code></a>! Materials are still settling, so check back as the workshop approaches. To get ready, follow <a href="/setup.qmd">the Setup guide</a> before the course starts.
+    type: primary
 
   page-footer: |
     <a href="https://conf.posit.co/2026/">posit::conf(2026)</a>
@@ -78,14 +77,15 @@ website:
         - workshop-06-break.qmd
         - text: '<div class="sidebar-divider font-monospace">Afternoon 1</div>'
         - workshop-07.qmd
-        - workshop-08.qmd
-        - workshop-09-break.qmd
+        - workshop-08-break.qmd
         - text: '<div class="sidebar-divider font-monospace">Afternoon 2</div>'
-        - workshop-10.qmd
+        - workshop-09.qmd
+        - text: '<div class="sidebar-divider font-monospace">Bonus</div>'
+        - bonus-rag.qmd
 
 format:
   html:
-    theme: [zephyr, styles.scss, styles-page-transition.scss]
+    theme: [zephyr, styles.scss]
     toc: true
     lightbox: true
     include-in-header:

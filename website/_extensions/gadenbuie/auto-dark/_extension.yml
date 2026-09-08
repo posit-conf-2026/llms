@@ -6,3 +6,5 @@ contributes:
   filters:
     - auto-dark.lua
 
+source: gadenbuie/quarto-auto-dark@311a8a1
+source-type: github

@@ -8,18 +8,39 @@ listing:
       - file
     sort-ui: false
     filter-ui: false
-    fields: 
+    fields:
       - title
       - time
       - description-short
-    field-display-names: 
+    field-display-names:
       description-short: Description
     contents:
       - "workshop-*.qmd"
       - "!workshop-06-chat*.qmd"
+  - id: bonus
+    type: table
+    sort:
+      - file
+    sort-ui: false
+    filter-ui: false
+    fields:
+      - title
+      - time
+      - description-short
+    field-display-names:
+      description-short: Description
+    contents:
+      - "bonus-*.qmd"
 ---
 
 ## Schedule
 
 ::: {#schedule}
+:::
+
+## Bonus material
+
+We won't cover these units during the workshop, but they're included in case you want to go further on your own. You'll find them in the `Bonus` section of the sidebar, or in the table below.
+
+::: {#bonus}
 :::

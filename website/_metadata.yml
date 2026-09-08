@@ -6,8 +6,8 @@ workshop:
     location: Houston, TX
   date: September 14, 2026
   time: 09:00 - 17:00
-  location: "**Venue:** Hilton Americas-Houston | **Room:** TBD"
-  discord_channel: TODO
+  location: "**Venue:** Hilton Americas-Houston | **Room:** Lanier I"
+  discord_channel: "#workshop-llms-r-python"
   links:
     repo: https://github.com/posit-conf-2026/llms
     website: https://posit-conf-2026.github.io/llms
@@ -15,7 +15,8 @@ workshop:
     cloud_short:
       href: "https://posit.cloud/"
       text: TODO
-    discord: https://pos.it/joinconf26
+    discord: https://discord.com/channels/1381993558437007490/1532807603699322930
+    discord_join: https://pos.it/joinconf26
     conf:
       name: posit::conf(2026)
       href: https://conf.posit.co/2026/
