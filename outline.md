@@ -13,46 +13,108 @@
 
 - (10m) Welcome, introductions, workshop expectations
   - Activity: introduce yourself to your neighbors
+  - Introduce the instructors and teaching assistants
+  - Review the code of conduct and conference logistics
+  - Direct participants to the workshop website and Discord
+  - Preview the schedule and explain the red/green sticky system
+  - Walk through the project structure and where to find exercises, solutions, and demos
 
 - (10m) Set-up and verify API access
-  - Activity: simple script to verify API access (write an "I'm at posit::conf(2026) social media post")
+  - Explain that API access requires a way to verify, a provider account, payment method, (sometimes) an API key
+  - Explain that we will be using Posit AI Pass to access models today
+    - Explain any setup still needed
+  - Briefly introduce Posit Assistant and workshop skill so that learners can use it to get help throughout the workshop
+    - Don't explain what a skill is, just mention that it will know about the workshop
+  - *Activity* `_exercises/01_hello-llm`
+    - Simple script to verify API access (write an "I'm at posit::conf(2026) social media post")
+    - Paste into Posit Assistant and ask to critique it
+    - Goal is to verify `chat_posit()` and Posit Assistant connected through Posit AI Pass are both working
 
 - (10m) Think empirically, be pragmatic
   - Getting into the right mindset for working with LLMs
   - This section gives us some extra time to troubleshoot any setup issues
+  - Treat LLMs as black boxes and test capabilities empirically
+  - Use failures as useful evidence while exploring
+  - Start with simple building blocks and develop intuition through hands-on work
 
 - (20m) Anatomy of a conversation
-  - To get a get a response, you send a message via HTTP
-  - Message roles: system, user, assistant
-  - Activity: Word guessing game
-    - System prompt: _You are playing a word guessing game. At each turn, guess the word and tell us what it is._
-    - We give a few questions to ask
-    - Also include a modifier in the first message, e.g. "In ____, ..." picking from "British English", "pirate", "Spanish", etc.
-    - The modifier in the first message steers subsequent answers
-  - The conversation is **stateless**
-    - Use **clearbot** to walk through an example, showing the requests and responses
-    - First: _Using British spellings, guess the word for the person living next door._
-    - Second: _What helps a car move smoothly down the road?_
-    - Clear the chat and try second question again.
+  - Show familiar, chatGPT style conversation
+  - We can do this from R/Python too! Show ellmer/chatlas code.
+  - How does this work? HTTP APIs. Condensed diagram
+  - Look at ellmer/chatlas code more slowly, at a high level
+  - Show that you can inspect the chat objects. What do you notice?
+  - Messages have roles. Show role diagrams
+  - Role table.
+  - What about the system prompt? Show how to add with ellmer and chatlas. Inspect chat object again.
+  - *Activity* `_exercises/02_word-game` (will need renaming)
+    - System prompt: _Answer in as few words as possible._
+    - R: _What ellmer function creates an Anthropic chat?_
+    - Python: _What chatlas class creates an Anthropic chat?_
+    - Follow up in the same chat: _What about OpenAI?_
+    - Start a new chat and ask only: _What about OpenAI?_
+    - Compare both the content and response style.
+  - *Demo* clearbot
+    - Use same exchange as from the exercise
+    - Show that each request contains the system prompt and full conversation history
+    - Clear the chat and show the second example again
 
-- (20m) How do LLMs work?
-  - _How to Talk to Robots_ slides
+- (20m) How do LLMs work? (how to talk to robots)
+  - Is this actually a conversation? LLMs are stateless - connect to clearbot demo
+    - The model does not remember anything between requests.
+    - The client resends the full conversation history with each message.
+    - The model reconstructs the conversation from that history.
+    - A new chat object starts without that history or system prompt.
+  - How to make an LLM
   - Tokens as the fundamental unit
-  - Example: `_demos/04_token-possibilities`
+  - *Demo* `_demos/04_token-possibilities`. Possibly updated to be more like https://ngrok.com/blog/compression-is-prediction
+  - What if I want to chat back-and-forth, like ChatGPT?
+    - live_console/live_browser
+  - *Activity* `_exercises/05_live` (possibly skip if short on time)
 
 - (20m) Shinychat basics
   - Activity: `live_console()` and `live_browser()` (or `chat.console()` and `chat.app()`)
   - Making your own shinychat app with `chat.ui()` and `chat.append()`. R users can use the chat module with `chat_mod_server()`.
   - Activity: Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.
+  - Compare console and browser chat helpers in `ellmer` and `chatlas`
+  - Activity: use an interactive chat to write a playful roast
+  - Build up a shinychat app step by step in R and Python
+  - In R, connect `chat_mod_ui()` and `chat_mod_server()` to an `ellmer` client
+  - In Python, connect `ui.chat_ui()` and `ui.Chat()` to an asynchronous `chatlas` stream
+  - Discuss why each app session needs its own chat client
+  - Finish with interpolation examples used to place a secret word in the system prompt
 
 ## Morning 2: Programming with LLMs (90m)
 
 > A deeper dive into the things you can do with LLMs when you're programming with them that are harder to do in a chat UI.
 
 - (15m) Choosing a model
-  - Overview of major providers: OpenAI, Anthropic, Google, ollama
-  - Tradeoffs: capability, context length, speed, cost, intelligence
-  - Activity: same question, change one string to switch models, e.g. `chat("openai")`, `chat("anthropic")`.
+  - Distinguish between a provider, which hosts and serves models, and a model, which is a specific LLM with particular capabilities
+  - Briefly introduce the major model families from OpenAI, Anthropic, and Google, with Ollama as an example of running models locally
+  - Compare the dimensions that matter when choosing a model:
+    - Context window: how much content the model can accept
+    - Capabilities: support for images, documents, reasoning, tool use, and structured output
+    - Speed and cost: smaller models are generally faster and less expensive
+    - Intelligence: larger or reasoning-focused models may perform better on complex tasks
+  - Explain how model families commonly offer different size tiers and generations (shorten this section)
+    - Moving to a larger tier may improve quality at the cost of speed and price
+    - Moving to a newer generation may improve quality without requiring the largest model
+    - Model names and availability change frequently, so use provider documentation and independent comparisons rather than memorizing a fixed recommendation
+  - Use a practical default: start with a capable general-purpose model, try a smaller model for simple or high-volume work, and move to a larger or reasoning model when evaluation shows that it is needed
+  - Posit AI Pass: lets you use models from various providers. We only support models we think are useful for data or coding work.
+  - Introduce the provider-specific chat functions/chat() function in `ellmer` and classes in `chatlas`
+  - Show how `chat()` and `ChatAuto()` make it easy to switch providers or select a specific model
+  - *Activity* `_exercises/07_models`
+    - List the models available from Anthropic and OpenAI
+    - Send the same prompt to different models
+    - Change only the provider or model name, then compare the responses
+  - Possible revisions:
+    - Move more quickly from the provider/model distinction to the criteria for choosing a model; shorten the seven-slide provider/model diagram sequence
+    - Replace the detailed Claude version history with concise, current examples of how Anthropic and OpenAI model families encode size and generation
+    - Give local and open-weight models more context, including Ollama, Hugging Face, LM Studio, parameter counts, and common model-naming conventions
+    - Replace fixed task-by-model and "favorite models" recommendations with a durable heuristic: start with a recent frontier model, then try a smaller or cheaper model when needed
+    - Introduce evaluation with `vitals` as the systematic way to compare model quality and cost for a specific task
+    - Keep the existing compare-the-same-prompt activity, adapted for both `ellmer` and `chatlas`
+    - Update the provider and model examples to reflect current package support and current model availability
 
 - (15m) Multi-modal input (vision, PDF)
   - Activity: images of food and ask for recipes

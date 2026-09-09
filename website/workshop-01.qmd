@@ -17,5 +17,5 @@ editor: { render-on-save: true }
 - Welcome, introductions, workshop expectations
   - Activity: introduce yourself to your neighbors
 
-- Set up Posit AI access
+- Set up Posit AI Pass access
   - Activity: Set up Posit AI Pass and make our first API calls!

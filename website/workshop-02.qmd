@@ -19,10 +19,10 @@ editor: { render-on-save: true }
   - Extra time to work with participants on setup if needed
 
 - (20m) Anatomy of a conversation
-  - To get a get a response, you send a message via HTTP
+  - The same conversation from R and Python with ellmer and chatlas
   - Message roles: system, user, assistant
-  - Activity (`02_word-game`): Word guessing game
-  - How does the LLM remember the conversation? `demos/03_clearbot`
+  - Activity (`02_conversation`): Same question with and without a system prompt
+  - How does the LLM remember the conversation? `_demos/03_clearbot`
 
 - (20m) How do LLMs work?
   - _How to Talk to Robots_ slides
@@ -30,6 +30,7 @@ editor: { render-on-save: true }
   - Example: `_demos/04_token-possibilities`
 
 - (20m) Shinychat basics
-  - Activity (`05_live`): `live_console()` and `live_browser()` (or `chat.console()` and `chat.app()`)
-  - Making your own shinychat app with `chat.ui()` and `chat.append()`. R users can use the chat module with `chat_mod_server()`.
-  - Activity (`06_word-games`): Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.
+  - `live_console()` and `live_browser()` (or `chat.console()` and `chat.app()`)
+  - Activity (`05_live`): Write a roast of Hadley Wickham with `live_console()`
+  - Making your own shinychat app: `chat_app()` for a quick app, `page_chat()` + `chat_server()` in R or `Chat(client=)` in Python for an app others can use
+  - Activity (`06_word-games`): 20-questions-style game — the model picks a word, you guess

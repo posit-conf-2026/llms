@@ -2,37 +2,36 @@
 
 ### Setup
 
-- [x] Quarto website
-  - [x] hero image
-  - [x] favicons
-  - [x] update setup page
-- [x] App for sharing API keys
-- [x] Set up renv and uv lockfiles
-- [x] Finalize `renv.lock` and `uv.lock`
+- [ ] Quarto website
+- [x] Set up description and uv lockfiles
+- [ ] Check that package dependencies are correct and functional 
+- [ ] Add set up instructions for Posit AI Pass and Posit Assistant
+- [ ] Add Posit Cloud project instructions and update the workspace screenshot
+- [ ] Fill in 2026 conference metadata: hashtag, Discord channel, Cloud link/text, and Wi-Fi
 - [x] Remove `quarto.path` from `.vscode/settings.json`
-- [x] Verify no unexpected `_solutions` paths in `_exercises`
-- [x] Rotating welcome slides
+- [ ] Verify no unexpected `_solutions` paths in `_exercises`
 
 ### Morning 1
 
-- [x] 01_hello: Script to verify API access
-- [x] 02_word-games: Word guessing game
-- [x] 03_demo_clearbot
-- [x] 04_demo_token-possibilities
-- [x] 05_live: Basic live console/app script (don't need a script for this)
-- [x] 06_word-games-2: Reverse word guessing game
+- [ ] 01_hello: Exercise to verify Posit AI Pass and Posit Assistant access
+- [ ] 02_word-games: Word guessing game
+- [ ] 03_demo_clearbot
+- [ ] 04_demo_token-possibilities
+- [ ] 05_live: Basic live console/app script (don't need a script for this)
+- [ ] 06_word-games-2: Reverse word guessing game
+- [ ] Replace the Discord banner with the 2026 image
 
 ### Morning 2
 
-- [x] 07_models: Script to try different models
-- [x] 08_images: Script to try image input
-- [x] 09_pdf: Script to try PDF input
-- [x] 10_structured: Script to try structured output
-- [x] 11_batch: Script to try batch/parallel calls
-  - [x] Save the JSON output and use it in an app
-- [x] 12_plot-image-1: Generate a plot of mpg vs weight, ask for interpretation
-- [x] 13_plot-image-2: Same as above, but with random noise instead of the plot
-- [x] 14_quiz-game-1: Quiz game show prompt engineering
+- [ ] 07_models: Script to try different models
+- [ ] 08_images: Script to try image input
+- [ ] 09_pdf: Script to try PDF input
+- [ ] 10_structured: Script to try structured output
+- [ ] 11_batch: Script to try batch/parallel calls
+  - [ ] Save the JSON output and use it in an app
+- [ ] 12_plot-image-1: Generate a plot of mpg vs weight, ask for interpretation
+- [ ] 13_plot-image-2: Same as above, but with random noise instead of the plot
+- [ ] 14_quiz-game-1: Quiz game show prompt engineering
 
 ### Afternoon 1
 
