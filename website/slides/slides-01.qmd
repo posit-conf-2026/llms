@@ -17,7 +17,7 @@ editor:
 * Update your local copy of the workshop: \
   [posit-conf-2026.github.io/llms/setup.html]{.code .b .orange}
 
-* Join the Discord: [pos.it/joinconf26]({{< meta workshop.links.discord >}}){.code .orange .b}
+* Join the Discord: [pos.it/joinconf26](https://pos.it/joinconf26){.code .orange .b}
 
 * [wifi(<br>&nbsp;&nbsp;network="{{< meta workshop.wifi.network >}}",<br>&nbsp;&nbsp;password="{{< meta workshop.wifi.password >}}"<br>)]{.code}
 
@@ -113,13 +113,12 @@ Everything you need, in one place.
 
 ::: {.easy-columns .items-center}
 ::: col
-1. Open [pos.it/joinconf26]({{< meta workshop.links.discord >}})
+1. Open [pos.it/joinconf26](https://pos.it/joinconf26)
 1. Accept the Discord invitation
 1. Set your display name to the name you used to register
 1. Join us in [{{< meta workshop.discord_channel >}}]{.code .purple}
 :::
 ::: text-center
-<!-- TODO: replace with 2026 image --> 
 ![](assets/discord-banner.png){style="max-height: 80vh"}
 :::
 :::
@@ -224,13 +223,13 @@ RStudio and VS Code are great, too!
 [aka. how to give OpenAI your money]{.i .gray}
 
 ::: {.incremental .mt4}
-1. 🆙 Sign up with a model provider (OpenAI, Anthropic, etc.)
+1. 🆙 Sign up for an account with [OpenAI](https://platform.openai.com/) or [Anthropic](https://www.anthropic.com/)
 
-2. 💳 Add a payment method or use organizational access
+2. 💳 Add a payment method
 
-3. 🔑 Create an API key or use another sign-in method
+3. 🔑 Get an API key
 
-4. 💾 Store your credentials securely
+4. 💾 Store it in `.Renviron` or `.env` file<br>as `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
 :::
 
 ## Today we'll use Posit AI Pass! {.center style="height: 90%"}
@@ -247,10 +246,6 @@ RStudio and VS Code are great, too!
 3. Use it for all of our activities today. \
    Play and explore! But please be considerate :)
 :::
-
-## Set up Posit Assistant
-
-<!-- TODO: Posit Assistant setup instructions -->
 
 ## Your Turn `01_hello-llm` {background-image="assets/your-turn.png" background-size="30%" background-position="bottom right"}
 
