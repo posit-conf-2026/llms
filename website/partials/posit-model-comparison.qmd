@@ -3,15 +3,17 @@
 #| message: false
 
 posit_models <- tibble::tribble(
-  ~model              , ~creator      , ~description                                          , ~cost , ~speed ,
-  "Gemma 4 26B (A4B)" , "Google"      , "Fastest"                                             , 0.10  , 84.8   ,
-  "Claude Haiku 4.5"  , "Anthropic"   , "Fast"                                                , 0.33  , 80.2   ,
-  "Claude Sonnet 4.6" , "Anthropic"   , "Balanced"                                            , 1.00  , 44.3   ,
-  "Claude Sonnet 5"   , "Anthropic"   , "Balanced"                                            , 1.00  , 75.3   ,
-  "Claude Opus 4.6"   , "Anthropic"   , "Smart"                                               , 1.67  , 38.2   ,
-  "Claude Opus 4.8"   , "Anthropic"   , "Smartest"                                            , 1.67  , 59.0   ,
-  "GLM 5.2"           , "Z.ai"        , "Strong in agentic coding, less so in data analysis"  , 0.38  , 76.4   ,
-  "Kimi K3"           , "Moonshot AI" , "Smart and balanced"                                  , 1.00  , 41.6
+  ~model              , ~creator      , ~description                                                , ~cost , ~speed ,
+  "Gemma 4 26B (A4B)" , "Google"      , "Fastest"                                                   , 0.10  , 84.8   ,
+  "Claude Haiku 4.5"  , "Anthropic"   , "Fast"                                                      , 0.33  , 80.2   ,
+  "Claude Sonnet 4.6" , "Anthropic"   , "Balanced"                                                  , 1.00  , 44.3   ,
+  "Claude Sonnet 5"   , "Anthropic"   , "Balanced"                                                  , 1.00  , 75.3   ,
+  "Claude Opus 4.6"   , "Anthropic"   , "Smart"                                                     , 1.67  , 38.2   ,
+  "Claude Opus 4.8"   , "Anthropic"   , "Smartest"                                                  , 1.67  , 59.0   ,
+  "GLM 5.2"           , "Z.ai"        , "Older GLM model. Good at coding, less so at data analysis" , 0.38  , 63.0   ,
+  "Kimi K3"           , "Moonshot AI" , "Smart and balanced"                                        , 1.00  , 41.6   ,
+  "GLM 5.3 Flash"     , "Z.ai"        , "Smart, fast, and inexpensive"                              , 0.05  , 71.4   ,
+  "GLM 5.3"           , "Z.ai"        , "Smart, relatively inexpensive"                             , 0.38  , 70.4
 )
 
 posit_models |>
@@ -30,6 +32,7 @@ posit_models |>
     pattern = "{x}x"
   ) |>
   gt::fmt_number(columns = speed, decimals = 1) |>
+  gt::sub_missing(columns = c(cost, speed), missing_text = "") |>
   gt::data_color(
     columns = cost,
     palette = c("#fff5ed", "#e77d38"),
@@ -66,6 +69,9 @@ posit_models |>
     table_body.hlines.color = "#d9d9d9",
     table.border.top.style = "none",
     table.border.bottom.style = "none"
+  ) |>
+  gt::tab_source_note(
+    source_note = "Speed: Artificial Analysis measurements, not measured on Posit AI Pass."
   )
 ```
 
@@ -80,6 +86,13 @@ Posit AI Pass deployments.
 
 The descriptions reproduce the model picker and the Posit post about GLM 5.2
 and Kimi K3.
+
+The picker lists GLM 5.3 Flash and GLM 5.3 under More models. GLM 5.3 Flash is
+the cheapest model available through Posit AI Pass, half the per-token price of
+Gemma 4 26B. GLM 5.3 is Ox Alpha, the anonymous model that was popular on
+OpenRouter.
+
+The picker marks Gemma 4 26B, Claude Haiku 4.5, and GLM 5.2 as going away soon.
 
 Model creators:
 
