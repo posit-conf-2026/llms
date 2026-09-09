@@ -145,21 +145,15 @@ Open-weight models aren't necessarily local.
 :::
 
 
-## Posit AI Pass models {.smaller}
-
-::: {.fragment}
-Posit AI Pass gives you access to models from various providers.
-:::
+## Posit AI Pass: Models from various providers {.smaller}
 
 ::: {.fragment}
 {{< include ../partials/posit-model-comparison.qmd >}}
 :::
 
-## Artificial Analysis 
+## Artificial Analysis ([artificialanalysis.ai](https://artificialanalysis.ai/leaderboards/models))
 
-![](assets/artificial-analysis.png){alt="Screenshot of the Artificial Analysis website home page, showing independent rankings of AI models by intelligence, speed, and cost per task."}
-
-[artificialanalysis.ai](https://artificialanalysis.ai/leaderboards/models)
+![](assets/artificial-analysis.png){alt="Screenshot of the Artificial Analysis website home page, showing independent rankings of AI models by intelligence, speed, and cost per task." style="max-width: 90%; max-height: 72vh; display: block; margin: 0 auto;"}
 
 ::: notes
 Ranking of models.
@@ -324,9 +318,7 @@ chat <- chat("posit")
 ```{.python code-line-numbers="3-5"}
 import chatlas
 
-chat = chatlas.ChatAuto(
-    "posit"
-)
+chat = chatlas.ChatAuto("posit")
 ```
 :::
 :::
