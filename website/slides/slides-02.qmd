@@ -122,7 +122,7 @@ We can do the same thing from R and Python.
 ## A complete example
 
 ::: {style="--code-font-size: 0.82em"}
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+[![](../assets/icons/r-color.svg){height="24px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```r
 library(ellmer)
@@ -153,7 +153,7 @@ message.
 ## A complete example {transition="fade"}
 
 ::: {style="--code-font-size: 0.82em"}
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+[![](../assets/icons/python-icon-color.svg){height="24px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
 ```python
 import chatlas
@@ -211,7 +211,7 @@ incremental_slides(
 
 ::: {.easy-columns .smaller style="--code-font-size: 0.66em"}
 ::: col
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+[![](../assets/icons/r-color.svg){height="24px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="1"}
 library(ellmer)
@@ -219,7 +219,7 @@ library(ellmer)
 :::
 
 ::: col
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+[![](../assets/icons/python-icon-color.svg){height="24px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
 ```{.python code-line-numbers="1"}
 import chatlas
@@ -231,7 +231,7 @@ import chatlas
 
 ::: {.easy-columns .smaller style="--code-font-size: 0.66em"}
 ::: col
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+[![](../assets/icons/r-color.svg){height="24px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="3"}
 library(ellmer)
@@ -241,7 +241,7 @@ chat <- chat_posit()
 :::
 
 ::: col
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+[![](../assets/icons/python-icon-color.svg){height="24px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
 ```{.python code-line-numbers="3"}
 import chatlas
@@ -255,7 +255,7 @@ chat = chatlas.ChatPosit()
 
 ::: {.easy-columns .smaller style="--code-font-size: 0.66em"}
 ::: col
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+[![](../assets/icons/r-color.svg){height="24px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="5"}
 library(ellmer)
@@ -267,7 +267,7 @@ chat$chat("Tell me a fact about cats.")
 :::
 
 ::: col
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+[![](../assets/icons/python-icon-color.svg){height="24px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
 ```{.python code-line-numbers="5"}
 import chatlas
@@ -282,7 +282,7 @@ chat.chat("Tell me a fact about cats.")
 ## 
 
 ::: {style="--code-font-size: 0.56em"}
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+[![](../assets/icons/r-color.svg){height="24px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```r
 chat
@@ -297,7 +297,7 @@ helps them see in very low light.
 ```
 
 ::: fragment
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+[![](../assets/icons/python-icon-color.svg){height="24px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
 ```python
 print(chat)
@@ -355,7 +355,7 @@ the model's response.
 
 ::: {.easy-columns .smaller style="--code-font-size: 0.56em"}
 ::: col
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+[![](../assets/icons/r-color.svg){height="24px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="3-6"}
 library(ellmer)
@@ -369,7 +369,7 @@ chat$chat("Tell me a fact about sheep.")
 :::
 
 ::: col
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+[![](../assets/icons/python-icon-color.svg){height="24px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
 ```{.python code-line-numbers="3-6"}
 import chatlas
@@ -387,7 +387,7 @@ chat.chat("Tell me a fact about sheep.")
 
 ::: {.easy-columns .smaller style="--code-font-size: 0.52em"}
 ::: col
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+[![](../assets/icons/r-color.svg){height="24px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="8-11"}
 library(ellmer)
@@ -405,7 +405,7 @@ chat$chat("Tell me a fact about sheep.")
 :::
 
 ::: col
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+[![](../assets/icons/python-icon-color.svg){height="24px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
 ```{.python code-line-numbers="8-11"}
 import chatlas
@@ -427,7 +427,7 @@ chat.chat("Tell me a fact about sheep.")
 
 ::: {.easy-columns .smaller style="--code-font-size: 0.46em"}
 ::: col
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+[![](../assets/icons/r-color.svg){height="24px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```r
 chat
@@ -446,7 +446,7 @@ Fear keeps them standing.
 :::
 
 ::: col
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+[![](../assets/icons/python-icon-color.svg){height="24px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
 ```python
 print(chat)
@@ -713,7 +713,8 @@ one or the other would start to feel unnatural to use.
 library(ellmer)
 library(shinychat)
 
-chat_app(chat_posit())
+client <- chat_posit()
+chat_app(client)
 ```
 
 ::: notes
