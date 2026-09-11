@@ -30,5 +30,6 @@ See [website/setup.qmd](website/setup.qmd) for full setup instructions.
 
 When an attendee asks for help — or types `/help` — invoke the **`help` skill** ([.agents/skills/help/](.agents/skills/help/)).
 It carries the full strategy: orient first (setup, dependencies, finding things, exercise help), unblock one step at a time, use `_solutions/` as a reference rather than a handout, honor direct asks for answers, and hand "help me understand X" questions to the `explain` skill ([.agents/skills/explain/](.agents/skills/explain/)), which the workshop context switches to learning mode.
+When they've attempted an exercise and want it reviewed ("check my work"), route to the `check-my-work` skill ([.agents/skills/check-my-work/](.agents/skills/check-my-work/)) instead.
 
 Human help during the workshop goes to the Discord channel (invite link on the setup page).

@@ -34,6 +34,7 @@ Then route:
 - **Don't understand what the exercise is asking.** They have the right file open but can't tell what they're supposed to do next.
   Read the exercise prompt with them and restate the task in plainer terms; check the matching `workshop-NN.qmd` session page for what the instructors just covered, since the task usually connects to it.
   Get them to a concrete first action, then hand it back — step 2's rules apply from there.
+- **Check my work.** They attempted the exercise and want it reviewed. Route to the `check-my-work` skill — a review is not an unblocking session.
 - **Stuck on the exercise in front of them.** That's step 2.
 - **"Help me understand X."** Triage to the `explain` skill rather than improvising an explanation — the workshop context switches it to learning mode, and its prediction and scaffolding techniques are the right tool for conceptual questions.
   Route here even mid-exercise when the real blocker is understanding ("what is a tool call?", "why did the model do that?") rather than code.
