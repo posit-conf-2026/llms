@@ -1,5 +1,5 @@
 ---
-title: Beyond Tools
+title: Agent Skills
 subtitle: Programming with LLMs in R and Python
 author: <code>posit::conf(2026)</code>
 date: 2026-09-14
@@ -8,197 +8,225 @@ editor:
   render-on-save: true
 ---
 
-# [querychat]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-querychat.jpg" background-size="cover" background-position="center"}
-
-## {.center .tc transition="fade"}
-
-![](assets/querychat-standard-shiny.excalidraw.svg)
-
-## {.center .tc transition="fade"}
-
-![](assets/querychat.excalidraw.svg)
-
-## {.center .tc transition="fade"}
-
-![](assets/querychat-parts.excalidraw.svg)
-
-## querychat in R
-
-```{.r .scrollable code-line-numbers="|3|5|8|13|8,13|15-17"}
-library(shiny)
-library(bslib)
-library(querychat)
-
-mtcars_qc_config <- querychat_init(mtcars)
-
-ui <- page_sidebar(
-  sidebar = querychat_sidebar("mtcars"),
-  # plots, tables, etc.
-)
-
-server <- function(input, output, session) {
-  mtcars_qc <- querychat_server("mtcars", mtcars_qc_config)
-
-  output$table <- renderTable({
-    mtcars_qc$df()
-  })
-}
-
-shinyApp(ui, server)
-```
-
-## querychat in Python
-
-```{.python .scrollable code-line-numbers="|2|5-7|10|15|10,15|17-19"}
-import polars as pl
-import querychat
-from shiny import App, render, ui
-
-mtcars = pl.read_csv("data/mtcars.csv")
-
-mtcars_qc_config = querychat.init(mtcars, "mtcars")
-
-app_ui = ui.page_sidebar(
-    querychat.sidebar("mtcars"),
-    # plots, tables, etc.
-)
-
-def server(input, output, session):
-    mtcars_qc = querychat.server("mtcars", mtcars_qc_config)
-
-    @render.data_frame
-    def data_table():
-        return qc.df()
-
-app = App(app_ui, server)
-```
-
-# Your Turn `19_querychat` {.slide-your-turn}
-
-1. I've made a Shiny dashboard to explore Airbnb listings in Asheville, NC.
-   * Spend 1-2 min: which Neighborhood has most private rooms?
-
-1. Work through the steps in the comments to use `querychat`.
-
-1. Spend a few minutes exploring the data and chatting with the app. \
-   Which area has the most private rooms?
-
-{{< countdown 8:00 left=0 bottom="-1.5em" >}}
-
-# [MCP]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-mcp.jpg" background-size="cover" background-position="center"}
-
-::: {.tc .white .pa1 .br3 .w-50 .absolute bottom="-2em" left=0 style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);"}
-MCP
-:::
-
-## Recall: Tools {.center}
-
-a.k.a. _functions_, _tool calling_ or _function calling_
-
-* Bring real-time or up-to-date information to the model
-
-* Let the model interact with the world
-
-## 🤔 What other tools could be useful?
-
-```{=html}
-<ul contenteditable="true">
-<li>Get the weather</li>
-<li>Search the <code>posit::conf()</code> schedule</li>
-<li>...</li>
-</ul>
-```
-
-::: notes
-Some ideas:
-
-* web search
-* search a ticket system (zendesk)
-* search a website or knowledge base
-* Create tickets
-* Send emails
-* Read your calendar
-* Summarize your email
-:::
-
-## 🤔 What GitHub-related tools would be useful?
-
-```{=html}
-<ul contenteditable="true">
-<li>List issues</li>
-<li>...</li>
-</ul>
-```
-
-::: notes
-Some ideas:
-
-* web search
-* search a ticket system (zendesk)
-* search a website or knowledge base
-* Create tickets
-* Send emails
-* Read your calendar
-* Summarize your email
-:::
-
-## Who should write tools for GitHub? {.center}
-
-::: fragment
-MCP solves this problem! GitHub writes tools...
-:::
-
-::: fragment
-and lets ~~you~~ your models use them.
-
-[GitHub MCP Server](https://github.com/github/github-mcp-server#tools){preview-link=true}
-:::
-
-<!-- TODO: Adding MCP tools to ellmer, chatlas -->
-
-# Your Turn `20_mcp` {.slide-your-turn}
-
-Follow the instructions in `README.R.md` or `README.py.md` for this task.
-
-1. What MCP servers are out there?
-
-1. Set up [context7](https://context7.com/) as an MCP server in Positron.
-
-1. Use [context7](https://context7.com/) tools to answer a coding translation question.
-
-{{< countdown 6:00 left=0 bottom="-1.5em" >}}
-
-# [Agents]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-agent.jpg" background-size="cover" background-position="center"}
+# [Agent Skills]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-agent.jpg" background-size="cover" background-position="center"}
 
 ::: {.tc .white .pa1 .br3 .w-50 .absolute bottom="-5em" left=0 style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);"}
-Agents
+Agent Skills
 :::
 
-## What's an agent?
+## You've been using skills all day {.center}
 
-- Hadley/Willison definition: Agents are LLMs with a read tool and a write tool
+When you asked Posit Assistant for help today, it loaded `.agents/skills/help/SKILL.md`.
 
-- The "you know it when you see it" definition: autonomous LLMs, long context, minimal intervention
-
-## Demo: Databot {.slide-demo}
-
-👨‍💻 [_demos/27_demo_databot/README.md]{.code .b .purple}
-
-> Let's look at `data/airbnb-asheville.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC.
-
-# [The Future of AI]{.white style="text-shadow: 5px 5px 15px black;"} {.no-invert-dark-mode background-image="assets/robot-hologram.jpg" background-size="cover" background-position="center"}
-
-# [Wrap-up]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-survey.jpg" background-size="cover" background-position="center"}
-
-::: {.fragment .f1 .tc .white .pa4 .br3 style="background-color: rgba(0, 0, 0, 0.8);"}
-Please take 5-10 minutes to fill out the workshop survey.\
-Your feedback is important to us!
-
-[[pos.it/conf-workshop-survey]{.yellow .code}](https://pos.it/conf-workshop-survey)
+::: fragment
+A skill is a folder with a `SKILL.md` file: a description of when to use it, plus instructions for how to do the job.
 :::
 
-## {background-image="assets/thank-you.png" background-size="cover" background-position="center"}
+::: notes
+Open `.agents/skills/help/SKILL.md` live and scroll through it. Attendees have been on the receiving end of this skill all morning.
 
-::: {.f1 .code .tc .white .absolute bottom=0 left=0 right=0}
-Enjoy posit::conf(2026)!
+The same format works across agents: Posit Assistant, Claude Code, and many others follow the Agent Skills spec.
+
+Skills are plain markdown, checked into your project — no packaging, no build step.
+:::
+
+## Anatomy of a skill
+
+```
+skills/
+└── renewal-letters/
+    ├── SKILL.md      # Required: metadata + instructions
+    ├── scripts/      # Optional: executable code
+    ├── references/   # Optional: documentation
+    └── assets/       # Optional: templates, data files
+```
+
+## SKILL.md
+
+````markdown
+---
+name: renewal-letters
+description: Draft a renewal letter for a lapsed Last Blockbuster member.
+---
+
+# Renewal letters
+
+Offer Basic members a free-rental code.
+Offer Family members a family-night bundle.
+Offer Founders members a commemorative card.
+````
+
+::: footer
+[Agent Skills specification](https://agentskills.io/specification){preview-link=true}
+:::
+
+::: notes
+Two required frontmatter fields:
+
+- `name`: lowercase, hyphens, max 64 characters, must match the folder name.
+- `description`: max 1024 characters, and it must say what the skill does AND when to use it.
+
+The description is the only thing the agent sees at startup, so it decides whether your skill ever gets used.
+
+The body is free markdown: steps, rules, gotchas, a template.
+:::
+
+## Progressive disclosure {.center}
+
+::: incremental
+1. **Discovery** — the agent loads only each skill's `name` and `description` (~100 tokens each)
+
+1. **Activation** — when a task matches, the agent reads the full `SKILL.md`
+
+1. **Execution** — instructions run; extra files load only when the skill asks for them
+:::
+
+::: notes
+This is why skills scale: you can keep 100 skills on hand for the cost of their descriptions.
+
+The full instructions load only when a task calls for them.
+
+Same idea you'll implement by hand in the exercise: the system prompt lists the skill, a tool loads the body.
+
+TODO: excalidraw diagram in the style of the tools sequence in slides-07.
+:::
+
+## Why not just use the system prompt?
+
+::: incremental
+* The system prompt is **always** in context — every token, every request
+
+* Skills load **on demand** — only when a task matches
+
+* So skills let you give an agent deep expertise without paying for it up front
+:::
+
+::: notes
+You wrote a system prompt for the Blockbuster agent. That works for one small set of rules.
+
+Now imagine 50 jobs: renewal letters, store opening procedures, staff notes, rental policies, and social media voice.
+
+Stuffed into the system prompt, they crowd out the conversation and cost tokens on every request.
+
+As skills, they cost about 100 tokens each until the moment one is needed.
+:::
+
+## Writing a skill that works
+
+::: incremental
+* **Add what the agent lacks; omit what it knows** — no "write clear descriptions"
+
+* **Description says what and when** — it's the trigger
+
+* **Concrete beats generic** — a template, a rule, a gotcha
+
+* **Keep it short** — under 500 lines; push detail to `references/`
+:::
+
+::: footer
+[Best practices for skill creators](https://agentskills.io/skill-creation/best-practices){preview-link=true}
+:::
+
+::: notes
+The test for every line: would the agent get this wrong without it?
+
+If the agent already writes clean markdown, don't tell it to write clean markdown.
+
+Give a default, not a menu: one way to do it, with an escape hatch.
+
+Gotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions.
+:::
+
+# Your Turn `24_skills-1` {.slide-your-turn}
+
+1. Your Blockbuster agent gets a skill: `renewal-letters` holds the letter-writing instructions.
+
+1. List the skill in the system prompt, and give the agent a tool to read it.
+
+1. Draft letters for the top three lapsed members. Watch the agent read the skill **before** it starts drafting.
+
+{{< countdown 8:00 left=0 bottom="-2em" >}}
+
+::: notes
+The read_skill tool is like the read_file tool, pointed at the skills folder.
+
+The system prompt listing is the manual version of what real harnesses generate automatically at startup.
+
+The trace should show read_skill firing when the agent starts the letter task.
+:::
+
+# Your Turn `25_skills-2` {.slide-your-turn}
+
+1. The skill has been swapped for a **first draft** with common problems.
+
+1. Use the diagnostic questions to fix `SKILL.md`, then re-run the letter task.
+
+1. Compare: same agent, same tools, different skill, different letters and token spend.
+
+{{< countdown 8:00 left=0 bottom="-2em" >}}
+
+::: notes
+The planted problems: the description is background about the manager's notes, while the actual trigger sits in the body. The body also repeats policies, generic advice, and conflicting process instructions.
+
+Four questions lead attendees from the misplaced trigger to the repeated facts and conflicting process. They move and delete text; they do not need to invent new instructions.
+
+The good skill says when to draft a renewal letter and keeps only the voice, letter structure, tier incentives, filename rule, and promises caveat.
+:::
+
+## Skills in Posit Assistant
+
+::: incremental
+* Built-ins: `create-skill`, `r-package-development`, `quarto-authoring`, ...
+
+* Yours: `~/.posit/assistant/skills/` (all projects) or `.agents/skills/` (this project)
+
+* Most skills also run as slash commands: `/renewal-letters`
+:::
+
+::: footer
+[Skills — Posit Assistant docs](https://assistant.posit.co/docs/features/skills/){preview-link=true}
+:::
+
+::: notes
+`.agents/skills/` is the portable location: any spec-following agent can read it.
+
+The built-in create-skill skill walks you through making a new one interactively.
+
+Skills double as commands when you want to trigger a workflow deliberately instead of hoping the model picks it.
+:::
+
+## Skills in the ecosystem
+
+| Layer | What it carries | When it loads |
+|:----------|:----------------|:--------------|
+| System prompt | Core behavior | Always |
+| **Skills** | Procedures, house rules, expertise | On demand |
+| MCP servers | Connections to external tools | Registered per tool call |
+
+::: notes
+Rough map, from the Posit open-source AI newsletter.
+
+AGENTS.md and the system prompt shape everything the agent does.
+
+Skills carry the long tail of knowledge: too specific to always pay for, too valuable to leave out.
+
+MCP servers are about tools — connections to databases, APIs, other software. Bonus material covers MCP.
+:::
+
+## Skills, recap
+
+::: incremental
+* A skill is a folder with `SKILL.md`: metadata plus instructions
+
+* Progressive disclosure: descriptions at startup, body on demand
+
+* Write what the agent doesn't know — and say when to use it
+
+* Same format in Posit Assistant, Claude Code, and any spec-following agent
+:::
+
+::: notes
+You built the mechanism yourself today: listing, loading, and writing skills.
+
+The same pattern runs inside the assistant you use every day — now you know how to extend it.
 :::

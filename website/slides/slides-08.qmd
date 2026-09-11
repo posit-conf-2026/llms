@@ -1,0 +1,256 @@
+---
+title: Agents
+subtitle: Programming with LLMs in R and Python
+author: <code>posit::conf(2026)</code>
+date: 2026-09-14
+
+editor:
+  render-on-save: true
+---
+
+# [Agents]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-agent.jpg" background-size="cover" background-position="center"}
+
+::: {.tc .white .pa1 .br3 .w-50 .absolute bottom="-5em" left=0 style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);"}
+Agents
+:::
+
+## What's an agent?
+
+::: incremental
+* An LLM, in a harness, that calls tools repeatedly in a loop — deciding each next step from the last result
+
+* Most agents have two kinds of tools: **read** tools to observe the world, and **write** tools to change it
+:::
+
+::: notes
+This is Hadley Wickham's definition, from his "What is an agent?" post on Substack.
+
+Simon Willison's shorter version: an LLM with a read tool and a write tool.
+
+The "you know it when you see it" version: an autonomous system that needs minimal intervention to finish a task.
+
+All three describe the same thing. The loop is what makes it an agent.
+:::
+
+## One tool call is not an agent {.center}
+
+The quiz show called a tool. So why wasn't it an agent?
+
+::: fragment
+No loop, no decisions: the model called the sound tool and answered.
+:::
+
+::: notes
+Recall the quiz show app: we registered one tool, and the model called it to play sounds during the game.
+
+Each user message produced at most one tool call before the final answer.
+
+An agent keeps calling tools in a loop, deciding each next step from the result of the last one.
+:::
+
+## The agent loop {.center}
+
+::: incremental
+* **Explore**: the agent reads to understand the world
+
+* **Act**: the agent writes to change it
+
+* **Observe**: the agent reads again to see what changed
+
+* ...and repeat until the task is done
+:::
+
+::: notes
+TODO: replace with an excalidraw diagram, in the style of the tools-how-it-works sequence in slides-07.
+
+The loop is why agents feel different from a chat: the model, not the user, chooses the next step.
+
+The harness (ellmer or chatlas) does the busy work: it runs each tool, sends the result back, and lets the model continue.
+:::
+
+## Read tools and write tools
+
+| Read tools observe | Write tools change |
+|:--------------------|:---------------------|
+| Read a file | Write a file |
+| List files | Edit a file |
+| Search the codebase | Run a command |
+| Look at data | Run code |
+
+::: notes
+Read and write is the smallest split that still makes an agent useful.
+
+A coding agent is just an agent whose tools mirror how a human works on a codebase.
+
+Hadley: "A coding agent is six functions in a trenchcoat" — read file, write file, edit file, list files, search, run command, plus a big system prompt of advice.
+:::
+
+## Demo: Posit Assistant {.slide-demo}
+
+👨‍💻 [_demos/21_demo_databot/README.md]{.code .b .purple}
+
+> Let's look at `data/airbnb-asheville.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC.
+
+::: notes
+Instructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.
+
+Watch for: the loop (each step chosen from the last result), read and write actions, and permission prompts.
+
+Running code is both a read tool and a write tool: it observes the data and changes the project.
+:::
+
+# Your Turn `22_agent-1` {.slide-your-turn}
+
+1. Your agent works in the Last Blockbuster's records folder.
+
+1. Give it a **read** tool and a **write** tool, then ask it to build the win-back list.
+
+1. Run the script it writes, then inspect the trace. Did it read the store rules before it wrote code?
+
+{{< countdown 8:00 left=0 bottom="-2em" >}}
+
+::: notes
+The tool functions and the coding-agent system prompt are given.
+
+Attendees document the tools, register them, and ask the agent to write `find_lapsed.R` or `find_lapsed.py`.
+
+The attendee runs that script from inside `blockbuster/`.
+
+Watch for the key choice: the agent writes a script instead of trying to read 1,500 rental rows through the tool.
+
+Dry run in both R and Python: the trace reads `README.md`, then `policies.md`, then writes `find_lapsed.*`.
+Both generated scripts produced 11 rows.
+:::
+
+## The manager finds another export {.center}
+
+The first win-back list has 11 members.
+
+::: notes
+The agent has a working script, but it had to be told which files to read.
+
+Next, the manager drops an old register export into the folder.
+
+The agent needs a way to discover that file and make a narrow change to the script it already wrote.
+:::
+
+# Your Turn `23_agent-2` {.slide-your-turn}
+
+1. Give your agent a **list files** tool and an **edit** tool.
+
+1. Build the win-back list, then tell it the manager dropped an old register export in the folder. Do not name the file.
+
+1. Run the patched script. The list drops from 11 members to 8.
+
+{{< countdown 8:00 left=0 bottom="-2em" >}}
+
+::: notes
+`list_files` surfaces `rentals-old.csv` without the prompt naming it.
+
+`edit_file` patches `find_lapsed.R` or `find_lapsed.py` instead of rewriting it.
+
+A failed exact-match edit is a loud, safe error instead of a silent change.
+
+The count changing from 11 to 8 makes the effect of the two new tools visible.
+
+Dry run in both R and Python: the follow-up trace calls `list_files`, then patches `find_lapsed.*` with `edit_file`.
+Both patched scripts produced eight rows without Greta Moss, Peter Ibarra, or Nora Ellis.
+:::
+
+## Should the agent run code? {.center}
+
+You just played the run-code tool by hand.
+
+Should the agent close that loop and repair its own errors?
+
+::: notes
+The upside is a closed loop and self-repair.
+
+The risk is code with side effects against the store's data.
+
+Ask the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts.
+:::
+
+## What counts as dangerous?
+
+Danger = expensive, time-consuming, or impossible to **undo**
+
+::: incremental
+* Delete a file outside git
+
+* Drop a database table
+
+* Spend money
+
+* Send an email
+
+* Leak a secret or personal data
+:::
+
+::: notes
+Hadley's framing from "Help! My coding agent can run code": dangerous means hard to undo.
+
+Running the renewal script touches only a disposable, local fixture.
+
+Sending a letter leaves the sandbox and reaches a real person.
+
+The store's no-late-fees settlement is a reminder that careless promises have consequences.
+:::
+
+## Three ways to keep an agent in check
+
+::: incremental
+1. **Ask for permission** — but 99% of approvals are safe, so people click yes without reading
+
+1. **Sandbox** — the OS constrains the process, but temp folders, package libraries, and network access all leak in
+
+1. **Ask an LLM** — run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation
+:::
+
+::: footer
+[Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code){preview-link=true}
+:::
+
+::: notes
+The three approaches, in the order real tools adopted them.
+
+Permission prompts become security theatre. Prefix allowlists fail: `git push` is safe, `git push --force` often isn't.
+
+Sandboxing works but is fiddly: R needs a writable temp dir and a readable library path.
+
+The state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly.
+:::
+
+## Auto mode knows it's dangerous {.center}
+
+> Running curl -fsSL ... | sh
+>
+> Sandboxed mktemp isn't writable. Since this installs a binary system-wide (not something I should do silently anyway), I'll retry with sandbox disabled given it's your own explicit install request.
+>
+> — Claude Code, asked to install air
+
+::: notes
+From Hadley's "Auto mode knows it's dangerous (and does it anyway)".
+
+Both Claude Code and Codex recognized the curl-pipe-sh installer as dangerous and ran it anyway, because the user asked.
+
+Best practice would be: download, read the script, then run. Neither agent read it.
+
+Auto mode is less protective than it looks. Keep your own eyes on destructive steps.
+:::
+
+## Agents, recap
+
+::: incremental
+* An agent is an LLM, in a harness, calling tools in a loop
+
+* Read tools observe; write tools change
+
+* The harness does the busy work — you write the tools and the system prompt
+
+* General tools make useful agents, and safety is the price
+:::
+
+::: notes
+Next: how to give an agent knowledge without making the system prompt enormous.
+:::
