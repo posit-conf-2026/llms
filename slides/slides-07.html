@@ -368,12 +368,12 @@
 </section>
 <section id="human-in-the-loop" class="slide level2 center">
 <h2>Human in the loop</h2>
-<p>👨‍💻 <span class="code b purple">_demos/18_manual-tools/app.R</span></p>
+<p>👨‍💻 <span class="code b purple">_demos/15_demo_manual-tools/15_demo_manual-tools-app.R</span></p>
 </section>
 <section id="wait-i-can-write-code" class="slide level2 center">
 <h2>Wait… I can write code!</h2>
-<p>👨‍💻 <span class="code b purple">_demos/19_tools/19_weather-tool.R</span></p>
-<p>👨‍💻 <span class="code b purple">_demos/19_tools/19_weather-tool.py</span></p>
+<p>👨‍💻 <span class="code b purple">_demos/16_demo_tools/16_weather-tool-app.R</span></p>
+<p>👨‍💻 <span class="code b purple">_demos/16_demo_tools/16_weather-tool-01-start.py</span></p>
 </section>
 <section id="section-9" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
@@ -537,14 +537,14 @@
 <span id="cb6-11"><a aria-label="11"></a><span class="co">    """</span></span>
 <span id="cb6-12"><a aria-label="12"></a>    <span class="cf">return</span> NWS.GetCurrentForecast(lat, lon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
-<section id="your-turn-15_quiz-game-2" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>15_quiz-game-2</code></h1>
+<section id="your-turn-17_quiz-game-2" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>17_quiz-game-2</code></h1>
 <ol type="1">
 <li><p>I’ve given you a function that plays a sound when called.</p></li>
 <li><p>Your job: teach the model to play sounds in the Quiz Show game we made earlier today.</p></li>
 <li><p><em>You can use your prompt or switch <code>_exercises</code> → <code>_solutions</code> to use ours.</em></p></li>
 </ol>
-<countdown-timer id="timer_66ce45327a64fc90ef56453714a5d558c2908957" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_8e50cb34da6f7ecf5890efa6ffefdfa435f56597" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Follow up question: why send a string back to the LLM that says the sound was played?</p>
@@ -645,13 +645,13 @@
 <p><a href="https://posit-dev.github.io/chatlas/reference/types.ToolAnnotations.html" data-preview-link="true">chatlas (Python): ToolAnnotations</a></p>
 </div>
 </section>
-<section id="your-turn-16_quiz-game-3" class="slide level2 slide-your-turn">
-<h2>Your Turn <code>16_quiz-game-3</code></h2>
+<section id="your-turn-18_quiz-game-3" class="slide level2 slide-your-turn">
+<h2>Your Turn <code>18_quiz-game-3</code></h2>
 <ol type="1">
 <li><p>Add tool annotations to our <code>play_sound</code> tools.</p></li>
 <li><p>Pick an icon from <a href="https://fontawesome.com/search?q=speaker&amp;ic=free&amp;o=r">FontAwesome free icons</a></p></li>
 </ol>
-<countdown-timer id="timer_66ce45327a64fc90ef56453714a5d558c2908957" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<countdown-timer id="timer_8e50cb34da6f7ecf5890efa6ffefdfa435f56597" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
  </countdown-timer>
 </section>
 <section id="what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool" class="slide level2 center">
@@ -735,14 +735,14 @@
 <p><a href="https://posit-dev.github.io/chatlas/reference/types.ContentToolResult.html" data-preview-link="true">chatlas: ContentToolResult</a></p>
 </div>
 </section>
-<section id="your-turn-17_quiz-game-4" class="slide level2 slide-your-turn">
-<h2>Your Turn <code>17_quiz-game-4</code></h2>
+<section id="your-turn-19_quiz-game-4" class="slide level2 slide-your-turn">
+<h2>Your Turn <code>19_quiz-game-4</code></h2>
 <ol type="1">
 <li><p>Pick an <code>icon</code> and a <code>title</code> for each action in the Quiz show app.</p></li>
 <li><p>Return a <code>ContentToolResult</code> from each tool that sets the <code>icon</code> and <code>title</code>.</p></li>
 <li><p>Play the game again to see the icons and titles in action.</p></li>
 </ol>
-<countdown-timer id="timer_66ce45327a64fc90ef56453714a5d558c2908957" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<countdown-timer id="timer_8e50cb34da6f7ecf5890efa6ffefdfa435f56597" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
  </countdown-timer>
 </section>
 <section id="tools-in-shiny" class="slide level2">
@@ -752,20 +752,6 @@
 <li class="fragment"><p>You can <strong>update reactive values</strong> in the tool function!</p></li>
 <li class="fragment"><p>You can <strong>read reactive values</strong>, <em>if you <code>isolate()</code> reads</em>. (Be careful!)</p></li>
 </ul>
-<!-- TODO: Demo app with a tool that updates a reactive value -->
-</section>
-<section id="your-turn-18_quiz-game-5" class="slide level2 slide-your-turn">
-<h2>Your Turn <code>18_quiz-game-5</code></h2>
-<p><em>I’ve updated the app to show the score in value boxes.<br>
-(And turned off the sounds.)</em></p>
-<ol type="1">
-<li><p>In the <strong>system prompt</strong>, tell the model when to use <code>update_score</code>.</p></li>
-<li><p>Read <code>update_score()</code>. It should update a reactive value in the app when called. Finish implementing it.</p></li>
-<li><p>Complete the tool definition.</p></li>
-<li><p>Add tool annotations (optional, but fun!)</p></li>
-</ol>
-<countdown-timer id="timer_66ce45327a64fc90ef56453714a5d558c2908957" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
- </countdown-timer>
 
 
 </section></section>

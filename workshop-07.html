@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./workshop-08-break.html" rel="next">
+<link href="./workshop-08.html" rel="next">
 <link href="./workshop-06-break.html" rel="prev">
 <link href="./assets/posit-conf-favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -225,7 +225,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-08-break.html" class="sidebar-item-text sidebar-link">
+  <a href="./workshop-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agent Skills</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-10-break.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">☕ Break</span></a>
   </div>
 </li>
@@ -234,8 +246,14 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Beyond Tools</span></a>
+  <a href="./workshop-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">shinychat and querychat</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wrap-up</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -245,6 +263,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./bonus-rag.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Augmented Generation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bonus-mcp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Model Context Protocol</span></a>
   </div>
 </li>
     </ul>
@@ -259,6 +283,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-07.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -310,25 +335,30 @@ ul.task-list li input[type="checkbox"] {
 <section id="outline" class="level2">
 <h2 class="anchored" data-anchor-id="outline">Outline</h2>
 <ul>
-<li>(20m) Tool calling
+<li>(30m) Tool calling
 <ul>
 <li>Explain how tool calling pattern, mostly following <a href="https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny" class="uri">https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny</a></li>
 <li>Activity: quiz show
 <ul>
-<li>We’ve provided an R/Python function that plays a sound
+<li>We provide an R/Python function that plays a sound
 <ul>
 <li>R: <code>beepr</code>, Python: <a href="https://pypi.org/project/playsound3/">playsound</a></li>
 </ul></li>
-<li>Document the function and register it as a tool in the Quiz Show app</li>
+<li>They document the function and register it as a tool in the Quiz Show app</li>
 </ul></li>
-</ul></li>
-<li>(30m) Tool calling UI
-<ul>
-<li>Primarily a series of activities that progressively enhance the quiz show app</li>
 <li>Activity: Add tool annotations to give the tool an icon and title</li>
 <li>Activity: Use <code>ContentToolResult</code> to return custom title and icon</li>
 <li>Activity: Track answers and score in the app (add/update value boxes)</li>
+<li>(Considering) Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.</li>
 </ul></li>
+</ul>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<p>Hadley Wickham’s “What is an agent?” series on Substack explains tools, harnesses, and agents from first principles with ellmer examples:</p>
+<ul>
+<li><a href="https://tidydesign.substack.com/p/what-is-an-agent">What is an agent?</a> — conversations, turns, rounds, tools, and a precise definition of an agent.</li>
+<li><a href="https://tidydesign.substack.com/p/your-llm-cant-math-and-thats-ok">Your LLM can’t math (and that’s ok)</a> — how tool calls actually work, and why web chats can do things a bare LLM can’t.</li>
 </ul>
 
 
@@ -742,8 +772,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./workshop-08-break.html" class="pagination-link" aria-label="☕ Break">
-        <span class="nav-page-text">☕ Break</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./workshop-08.html" class="pagination-link" aria-label="Agents">
+        <span class="nav-page-text">Agents</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

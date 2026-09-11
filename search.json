@@ -7,67 +7,186 @@
     "text": "Garrick Aden-Buie\n        \n        Software Engineer, Shiny\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        \n        \n        Sara Altman\n        \n        Data Scientist, AI\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        \n        \n        Carson Sievert\n        \n        Software Engineer, Shiny\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        \n        \n        Kristin Bott\n        \n        Manager, Data Science Mentors\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        \n        \n        Alex Chisholm\n        \n        Product Manager, Posit Cloud\n        \n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 LinkedIn\n            \n            \n        \n    \n\n\nNo matching items"
   },
   {
-    "objectID": "slides/slides-09.html#querychat-in-r",
-    "href": "slides/slides-09.html#querychat-in-r",
-    "title": "Beyond Tools",
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag",
+    "title": "Augmented Generation",
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)\n\nRAG is a technique to automatically find and add relevant context to your prompts, rather than needing you to go out and copy-pasting it into the prompt yourself.\nIn a RAG system, you have a whole pile of documents. They’re not all immediately relevant to every question you might ask, but there’s a lot of useful information in this pile of document.\nWhen you talk to the LLM, the RAG system can take your prompt, search for documents that seem related to your prompt and then add those documents to your prompt. Then the LLM sees both your prompt and these extra documents, and it uses both when generating a response.\nIn the end, you get a much better response that’s more likely to be correct and to include accurate information."
+  },
+  {
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-1",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-1",
+    "title": "Augmented Generation",
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)"
+  },
+  {
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-2",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-2",
+    "title": "Augmented Generation",
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)"
+  },
+  {
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-3",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-3",
+    "title": "Augmented Generation",
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)"
+  },
+  {
+    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-4",
+    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-4",
+    "title": "Augmented Generation",
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)"
+  },
+  {
+    "objectID": "slides/slides-50.html#how-do-we-find-relevant-documents",
+    "href": "slides/slides-50.html#how-do-we-find-relevant-documents",
+    "title": "Augmented Generation",
+    "section": "How do we find relevant documents?",
+    "text": "How do we find relevant documents?\n\nAnswer: word vector embeddings → turn words into vectors\n\n\nHow do we actually find the most relevant documents?\nWord vector embeddings are a way to represent words as dense, real-valued vectors in a continuous space.\nThe idea is to capture semantic and syntactic relationships between words such that geometrical relationships in the vector space correspond to linguistic relationships in the language.\nEach word is mapped to a fixed-length vector with real-valued components. Distances and directions in this space encode similarity and relational structure. Words with similar meanings or usage tend to have similar vectors (small cosine distance, or Euclidean distance). Beyond meaning, embeddings can capture grammatical or functional similarities (e.g., verbs in present tense vs. past tense, or plural vs. singular forms)."
+  },
+  {
+    "objectID": "slides/slides-50.html#section-4",
+    "href": "slides/slides-50.html#section-4",
+    "title": "Augmented Generation",
+    "section": "🤴 - 🧔‍♂️ + 💁‍♀️ = ❓",
+    "text": "🤴 - 🧔‍♂️ + 💁‍♀️ = ❓"
+  },
+  {
+    "objectID": "slides/slides-50.html#section-5",
+    "href": "slides/slides-50.html#section-5",
+    "title": "Augmented Generation",
+    "section": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = ❓",
+    "text": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = ❓"
+  },
+  {
+    "objectID": "slides/slides-50.html#section-6",
+    "href": "slides/slides-50.html#section-6",
+    "title": "Augmented Generation",
+    "section": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = 👸",
+    "text": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = 👸"
+  },
+  {
+    "objectID": "slides/slides-50.html#openai-text-embedding-3-small",
+    "href": "slides/slides-50.html#openai-text-embedding-3-small",
+    "title": "Augmented Generation",
+    "section": "OpenAI: text-embedding-3-small",
+    "text": "OpenAI: text-embedding-3-small\ntext_embedding_3_small(\"dplyr::left_join\")\n#&gt; [-0.0384574,  0.00796838,  0.04896307, ..., -0.01687562, 0.00051399,  0.01020856]\n\ntext_embedding_3_small(\"LEFT JOIN\")\n#&gt; [-0.0114895,  0.01873610,  0.04436858, ...,  0.0055124, 0.01100459, -0.00588281],\n\n\ntext_embedding_3_small(\"suitcase\")\n#&gt; [ 0.01323017, -0.00844115, -0.02530578, ..., -0.00054488, -0.0285338, -0.02933492]"
+  },
+  {
+    "objectID": "slides/slides-50.html#two-ways-that-users-encounter-rag",
+    "href": "slides/slides-50.html#two-ways-that-users-encounter-rag",
+    "title": "Augmented Generation",
+    "section": "Two ways that users encounter RAG",
+    "text": "Two ways that users encounter RAG\n\nEvery prompt you send gets passed through\na RAG system and is augmented\nThe LLM can decide when to call the RAG system"
+  },
+  {
+    "objectID": "slides/slides-50.html#ragnar",
+    "href": "slides/slides-50.html#ragnar",
+    "title": "Augmented Generation",
+    "section": "In R…",
+    "text": "In R…\n\n\n\n\n\n\n\nhttps://ragnar.tidyverse.org/"
+  },
+  {
+    "objectID": "slides/slides-50.html#raghilda",
+    "href": "slides/slides-50.html#raghilda",
+    "title": "Augmented Generation",
+    "section": "In Python…",
+    "text": "In Python…\n\n\n\n\n\n\n\nhttps://posit-dev.github.io/raghilda/"
+  },
+  {
+    "objectID": "slides/slides-11.html#querychat-in-r",
+    "href": "slides/slides-11.html#querychat-in-r",
+    "title": "shinychat and querychat",
     "section": "querychat in R",
     "text": "querychat in R\nlibrary(shiny)\nlibrary(bslib)\nlibrary(querychat)\n\nmtcars_qc_config &lt;- querychat_init(mtcars)\n\nui &lt;- page_sidebar(\n  sidebar = querychat_sidebar(\"mtcars\"),\n  # plots, tables, etc.\n)\n\nserver &lt;- function(input, output, session) {\n  mtcars_qc &lt;- querychat_server(\"mtcars\", mtcars_qc_config)\n\n  output$table &lt;- renderTable({\n    mtcars_qc$df()\n  })\n}\n\nshinyApp(ui, server)"
   },
   {
-    "objectID": "slides/slides-09.html#querychat-in-python",
-    "href": "slides/slides-09.html#querychat-in-python",
-    "title": "Beyond Tools",
+    "objectID": "slides/slides-11.html#querychat-in-python",
+    "href": "slides/slides-11.html#querychat-in-python",
+    "title": "shinychat and querychat",
     "section": "querychat in Python",
     "text": "querychat in Python\nimport polars as pl\nimport querychat\nfrom shiny import App, render, ui\n\nmtcars = pl.read_csv(\"data/mtcars.csv\")\n\nmtcars_qc_config = querychat.init(mtcars, \"mtcars\")\n\napp_ui = ui.page_sidebar(\n    querychat.sidebar(\"mtcars\"),\n    # plots, tables, etc.\n)\n\ndef server(input, output, session):\n    mtcars_qc = querychat.server(\"mtcars\", mtcars_qc_config)\n\n    @render.data_frame\n    def data_table():\n        return qc.df()\n\napp = App(app_ui, server)"
   },
   {
-    "objectID": "slides/slides-09.html#recall-tools",
-    "href": "slides/slides-09.html#recall-tools",
-    "title": "Beyond Tools",
-    "section": "Recall: Tools",
-    "text": "Recall: Tools\na.k.a. functions, tool calling or function calling\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world"
-  },
-  {
-    "objectID": "slides/slides-09.html#what-other-tools-could-be-useful",
-    "href": "slides/slides-09.html#what-other-tools-could-be-useful",
-    "title": "Beyond Tools",
-    "section": "🤔 What other tools could be useful?",
-    "text": "🤔 What other tools could be useful?\n\nGet the weather\nSearch the posit::conf() schedule\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
-  },
-  {
-    "objectID": "slides/slides-09.html#what-github-related-tools-would-be-useful",
-    "href": "slides/slides-09.html#what-github-related-tools-would-be-useful",
-    "title": "Beyond Tools",
-    "section": "🤔 What GitHub-related tools would be useful?",
-    "text": "🤔 What GitHub-related tools would be useful?\n\nList issues\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
-  },
-  {
-    "objectID": "slides/slides-09.html#who-should-write-tools-for-github",
-    "href": "slides/slides-09.html#who-should-write-tools-for-github",
-    "title": "Beyond Tools",
-    "section": "Who should write tools for GitHub?",
-    "text": "Who should write tools for GitHub?\n\nMCP solves this problem! GitHub writes tools…\n\n\nand lets you your models use them.\nGitHub MCP Server"
-  },
-  {
-    "objectID": "slides/slides-09.html#whats-an-agent",
-    "href": "slides/slides-09.html#whats-an-agent",
-    "title": "Beyond Tools",
+    "objectID": "slides/slides-08.html#whats-an-agent",
+    "href": "slides/slides-08.html#whats-an-agent",
+    "title": "Agents",
     "section": "What’s an agent?",
-    "text": "What’s an agent?\n\nHadley/Willison definition: Agents are LLMs with a read tool and a write tool\nThe “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention"
+    "text": "What’s an agent?\n\nAn LLM, in a harness, that calls tools repeatedly in a loop — deciding each next step from the last result\nMost agents have two kinds of tools: read tools to observe the world, and write tools to change it\n\n\nThis is Hadley Wickham’s definition, from his “What is an agent?” post on Substack.\nSimon Willison’s shorter version: an LLM with a read tool and a write tool.\nThe “you know it when you see it” version: an autonomous system that needs minimal intervention to finish a task.\nAll three describe the same thing. The loop is what makes it an agent."
   },
   {
-    "objectID": "slides/slides-09.html#demo-databot",
-    "href": "slides/slides-09.html#demo-databot",
-    "title": "Beyond Tools",
-    "section": "Demo: Databot",
-    "text": "Demo: Databot\n👨‍💻 _demos/27_demo_databot/README.md\n\nLet’s look at data/airbnb-asheville.csv, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC."
+    "objectID": "slides/slides-08.html#one-tool-call-is-not-an-agent",
+    "href": "slides/slides-08.html#one-tool-call-is-not-an-agent",
+    "title": "Agents",
+    "section": "One tool call is not an agent",
+    "text": "One tool call is not an agent\nThe quiz show called a tool. So why wasn’t it an agent?\n\nNo loop, no decisions: the model called the sound tool and answered.\n\n\nRecall the quiz show app: we registered one tool, and the model called it to play sounds during the game.\nEach user message produced at most one tool call before the final answer.\nAn agent keeps calling tools in a loop, deciding each next step from the result of the last one."
   },
   {
-    "objectID": "slides/slides-09.html#section-3",
-    "href": "slides/slides-09.html#section-3",
-    "title": "Beyond Tools",
-    "section": "",
-    "text": "Enjoy posit::conf(2026)!"
+    "objectID": "slides/slides-08.html#the-agent-loop",
+    "href": "slides/slides-08.html#the-agent-loop",
+    "title": "Agents",
+    "section": "The agent loop",
+    "text": "The agent loop\n\nExplore: the agent reads to understand the world\nAct: the agent writes to change it\nObserve: the agent reads again to see what changed\n…and repeat until the task is done\n\n\nTODO: replace with an excalidraw diagram, in the style of the tools-how-it-works sequence in slides-07.\nThe loop is why agents feel different from a chat: the model, not the user, chooses the next step.\nThe harness (ellmer or chatlas) does the busy work: it runs each tool, sends the result back, and lets the model continue."
+  },
+  {
+    "objectID": "slides/slides-08.html#read-tools-and-write-tools",
+    "href": "slides/slides-08.html#read-tools-and-write-tools",
+    "title": "Agents",
+    "section": "Read tools and write tools",
+    "text": "Read tools and write tools\n\n\n\nRead tools observe\nWrite tools change\n\n\n\n\nRead a file\nWrite a file\n\n\nList files\nEdit a file\n\n\nSearch the codebase\nRun a command\n\n\nLook at data\nRun code\n\n\n\n\nRead and write is the smallest split that still makes an agent useful.\nA coding agent is just an agent whose tools mirror how a human works on a codebase.\nHadley: “A coding agent is six functions in a trenchcoat” — read file, write file, edit file, list files, search, run command, plus a big system prompt of advice."
+  },
+  {
+    "objectID": "slides/slides-08.html#demo-posit-assistant",
+    "href": "slides/slides-08.html#demo-posit-assistant",
+    "title": "Agents",
+    "section": "Demo: Posit Assistant",
+    "text": "Demo: Posit Assistant\n👨‍💻 _demos/21_demo_assistant/README.md\n\nLet’s look at data/airbnb-austin.csv, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.\n\n\nInstructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.\nWatch for: the loop (each step chosen from the last result), read and write actions, and permission prompts.\nRunning code is both a read tool and a write tool: it observes the data and changes the project."
+  },
+  {
+    "objectID": "slides/slides-08.html#the-manager-finds-another-export",
+    "href": "slides/slides-08.html#the-manager-finds-another-export",
+    "title": "Agents",
+    "section": "The manager finds another export",
+    "text": "The manager finds another export\nThe first win-back list has 11 members.\n\nThe agent has a working script, but it had to be told which files to read.\nNext, the manager drops an old register export into the folder.\nThe agent needs a way to discover that file and make a narrow change to the script it already wrote."
+  },
+  {
+    "objectID": "slides/slides-08.html#should-the-agent-run-code",
+    "href": "slides/slides-08.html#should-the-agent-run-code",
+    "title": "Agents",
+    "section": "Should the agent run code?",
+    "text": "Should the agent run code?\nYou just played the run-code tool by hand.\nShould the agent close that loop and repair its own errors?\n\nThe upside is a closed loop and self-repair.\nThe risk is code with side effects against the store’s data.\nAsk the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts."
+  },
+  {
+    "objectID": "slides/slides-08.html#what-counts-as-dangerous",
+    "href": "slides/slides-08.html#what-counts-as-dangerous",
+    "title": "Agents",
+    "section": "What counts as dangerous?",
+    "text": "What counts as dangerous?\nDanger = expensive, time-consuming, or impossible to undo\n\nDelete a file outside git\nDrop a database table\nSpend money\nSend an email\nLeak a secret or personal data\n\n\nHadley’s framing from “Help! My coding agent can run code”: dangerous means hard to undo.\nRunning the renewal script touches only a disposable, local fixture.\nSending a letter leaves the sandbox and reaches a real person.\nThe store’s no-late-fees settlement is a reminder that careless promises have consequences."
+  },
+  {
+    "objectID": "slides/slides-08.html#three-ways-to-keep-an-agent-in-check",
+    "href": "slides/slides-08.html#three-ways-to-keep-an-agent-in-check",
+    "title": "Agents",
+    "section": "Three ways to keep an agent in check",
+    "text": "Three ways to keep an agent in check\n\nAsk for permission — but 99% of approvals are safe, so people click yes without reading\nSandbox — the OS constrains the process, but temp folders, package libraries, and network access all leak in\nAsk an LLM — run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation\n\n\nHelp! My coding agent can run code\n\n\nThe three approaches, in the order real tools adopted them.\nPermission prompts become security theatre. Prefix allowlists fail: git push is safe, git push --force often isn’t.\nSandboxing works but is fiddly: R needs a writable temp dir and a readable library path.\nThe state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly."
+  },
+  {
+    "objectID": "slides/slides-08.html#auto-mode-knows-its-dangerous",
+    "href": "slides/slides-08.html#auto-mode-knows-its-dangerous",
+    "title": "Agents",
+    "section": "Auto mode knows it’s dangerous",
+    "text": "Auto mode knows it’s dangerous\n\nRunning curl -fsSL … | sh\nSandboxed mktemp isn’t writable. Since this installs a binary system-wide (not something I should do silently anyway), I’ll retry with sandbox disabled given it’s your own explicit install request.\n— Claude Code, asked to install air\n\n\nFrom Hadley’s “Auto mode knows it’s dangerous (and does it anyway)”.\nBoth Claude Code and Codex recognized the curl-pipe-sh installer as dangerous and ran it anyway, because the user asked.\nBest practice would be: download, read the script, then run. Neither agent read it.\nAuto mode is less protective than it looks. Keep your own eyes on destructive steps."
+  },
+  {
+    "objectID": "slides/slides-08.html#agents-recap",
+    "href": "slides/slides-08.html#agents-recap",
+    "title": "Agents",
+    "section": "Agents, recap",
+    "text": "Agents, recap\n\nAn agent is an LLM, in a harness, calling tools in a loop\nRead tools observe; write tools change\nThe harness does the busy work — you write the tools and the system prompt\nGeneral tools make useful agents, and safety is the price\n\n\nNext: how to give an agent knowledge without making the system prompt enormous."
   },
   {
     "objectID": "slides/slides-05.html#three-questions-to-ask-yourself",
@@ -378,211 +497,157 @@
     "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2026.github.io/llms/setup.html\nJoin the Discord: pos.it/joinconf26\nwifi(  network=“TODO”,  password=“TODO”)\nConference details: conf.posit.co/2026"
   },
   {
-    "objectID": "workshop-09.html",
-    "href": "workshop-09.html",
-    "title": "Beyond Tools",
+    "objectID": "workshop-12.html",
+    "href": "workshop-12.html",
+    "title": "Wrap-up",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Beyond Tools"
+      "Wrap-up"
     ]
   },
   {
-    "objectID": "workshop-09.html#slides",
-    "href": "workshop-09.html#slides",
-    "title": "Beyond Tools",
+    "objectID": "workshop-12.html#slides",
+    "href": "workshop-12.html#slides",
+    "title": "Wrap-up",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Beyond Tools"
+      "Wrap-up"
     ]
   },
   {
-    "objectID": "workshop-09.html#outline",
-    "href": "workshop-09.html#outline",
-    "title": "Beyond Tools",
+    "objectID": "workshop-12.html#outline",
+    "href": "workshop-12.html#outline",
+    "title": "Wrap-up",
     "section": "Outline",
-    "text": "Outline\n\n(10m) querychat\n\nActivity: Add querychat into an existing shiny app\n\n(10m) MCP\n\nOverview of MCP and how it works\nActivity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)\n\nArXiV: https://github.com/andybrandt/mcp-simple-arxiv\nwebpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp\nstocky: https://github.com/joelio/stocky\nfetcher: https://github.com/jae-jae/fetcher-mcp\ngit-ingest: https://github.com/adhikasp/mcp-git-ingest\ngithub: https://arc.net/l/quote/bvfqahnx\ncontext7: https://github.com/upstash/context7\n\n\n(30m) Agents\n\nHadley/Willison definition: Agents are LLMs with a read tool and a write tool\nThe “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention\nDemobot demo\n\n(30m) The Future of AI\n\nWhere do we go from here? Let’s talk fears and hopes.\n\n(5m) Wrap-up\n\nFeedback survey",
+    "text": "Outline\n\n(30m) The Future of AI\n\nJoe Cheng drops in again for this conversation\nWhere do we go from here? Let’s talk fears and hopes.\n\n(5m) Wrap-up\n\nFeedback survey\nGoodbye and enjoy the conference!",
     "crumbs": [
       "Workshop",
-      "Beyond Tools"
+      "Wrap-up"
     ]
   },
   {
-    "objectID": "workshop-09.html#workshop-survey",
-    "href": "workshop-09.html#workshop-survey",
-    "title": "Beyond Tools",
+    "objectID": "workshop-12.html#workshop-survey",
+    "href": "workshop-12.html#workshop-survey",
+    "title": "Wrap-up",
     "section": "Workshop Survey",
     "text": "Workshop Survey\nPlease take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!\npos.it/conf-workshop-survey",
     "crumbs": [
       "Workshop",
-      "Beyond Tools"
+      "Wrap-up"
     ]
   },
   {
-    "objectID": "workshop-07.html",
-    "href": "workshop-07.html",
-    "title": "Tool Calling",
+    "objectID": "workshop-08.html",
+    "href": "workshop-08.html",
+    "title": "Agents",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Tool Calling"
+      "Agents"
     ]
   },
   {
-    "objectID": "workshop-07.html#slides",
-    "href": "workshop-07.html#slides",
-    "title": "Tool Calling",
+    "objectID": "workshop-08.html#slides",
+    "href": "workshop-08.html#slides",
+    "title": "Agents",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Tool Calling"
+      "Agents"
     ]
   },
   {
-    "objectID": "workshop-07.html#outline",
-    "href": "workshop-07.html#outline",
-    "title": "Tool Calling",
+    "objectID": "workshop-08.html#outline",
+    "href": "workshop-08.html#outline",
+    "title": "Agents",
     "section": "Outline",
-    "text": "Outline\n\n(20m) Tool calling\n\nExplain how tool calling pattern, mostly following https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny\nActivity: quiz show\n\nWe’ve provided an R/Python function that plays a sound\n\nR: beepr, Python: playsound\n\nDocument the function and register it as a tool in the Quiz Show app\n\n\n(30m) Tool calling UI\n\nPrimarily a series of activities that progressively enhance the quiz show app\nActivity: Add tool annotations to give the tool an icon and title\nActivity: Use ContentToolResult to return custom title and icon\nActivity: Track answers and score in the app (add/update value boxes)",
+    "text": "Outline\n\n(30m) Building an agent\n\nPicking up from tool calling to build up to agents\nHadley/Willison definition: agents are LLMs with a read tool and a write tool\n\nReference: Hadley’s series on Substack, in particular What is an agent? and A coding agent is six functions in a trenchcoat\n\nDemo _demos/21_demo_assistant: Posit Assistant as an agent — the instructor starts the conversation, then everyone explores the data on their own\nActivity _exercises/22_agent-1: build a simple coding agent with a read tool and a write tool\nActivity _exercises/23_agent-2: make that coding agent a little better with a couple more tools (list files, edit files)\nDiscussion: what if it could run code? Should we add a run code tool?\n\nCoding harnesses, safety, sandboxing, LLM-based safety checks\nReference: Help! My coding agent can run code",
     "crumbs": [
       "Workshop",
-      "Tool Calling"
+      "Agents"
     ]
   },
   {
-    "objectID": "workshop-05.html",
-    "href": "workshop-05.html",
-    "title": "Prompt Engineering",
+    "objectID": "workshop-08.html#further-reading",
+    "href": "workshop-08.html#further-reading",
+    "title": "Agents",
+    "section": "Further reading",
+    "text": "Further reading\n\nA coding agent is six functions in a trenchcoat — build a minimal coding agent in R with ellmer, one tool at a time.\nHelp! My coding agent can run code — sandboxing, permission prompts, and LLM-based safety checks.\nAuto mode knows it’s dangerous (and does it anyway) — a cautionary experiment with curl | sh installers.",
+    "crumbs": [
+      "Workshop",
+      "Agents"
+    ]
+  },
+  {
+    "objectID": "workshop-04.html",
+    "href": "workshop-04.html",
+    "title": "Programming with LLMs",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Programming with LLMs"
     ]
   },
   {
-    "objectID": "workshop-05.html#slides",
-    "href": "workshop-05.html#slides",
-    "title": "Prompt Engineering",
+    "objectID": "workshop-04.html#slides",
+    "href": "workshop-04.html#slides",
+    "title": "Programming with LLMs",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Programming with LLMs"
     ]
   },
   {
-    "objectID": "workshop-05.html#outline",
-    "href": "workshop-05.html#outline",
-    "title": "Prompt Engineering",
+    "objectID": "workshop-04.html#resources",
+    "href": "workshop-04.html#resources",
+    "title": "Programming with LLMs",
+    "section": "Resources",
+    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
+    "crumbs": [
+      "Workshop",
+      "Programming with LLMs"
+    ]
+  },
+  {
+    "objectID": "workshop-02.html",
+    "href": "workshop-02.html",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "workshop-02.html#slides",
+    "href": "workshop-02.html#slides",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "workshop-02.html#outline",
+    "href": "workshop-02.html#outline",
+    "title": "Anatomy of a conversation",
     "section": "Outline",
-    "text": "Outline\n\n(35m) Prompting engineering and hallucinations\n\nActivity: images of mpg vs weight and ask for interpretation\nActivity (part 1): same question, but we’ve replaced the image with random noise\nActivity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image\nPrompt engineering best practices, in particular the system prompt\nActivity: create the prompt for the quiz game show",
+    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nThe same conversation from R and Python with ellmer and chatlas\nMessage roles: system, user, assistant\nActivity (02_conversation): Same question with and without a system prompt\nHow does the LLM remember the conversation? _demos/03_clearbot\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides\nTokens as the fundamental unit\nExample: _demos/04_token-possibilities\n\n(20m) Shinychat basics\n\nlive_console() and live_browser() (or chat.console() and chat.app())\nActivity (05_live): Write a roast of Hadley Wickham with live_console()\nMaking your own shinychat app: chat_app() for a quick app, page_chat() + chat_server() in R or Chat(client=) in Python for an app others can use\nActivity (06_word-games): 20-questions-style game — the model picks a word, you guess",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
-    ]
-  },
-  {
-    "objectID": "workshop-01.html",
-    "href": "workshop-01.html",
-    "title": "Welcome and getting started",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Welcome and getting started"
-    ]
-  },
-  {
-    "objectID": "workshop-01.html#slides",
-    "href": "workshop-01.html#slides",
-    "title": "Welcome and getting started",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Welcome and getting started"
-    ]
-  },
-  {
-    "objectID": "workshop-01.html#outline",
-    "href": "workshop-01.html#outline",
-    "title": "Welcome and getting started",
-    "section": "Outline",
-    "text": "Outline\n\nWelcome, introductions, workshop expectations\n\nActivity: introduce yourself to your neighbors\n\nSet up Posit AI Pass access\n\nActivity: Set up Posit AI Pass and make our first API calls!",
-    "crumbs": [
-      "Workshop",
-      "Welcome and getting started"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Programming with LLMs in R and Python",
-    "section": "",
-    "text": "Workshop at posit::conf(2026) in Houston, TXSeptember 14, 2026 :: 09:00 - 17:00Venue: Hilton Americas-Houston | Room: Lanier I"
-  },
-  {
-    "objectID": "index.html#introduction",
-    "href": "index.html#introduction",
-    "title": "Programming with LLMs in R and Python",
-    "section": "Introduction",
-    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and tool calling. Attendees will gain hands-on experience through guided exercises, providing the confidence to start their LLM journey. Bonus material on Retrieval-Augmented Generation (RAG) is included for self-guided study after the workshop."
-  },
-  {
-    "objectID": "index.html#links",
-    "href": "index.html#links",
-    "title": "Programming with LLMs in R and Python",
-    "section": "Links",
-    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n\n📦 Repository\n🍑 posit::conf(2026)"
-  },
-  {
-    "objectID": "bonus-rag.html",
-    "href": "bonus-rag.html",
-    "title": "Augmented Generation",
-    "section": "",
-    "text": "NoteBonus material\n\n\n\nWe won’t cover this unit during the workshop. It’s included for anyone who wants to go further on their own. Expect to spend about 40 minutes on the activities. Start with the setup steps below.",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
-    ]
-  },
-  {
-    "objectID": "bonus-rag.html#before-you-start",
-    "href": "bonus-rag.html#before-you-start",
-    "title": "Augmented Generation",
-    "section": "Before you start",
-    "text": "Before you start\nInstall the extra packages for this unit:\n\n\n\n\npak::local_install_dev_deps(dependencies = \"Config/Needs/bonus\")\n\n\nuv sync --group bonus\n\n\n\nThe activities also need an embedding model to compute the vectors used for retrieval. You can use any embedding model you like, local or hosted. Both exercises use nomic-embed-text-v2-moe, which you can run locally with LM Studio or ollama:\n\nLM Studio: text-embedding-nomic-embed-text-v2-moe (512MB).\nollama: nomic-embed-text-v2-moe (958MB). Pull it with ollama pull nomic-embed-text-v2-moe.\n\nThe LM Studio copy is half the size because it’s a quantized build of the same model. Quantization stores each model weight in fewer bits, which shrinks the file with a small cost to accuracy. For this exercise the difference doesn’t matter. If you already use one of these tools, stick with it.\n\n\n\n\nThe exercise as written talks to LM Studio on localhost:1234. To use ollama instead, switch the embedding call. In R, use ragnar::embed_ollama() in place of embed_lm_studio():\nstore &lt;- ragnar_store_create(\n  store_location,\n  title = \"R for Data Science\",\n  embed = \\(x) {\n    embed_ollama(x, model = \"nomic-embed-text-v2-moe\")\n  }\n)\n\n\nThe exercise as written talks to LM Studio on localhost:1234. To use ollama instead, switch the embedding call. In Python, point EmbeddingOpenAI() at base_url=\"http://localhost:11434/v1\", since ollama also exposes an OpenAI-compatible API:\nembed = EmbeddingOpenAI(\n    model=\"nomic-embed-text-v2-moe\",\n    base_url=\"http://localhost:11434/v1\",\n)",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
-    ]
-  },
-  {
-    "objectID": "bonus-rag.html#slides",
-    "href": "bonus-rag.html#slides",
-    "title": "Augmented Generation",
-    "section": "Slides",
-    "text": "Slides\n    View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
-    ]
-  },
-  {
-    "objectID": "bonus-rag.html#outline",
-    "href": "bonus-rag.html#outline",
-    "title": "Augmented Generation",
-    "section": "Outline",
-    "text": "Outline\n\n(10m) Manual RAG\n\nActivity 50_coding-assistant: Use an LLM as a coding assistant\n\nWrite a function that uses {weathR} (R) or NWS (Python) to get the weather for a location.\nThen, give the LLM the {weathR} (R) or NWS (Python) README and see how much better the response is.\n\n\n(30m) RAG\n\nHigh-level overview of how RAG works\nActivity 51_rag: Build a dynamic RAG system\n\nMake a chatbot that can draw from the knowledge of:\n\nThe R for Data Science book\nThe Polars Cookbook\n\nPreprocess and compute embeddings for each chunk using ragnar (R) or raghilda (Python)\n\nhttps://posit-dev.github.io/raghilda/user-guide/chatlas-integration.html\nhttps://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag\n\nAdd a tool that searches the embeddings and returns the top few chunks\n\nellmer: Use ragnar\nchatlas: this means writing a function",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
+      "Anatomy of a conversation"
     ]
   },
   {
@@ -649,69 +714,288 @@
     "text": "Footnotes\n\n\nThe best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is [gpt-oss:20b][ollama-gpt-oss]. For something a little bit smaller, try [qwen3:8b][ollama-qwen3-8b].↩︎"
   },
   {
-    "objectID": "workshop-02.html",
-    "href": "workshop-02.html",
-    "title": "Anatomy of a conversation",
+    "objectID": "bonus-rag.html",
+    "href": "bonus-rag.html",
+    "title": "Augmented Generation",
     "section": "",
-    "text": "View slides in full screen",
+    "text": "NoteBonus material\n\n\n\nWe won’t cover this unit during the workshop. It’s included for anyone who wants to go further on their own. Expect to spend about 40 minutes on the activities. Start with the setup steps below.",
     "crumbs": [
       "Workshop",
-      "Anatomy of a conversation"
+      "Augmented Generation"
     ]
   },
   {
-    "objectID": "workshop-02.html#slides",
-    "href": "workshop-02.html#slides",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
+    "objectID": "bonus-rag.html#before-you-start",
+    "href": "bonus-rag.html#before-you-start",
+    "title": "Augmented Generation",
+    "section": "Before you start",
+    "text": "Before you start\nInstall the extra packages for this unit:\n\n\n\n\npak::local_install_dev_deps(dependencies = \"Config/Needs/bonus\")\n\n\nuv sync --group bonus\n\n\n\nThe activities also need an embedding model to compute the vectors used for retrieval. You can use any embedding model you like, local or hosted. Both exercises use nomic-embed-text-v2-moe, which you can run locally with LM Studio or ollama:\n\nLM Studio: text-embedding-nomic-embed-text-v2-moe (512MB).\nollama: nomic-embed-text-v2-moe (958MB). Pull it with ollama pull nomic-embed-text-v2-moe.\n\nThe LM Studio copy is half the size because it’s a quantized build of the same model. Quantization stores each model weight in fewer bits, which shrinks the file with a small cost to accuracy. For this exercise the difference doesn’t matter. If you already use one of these tools, stick with it.\n\n\n\n\nThe exercise as written talks to LM Studio on localhost:1234. To use ollama instead, switch the embedding call. In R, use ragnar::embed_ollama() in place of embed_lm_studio():\nstore &lt;- ragnar_store_create(\n  store_location,\n  title = \"R for Data Science\",\n  embed = \\(x) {\n    embed_ollama(x, model = \"nomic-embed-text-v2-moe\")\n  }\n)\n\n\nThe exercise as written talks to LM Studio on localhost:1234. To use ollama instead, switch the embedding call. In Python, point EmbeddingOpenAI() at base_url=\"http://localhost:11434/v1\", since ollama also exposes an OpenAI-compatible API:\nembed = EmbeddingOpenAI(\n    model=\"nomic-embed-text-v2-moe\",\n    base_url=\"http://localhost:11434/v1\",\n)",
     "crumbs": [
       "Workshop",
-      "Anatomy of a conversation"
+      "Augmented Generation"
     ]
   },
   {
-    "objectID": "workshop-02.html#outline",
-    "href": "workshop-02.html#outline",
-    "title": "Anatomy of a conversation",
+    "objectID": "bonus-rag.html#slides",
+    "href": "bonus-rag.html#slides",
+    "title": "Augmented Generation",
+    "section": "Slides",
+    "text": "Slides\n    View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "bonus-rag.html#outline",
+    "href": "bonus-rag.html#outline",
+    "title": "Augmented Generation",
     "section": "Outline",
-    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nThe same conversation from R and Python with ellmer and chatlas\nMessage roles: system, user, assistant\nActivity (02_conversation): Same question with and without a system prompt\nHow does the LLM remember the conversation? _demos/03_clearbot\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides\nTokens as the fundamental unit\nExample: _demos/04_token-possibilities\n\n(20m) Shinychat basics\n\nlive_console() and live_browser() (or chat.console() and chat.app())\nActivity (05_live): Write a roast of Hadley Wickham with live_console()\nMaking your own shinychat app: chat_app() for a quick app, page_chat() + chat_server() in R or Chat(client=) in Python for an app others can use\nActivity (06_word-games): 20-questions-style game — the model picks a word, you guess",
+    "text": "Outline\n\n(10m) Manual RAG\n\nActivity 50_coding-assistant: Use an LLM as a coding assistant\n\nWrite a function that uses {weathR} (R) or NWS (Python) to get the weather for a location.\nThen, give the LLM the {weathR} (R) or NWS (Python) README and see how much better the response is.\n\n\n(30m) RAG\n\nHigh-level overview of how RAG works\nActivity 51_rag: Build a dynamic RAG system\n\nMake a chatbot that can draw from the knowledge of:\n\nThe R for Data Science book\nThe Polars Cookbook\n\nPreprocess and compute embeddings for each chunk using ragnar (R) or raghilda (Python)\n\nhttps://posit-dev.github.io/raghilda/user-guide/chatlas-integration.html\nhttps://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag\n\nAdd a tool that searches the embeddings and returns the top few chunks\n\nellmer: Use ragnar\nchatlas: this means writing a function",
     "crumbs": [
       "Workshop",
-      "Anatomy of a conversation"
+      "Augmented Generation"
     ]
   },
   {
-    "objectID": "workshop-04.html",
-    "href": "workshop-04.html",
-    "title": "Programming with LLMs",
+    "objectID": "bonus-mcp.html",
+    "href": "bonus-mcp.html",
+    "title": "Model Context Protocol",
+    "section": "",
+    "text": "NoteBonus material\n\n\n\nWe won’t cover this unit during the workshop. It’s included for anyone who wants to go further on their own. Expect to spend about 20 minutes on the activities.",
+    "crumbs": [
+      "Workshop",
+      "Model Context Protocol"
+    ]
+  },
+  {
+    "objectID": "bonus-mcp.html#slides",
+    "href": "bonus-mcp.html#slides",
+    "title": "Model Context Protocol",
+    "section": "Slides",
+    "text": "Slides\n    View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Model Context Protocol"
+    ]
+  },
+  {
+    "objectID": "bonus-mcp.html#outline",
+    "href": "bonus-mcp.html#outline",
+    "title": "Model Context Protocol",
+    "section": "Outline",
+    "text": "Outline\n\nOverview of MCP and how it works\nMCP in Positron: https://github.com/posit-dev/positron/issues/8377\n\nMCP in VS Code: https://code.visualstudio.com/docs/copilot/customization/mcp-servers\n\nActivity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)\n\nArXiV: https://github.com/andybrandt/mcp-simple-arxiv\nwebpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp\nstocky: https://github.com/joelio/stocky\nfetcher: https://github.com/jae-jae/fetcher-mcp\ngit-ingest: https://github.com/adhikasp/mcp-git-ingest\ngithub: https://arc.net/l/quote/bvfqahnx\ncontext7: https://github.com/upstash/context7",
+    "crumbs": [
+      "Workshop",
+      "Model Context Protocol"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programming with LLMs in R and Python",
+    "section": "",
+    "text": "Workshop at posit::conf(2026) in Houston, TXSeptember 14, 2026 :: 09:00 - 17:00Venue: Hilton Americas-Houston | Room: Lanier I"
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Programming with LLMs in R and Python",
+    "section": "Introduction",
+    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and tool calling. Attendees will gain hands-on experience through guided exercises, providing the confidence to start their LLM journey. Bonus material on Retrieval-Augmented Generation (RAG) is included for self-guided study after the workshop."
+  },
+  {
+    "objectID": "index.html#links",
+    "href": "index.html#links",
+    "title": "Programming with LLMs in R and Python",
+    "section": "Links",
+    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n\n📦 Repository\n🍑 posit::conf(2026)"
+  },
+  {
+    "objectID": "workshop-01.html",
+    "href": "workshop-01.html",
+    "title": "Welcome and getting started",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Programming with LLMs"
+      "Welcome and getting started"
     ]
   },
   {
-    "objectID": "workshop-04.html#slides",
-    "href": "workshop-04.html#slides",
-    "title": "Programming with LLMs",
+    "objectID": "workshop-01.html#slides",
+    "href": "workshop-01.html#slides",
+    "title": "Welcome and getting started",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Programming with LLMs"
+      "Welcome and getting started"
     ]
   },
   {
-    "objectID": "workshop-04.html#resources",
-    "href": "workshop-04.html#resources",
-    "title": "Programming with LLMs",
-    "section": "Resources",
-    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
+    "objectID": "workshop-01.html#outline",
+    "href": "workshop-01.html#outline",
+    "title": "Welcome and getting started",
+    "section": "Outline",
+    "text": "Outline\n\nWelcome, introductions, workshop expectations\n\nActivity: introduce yourself to your neighbors\n\nSet up Posit AI Pass access\n\nActivity: Set up Posit AI Pass and make our first API calls!",
     "crumbs": [
       "Workshop",
-      "Programming with LLMs"
+      "Welcome and getting started"
+    ]
+  },
+  {
+    "objectID": "workshop-05.html",
+    "href": "workshop-05.html",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Prompt Engineering"
+    ]
+  },
+  {
+    "objectID": "workshop-05.html#slides",
+    "href": "workshop-05.html#slides",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Prompt Engineering"
+    ]
+  },
+  {
+    "objectID": "workshop-05.html#outline",
+    "href": "workshop-05.html#outline",
+    "title": "Prompt Engineering",
+    "section": "Outline",
+    "text": "Outline\n\n(35m) Prompting engineering and hallucinations\n\nActivity: images of mpg vs weight and ask for interpretation\nActivity (part 1): same question, but we’ve replaced the image with random noise\nActivity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image\nPrompt engineering best practices, in particular the system prompt\nActivity: create the prompt for the quiz game show",
+    "crumbs": [
+      "Workshop",
+      "Prompt Engineering"
+    ]
+  },
+  {
+    "objectID": "workshop-07.html",
+    "href": "workshop-07.html",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Tool Calling"
+    ]
+  },
+  {
+    "objectID": "workshop-07.html#slides",
+    "href": "workshop-07.html#slides",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Tool Calling"
+    ]
+  },
+  {
+    "objectID": "workshop-07.html#outline",
+    "href": "workshop-07.html#outline",
+    "title": "Tool Calling",
+    "section": "Outline",
+    "text": "Outline\n\n(30m) Tool calling\n\nExplain how tool calling pattern, mostly following https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny\nActivity: quiz show\n\nWe provide an R/Python function that plays a sound\n\nR: beepr, Python: playsound\n\nThey document the function and register it as a tool in the Quiz Show app\n\nActivity: Add tool annotations to give the tool an icon and title\nActivity: Use ContentToolResult to return custom title and icon\nActivity: Track answers and score in the app (add/update value boxes)\n(Considering) Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.",
+    "crumbs": [
+      "Workshop",
+      "Tool Calling"
+    ]
+  },
+  {
+    "objectID": "workshop-07.html#further-reading",
+    "href": "workshop-07.html#further-reading",
+    "title": "Tool Calling",
+    "section": "Further reading",
+    "text": "Further reading\nHadley Wickham’s “What is an agent?” series on Substack explains tools, harnesses, and agents from first principles with ellmer examples:\n\nWhat is an agent? — conversations, turns, rounds, tools, and a precise definition of an agent.\nYour LLM can’t math (and that’s ok) — how tool calls actually work, and why web chats can do things a bare LLM can’t.",
+    "crumbs": [
+      "Workshop",
+      "Tool Calling"
+    ]
+  },
+  {
+    "objectID": "workshop-09.html",
+    "href": "workshop-09.html",
+    "title": "Agent Skills",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Agent Skills"
+    ]
+  },
+  {
+    "objectID": "workshop-09.html#slides",
+    "href": "workshop-09.html#slides",
+    "title": "Agent Skills",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Agent Skills"
+    ]
+  },
+  {
+    "objectID": "workshop-09.html#outline",
+    "href": "workshop-09.html#outline",
+    "title": "Agent Skills",
+    "section": "Outline",
+    "text": "Outline\n\n(30m) Agent Skills\n\nExplaining what skills are, how they’re used, best practices for making them\nActivity _exercises/24_skills-1: build on the agent work to wire up a skill tool\n\nOptions: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool\n\nActivity _exercises/25_skills-2: take the skill from the first exercise and improve it (fix common problems)",
+    "crumbs": [
+      "Workshop",
+      "Agent Skills"
+    ]
+  },
+  {
+    "objectID": "workshop-09.html#further-reading",
+    "href": "workshop-09.html#further-reading",
+    "title": "Agent Skills",
+    "section": "Further reading",
+    "text": "Further reading\n\nAgent Skills specification — the open format: directory structure, SKILL.md frontmatter, progressive disclosure.\nBest practices for skill creators — scoping, calibrating detail, and patterns that make skills work.\nSkills — Posit Assistant docs — where skills live, slash commands, and the built-in create-skill skill.\nAGENTS.md vs Skills vs MCP servers — when each layer is the right tool, from the Posit open-source AI newsletter.",
+    "crumbs": [
+      "Workshop",
+      "Agent Skills"
+    ]
+  },
+  {
+    "objectID": "workshop-11.html",
+    "href": "workshop-11.html",
+    "title": "shinychat and querychat",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "shinychat and querychat"
+    ]
+  },
+  {
+    "objectID": "workshop-11.html#slides",
+    "href": "workshop-11.html#slides",
+    "title": "shinychat and querychat",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "shinychat and querychat"
+    ]
+  },
+  {
+    "objectID": "workshop-11.html#outline",
+    "href": "workshop-11.html#outline",
+    "title": "shinychat and querychat",
+    "section": "Outline",
+    "text": "Outline\n\n(40m) shinychat\n\nNew shinychat features, including page_chat()\nSee the shinychat v0.5.0 preview blog post: https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/\n\n(20m) querychat\n\nSimple variant: use querychat to explore some data\nMinimal coding required by this point",
+    "crumbs": [
+      "Workshop",
+      "shinychat and querychat"
     ]
   },
   {
@@ -719,7 +1003,7 @@
     "href": "workshop.html",
     "title": "Overview",
     "section": "",
-    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\nAgents\n\n\n \n\n\nBuilding agents from tools\n\n\n\n\n\n\nAgent Skills\n\n\n \n\n\nTeaching agents new skills\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nshinychat and querychat\n\n\n \n\n\nshinychat and querychat\n\n\n\n\n\n\nWrap-up\n\n\n \n\n\nThe future of AI and goodbye\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Workshop",
       "Overview"
@@ -730,7 +1014,7 @@
     "href": "workshop.html#schedule",
     "title": "Overview",
     "section": "",
-    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\nAgents\n\n\n \n\n\nBuilding agents from tools\n\n\n\n\n\n\nAgent Skills\n\n\n \n\n\nTeaching agents new skills\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nshinychat and querychat\n\n\n \n\n\nshinychat and querychat\n\n\n\n\n\n\nWrap-up\n\n\n \n\n\nThe future of AI and goodbye\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Workshop",
       "Overview"
@@ -741,7 +1025,7 @@
     "href": "workshop.html#bonus-material",
     "title": "Overview",
     "section": "Bonus material",
-    "text": "Bonus material\nWe won’t cover these units during the workshop, but they’re included in case you want to go further on your own. You’ll find them in the Bonus section of the sidebar, or in the table below.\n\n\n\n\n\n\nTitle\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nNo matching items",
+    "text": "Bonus material\nWe won’t cover these units during the workshop, but they’re included in case you want to go further on your own. You’ll find them in the Bonus section of the sidebar, or in the table below.\n\n\n\n\n\n\nTitle\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nModel Context Protocol\n\n\n \n\n\nConnecting MCP servers to LLM chats\n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Workshop",
       "Overview"
@@ -1270,14 +1554,14 @@
     "href": "slides/slides-07.html#human-in-the-loop",
     "title": "Tool Calling",
     "section": "Human in the loop",
-    "text": "Human in the loop\n👨‍💻 _demos/18_manual-tools/app.R"
+    "text": "Human in the loop\n👨‍💻 _demos/15_demo_manual-tools/15_demo_manual-tools-app.R"
   },
   {
     "objectID": "slides/slides-07.html#wait-i-can-write-code",
     "href": "slides/slides-07.html#wait-i-can-write-code",
     "title": "Tool Calling",
     "section": "Wait… I can write code!",
-    "text": "Wait… I can write code!\n👨‍💻 _demos/19_tools/19_weather-tool.R\n👨‍💻 _demos/19_tools/19_weather-tool.py"
+    "text": "Wait… I can write code!\n👨‍💻 _demos/16_demo_tools/16_weather-tool-app.R\n👨‍💻 _demos/16_demo_tools/16_weather-tool-01-start.py"
   },
   {
     "objectID": "slides/slides-07.html#section-9",
@@ -1378,11 +1662,11 @@
     "text": "Tool Annotations in Python\nchat.register_tool(\n    get_weather,\n    annotations={\n        \"title\": \"Get Weather\",\n        \"readOnlyHint\": True,\n        \"extra\": {\n            \"icon\": faicons.fa_i(\"cloud-sun\"),\n        },\n    },\n)\n\nchatlas (Python): ToolAnnotations"
   },
   {
-    "objectID": "slides/slides-07.html#your-turn-16_quiz-game-3",
-    "href": "slides/slides-07.html#your-turn-16_quiz-game-3",
+    "objectID": "slides/slides-07.html#your-turn-18_quiz-game-3",
+    "href": "slides/slides-07.html#your-turn-18_quiz-game-3",
     "title": "Tool Calling",
-    "section": "Your Turn 16_quiz-game-3",
-    "text": "Your Turn 16_quiz-game-3\n\nAdd tool annotations to our play_sound tools.\nPick an icon from FontAwesome free icons"
+    "section": "Your Turn 18_quiz-game-3",
+    "text": "Your Turn 18_quiz-game-3\n\nAdd tool annotations to our play_sound tools.\nPick an icon from FontAwesome free icons"
   },
   {
     "objectID": "slides/slides-07.html#what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool",
@@ -1427,11 +1711,11 @@
     "text": "chatlas.ContentToolResult\ndef get_weather(lat: float, lon: float, location_name: str):\n    forecast = NWS.GetCurrentForecast(lat, lon)\n\n    return ContentToolResult(\n        forecast,\n        extra={\n            \"display\": {\n                \"title\": f\"Weather for {location_name}\",\n                \"icon\": faicons.fa_i(\"cloud-sun\"),\n            }\n        },\n    )\n\nchatlas: ContentToolResult"
   },
   {
-    "objectID": "slides/slides-07.html#your-turn-17_quiz-game-4",
-    "href": "slides/slides-07.html#your-turn-17_quiz-game-4",
+    "objectID": "slides/slides-07.html#your-turn-19_quiz-game-4",
+    "href": "slides/slides-07.html#your-turn-19_quiz-game-4",
     "title": "Tool Calling",
-    "section": "Your Turn 17_quiz-game-4",
-    "text": "Your Turn 17_quiz-game-4\n\nPick an icon and a title for each action in the Quiz show app.\nReturn a ContentToolResult from each tool that sets the icon and title.\nPlay the game again to see the icons and titles in action."
+    "section": "Your Turn 19_quiz-game-4",
+    "text": "Your Turn 19_quiz-game-4\n\nPick an icon and a title for each action in the Quiz show app.\nReturn a ContentToolResult from each tool that sets the icon and title.\nPlay the game again to see the icons and titles in action."
   },
   {
     "objectID": "slides/slides-07.html#tools-in-shiny",
@@ -1441,101 +1725,101 @@
     "text": "Tools in Shiny\n\nDefine the tool function inside the server\nYou can update reactive values in the tool function!\nYou can read reactive values, if you isolate() reads. (Be careful!)"
   },
   {
-    "objectID": "slides/slides-07.html#your-turn-18_quiz-game-5",
-    "href": "slides/slides-07.html#your-turn-18_quiz-game-5",
-    "title": "Tool Calling",
-    "section": "Your Turn 18_quiz-game-5",
-    "text": "Your Turn 18_quiz-game-5\nI’ve updated the app to show the score in value boxes.\n(And turned off the sounds.)\n\nIn the system prompt, tell the model when to use update_score.\nRead update_score(). It should update a reactive value in the app when called. Finish implementing it.\nComplete the tool definition.\nAdd tool annotations (optional, but fun!)"
+    "objectID": "slides/slides-09.html#youve-been-using-skills-all-day",
+    "href": "slides/slides-09.html#youve-been-using-skills-all-day",
+    "title": "Agent Skills",
+    "section": "You’ve been using skills all day",
+    "text": "You’ve been using skills all day\nWhen you asked Posit Assistant for help today, it loaded .agents/skills/help/SKILL.md.\n\nA skill is a folder with a SKILL.md file: a description of when to use it, plus instructions for how to do the job.\n\n\nOpen .agents/skills/help/SKILL.md live and scroll through it. Attendees have been on the receiving end of this skill all morning.\nThe same format works across agents: Posit Assistant, Claude Code, and many others follow the Agent Skills spec.\nSkills are plain markdown, checked into your project — no packaging, no build step."
   },
   {
-    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag",
-    "href": "slides/slides-50.html#retrieval-augmented-generation-rag",
-    "title": "Augmented Generation",
-    "section": "Retrieval-Augmented Generation (RAG)",
-    "text": "Retrieval-Augmented Generation (RAG)\n\nRAG is a technique to automatically find and add relevant context to your prompts, rather than needing you to go out and copy-pasting it into the prompt yourself.\nIn a RAG system, you have a whole pile of documents. They’re not all immediately relevant to every question you might ask, but there’s a lot of useful information in this pile of document.\nWhen you talk to the LLM, the RAG system can take your prompt, search for documents that seem related to your prompt and then add those documents to your prompt. Then the LLM sees both your prompt and these extra documents, and it uses both when generating a response.\nIn the end, you get a much better response that’s more likely to be correct and to include accurate information."
+    "objectID": "slides/slides-09.html#anatomy-of-a-skill",
+    "href": "slides/slides-09.html#anatomy-of-a-skill",
+    "title": "Agent Skills",
+    "section": "Anatomy of a skill",
+    "text": "Anatomy of a skill\nskills/\n└── renewal-letters/\n    ├── SKILL.md      # Required: metadata + instructions\n    ├── scripts/      # Optional: executable code\n    ├── references/   # Optional: documentation\n    └── assets/       # Optional: templates, data files"
   },
   {
-    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-1",
-    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-1",
-    "title": "Augmented Generation",
-    "section": "Retrieval-Augmented Generation (RAG)",
-    "text": "Retrieval-Augmented Generation (RAG)"
+    "objectID": "slides/slides-09.html#skill.md",
+    "href": "slides/slides-09.html#skill.md",
+    "title": "Agent Skills",
+    "section": "SKILL.md",
+    "text": "SKILL.md\n---\nname: renewal-letters\ndescription: Draft a renewal letter for a lapsed Last Blockbuster member.\n---\n\n# Renewal letters\n\nOffer Basic members a free-rental code.\nOffer Family members a family-night bundle.\nOffer Founders members a commemorative card.\n\nAgent Skills specification\n\n\nTwo required frontmatter fields:\n\nname: lowercase, hyphens, max 64 characters, must match the folder name.\ndescription: max 1024 characters, and it must say what the skill does AND when to use it.\n\nThe description is the only thing the agent sees at startup, so it decides whether your skill ever gets used.\nThe body is free markdown: steps, rules, gotchas, a template."
   },
   {
-    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-2",
-    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-2",
-    "title": "Augmented Generation",
-    "section": "Retrieval-Augmented Generation (RAG)",
-    "text": "Retrieval-Augmented Generation (RAG)"
+    "objectID": "slides/slides-09.html#progressive-disclosure",
+    "href": "slides/slides-09.html#progressive-disclosure",
+    "title": "Agent Skills",
+    "section": "Progressive disclosure",
+    "text": "Progressive disclosure\n\nDiscovery — the agent loads only each skill’s name and description (~100 tokens each)\nActivation — when a task matches, the agent reads the full SKILL.md\nExecution — instructions run; extra files load only when the skill asks for them\n\n\nThis is why skills scale: you can keep 100 skills on hand for the cost of their descriptions.\nThe full instructions load only when a task calls for them.\nSame idea you’ll implement by hand in the exercise: the system prompt lists the skill, a tool loads the body.\nTODO: excalidraw diagram in the style of the tools sequence in slides-07."
   },
   {
-    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-3",
-    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-3",
-    "title": "Augmented Generation",
-    "section": "Retrieval-Augmented Generation (RAG)",
-    "text": "Retrieval-Augmented Generation (RAG)"
+    "objectID": "slides/slides-09.html#why-not-just-use-the-system-prompt",
+    "href": "slides/slides-09.html#why-not-just-use-the-system-prompt",
+    "title": "Agent Skills",
+    "section": "Why not just use the system prompt?",
+    "text": "Why not just use the system prompt?\n\nThe system prompt is always in context — every token, every request\nSkills load on demand — only when a task matches\nSo skills let you give an agent deep expertise without paying for it up front\n\n\nYou wrote a system prompt for the Blockbuster agent. That works for one small set of rules.\nNow imagine 50 jobs: renewal letters, store opening procedures, staff notes, rental policies, and social media voice.\nStuffed into the system prompt, they crowd out the conversation and cost tokens on every request.\nAs skills, they cost about 100 tokens each until the moment one is needed."
   },
   {
-    "objectID": "slides/slides-50.html#retrieval-augmented-generation-rag-4",
-    "href": "slides/slides-50.html#retrieval-augmented-generation-rag-4",
-    "title": "Augmented Generation",
-    "section": "Retrieval-Augmented Generation (RAG)",
-    "text": "Retrieval-Augmented Generation (RAG)"
+    "objectID": "slides/slides-09.html#writing-a-skill-that-works",
+    "href": "slides/slides-09.html#writing-a-skill-that-works",
+    "title": "Agent Skills",
+    "section": "Writing a skill that works",
+    "text": "Writing a skill that works\n\nAdd what the agent lacks; omit what it knows — no “write clear descriptions”\nDescription says what and when — it’s the trigger\nConcrete beats generic — a template, a rule, a gotcha\nKeep it short — under 500 lines; push detail to references/\n\n\nBest practices for skill creators\n\n\nThe test for every line: would the agent get this wrong without it?\nIf the agent already writes clean markdown, don’t tell it to write clean markdown.\nGive a default, not a menu: one way to do it, with an escape hatch.\nGotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions."
   },
   {
-    "objectID": "slides/slides-50.html#how-do-we-find-relevant-documents",
-    "href": "slides/slides-50.html#how-do-we-find-relevant-documents",
-    "title": "Augmented Generation",
-    "section": "How do we find relevant documents?",
-    "text": "How do we find relevant documents?\n\nAnswer: word vector embeddings → turn words into vectors\n\n\nHow do we actually find the most relevant documents?\nWord vector embeddings are a way to represent words as dense, real-valued vectors in a continuous space.\nThe idea is to capture semantic and syntactic relationships between words such that geometrical relationships in the vector space correspond to linguistic relationships in the language.\nEach word is mapped to a fixed-length vector with real-valued components. Distances and directions in this space encode similarity and relational structure. Words with similar meanings or usage tend to have similar vectors (small cosine distance, or Euclidean distance). Beyond meaning, embeddings can capture grammatical or functional similarities (e.g., verbs in present tense vs. past tense, or plural vs. singular forms)."
+    "objectID": "slides/slides-09.html#skills-in-posit-assistant",
+    "href": "slides/slides-09.html#skills-in-posit-assistant",
+    "title": "Agent Skills",
+    "section": "Skills in Posit Assistant",
+    "text": "Skills in Posit Assistant\n\nBuilt-ins: create-skill, r-package-development, quarto-authoring, …\nYours: ~/.posit/assistant/skills/ (all projects) or .agents/skills/ (this project)\nMost skills also run as slash commands: /renewal-letters\n\n\nSkills — Posit Assistant docs\n\n\n.agents/skills/ is the portable location: any spec-following agent can read it.\nThe built-in create-skill skill walks you through making a new one interactively.\nSkills double as commands when you want to trigger a workflow deliberately instead of hoping the model picks it."
   },
   {
-    "objectID": "slides/slides-50.html#section-4",
-    "href": "slides/slides-50.html#section-4",
-    "title": "Augmented Generation",
-    "section": "🤴 - 🧔‍♂️ + 💁‍♀️ = ❓",
-    "text": "🤴 - 🧔‍♂️ + 💁‍♀️ = ❓"
+    "objectID": "slides/slides-09.html#skills-in-the-ecosystem",
+    "href": "slides/slides-09.html#skills-in-the-ecosystem",
+    "title": "Agent Skills",
+    "section": "Skills in the ecosystem",
+    "text": "Skills in the ecosystem\n\n\n\n\n\n\n\n\nLayer\nWhat it carries\nWhen it loads\n\n\n\n\nSystem prompt\nCore behavior\nAlways\n\n\nSkills\nProcedures, house rules, expertise\nOn demand\n\n\nMCP servers\nConnections to external tools\nRegistered per tool call\n\n\n\n\nRough map, from the Posit open-source AI newsletter.\nAGENTS.md and the system prompt shape everything the agent does.\nSkills carry the long tail of knowledge: too specific to always pay for, too valuable to leave out.\nMCP servers are about tools — connections to databases, APIs, other software. Bonus material covers MCP."
   },
   {
-    "objectID": "slides/slides-50.html#section-5",
-    "href": "slides/slides-50.html#section-5",
-    "title": "Augmented Generation",
-    "section": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = ❓",
-    "text": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = ❓"
+    "objectID": "slides/slides-09.html#skills-recap",
+    "href": "slides/slides-09.html#skills-recap",
+    "title": "Agent Skills",
+    "section": "Skills, recap",
+    "text": "Skills, recap\n\nA skill is a folder with SKILL.md: metadata plus instructions\nProgressive disclosure: descriptions at startup, body on demand\nWrite what the agent doesn’t know — and say when to use it\nSame format in Posit Assistant, Claude Code, and any spec-following agent\n\n\nYou built the mechanism yourself today: listing, loading, and writing skills.\nThe same pattern runs inside the assistant you use every day — now you know how to extend it."
   },
   {
-    "objectID": "slides/slides-50.html#section-6",
-    "href": "slides/slides-50.html#section-6",
-    "title": "Augmented Generation",
-    "section": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = 👸",
-    "text": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = 👸"
+    "objectID": "slides/slides-12.html#section",
+    "href": "slides/slides-12.html#section",
+    "title": "Wrap-up",
+    "section": "",
+    "text": "Enjoy posit::conf(2026)!"
   },
   {
-    "objectID": "slides/slides-50.html#openai-text-embedding-3-small",
-    "href": "slides/slides-50.html#openai-text-embedding-3-small",
-    "title": "Augmented Generation",
-    "section": "OpenAI: text-embedding-3-small",
-    "text": "OpenAI: text-embedding-3-small\ntext_embedding_3_small(\"dplyr::left_join\")\n#&gt; [-0.0384574,  0.00796838,  0.04896307, ..., -0.01687562, 0.00051399,  0.01020856]\n\ntext_embedding_3_small(\"LEFT JOIN\")\n#&gt; [-0.0114895,  0.01873610,  0.04436858, ...,  0.0055124, 0.01100459, -0.00588281],\n\n\ntext_embedding_3_small(\"suitcase\")\n#&gt; [ 0.01323017, -0.00844115, -0.02530578, ..., -0.00054488, -0.0285338, -0.02933492]"
+    "objectID": "slides/slides-52.html#recall-tools",
+    "href": "slides/slides-52.html#recall-tools",
+    "title": "Model Context Protocol",
+    "section": "Recall: Tools",
+    "text": "Recall: Tools\na.k.a. functions, tool calling or function calling\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world"
   },
   {
-    "objectID": "slides/slides-50.html#two-ways-that-users-encounter-rag",
-    "href": "slides/slides-50.html#two-ways-that-users-encounter-rag",
-    "title": "Augmented Generation",
-    "section": "Two ways that users encounter RAG",
-    "text": "Two ways that users encounter RAG\n\nEvery prompt you send gets passed through\na RAG system and is augmented\nThe LLM can decide when to call the RAG system"
+    "objectID": "slides/slides-52.html#what-other-tools-could-be-useful",
+    "href": "slides/slides-52.html#what-other-tools-could-be-useful",
+    "title": "Model Context Protocol",
+    "section": "🤔 What other tools could be useful?",
+    "text": "🤔 What other tools could be useful?\n\nGet the weather\nSearch the posit::conf() schedule\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
   },
   {
-    "objectID": "slides/slides-50.html#ragnar",
-    "href": "slides/slides-50.html#ragnar",
-    "title": "Augmented Generation",
-    "section": "In R…",
-    "text": "In R…\n\n\n\n\n\n\n\nhttps://ragnar.tidyverse.org/"
+    "objectID": "slides/slides-52.html#what-github-related-tools-would-be-useful",
+    "href": "slides/slides-52.html#what-github-related-tools-would-be-useful",
+    "title": "Model Context Protocol",
+    "section": "🤔 What GitHub-related tools would be useful?",
+    "text": "🤔 What GitHub-related tools would be useful?\n\nList issues\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
   },
   {
-    "objectID": "slides/slides-50.html#raghilda",
-    "href": "slides/slides-50.html#raghilda",
-    "title": "Augmented Generation",
-    "section": "In Python…",
-    "text": "In Python…\n\n\n\n\n\n\n\nhttps://posit-dev.github.io/raghilda/"
+    "objectID": "slides/slides-52.html#who-should-write-tools-for-github",
+    "href": "slides/slides-52.html#who-should-write-tools-for-github",
+    "title": "Model Context Protocol",
+    "section": "Who should write tools for GitHub?",
+    "text": "Who should write tools for GitHub?\n\nMCP solves this problem! GitHub writes tools…\n\n\nand lets you your models use them.\nGitHub MCP Server"
   }
 ]

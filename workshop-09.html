@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Looking beyond integrations to explore what’s next: Model Context Protocol (MCP), practical agent patterns, and the near future of AI-assisted development.">
+<meta name="description" content="What skills are, how they’re used, and how to make your own.">
 
-<title>Beyond Tools – Programming with LLMs in R and Python</title>
+<title>Agent Skills – Programming with LLMs in R and Python</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -37,8 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./bonus-rag.html" rel="next">
-<link href="./workshop-08-break.html" rel="prev">
+<link href="./workshop-10-break.html" rel="next">
+<link href="./workshop-08.html" rel="prev">
 <link href="./assets/posit-conf-favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -89,14 +89,14 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-<meta property="og:title" content="Beyond Tools – Programming with LLMs in R and Python">
-<meta property="og:description" content="Looking beyond integrations to explore what’s next: Model Context Protocol (MCP), practical agent patterns, and the near future of AI-assisted development.">
+<meta property="og:title" content="Agent Skills – Programming with LLMs in R and Python">
+<meta property="og:description" content="What skills are, how they’re used, and how to make your own.">
 <meta property="og:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs in R and Python">
 <meta property="og:image:height" content="400">
 <meta property="og:image:width" content="765">
-<meta name="twitter:title" content="Beyond Tools – Programming with LLMs in R and Python">
-<meta name="twitter:description" content="Looking beyond integrations to explore what’s next: Model Context Protocol (MCP), practical agent patterns, and the near future of AI-assisted development.">
+<meta name="twitter:title" content="Agent Skills – Programming with LLMs in R and Python">
+<meta name="twitter:description" content="What skills are, how they’re used, and how to make your own.">
 <meta name="twitter:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
 <meta name="twitter:site" content="@posit-dev">
@@ -154,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-09.html">Beyond Tools</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-09.html">Agent Skills</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -225,7 +225,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-08-break.html" class="sidebar-item-text sidebar-link">
+  <a href="./workshop-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-09.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Agent Skills</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-10-break.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">☕ Break</span></a>
   </div>
 </li>
@@ -234,8 +246,14 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-09.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Beyond Tools</span></a>
+  <a href="./workshop-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">shinychat and querychat</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wrap-up</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -245,6 +263,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./bonus-rag.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Augmented Generation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bonus-mcp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Model Context Protocol</span></a>
   </div>
 </li>
     </ul>
@@ -259,7 +283,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
-  <li><a href="#workshop-survey" id="toc-workshop-survey" class="nav-link" data-scroll-target="#workshop-survey">Workshop Survey</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-09.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -278,12 +302,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Beyond Tools</h1>
+<h1 class="title">Agent Skills</h1>
 </div>
 
 <div>
   <div class="description">
-    <p>Looking beyond integrations to explore what’s next: Model Context Protocol (MCP), practical agent patterns, and the near future of AI-assisted development.</p>
+    What skills are, how they’re used, and how to make your own.
   </div>
 </div>
 
@@ -311,44 +335,25 @@ ul.task-list li input[type="checkbox"] {
 <section id="outline" class="level2">
 <h2 class="anchored" data-anchor-id="outline">Outline</h2>
 <ul>
-<li>(10m) querychat
+<li>(30m) Agent Skills
 <ul>
-<li>Activity: Add querychat into an existing shiny app</li>
+<li>Explaining what skills are, how they’re used, best practices for making them</li>
+<li>Activity <code>_exercises/24_skills-1</code>: build on the agent work to wire up a skill tool
+<ul>
+<li>Options: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool</li>
 </ul></li>
-<li>(10m) MCP
-<ul>
-<li>Overview of MCP and how it works</li>
-<li>Activity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)
-<ul>
-<li>ArXiV: https://github.com/andybrandt/mcp-simple-arxiv</li>
-<li>webpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp</li>
-<li>stocky: https://github.com/joelio/stocky</li>
-<li>fetcher: https://github.com/jae-jae/fetcher-mcp</li>
-<li>git-ingest: https://github.com/adhikasp/mcp-git-ingest</li>
-<li>github: https://arc.net/l/quote/bvfqahnx</li>
-<li>context7: https://github.com/upstash/context7</li>
-</ul></li>
-</ul></li>
-<li>(30m) Agents
-<ul>
-<li>Hadley/Willison definition: Agents are LLMs with a read tool and a write tool</li>
-<li>The “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention</li>
-<li>Demobot demo</li>
-</ul></li>
-<li>(30m) The Future of AI
-<ul>
-<li>Where do we go from here? Let’s talk fears and hopes.</li>
-</ul></li>
-<li>(5m) Wrap-up
-<ul>
-<li>Feedback survey</li>
+<li>Activity <code>_exercises/25_skills-2</code>: take the skill from the first exercise and improve it (fix common problems)</li>
 </ul></li>
 </ul>
 </section>
-<section id="workshop-survey" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-survey">Workshop Survey</h2>
-<p>Please take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!</p>
-<p><a href="https://pos.it/conf-workshop-survey">pos.it/conf-workshop-survey</a></p>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://agentskills.io/specification">Agent Skills specification</a> — the open format: directory structure, <code>SKILL.md</code> frontmatter, progressive disclosure.</li>
+<li><a href="https://agentskills.io/skill-creation/best-practices">Best practices for skill creators</a> — scoping, calibrating detail, and patterns that make skills work.</li>
+<li><a href="https://assistant.posit.co/docs/features/skills/">Skills — Posit Assistant docs</a> — where skills live, slash commands, and the built-in <code>create-skill</code> skill.</li>
+<li><a href="https://opensource.posit.co/blog/2026-07-03_ai-newsletter/">AGENTS.md vs Skills vs MCP servers</a> — when each layer is the right tool, from the Posit open-source AI newsletter.</li>
+</ul>
 
 
 </section>
@@ -756,13 +761,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./workshop-08-break.html" class="pagination-link" aria-label="☕ Break">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">☕ Break</span>
+      <a href="./workshop-08.html" class="pagination-link" aria-label="Agents">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Agents</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./bonus-rag.html" class="pagination-link" aria-label="Augmented Generation">
-        <span class="nav-page-text">Augmented Generation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./workshop-10-break.html" class="pagination-link" aria-label="☕ Break">
+        <span class="nav-page-text">☕ Break</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

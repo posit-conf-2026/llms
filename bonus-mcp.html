@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Go touch grass! We’ll be back here at 15:30.">
+<meta name="description" content="An overview of MCP and how to connect MCP servers to ellmer and chatlas.">
 
-<title>☕ Break – Programming with LLMs in R and Python</title>
+<title>Model Context Protocol – Programming with LLMs in R and Python</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -37,8 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./workshop-09.html" rel="next">
-<link href="./workshop-07.html" rel="prev">
+<link href="./bonus-rag.html" rel="prev">
 <link href="./assets/posit-conf-favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -79,16 +78,24 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <meta name="theme-color" content="black">
+ 
+  <style>
+  .slide-deck {
+      border: 3px solid #dee2e6;
+      width: 100%;
+  }
+  </style>
+  
 
 
-<meta property="og:title" content="☕ Break – Programming with LLMs in R and Python">
-<meta property="og:description" content="Go touch grass! We’ll be back here at 15:30.">
+<meta property="og:title" content="Model Context Protocol – Programming with LLMs in R and Python">
+<meta property="og:description" content="An overview of MCP and how to connect MCP servers to ellmer and chatlas.">
 <meta property="og:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs in R and Python">
 <meta property="og:image:height" content="400">
 <meta property="og:image:width" content="765">
-<meta name="twitter:title" content="☕ Break – Programming with LLMs in R and Python">
-<meta name="twitter:description" content="Go touch grass! We’ll be back here at 15:30.">
+<meta name="twitter:title" content="Model Context Protocol – Programming with LLMs in R and Python">
+<meta name="twitter:description" content="An overview of MCP and how to connect MCP servers to ellmer and chatlas.">
 <meta name="twitter:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
 <meta name="twitter:site" content="@posit-dev">
@@ -146,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-08-break.html">☕ Break</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bonus-mcp.html">Model Context Protocol</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -217,7 +224,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-08-break.html" class="sidebar-item-text sidebar-link active">
+  <a href="./workshop-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agent Skills</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-10-break.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">☕ Break</span></a>
   </div>
 </li>
@@ -226,8 +245,14 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Beyond Tools</span></a>
+  <a href="./workshop-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">shinychat and querychat</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wrap-up</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -239,13 +264,26 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Augmented Generation</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bonus-mcp.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Model Context Protocol</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/bonus-mcp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -262,12 +300,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">☕ Break</h1>
+<h1 class="title">Model Context Protocol</h1>
 </div>
 
 <div>
   <div class="description">
-    <p>Go touch grass! We’ll be back here at 15:30.</p>
+    An overview of MCP and how to connect MCP servers to ellmer and chatlas.
   </div>
 </div>
 
@@ -284,16 +322,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<video autoplay="" muted="" loop="" playsinline="" poster="/assets/gen-ai/76w7rj1sjdrmc0cs94eaq4j9q8.jpg">
-  <source src="./assets/gen-ai/replicate-prediction-1cnbycx1rhrmc0cs94esm0bmk0.mp4" type="video/mp4">
-</video>
-<style>
-  video, img {
-    max-width: 100%;
-  }
-</style>
+<div class="callout callout-style-default callout-note callout-titled" title="Bonus material">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Bonus material
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We won’t cover this unit during the workshop. It’s included for anyone who wants to go further on their own. Expect to spend about 20 minutes on the activities.</p>
+</div>
+</div>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+    <p><a href="slides/slides-52.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="slides/slides-52.html" height="475px"></iframe>
+    </div>
+  
+</section>
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<ul>
+<li>Overview of MCP and how it works</li>
+<li>MCP in Positron: https://github.com/posit-dev/positron/issues/8377
+<ul>
+<li>MCP in VS Code: https://code.visualstudio.com/docs/copilot/customization/mcp-servers</li>
+</ul></li>
+<li>Activity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)
+<ul>
+<li>ArXiV: https://github.com/andybrandt/mcp-simple-arxiv</li>
+<li>webpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp</li>
+<li>stocky: https://github.com/joelio/stocky</li>
+<li>fetcher: https://github.com/jae-jae/fetcher-mcp</li>
+<li>git-ingest: https://github.com/adhikasp/mcp-git-ingest</li>
+<li>github: https://arc.net/l/quote/bvfqahnx</li>
+<li>context7: https://github.com/upstash/context7</li>
+</ul></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -698,14 +769,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./workshop-07.html" class="pagination-link" aria-label="Tool Calling">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tool Calling</span>
+      <a href="./bonus-rag.html" class="pagination-link" aria-label="Augmented Generation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Augmented Generation</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./workshop-09.html" class="pagination-link" aria-label="Beyond Tools">
-        <span class="nav-page-text">Beyond Tools</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -716,7 +784,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p><a href="https://conf.posit.co/2026/">posit::conf(2026)</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-08-break.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/bonus-mcp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

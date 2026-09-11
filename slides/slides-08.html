@@ -17,7 +17,7 @@
 
   <meta name="author" content="posit::conf(2026)">
   <meta name="dcterms.date" content="2026-09-14">
-  <title>Programming with LLMs in R and Python – Prompt Engineering</title>
+  <title>Programming with LLMs in R and Python – Agents</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -42,72 +42,6 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-264d910d49a945b27587394c4a1c51dd.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -201,11 +135,11 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Prompt Engineering – Programming with LLMs in R and Python">
+<meta property="og:title" content="Agents – Programming with LLMs in R and Python">
 <meta property="og:description" content="Programming with LLMs in R and Python">
 <meta property="og:image" content="https://posit-conf-2026.github.io/llms/slides/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs in R and Python">
-<meta name="twitter:title" content="Prompt Engineering – Programming with LLMs in R and Python">
+<meta name="twitter:title" content="Agents – Programming with LLMs in R and Python">
 <meta name="twitter:description" content="Programming with LLMs in R and Python">
 <meta name="twitter:image" content="https://posit-conf-2026.github.io/llms/slides/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
@@ -217,7 +151,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Prompt Engineering</h1>
+  <h1 class="title">Agents</h1>
   <p class="subtitle">Programming with LLMs in R and Python</p>
 
 <div class="quarto-title-authors">
@@ -230,51 +164,24 @@
 
   <p class="date">2026-09-14</p>
 </section>
-<section id="prompt-engineering" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
-<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt engineering</span></h1>
-
-</section>
-
-<section id="your-turn-12_plot-image-1" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>12_plot-image-1</code></h1>
-<ol type="1">
-<li><p>ellmer and chatlas let you show the model your plots!</p></li>
-<li><p>Create a basic <code>mtcars</code> scatter plot and ask Claude 4 Sonnet to interpret it.</p></li>
-<li><p>How does it do?</p></li>
-</ol>
-<countdown-timer id="timer_8e50cb34da6f7ecf5890efa6ffefdfa435f56597" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
- </countdown-timer>
-</section>
-
-<section id="your-turn-13_plot-image-2" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>13_plot-image-2</code></h1>
-<ol type="1">
-<li><p>Replace the scatter plot with random noise.</p></li>
-<li><p>Show this new plot to Claude 4 Sonnet and ask it to interpret it. How does it do this time?</p></li>
-<li><p>Work with your neighbor to see if you can improve the prompt to get a better answer.</p></li>
-</ol>
-<countdown-timer id="timer_8e50cb34da6f7ecf5890efa6ffefdfa435f56597" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
- </countdown-timer>
-</section>
-
 <section>
-<section id="prompt-engineering-1" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
-<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt engineering</span></h1>
-
+<section id="agents" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-agent.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">Agents</span></h1>
+<div class="tc white pa1 br3 w-50 absolute" style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);left: 0px; bottom: -5em; ">
+<p>Agents</p>
+</div>
 </section>
-<section id="three-questions-to-ask-yourself" class="slide level2">
-<h2>Three questions to ask yourself</h2>
-<ol type="1">
-<li class="fragment"><p>Did you use the best models?</p></li>
-<li class="fragment"><p>Did you clearly explain what you want the model to do in the system prompt?</p></li>
-<li class="fragment"><p>Did you provide examples of what you want?</p></li>
-</ol>
+<section id="whats-an-agent" class="slide level2">
+<h2>What’s an agent?</h2>
+<ul>
+<li class="fragment"><p>An LLM, in a harness, that calls tools repeatedly in a loop — deciding each next step from the last result</p></li>
+<li class="fragment"><p>Most agents have two kinds of tools: <strong>read</strong> tools to observe the world, and <strong>write</strong> tools to change it</p></li>
+</ul>
 <aside class="notes">
-<blockquote>
-<p>There’s going to be 3 questions we’re usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1</p>
-<p>so number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?</p>
-<p>And then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see.</p>
-</blockquote>
+<p>This is Hadley Wickham’s definition, from his “What is an agent?” post on Substack.</p>
+<p>Simon Willison’s shorter version: an LLM with a read tool and a write tool.</p>
+<p>The “you know it when you see it” version: an autonomous system that needs minimal intervention to finish a task.</p>
+<p>All three describe the same thing. The loop is what makes it an agent.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -287,143 +194,315 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="system-prompt-vs.-user-prompt" class="slide level2">
-<h2>System prompt vs.&nbsp;user prompt</h2>
-<p>Short answer: put instructions and background knowledge in the system prompt.</p>
-</section>
-<section id="more-tips" class="slide level2 scrollable">
-<h2>More tips</h2>
-<p><strong>Use LLMs to help draft or improve your prompts.</strong></p>
-<p>E.g., this input to Claude’s prompt generator:</p>
-<blockquote>
-<p>Make a data science agent that can run Python data analysis code via a tool. Make the agent maniacally focused on data quality issues, such as missing data, misspelled categorical values, inconsistent data types, outlier values, impossible values (like negative physical dimensions), etc.</p>
-</blockquote>
-<p>Generates this prompt:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-overflow-wrap code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>You are a data science agent with an obsessive focus on data quality. You have been given access to a dataset and a Python code execution tool. Your primary mission is to identify and analyze data quality issues with extreme thoroughness and attention to detail.</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>Here is the dataset description:</span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">dataset_description</span><span class="dt">&gt;</span></span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>{{DATASET_DESCRIPTION}}</span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">dataset_description</span><span class="dt">&gt;</span></span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a>You have access to the following Python code execution tool:</span>
-<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">python_tool</span><span class="dt">&gt;</span></span>
-<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a>{{PYTHON_CODE_TOOL}}</span>
-<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">python_tool</span><span class="dt">&gt;</span></span>
-<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a>Your role is to act as a maniacally thorough data quality inspector. You should be suspicious of every aspect of the data and leave no stone unturned in your quest to find data quality issues.</span>
-<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a>Focus intensively on these categories of data quality problems:</span>
-<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Missing data (nulls, empty strings, placeholder values like "N/A", "Unknown", etc.)</span>
-<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inconsistent data types (mixed types in columns, incorrect data types)</span>
-<span id="cb1-18"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Misspelled or inconsistent categorical values (typos, case inconsistencies, extra spaces)</span>
-<span id="cb1-19"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Outlier values (statistical outliers, values that seem unreasonable)</span>
-<span id="cb1-20"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Impossible or illogical values (negative ages, future birth dates, negative physical dimensions)</span>
-<span id="cb1-21"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Duplicate records or near-duplicates</span>
-<span id="cb1-22"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inconsistent formatting (date formats, phone numbers, addresses)</span>
-<span id="cb1-23"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data entry errors (obvious typos, transposed digits)</span>
-<span id="cb1-24"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Referential integrity issues (if applicable)</span>
-<span id="cb1-25"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Range violations (values outside expected bounds)</span>
-<span id="cb1-26"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a aria-hidden="true" tabindex="-1"></a>Your analysis process should be systematic and comprehensive:</span>
-<span id="cb1-28"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Start by loading and examining the basic structure of the dataset</span>
-<span id="cb1-30"><a aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Check data types and identify any type inconsistencies</span>
-<span id="cb1-31"><a aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Examine missing data patterns thoroughly</span>
-<span id="cb1-32"><a aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Analyze each column individually for quality issues specific to its data type</span>
-<span id="cb1-33"><a aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Look for statistical outliers and impossible values</span>
-<span id="cb1-34"><a aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Check for duplicates and near-duplicates</span>
-<span id="cb1-35"><a aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Examine categorical variables for inconsistencies</span>
-<span id="cb1-36"><a aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Validate logical relationships between columns</span>
-<span id="cb1-37"><a aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Look for formatting inconsistencies</span>
-<span id="cb1-38"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a aria-hidden="true" tabindex="-1"></a>Use the Python tool to write and execute code that will help you uncover these issues. Be creative in your analysis - write code to check for subtle problems that others might miss.</span>
-<span id="cb1-40"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a aria-hidden="true" tabindex="-1"></a>Before providing your final analysis, use the scratchpad to plan your investigation strategy:</span>
-<span id="cb1-42"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">scratchpad</span><span class="dt">&gt;</span></span>
-<span id="cb1-44"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Plan your systematic approach to analyzing the data quality, thinking through what specific checks you want to perform and in what order</span><span class="co">]</span></span>
-<span id="cb1-45"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">scratchpad</span><span class="dt">&gt;</span></span>
-<span id="cb1-46"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a aria-hidden="true" tabindex="-1"></a>Then execute your analysis using the Python tool. After completing your investigation, provide your findings in this format:</span>
-<span id="cb1-48"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">data_quality_report</span><span class="dt">&gt;</span></span>
-<span id="cb1-50"><a aria-hidden="true" tabindex="-1"></a>**CRITICAL ISSUES FOUND:**</span>
-<span id="cb1-51"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">List the most severe data quality problems</span><span class="co">]</span></span>
-<span id="cb1-52"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a aria-hidden="true" tabindex="-1"></a>**MODERATE ISSUES FOUND:**</span>
-<span id="cb1-54"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">List issues that should be addressed but aren't critical</span><span class="co">]</span></span>
-<span id="cb1-55"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a aria-hidden="true" tabindex="-1"></a>**MINOR ISSUES FOUND:**</span>
-<span id="cb1-57"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">List smaller issues that could be improved</span><span class="co">]</span></span>
-<span id="cb1-58"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a aria-hidden="true" tabindex="-1"></a>**DETAILED ANALYSIS:**</span>
-<span id="cb1-60"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide detailed explanations of each issue found, including specific examples and the potential impact</span><span class="co">]</span></span>
-<span id="cb1-61"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a aria-hidden="true" tabindex="-1"></a>**RECOMMENDATIONS:**</span>
-<span id="cb1-63"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide specific, actionable recommendations for fixing each category of issues</span><span class="co">]</span></span>
-<span id="cb1-64"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a aria-hidden="true" tabindex="-1"></a>**DATA QUALITY SCORE:**</span>
-<span id="cb1-66"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide an overall data quality score from 1-10, where 10 is perfect quality</span><span class="co">]</span></span>
-<span id="cb1-67"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">data_quality_report</span><span class="dt">&gt;</span></span>
-<span id="cb1-68"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a aria-hidden="true" tabindex="-1"></a>Remember: Be obsessively thorough. Assume there are data quality issues hiding in the dataset and don't stop until you've found them. Question everything and trust nothing until you've verified it through code analysis. Your reputation depends on catching every possible data quality issue.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="more-tips-1" class="slide level2 scrollable">
-<h2>More tips</h2>
-<ul>
-<li><strong>Use Markdown headings and XML tags to give structure to your prompts.</strong></li>
-<li><strong>Use variables to insert dynamic content into your prompts–BUT be aware of prompt injection!</strong></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a>Your task is to provide feedback on a research paper summary.</span>
-<span id="cb2-2"><a aria-label="2"></a>Here is a summary of a medical research paper:</span>
-<span id="cb2-3"><a aria-label="3"></a><span class="dt">&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
-<span id="cb2-4"><a aria-label="4"></a>{{SUMMARY}}</span>
-<span id="cb2-5"><a aria-label="5"></a><span class="dt">&lt;/</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
-<span id="cb2-6"><a aria-label="6"></a></span>
-<span id="cb2-7"><a aria-label="7"></a>Here is the research paper:</span>
-<span id="cb2-8"><a aria-label="8"></a><span class="dt">&lt;</span><span class="kw">paper</span><span class="dt">&gt;</span></span>
-<span id="cb2-9"><a aria-label="9"></a>{{RESEARCH_PAPER}}</span>
-<span id="cb2-10"><a aria-label="10"></a><span class="dt">&lt;/</span><span class="kw">paper</span><span class="dt">&gt;</span></span>
-<span id="cb2-11"><a aria-label="11"></a></span>
-<span id="cb2-12"><a aria-label="12"></a>Review this summary for accuracy, clarity, and completeness on</span>
-<span id="cb2-13"><a aria-label="13"></a>a graded A-F scale.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="more-tips-2" class="slide level2">
-<h2>More tips</h2>
-<p><strong>Get large prompts out of the code and into separate files.</strong></p>
-<ul>
-<li><p>Easier to read (both locally and on GitHub)</p></li>
-<li><p>Easier to read diffs in version control</p></li>
-<li><p>We will do this in one of our exercises later</p></li>
-</ul>
-</section>
-<section id="more-tips-3" class="slide level2">
-<h2>More tips</h2>
-<p><strong>(Advanced) Force the model to say things out loud.</strong></p>
-<p>E.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside <memo></memo> tags. If you have made three, stop and answer.”</p>
-</section>
-<section id="more-tips-4" class="slide level2">
-<h2>More tips</h2>
-<p>See Anthropic’s <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"><em>Prompt Engineering Overview</em></a> and OpenAI’s <a href="https://cookbook.openai.com/"><em>OpenAI Cookbook</em></a> are excellent, and contain lots of tips and examples.</p>
-<p>Google’s <a href="https://ai.google.dev/gemini-api/docs/prompting-strategies"><em>Prompt Design Strategies</em></a> may also be useful.</p>
-</section></section>
-<section id="your-turn-14_quiz-game-1" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>14_quiz-game-1</code></h1>
-<div style="width: 90%;">
-<ol type="1">
-<li><p>Your job: teach the model to play a quiz game with you:</p></li>
-<li><p>The user picks a theme from a short list provided by the model.</p></li>
-<li><p>They then answer multiple choice questions on that theme.</p></li>
-<li><p>After each question, tell the user if they were right or wrong and why. Then go to the next question.</p></li>
-<li><p>After 5 questions, end the round and tell the user they won, regardless of their score. Then, start a new round.</p></li>
-</ol>
+<section id="one-tool-call-is-not-an-agent" class="slide level2 center">
+<h2>One tool call is not an agent</h2>
+<p>The quiz show called a tool. So why wasn’t it an agent?</p>
+<div class="fragment">
+<p>No loop, no decisions: the model called the sound tool and answered.</p>
 </div>
-<countdown-timer id="timer_8e50cb34da6f7ecf5890efa6ffefdfa435f56597" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
- </countdown-timer>
-
-
+<aside class="notes">
+<p>Recall the quiz show app: we registered one tool, and the model called it to play sounds during the game.</p>
+<p>Each user message produced at most one tool call before the final answer.</p>
+<p>An agent keeps calling tools in a loop, deciding each next step from the result of the last one.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
+<section id="the-agent-loop" class="slide level2 center">
+<h2>The agent loop</h2>
+<ul>
+<li class="fragment"><p><strong>Explore</strong>: the agent reads to understand the world</p></li>
+<li class="fragment"><p><strong>Act</strong>: the agent writes to change it</p></li>
+<li class="fragment"><p><strong>Observe</strong>: the agent reads again to see what changed</p></li>
+<li class="fragment"><p>…and repeat until the task is done</p></li>
+</ul>
+<aside class="notes">
+<p>TODO: replace with an excalidraw diagram, in the style of the tools-how-it-works sequence in slides-07.</p>
+<p>The loop is why agents feel different from a chat: the model, not the user, chooses the next step.</p>
+<p>The harness (ellmer or chatlas) does the busy work: it runs each tool, sends the result back, and lets the model continue.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="read-tools-and-write-tools" class="slide level2">
+<h2>Read tools and write tools</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Read tools observe</th>
+<th style="text-align: left;">Write tools change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Read a file</td>
+<td style="text-align: left;">Write a file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">List files</td>
+<td style="text-align: left;">Edit a file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Search the codebase</td>
+<td style="text-align: left;">Run a command</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Look at data</td>
+<td style="text-align: left;">Run code</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>Read and write is the smallest split that still makes an agent useful.</p>
+<p>A coding agent is just an agent whose tools mirror how a human works on a codebase.</p>
+<p>Hadley: “A coding agent is six functions in a trenchcoat” — read file, write file, edit file, list files, search, run command, plus a big system prompt of advice.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="demo-posit-assistant" class="slide level2 slide-demo">
+<h2>Demo: Posit Assistant</h2>
+<p>👨‍💻 <span class="code b purple">_demos/21_demo_assistant/README.md</span></p>
+<blockquote>
+<p>Let’s look at <code>data/airbnb-austin.csv</code>, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.</p>
+</blockquote>
+<aside class="notes">
+<p>Instructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.</p>
+<p>Watch for: the loop (each step chosen from the last result), read and write actions, and permission prompts.</p>
+<p>Running code is both a read tool and a write tool: it observes the data and changes the project.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="your-turn-22_agent-1" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>22_agent-1</code></h1>
+<ol type="1">
+<li><p>Your agent works in the Last Blockbuster’s records folder.</p></li>
+<li><p>Give it a <strong>read</strong> tool and a <strong>write</strong> tool, then ask it to build the win-back list.</p></li>
+<li><p>Run the script it writes, then inspect the trace. Did it read the store rules before it wrote code?</p></li>
+</ol>
+<countdown-timer id="timer_31397affc4bf22af588447b3bc600bbacd2b4799" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+ </countdown-timer>
+<aside class="notes">
+<p>The tool functions and the coding-agent system prompt are given.</p>
+<p>Attendees document the tools, register them, and ask the agent to write <code>find_lapsed.R</code> or <code>find_lapsed.py</code>.</p>
+<p>The attendee runs that script from inside <code>blockbuster/</code>.</p>
+<p>Watch for the key choice: the agent writes a script instead of trying to read 1,500 rental rows through the tool.</p>
+<p>Dry run in both R and Python: the trace reads <code>README.md</code>, then <code>policies.md</code>, then writes <code>find_lapsed.*</code>. Both generated scripts produced 11 rows.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-manager-finds-another-export" class="slide level2 center">
+<h2>The manager finds another export</h2>
+<p>The first win-back list has 11 members.</p>
+<aside class="notes">
+<p>The agent has a working script, but it had to be told which files to read.</p>
+<p>Next, the manager drops an old register export into the folder.</p>
+<p>The agent needs a way to discover that file and make a narrow change to the script it already wrote.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="your-turn-23_agent-2" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>23_agent-2</code></h1>
+<ol type="1">
+<li><p>Give your agent a <strong>list files</strong> tool and an <strong>edit</strong> tool.</p></li>
+<li><p>Build the win-back list, then tell it the manager dropped an old register export in the folder. Do not name the file.</p></li>
+<li><p>Run the patched script. The list drops from 11 members to 8.</p></li>
+</ol>
+<countdown-timer id="timer_31397affc4bf22af588447b3bc600bbacd2b4799" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+ </countdown-timer>
+<aside class="notes">
+<p><code>list_files</code> surfaces <code>rentals-old.csv</code> without the prompt naming it.</p>
+<p><code>edit_file</code> patches <code>find_lapsed.R</code> or <code>find_lapsed.py</code> instead of rewriting it.</p>
+<p>A failed exact-match edit is a loud, safe error instead of a silent change.</p>
+<p>The count changing from 11 to 8 makes the effect of the two new tools visible.</p>
+<p>Dry run in both R and Python: the follow-up trace calls <code>list_files</code>, then patches <code>find_lapsed.*</code> with <code>edit_file</code>. Both patched scripts produced eight rows without Greta Moss, Peter Ibarra, or Nora Ellis.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="should-the-agent-run-code" class="slide level2 center">
+<h2>Should the agent run code?</h2>
+<p>You just played the run-code tool by hand.</p>
+<p>Should the agent close that loop and repair its own errors?</p>
+<aside class="notes">
+<p>The upside is a closed loop and self-repair.</p>
+<p>The risk is code with side effects against the store’s data.</p>
+<p>Ask the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-counts-as-dangerous" class="slide level2">
+<h2>What counts as dangerous?</h2>
+<p>Danger = expensive, time-consuming, or impossible to <strong>undo</strong></p>
+<ul>
+<li class="fragment"><p>Delete a file outside git</p></li>
+<li class="fragment"><p>Drop a database table</p></li>
+<li class="fragment"><p>Spend money</p></li>
+<li class="fragment"><p>Send an email</p></li>
+<li class="fragment"><p>Leak a secret or personal data</p></li>
+</ul>
+<aside class="notes">
+<p>Hadley’s framing from “Help! My coding agent can run code”: dangerous means hard to undo.</p>
+<p>Running the renewal script touches only a disposable, local fixture.</p>
+<p>Sending a letter leaves the sandbox and reaches a real person.</p>
+<p>The store’s no-late-fees settlement is a reminder that careless promises have consequences.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="three-ways-to-keep-an-agent-in-check" class="slide level2">
+<h2>Three ways to keep an agent in check</h2>
+<ol type="1">
+<li class="fragment"><p><strong>Ask for permission</strong> — but 99% of approvals are safe, so people click yes without reading</p></li>
+<li class="fragment"><p><strong>Sandbox</strong> — the OS constrains the process, but temp folders, package libraries, and network access all leak in</p></li>
+<li class="fragment"><p><strong>Ask an LLM</strong> — run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation</p></li>
+</ol>
+<div class="footer">
+<p><a href="https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code" data-preview-link="true">Help! My coding agent can run code</a></p>
+</div>
+<aside class="notes">
+<p>The three approaches, in the order real tools adopted them.</p>
+<p>Permission prompts become security theatre. Prefix allowlists fail: <code>git push</code> is safe, <code>git push --force</code> often isn’t.</p>
+<p>Sandboxing works but is fiddly: R needs a writable temp dir and a readable library path.</p>
+<p>The state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="auto-mode-knows-its-dangerous" class="slide level2 center">
+<h2>Auto mode knows it’s dangerous</h2>
+<blockquote>
+<p>Running curl -fsSL … | sh</p>
+<p>Sandboxed mktemp isn’t writable. Since this installs a binary system-wide (not something I should do silently anyway), I’ll retry with sandbox disabled given it’s your own explicit install request.</p>
+<p>— Claude Code, asked to install air</p>
+</blockquote>
+<aside class="notes">
+<p>From Hadley’s “Auto mode knows it’s dangerous (and does it anyway)”.</p>
+<p>Both Claude Code and Codex recognized the curl-pipe-sh installer as dangerous and ran it anyway, because the user asked.</p>
+<p>Best practice would be: download, read the script, then run. Neither agent read it.</p>
+<p>Auto mode is less protective than it looks. Keep your own eyes on destructive steps.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="agents-recap" class="slide level2">
+<h2>Agents, recap</h2>
+<ul>
+<li class="fragment"><p>An agent is an LLM, in a harness, calling tools in a loop</p></li>
+<li class="fragment"><p>Read tools observe; write tools change</p></li>
+<li class="fragment"><p>The harness does the busy work — you write the tools and the system prompt</p></li>
+<li class="fragment"><p>General tools make useful agents, and safety is the price</p></li>
+</ul>
+<aside class="notes">
+<p>Next: how to give an agent knowledge without making the system prompt enormous.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

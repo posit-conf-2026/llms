@@ -10,14 +10,12 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/tachyons.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="posit::conf(2026)">
   <meta name="dcterms.date" content="2026-09-14">
-  <title>Programming with LLMs in R and Python – Agent Skills</title>
+  <title>Programming with LLMs in R and Python – Wrap-up</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -42,72 +40,6 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-264d910d49a945b27587394c4a1c51dd.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -201,11 +133,11 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Agent Skills – Programming with LLMs in R and Python">
+<meta property="og:title" content="Wrap-up – Programming with LLMs in R and Python">
 <meta property="og:description" content="Programming with LLMs in R and Python">
 <meta property="og:image" content="https://posit-conf-2026.github.io/llms/slides/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs in R and Python">
-<meta name="twitter:title" content="Agent Skills – Programming with LLMs in R and Python">
+<meta name="twitter:title" content="Wrap-up – Programming with LLMs in R and Python">
 <meta name="twitter:description" content="Programming with LLMs in R and Python">
 <meta name="twitter:image" content="https://posit-conf-2026.github.io/llms/slides/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
@@ -217,7 +149,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Agent Skills</h1>
+  <h1 class="title">Wrap-up</h1>
   <p class="subtitle">Programming with LLMs in R and Python</p>
 
 <div class="quarto-title-authors">
@@ -230,305 +162,25 @@
 
   <p class="date">2026-09-14</p>
 </section>
-<section>
-<section id="agent-skills" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-agent.jpg" data-background-size="cover" data-background-position="center">
-<h1><span class="hidden">Agent Skills</span></h1>
-<div class="tc white pa1 br3 w-50 absolute" style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);left: 0px; bottom: -5em; ">
-<p>Agent Skills</p>
-</div>
-</section>
-<section id="youve-been-using-skills-all-day" class="slide level2 center">
-<h2>You’ve been using skills all day</h2>
-<p>When you asked Posit Assistant for help today, it loaded <code>.agents/skills/help/SKILL.md</code>.</p>
-<div class="fragment">
-<p>A skill is a folder with a <code>SKILL.md</code> file: a description of when to use it, plus instructions for how to do the job.</p>
-</div>
-<aside class="notes">
-<p>Open <code>.agents/skills/help/SKILL.md</code> live and scroll through it. Attendees have been on the receiving end of this skill all morning.</p>
-<p>The same format works across agents: Posit Assistant, Claude Code, and many others follow the Agent Skills spec.</p>
-<p>Skills are plain markdown, checked into your project — no packaging, no build step.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="anatomy-of-a-skill" class="slide level2">
-<h2>Anatomy of a skill</h2>
-<pre><code>skills/
-└── renewal-letters/
-    ├── SKILL.md      # Required: metadata + instructions
-    ├── scripts/      # Optional: executable code
-    ├── references/   # Optional: documentation
-    └── assets/       # Optional: templates, data files</code></pre>
-</section>
-<section id="skill.md" class="slide level2">
-<h2>SKILL.md</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a aria-label="2"></a><span class="an">name:</span><span class="co"> renewal-letters</span></span>
-<span id="cb2-3"><a aria-label="3"></a><span class="an">description:</span><span class="co"> Draft a renewal letter for a lapsed Last Blockbuster member.</span></span>
-<span id="cb2-4"><a aria-label="4"></a><span class="co">---</span></span>
-<span id="cb2-5"><a aria-label="5"></a></span>
-<span id="cb2-6"><a aria-label="6"></a><span class="fu"># Renewal letters</span></span>
-<span id="cb2-7"><a aria-label="7"></a></span>
-<span id="cb2-8"><a aria-label="8"></a>Offer Basic members a free-rental code.</span>
-<span id="cb2-9"><a aria-label="9"></a>Offer Family members a family-night bundle.</span>
-<span id="cb2-10"><a aria-label="10"></a>Offer Founders members a commemorative card.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="footer">
-<p><a href="https://agentskills.io/specification" data-preview-link="true">Agent Skills specification</a></p>
-</div>
-<aside class="notes">
-<p>Two required frontmatter fields:</p>
-<ul>
-<li><code>name</code>: lowercase, hyphens, max 64 characters, must match the folder name.</li>
-<li><code>description</code>: max 1024 characters, and it must say what the skill does AND when to use it.</li>
-</ul>
-<p>The description is the only thing the agent sees at startup, so it decides whether your skill ever gets used.</p>
-<p>The body is free markdown: steps, rules, gotchas, a template.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="progressive-disclosure" class="slide level2 center">
-<h2>Progressive disclosure</h2>
-<ol type="1">
-<li class="fragment"><p><strong>Discovery</strong> — the agent loads only each skill’s <code>name</code> and <code>description</code> (~100 tokens each)</p></li>
-<li class="fragment"><p><strong>Activation</strong> — when a task matches, the agent reads the full <code>SKILL.md</code></p></li>
-<li class="fragment"><p><strong>Execution</strong> — instructions run; extra files load only when the skill asks for them</p></li>
-</ol>
-<aside class="notes">
-<p>This is why skills scale: you can keep 100 skills on hand for the cost of their descriptions.</p>
-<p>The full instructions load only when a task calls for them.</p>
-<p>Same idea you’ll implement by hand in the exercise: the system prompt lists the skill, a tool loads the body.</p>
-<p>TODO: excalidraw diagram in the style of the tools sequence in slides-07.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="why-not-just-use-the-system-prompt" class="slide level2">
-<h2>Why not just use the system prompt?</h2>
-<ul>
-<li class="fragment"><p>The system prompt is <strong>always</strong> in context — every token, every request</p></li>
-<li class="fragment"><p>Skills load <strong>on demand</strong> — only when a task matches</p></li>
-<li class="fragment"><p>So skills let you give an agent deep expertise without paying for it up front</p></li>
-</ul>
-<aside class="notes">
-<p>You wrote a system prompt for the Blockbuster agent. That works for one small set of rules.</p>
-<p>Now imagine 50 jobs: renewal letters, store opening procedures, staff notes, rental policies, and social media voice.</p>
-<p>Stuffed into the system prompt, they crowd out the conversation and cost tokens on every request.</p>
-<p>As skills, they cost about 100 tokens each until the moment one is needed.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="writing-a-skill-that-works" class="slide level2">
-<h2>Writing a skill that works</h2>
-<ul>
-<li class="fragment"><p><strong>Add what the agent lacks; omit what it knows</strong> — no “write clear descriptions”</p></li>
-<li class="fragment"><p><strong>Description says what and when</strong> — it’s the trigger</p></li>
-<li class="fragment"><p><strong>Concrete beats generic</strong> — a template, a rule, a gotcha</p></li>
-<li class="fragment"><p><strong>Keep it short</strong> — under 500 lines; push detail to <code>references/</code></p></li>
-</ul>
-<div class="footer">
-<p><a href="https://agentskills.io/skill-creation/best-practices" data-preview-link="true">Best practices for skill creators</a></p>
-</div>
-<aside class="notes">
-<p>The test for every line: would the agent get this wrong without it?</p>
-<p>If the agent already writes clean markdown, don’t tell it to write clean markdown.</p>
-<p>Give a default, not a menu: one way to do it, with an escape hatch.</p>
-<p>Gotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section id="your-turn-24_skills-1" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>24_skills-1</code></h1>
-<ol type="1">
-<li><p>Your Blockbuster agent gets a skill: <code>renewal-letters</code> holds the letter-writing instructions.</p></li>
-<li><p>List the skill in the system prompt, and give the agent a tool to read it.</p></li>
-<li><p>Draft letters for the top three lapsed members. Watch the agent read the skill <strong>before</strong> it starts drafting.</p></li>
-</ol>
-<countdown-timer id="timer_8770ce39aba0c3ee10eb9b6b05b7822cd0ca88d9" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
- </countdown-timer>
-<aside class="notes">
-<p>The read_skill tool is like the read_file tool, pointed at the skills folder.</p>
-<p>The system prompt listing is the manual version of what real harnesses generate automatically at startup.</p>
-<p>The trace should show read_skill firing when the agent starts the letter task.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="the-future-of-ai" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-hologram.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="white" style="text-shadow: 5px 5px 15px black;">The Future of AI</span></h1>
+
 </section>
 
 <section>
-<section id="your-turn-25_skills-2" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>25_skills-2</code></h1>
-<ol type="1">
-<li><p>The skill has been swapped for a <strong>first draft</strong> with common problems.</p></li>
-<li><p>Use the diagnostic questions to fix <code>SKILL.md</code>, then re-run the letter task.</p></li>
-<li><p>Compare: same agent, same tools, different skill, different letters and token spend.</p></li>
-</ol>
-<countdown-timer id="timer_8770ce39aba0c3ee10eb9b6b05b7822cd0ca88d9" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
- </countdown-timer>
-<aside class="notes">
-<p>The planted problems: the description is background about the manager’s notes, while the actual trigger sits in the body. The body also repeats policies, generic advice, and conflicting process instructions.</p>
-<p>Four questions lead attendees from the misplaced trigger to the repeated facts and conflicting process. They move and delete text; they do not need to invent new instructions.</p>
-<p>The good skill says when to draft a renewal letter and keeps only the voice, letter structure, tier incentives, filename rule, and promises caveat.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="skills-in-posit-assistant" class="slide level2">
-<h2>Skills in Posit Assistant</h2>
-<ul>
-<li class="fragment"><p>Built-ins: <code>create-skill</code>, <code>r-package-development</code>, <code>quarto-authoring</code>, …</p></li>
-<li class="fragment"><p>Yours: <code>~/.posit/assistant/skills/</code> (all projects) or <code>.agents/skills/</code> (this project)</p></li>
-<li class="fragment"><p>Most skills also run as slash commands: <code>/renewal-letters</code></p></li>
-</ul>
-<div class="footer">
-<p><a href="https://assistant.posit.co/docs/features/skills/" data-preview-link="true">Skills — Posit Assistant docs</a></p>
+<section id="wrap-up" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-survey.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">Wrap-up</span></h1>
+<div class="fragment f1 tc white pa4 br3" style="background-color: rgba(0, 0, 0, 0.8);">
+<p>Please take 5-10 minutes to fill out the workshop survey.<br>
+Your feedback is important to us!</p>
+<p><a href="https://pos.it/conf-workshop-survey"><span class="yellow code">pos.it/conf-workshop-survey</span></a></p>
 </div>
-<aside class="notes">
-<p><code>.agents/skills/</code> is the portable location: any spec-following agent can read it.</p>
-<p>The built-in create-skill skill walks you through making a new one interactively.</p>
-<p>Skills double as commands when you want to trigger a workflow deliberately instead of hoping the model picks it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="skills-in-the-ecosystem" class="slide level2">
-<h2>Skills in the ecosystem</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 39%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Layer</th>
-<th style="text-align: left;">What it carries</th>
-<th style="text-align: left;">When it loads</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">System prompt</td>
-<td style="text-align: left;">Core behavior</td>
-<td style="text-align: left;">Always</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Skills</strong></td>
-<td style="text-align: left;">Procedures, house rules, expertise</td>
-<td style="text-align: left;">On demand</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MCP servers</td>
-<td style="text-align: left;">Connections to external tools</td>
-<td style="text-align: left;">Registered per tool call</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>Rough map, from the Posit open-source AI newsletter.</p>
-<p>AGENTS.md and the system prompt shape everything the agent does.</p>
-<p>Skills carry the long tail of knowledge: too specific to always pay for, too valuable to leave out.</p>
-<p>MCP servers are about tools — connections to databases, APIs, other software. Bonus material covers MCP.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="skills-recap" class="slide level2">
-<h2>Skills, recap</h2>
-<ul>
-<li class="fragment"><p>A skill is a folder with <code>SKILL.md</code>: metadata plus instructions</p></li>
-<li class="fragment"><p>Progressive disclosure: descriptions at startup, body on demand</p></li>
-<li class="fragment"><p>Write what the agent doesn’t know — and say when to use it</p></li>
-<li class="fragment"><p>Same format in Posit Assistant, Claude Code, and any spec-following agent</p></li>
-</ul>
-<aside class="notes">
-<p>You built the mechanism yourself today: listing, loading, and writing skills.</p>
-<p>The same pattern runs inside the assistant you use every day — now you know how to extend it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="section" class="slide level2" data-background-image="assets/thank-you.png" data-background-size="cover" data-background-position="center">
+<h2></h2>
+<div class="f1 code tc white absolute" style="left: 0px; bottom: 0px; right: 0px; ">
+<p>Enjoy posit::conf(2026)!</p>
+</div>
 
 
 </section></section>
