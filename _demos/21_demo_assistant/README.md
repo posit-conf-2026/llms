@@ -3,6 +3,7 @@
 Posit Assistant explores a dataset, decides what to do next, and acts — the agent loop from the slides, running live.
 
 If the live demo fails, open `conversation-export.html` to walk through a recorded conversation instead.
+The exact prompts from that recording, with notes per turn, are in [conversation-script.md](conversation-script.md).
 
 ## Set up
 
