@@ -1,7 +1,16 @@
 # Demo conversation script
 
 The prompts used in the recorded conversation (`conversation-export.html`).
-Paste them one at a time, waiting for the assistant to finish each turn.
+Before pasting the first prompt, load the data into your R console so
+`listings` exists:
+
+```r
+library(readr)
+listings <- read_csv("data/airbnb-austin.csv")
+```
+
+Then paste the prompts one at a time, waiting for the assistant to finish
+each turn.
 
 ```
 Let's figure out which amenities are most associated with higher reviews scores or higher prices in `listings`
