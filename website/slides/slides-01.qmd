@@ -165,7 +165,7 @@ Need time or help
 4. Install all the packages:
 
     * R: `pak::local_install_deps()`
-    * Python: `uv sync`
+    * Python: `uv sync -p 3.14`
 
 ## We're using Positron
 
