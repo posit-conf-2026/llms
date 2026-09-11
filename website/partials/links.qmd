@@ -2,6 +2,9 @@
 [anthropic-api]: https://www.anthropic.com/api
 [chatgpt]: https://chat.openai.com
 [claude]: https://claude.ai
+[lmstudio]: https://lmstudio.ai
+[lmstudio-bonsai]: https://lmstudio.ai/models/prism-ml/bonsai-27b
+[lmstudio-qwen38]: https://lmstudio.ai/models/qwen/qwen3.8-27b
 [ollama]: https://ollama.com
 [ollama-models]: https://ollama.com/models
 [ollama-gpt-oss]: https://ollama.com/library/gpt-oss:20b

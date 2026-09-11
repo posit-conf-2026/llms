@@ -131,7 +131,7 @@ usually faster and cheaper than the full-size model.
 * Run them locally, self-host them, or use a service like Hugging Face.
 * Posit AI Pass also serves selected open-weight models.
 * Some models are small enough to run on your laptop. Larger models require more memory or specialized hardware.
-* Ollama and LM Studio are common tools for running models locally.
+* LM Studio and Ollama are common tools for running models locally.
 :::
 
 ::: notes
@@ -189,7 +189,7 @@ Ranking of models.
 :::: fragment
 **Open-weight and local models**
 
-* `chat_ollama()`
+* `chat_lmstudio()`
 * `chat_huggingface()`
 ::::
 
@@ -230,7 +230,7 @@ and more!
 
 **Open-weight and local models**
 
-* `ChatOllama()`
+* `ChatLMStudio()`
 * `ChatHuggingFace()`
 
 **Enterprise**

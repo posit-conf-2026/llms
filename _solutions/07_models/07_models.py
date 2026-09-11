@@ -1,5 +1,5 @@
 # %%
-from chatlas import ChatAuto, ChatPosit
+from chatlas import ChatLMStudio, ChatPosit
 
 # %% [markdown]
 # List models by calling the `list_models` method on a `Chat` instance.
@@ -27,5 +27,7 @@ ChatPosit().chat(prompt)
 ChatPosit(model="zai-org/GLM-5.3").chat(prompt)
 
 # %%
-# If you have local models installed, try them out with Ollama.
-ChatAuto("ollama/gemma3:4b").chat(prompt)
+# If you have local models installed, try them out with LM Studio.
+# (Local models only work on your own computer -- you can't use them on
+# Posit Cloud.)
+ChatLMStudio(model="prism-ml/bonsai-27b").chat(prompt)

@@ -11,4 +11,6 @@ chat_posit()$chat(prompt)
 chat_posit(model = "zai-org/GLM-5.3")$chat(prompt)
 
 # If you have local models installed, you can use them too.
-chat_ollama(model = "gemma3:4b")$chat(prompt)
+# (Local models only work on your own computer -- you can't use them on
+# Posit Cloud.)
+chat_lmstudio(model = "prism-ml/bonsai-27b")$chat(prompt)

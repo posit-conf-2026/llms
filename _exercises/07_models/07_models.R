@@ -15,5 +15,7 @@ chat_posit(model = "____")$chat(prompt)
 # Bonus: Local models?
 # If you have local models installed, you can use them too. Note that you have
 # to give a model name to list models, but the model name can be anything.
-models_ollama()
-chat("ollama/____")$chat(prompt)
+# (Local models only work on your own computer -- you can't use them on
+# Posit Cloud.)
+models_lmstudio()
+chat_lmstudio(model = "____")$chat(prompt)
