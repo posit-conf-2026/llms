@@ -23,7 +23,13 @@ edit_file <- function(path, old, new) {
   }
 
   if (length(matches) != 1L) {
-    stop("Expected one exact match in ", path, ", but found ", length(matches), ".")
+    stop(
+      "Expected one exact match in ",
+      path,
+      ", but found ",
+      length(matches),
+      "."
+    )
   }
 
   writeLines(sub(old, new, content, fixed = TRUE), full)
