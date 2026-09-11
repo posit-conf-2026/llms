@@ -5,7 +5,7 @@
 - Positron Assistant: https://positron.posit.co/assistant
   - Requires turning on settings
 
-- Databot (recommended extension), requires setting up PA
+- Posit Assistant (recommended extension), requires setting up PA
 
 ## Morning 1: Anatomy of a conversation (90m)
 
@@ -136,53 +136,80 @@
   - Prompt engineering best practices, in particular the system prompt
   - Activity: create [the prompt for the quiz game show](https://github.com/jcheng5/llm-quickstart/blob/main/02-tools-prompt.md)
 
-## Afternoon 1: Tool Calling (50m)
+## Afternoon 1: Agents (90m)
 
-- (20m) Tool calling
+Unit 07: Tool Calling (30m) · Unit 08: Agents (30m) · Unit 09: Agent Skills (30m) · Unit 10: Break (30m)
+
+> Picking up from tool calling to build real agents, ending with agent skills. People have just had lunch, so this is the most intense part of the afternoon; the day tapers off from here.
+
+- (30m) Tool calling
   - Explain how tool calling pattern, mostly following <https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny>
+    - Demo `15_demo_manual-tools`: human in the loop tools
+    - Demo `16_demo_tools`: preview of an app with tools
   - Activity: quiz show
     - We provide an R/Python function that plays a sound
       - R: `beepr`, Python: [playsound](https://pypi.org/project/playsound3/)
     - They document the function and register it as a tool in the Quiz Show app
-
-- (30m) Tool calling UI
-  - Primarily a series of activities that progressively enhance the quiz show app
   - Activity: Add tool annotations to give the tool an icon and title
   - Activity: Use `ContentToolResult` to return custom title and icon
-  - Activity: Track answers and score in the app (add/update value boxes)
-  - (Considering) Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.
+  - (Considering) Activity `20_tool-extra`: additional tool exercise, if we rewrite tool calling
 
-## Afternoon 2: Beyond Tools (90m)
+- (30m) Building an agent
+  - Picking up from tool calling to build up to agents
+  - Hadley/Willison definition: agents are LLMs with a read tool and a write tool
+    - Reference: Hadley's series on Substack, in particular [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent) and [A coding agent is six functions in a trenchcoat](https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in)
+  - Demo `21_demo_databot`: Posit Assistant agent demo
+    - Instructor sets up the agent conversation, then students do the exploration themselves
+  - Activity `22_agent-1`: build a simple coding agent with a read tool and a write tool
+  - Activity `23_agent-2`: make that coding agent a little better with a couple more tools (list files, edit files)
+  - Discussion: what if it could run code? Should we add a run code tool?
+    - Coding harnesses, safety, sandboxing, LLM-based safety checks
+    - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
 
-> A look at more advanced topics, including MCP and agents.
+- (30m) Agent Skills
+  - Explaining what skills are, how they're used, best practices for making them
+  - Activity `24_skills-1`: build on the agent work to wire up a skill tool
+    - Options: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool
+  - Activity `25_skills-2`: take the skill from the first exercise and improve it (fix common problems)
 
-- (10m) querychat
-  - Activity: Add querychat into an existing shiny app
+## Afternoon 2: shinychat, querychat, and the future (90m)
 
-- (10m) MCP
-  - Overview of MCP and how it works
-  - MCP in Positron: https://github.com/posit-dev/positron/issues/8377
-    - MCP in VS Code: https://code.visualstudio.com/docs/copilot/customization/mcp-servers
+Unit 11: shinychat and querychat (60m) · Unit 12: Wrap-up (35m)
 
-  - Activity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)
-    - ArXiV: https://github.com/andybrandt/mcp-simple-arxiv
-    - webpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp
-    - stocky: https://github.com/joelio/stocky
-    - fetcher: https://github.com/jae-jae/fetcher-mcp
-    - git-ingest: https://github.com/adhikasp/mcp-git-ingest
-    - github: https://arc.net/l/quote/bvfqahnx
-    - context7: https://github.com/upstash/context7
+> New shinychat features, a little querychat, and a closing conversation. Coding intensity is medium here and minimal by the end: the day tapers off as attendees get tired.
 
-- (30m) Agents
-  - Hadley/Willison definition: Agents are LLMs with a read tool and a write tool
-  - The "you know it when you see it" definition: autonomous LLMs, long context, minimal intervention
-  - Demobot demo
+- (60m) shinychat + querychat
+  - (40m) shinychat
+    - New shinychat features, including `page_chat()`
+    - See the shinychat v0.5.0 preview blog post: <https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/>
+  - (20m) querychat
+    - Activity `26_shinychat-1` and Activity `27_shinychat-2`: new shinychat exercises using v0.5.0 features like `page_chat()`
+    - Simple variant: use querychat to explore some data
+    - Activity `28_querychat`
+    - Minimal coding required by this point
 
 - (30m) The Future of AI
+  - Joe Cheng drops in again for this conversation
   - Where do we go from here? Let's talk fears and hopes.
 
 - (5m) Wrap-up
   - Feedback survey
+
+## Bonus: MCP (20m)
+
+> We won't cover this unit during the workshop, but the materials are included for anyone who wants to go further on their own.
+
+- Overview of MCP and how it works
+- MCP in Positron: https://github.com/posit-dev/positron/issues/8377
+  - MCP in VS Code: https://code.visualstudio.com/docs/copilot/customization/mcp-servers
+- Activity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)
+  - ArXiV: https://github.com/andybrandt/mcp-simple-arxiv
+  - webpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp
+  - stocky: https://github.com/joelio/stocky
+  - fetcher: https://github.com/jae-jae/fetcher-mcp
+  - git-ingest: https://github.com/adhikasp/mcp-git-ingest
+  - github: https://arc.net/l/quote/bvfqahnx
+  - context7: https://github.com/upstash/context7
 
 ## Bonus: Augmented Generation (40m)
 

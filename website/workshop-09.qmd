@@ -1,9 +1,8 @@
 ---
-title: Beyond Tools
-description: |
-  Looking beyond integrations to explore what’s next: Model Context Protocol (MCP), practical agent patterns, and the near future of AI-assisted development.
-description-short: Exploring the future of AI
-duration: 90
+title: Agent Skills
+description: What skills are, how they're used, and how to make your own.
+description-short: Teaching agents new skills
+duration: 30min
 ---
 
 ## Slides
@@ -12,33 +11,15 @@ duration: 90
 
 ## Outline
 
-- (10m) querychat
-  - Activity: Add querychat into an existing shiny app
+- (30m) Agent Skills
+  - Explaining what skills are, how they're used, best practices for making them
+  - Activity `_exercises/24_skills-1`: build on the agent work to wire up a skill tool
+    - Options: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool
+  - Activity `_exercises/25_skills-2`: take the skill from the first exercise and improve it (fix common problems)
 
-- (10m) MCP
-  - Overview of MCP and how it works
-  - Activity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)
-    - ArXiV: https://github.com/andybrandt/mcp-simple-arxiv
-    - webpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp
-    - stocky: https://github.com/joelio/stocky
-    - fetcher: https://github.com/jae-jae/fetcher-mcp
-    - git-ingest: https://github.com/adhikasp/mcp-git-ingest
-    - github: https://arc.net/l/quote/bvfqahnx
-    - context7: https://github.com/upstash/context7
+## Further reading
 
-- (30m) Agents
-  - Hadley/Willison definition: Agents are LLMs with a read tool and a write tool
-  - The "you know it when you see it" definition: autonomous LLMs, long context, minimal intervention
-  - Demobot demo
-
-- (30m) The Future of AI
-  - Where do we go from here? Let's talk fears and hopes.
-
-- (5m) Wrap-up
-  - Feedback survey
-
-## Workshop Survey
-
-Please take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!
-
-[pos.it/conf-workshop-survey](https://pos.it/conf-workshop-survey)
+- [Agent Skills specification](https://agentskills.io/specification) — the open format: directory structure, `SKILL.md` frontmatter, progressive disclosure.
+- [Best practices for skill creators](https://agentskills.io/skill-creation/best-practices) — scoping, calibrating detail, and patterns that make skills work.
+- [Skills — Posit Assistant docs](https://assistant.posit.co/docs/features/skills/) — where skills live, slash commands, and the built-in `create-skill` skill.
+- [AGENTS.md vs Skills vs MCP servers](https://opensource.posit.co/blog/2026-07-03_ai-newsletter/) — when each layer is the right tool, from the Posit open-source AI newsletter.

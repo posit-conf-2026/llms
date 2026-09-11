@@ -2,7 +2,7 @@
 title: Tool Calling
 description: Giving LLMs the ability to interact with the world through tools.
 description-short: Help LLMs interact with the world
-duration: 50min
+duration: 30min
 ---
 
 ## Slides
@@ -11,16 +11,20 @@ duration: 50min
 
 ## Outline
 
-- (20m) Tool calling
+- (30m) Tool calling
   - Explain how tool calling pattern, mostly following <https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny>
   - Activity: quiz show
-    - We've provided an R/Python function that plays a sound
+    - We provide an R/Python function that plays a sound
       - R: `beepr`, Python: [playsound](https://pypi.org/project/playsound3/)
-    - Document the function and register it as a tool in the Quiz Show app
-
-- (30m) Tool calling UI
-  - Primarily a series of activities that progressively enhance the quiz show app
+    - They document the function and register it as a tool in the Quiz Show app
   - Activity: Add tool annotations to give the tool an icon and title
   - Activity: Use `ContentToolResult` to return custom title and icon
   - Activity: Track answers and score in the app (add/update value boxes)
+  - (Considering) Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.
 
+## Further reading
+
+Hadley Wickham's "What is an agent?" series on Substack explains tools, harnesses, and agents from first principles with ellmer examples:
+
+- [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent) — conversations, turns, rounds, tools, and a precise definition of an agent.
+- [Your LLM can't math (and that's ok)](https://tidydesign.substack.com/p/your-llm-cant-math-and-thats-ok) — how tool calls actually work, and why web chats can do things a bare LLM can't.
