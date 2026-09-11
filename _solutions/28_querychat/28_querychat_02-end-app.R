@@ -13,7 +13,7 @@ ggplot2::update_geom_defaults("boxplot", list(colour = "#007BC2"))
 
 # Load and prepare data
 airbnb_data <-
-  read.csv(here::here("data/airbnb-asheville.csv")) |>
+  read.csv(here::here("data/airbnb-austin.csv")) |>
   filter(!is.na(price)) |>
   mutate(occupancy_pct = (365 - availability_365) / 365)
 
@@ -24,7 +24,7 @@ airbnb_qc_config <- querychat_init(airbnb_data)
 
 # UI --------------------------------------------------------------------------
 ui <- page_sidebar(
-  title = "Asheville Airbnb Dashboard",
+  title = "Austin Airbnb Dashboard",
   class = "bslib-page-dashboard",
 
   # Step 2: Replace sidebar ----

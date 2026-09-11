@@ -33,7 +33,7 @@ You may also want to include `#content7` to your prompt to tell PA to use the MC
 import polars as pl
 from pyhere import here
 
-listings = pl.read_csv(here("data/airbnb-asheville.csv"))
+listings = pl.read_csv(here("data/airbnb-austin.csv"))
 
 hot_room_types = (
     listings.group_by(["neighborhood", "room_type"])

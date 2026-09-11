@@ -8,14 +8,14 @@ If the live demo fails, open `conversation-export.html` to walk through a record
 
 1. Open the workshop project in Positron and sign in to Posit Assistant with your Posit AI Pass account.
 1. Ask everyone to do the same. They explore on their own in a moment.
-1. Open `data/airbnb-asheville.csv` in the viewer so the class can see the starting point.
+1. Open `data/airbnb-austin.csv` in the viewer so the class can see the starting point.
 
 ## Instructor: start the conversation
 
 Paste this prompt into Posit Assistant:
 
 ```
-Let's look at `data/airbnb-asheville.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC.
+Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.
 ```
 
 While the assistant works, narrate the loop:
