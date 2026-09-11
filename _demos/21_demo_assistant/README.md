@@ -36,9 +36,18 @@ listings <- read_csv("data/airbnb-austin.csv")
 
 Then paste these prompts one at a time, waiting for the assistant to finish each turn.
 
-1. `Let's figure out which amenities are most associated with higher reviews scores or higher prices in \`listings\``
-2. `use tidyverse packages, but load them individually`
-3. `I think we need to look at more than the top 10 most common amenities to find the ones that are differentiating`
+1. `I'm thinking of opening an Airbnb in Austin, TX and starting to do some basic market research. Let's look at \`data/airbnb-austin.csv\`, do some basic work to familiarize ourselves with the data, and then find interesting patterns. Recommend where and what kind of Airbnb I should open.`
+2. `Look at how room_type and property_type relate to price and review scores to see what's in demand`
+3. `Estimate rough monthly revenue potential (price × reviews-per-month, as a booking proxy) by property type to see which format actually pays off`
+
+From here the recording forks into two branches, one after the other:
+
+**Branch A:** `Break this revenue proxy down by neighborhood to see where entire-home or guesthouse formats perform best geographically`
+
+**Branch B:**
+
+- `Check whether guesthouse/tiny-home demand is concentrated in specific neighborhoods or spread citywide`
+- `Test whether the East Austin/Cherrywood vs. South Austin demand gap is statistically meaningful, or run a formal test comparing reviews-per-month across neighborhoods`
 
 ## Everyone: your turn
 
