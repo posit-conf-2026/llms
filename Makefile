@@ -27,7 +27,7 @@ py-upgrade:
 .PHONY: r-setup
 r-setup:  ## [r] Setup R environment
 	Rscript -e 'if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")'
-	Rscript -e 'pak::local_install()'
+	Rscript -e 'pak::local_install_deps()'
 
 .PHONY: r-setup-dev
 r-setup-dev: r-setup ## [r] Setup R environment for dev
