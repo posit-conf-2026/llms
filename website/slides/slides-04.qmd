@@ -151,13 +151,17 @@ Open-weight models aren't necessarily local.
 {{< include ../partials/posit-model-comparison.qmd >}}
 :::
 
-## Artificial Analysis ([artificialanalysis.ai](https://artificialanalysis.ai/leaderboards/models))
+## Artificial Analysis ([artificialanalysis.ai](https://artificialanalysis.ai/leaderboards/models)) {.center}
 
-![](assets/artificial-analysis.png){alt="Screenshot of the Artificial Analysis website home page, showing independent rankings of AI models by intelligence, speed, and cost per task." style="max-width: 90%; max-height: 72vh; display: block; margin: 0 auto;"}
+[![](assets/artificial-analysis-intelligence-vs-cost-2026-09-11.png){width="111%" style="max-width: none; transform: translateX(-5%);" fig-alt="Scatter plot of Artificial Analysis Intelligence Index against cost per task for 16 models available through Posit AI. The upper-left green quadrant marks models with higher intelligence and lower cost."}][artificial-analysis-intelligence-cost]
 
 ::: notes
-Ranking of models.
+Up and to the left is better. That means higher intelligence at a lower cost per task.
+
+The green area marks the most attractive quadrant, and the dotted curve marks the Pareto line.
 :::
+
+[artificial-analysis-intelligence-cost]: https://artificialanalysis.ai/models?cost=intelligence-vs-cost-per-task&models=deepseek-v4-flash,claude-4-5-haiku-reasoning,claude-sonnet-4-6-adaptive,claude-sonnet-5,claude-sonnet-5-medium,claude-sonnet-5-low,claude-opus-4-6-adaptive,claude-opus-4-8,claude-opus-5,claude-opus-5-medium,claude-opus-5-low,glm-5-3-flash,glm-5-3,glm-5-2,kimi-k3,kimi-k3-low#intelligence-comparison-tabs
 
 ## Start capable, then test smaller
 
@@ -401,25 +405,33 @@ chatlas.ChatPosit().list_models()
 
 ## A picture is worth a thousand words {.center}
 
-::: fragment
-Or for an LLM, a picture is roughly 227 words, or [170 tokens]{.b .blue}.
-:::
+::: {.fragment .text-center}
+![](assets/cat.png){fig-alt="A tortoiseshell cat sleeping on a gray blanket." height="400"}
 
 ::: fragment
-🖼️ 🔍 [Open Images Dataset](https://storage.googleapis.com/openimages/web/visualizer/index.html?type=localized%20narratives&set=train&c=/m/06_fw&id=025d772e7181ca1f){preview-link=true}
+or, for Claude Sonnet 5, [274 tokens]{.b .blue}.
+:::
+:::
+
+::: notes
+`content_image_file()` resizes images to fit within 512 by 512 pixels by default.
+This 4:3 photo becomes 512 by 384 pixels.
+Claude Sonnet 5 currently reports 274 input tokens for an image-only request.
+The count depends on the model and image-processing settings.
 :::
 
 ## 🌆 content_image_file {transition="fade"}
 
-::: {style="--code-font-size: 0.66em"}
+::: {style="--code-font-size: 0.58em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
-```{.r code-line-numbers="4-7"}
+```{.r code-line-numbers="4|5-8"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat("posit")
+image <- content_image_file("assets/cat.png")
 chat$chat(
-  content_image_file("cute-cats.jpg"),
+  image,
   "What do you see in this image?"
 )
 ```
@@ -427,12 +439,13 @@ chat$chat(
 
 [![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
-```{.python code-line-numbers="4-7"}
+```{.python code-line-numbers="4|5-8"}
 import chatlas
 
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat = chatlas.ChatAuto("posit")
+image = chatlas.content_image_file("assets/cat.png")
 chat.chat(
-    chatlas.content_image_file("cute-cats.jpg"),
+    image,
     "What do you see in this image?"
 )
 ```
@@ -446,7 +459,7 @@ chat.chat(
 ```{.r code-line-numbers="5"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat("posit")
 chat$chat(
   content_image_url("https://placecats.com/bella/400/400"),
   "What do you see in this image?"
@@ -459,7 +472,7 @@ chat$chat(
 ```{.python code-line-numbers="5"}
 import chatlas
 
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat = chatlas.ChatAuto("posit")
 chat.chat(
     chatlas.content_image_url("https://placecats.com/bella/400/400"),
     "What do you see in this image?"
@@ -483,7 +496,7 @@ chat.chat(
 ```{.r code-line-numbers="5"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat_posit("claude-haiku-4-5")
 chat$chat(
   content_pdf_file("financial-report.pdf"),
   "What's my tax liability for 2024?"
@@ -496,7 +509,7 @@ chat$chat(
 ```{.python code-line-numbers="5"}
 import chatlas
 
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat = chatlas.ChatPosit("claude-haiku-4-5")
 chat.chat(
     content_pdf_file("financial-report.pdf"),
     "What's my tax liability for 2024?"
@@ -700,17 +713,12 @@ age_free_text
 ```
 :::
 
-::: footer
-😬 not great, `gpt-5`.
-:::
-
 ## But if you ask an LLM... {transition="fade"}
 
 ```{.r code-line-numbers="4-5|8,11"}
 library(ellmer)
 
-chat <- chat(
-  "openai/gpt-5-nano",
+chat <- chat_posit(
   system_prompt = "Extract the name and age."
 )
 
@@ -831,8 +839,8 @@ import chatlas
 from pydantic import BaseModel, Field
 
 class Person(BaseModel):
-    name: str = Field(..., description="The person's name")
-    age: int = Field(..., description="The person's age in years")
+    name: str = Field(description="The person's name")
+    age: int = Field(description="The person's age in years")
 
 chat = chatlas.ChatAuto("openai/gpt-5-nano")
 chat.chat_structured(
@@ -841,6 +849,12 @@ chat.chat_structured(
 )
 #> Person(name='Alex', age=42)
 ```
+
+::: notes
+Field descriptions give the model context about what to extract.
+When the input might omit a value, allow `None` in the field's type.
+This helps the model return a missing value instead of inventing one.
+:::
 
 ## In Python, use Pydantic {transition="fade"}
 
@@ -857,13 +871,19 @@ class Person(BaseModel):
     """The person's age in years"""
 ```
 
+::: notes
+Attribute docstrings require the class source code to be available at runtime.
+They do not work in an interactive interpreter, where `Field(description=...)`
+is more reliable.
+:::
+
 ::: footer
 [pydantic: use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
 :::
 
 # Your Turn `10_structured-output` {.slide-your-turn}
 
-1. We also have text versions of the recipes in `data/recipes/txt`.
+1. We also have text versions of the recipes in `data/recipes/text`.
 
 1. Use `ellmer::type_*()` or a Pydantic model to extract structured data from the recipe you used in **activity 09**.
 
@@ -1035,7 +1055,7 @@ res = batch_chat_structured(
 
 1. Take your `type_recipe` or `Recipe` model from **activity 10**...
 
-2. And apply it to _all the text recipes_ in `data/recipes/txt`.
+2. And apply it to _all the text recipes_ in `data/recipes/text`.
 
 3. Use parallel processing with `gpt-4.1-nano` from OpenAI.
 
