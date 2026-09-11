@@ -16,7 +16,7 @@ The exact prompts from that recording, with notes per turn, are in [conversation
 Paste this prompt into Posit Assistant:
 
 ```
-Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.
+I'm thinking of opening an Airbnb in Austin, TX and starting to do some basic market research. Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns. Wrap up with a recommendation for the neighborhood, property type, and price point that give me the best odds of success.
 ```
 
 While the assistant works, narrate the loop:
