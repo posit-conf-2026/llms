@@ -5,7 +5,7 @@ description = "Programming with LLMs in R and Python at posit::conf(2026)"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "chatlas[posit]==0.21.1",
+    "chatlas[posit]==0.23.0",
     "duckduckgo-search>=8.1.1",
     "faicons>=0.2.2",
     "htmltools>=0.7.0",

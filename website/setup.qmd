@@ -345,7 +345,7 @@ Then, open the project in your IDE and run the following commands in the R conso
 pak::repo_add("https://posit-dev.r-universe.dev")
 pak::repo_add("https://rstudio.r-universe.dev")
 
-pak::local_install()
+pak::local_install_deps()
 ```
 
 <details><summary>Alternative: Direct package installation</summary>
@@ -472,7 +472,7 @@ To be completely ready-to-go on the day of the workshop, make sure that you get 
 
 -   **Update your R packages:**
 
-    If you're using R, run `pak::local_install()` again to make sure you have the latest package versions.
+    If you're using R, run `pak::local_install_deps()` again to make sure you have the latest package versions.
 
 -   **Update your Python packages:**
 
