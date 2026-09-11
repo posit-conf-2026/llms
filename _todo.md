@@ -48,7 +48,7 @@ Unit 07: Tool Calling
 
 Unit 08: Agents
 
-- [x] 21_demo_databot: Posit Assistant agent demo, shown at the start of the unit
+- [x] 21_demo_assistant: Posit Assistant agent demo, shown at the start of the unit
   - [x] Rework as demo/exercise: instructor sets up the agent conversation, students explore a bit themselves
 - [ ] 22_agent-1 (new): Build a simple coding agent with a read tool and a write tool
 - [ ] 23_agent-2 (new): Make the coding agent a little better with list files and edit file tools

@@ -4,7 +4,7 @@ library(janitor)
 
 # https://insideairbnb.com/get-the-data/
 listings <- readr::read_csv(
-  "https://data.insideairbnb.com/united-states/nc/asheville/2025-06-17/data/listings.csv.gz"
+  "https://data.insideairbnb.com/united-states/tx/austin/2026-06-22/data/listings.csv.gz"
 )
 
 listings <-
@@ -57,7 +57,7 @@ listings <-
   )
 
 
-path_zip_codes_recode <- here::here("data/_asheville-zip-codes.csv")
+path_zip_codes_recode <- here::here("data/_austin-zip-codes.csv")
 
 if (file.exists(path_zip_codes_recode)) {
   zip_codes_recode <- readr::read_csv(
@@ -73,7 +73,7 @@ if (file.exists(path_zip_codes_recode)) {
     chat("openai/gpt-5-nano"),
     interpolate(
       paste(
-        "You are a helpful assistant that provides neighborhood names for Asheville, NC",
+        "You are a helpful assistant that provides neighborhood names for Austin, TX",
         "based on zip codes. The neighborhood name is used for display purposes",
         "when describing the location an Airbnb listing. The zip code is {{zip_code}}."
       ),
@@ -94,6 +94,6 @@ listings <- listings |>
 
 readr::write_csv(
   listings,
-  here::here("data/airbnb-asheville.csv"),
+  here::here("data/airbnb-austin.csv"),
   na = ""
 )

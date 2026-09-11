@@ -9,7 +9,7 @@ from shiny import App, reactive, render, ui
 
 # Load and prepare data
 airbnb_data = (
-    pd.read_csv(here("data/airbnb-asheville.csv"))
+    pd.read_csv(here("data/airbnb-austin.csv"))
     .loc[lambda df: df["price"].notnull()]
     .assign(occupancy_pct=lambda df: (365 - df["availability_365"]) / 365)
 )
@@ -91,7 +91,7 @@ app_ui = ui.page_sidebar(
         ),
         min_height="400px",
     ),
-    title="Asheville Airbnb Dashboard",
+    title="Austin Airbnb Dashboard",
     class_="bslib-page-dashboard",
     fillable=True,
 )

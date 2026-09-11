@@ -33,7 +33,7 @@ You may also want to include `#content7` to your prompt to tell PA to use the MC
 library(readr)
 library(dplyr)
 
-listings <- read_csv(here::here("data/airbnb-asheville.csv"))
+listings <- read_csv(here::here("data/airbnb-austin.csv"))
 
 hot_room_types <-
   listings |>
