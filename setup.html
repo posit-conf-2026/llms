@@ -548,7 +548,7 @@ TODO: Update posit cloud workspace screenshot
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">repo_add</span>(<span class="st">"https://posit-dev.r-universe.dev"</span>)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">repo_add</span>(<span class="st">"https://rstudio.r-universe.dev"</span>)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">local_install</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">local_install_deps</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details>
 <summary>
 Alternative: Direct package installation
@@ -559,7 +559,7 @@ Alternative: Direct package installation
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"pak"</span>, <span class="at">repos =</span> <span class="fu">sprintf</span>(<span class="st">"https://r-lib.github.io/p/pak/stable/%s/%s/%s"</span>, .Platform<span class="sc">$</span>pkgType, <span class="fu">R.Version</span>()<span class="sc">$</span>os, <span class="fu">R.Version</span>()<span class="sc">$</span>arch))</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">local_install</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">local_install_deps</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
@@ -673,7 +673,7 @@ Alternative: Direct package installation
 <li><p><strong>Update your local copy of the repository:</strong></p>
 <p>Use <code>git pull</code> in the terminal, or the <strong>Git: Pull</strong> command in your IDE.</p></li>
 <li><p><strong>Update your R packages:</strong></p>
-<p>If you’re using R, run <code>pak::local_install()</code> again to make sure you have the latest package versions.</p></li>
+<p>If you’re using R, run <code>pak::local_install_deps()</code> again to make sure you have the latest package versions.</p></li>
 <li><p><strong>Update your Python packages:</strong></p>
 <p>If you’re using Python, run <code>uv sync</code> again to make sure you have the latest package versions.</p></li>
 </ul>
