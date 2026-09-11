@@ -187,7 +187,7 @@ This is pretty much a normal API. If you have queried an API to get data, this
 is fundamentally the same thing.
 :::
 
-## 
+##
 
 ::: notes
 Talking to an LLM like ChatGPT happens through HTTP requests and responses.
@@ -279,7 +279,7 @@ chat.chat("Tell me a fact about cats.")
 :::
 :::
 
-## 
+##
 
 ::: {style="--code-font-size: 0.56em"}
 [![](../assets/icons/r-color.svg){height="24px" alt="R"} ellmer]{.flex .items-center .gap-1}
@@ -778,6 +778,6 @@ Passing `client=` gives `Chat` the same batteries-included behavior as
 
 2. Your job: create a chatbot that plays a "20 questions" style word guessing game with you.
 
-3. The model comes up with a word, and it's your job to guess the word. 
+3. The model comes up with a word, and it's your job to guess the word.
 
 {{< countdown 7:00 top="-1em" >}}
