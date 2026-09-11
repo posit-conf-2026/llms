@@ -87,7 +87,7 @@ Hadley: "A coding agent is six functions in a trenchcoat" — read file, write f
 
 ## Demo: Posit Assistant {.slide-demo}
 
-👨‍💻 [_demos/21_demo_databot/README.md]{.code .b .purple}
+👨‍💻 [_demos/21_demo_assistant/README.md]{.code .b .purple}
 
 > Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.
 

@@ -158,7 +158,7 @@ Unit 07: Tool Calling (30m) · Unit 08: Agents (30m) · Unit 09: Agent Skills (3
   - Picking up from tool calling to build up to agents
   - Hadley/Willison definition: agents are LLMs with a read tool and a write tool
     - Reference: Hadley's series on Substack, in particular [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent) and [A coding agent is six functions in a trenchcoat](https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in)
-  - Demo `21_demo_databot`: Posit Assistant agent demo
+  - Demo `21_demo_assistant`: Posit Assistant agent demo
     - Instructor sets up the agent conversation, then students do the exploration themselves
   - Activity `22_agent-1`: build a simple coding agent with a read tool and a write tool
   - Activity `23_agent-2`: make that coding agent a little better with a couple more tools (list files, edit files)
