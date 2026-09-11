@@ -141,13 +141,13 @@ So how do we connect the LLM to the code that this data scientist has written (o
 
 ## Human in the loop {.center}
 
-👨‍💻 [_demos/18_manual-tools/app.R]{.code .b .purple}
+👨‍💻 [_demos/15_demo_manual-tools/15_demo_manual-tools-app.R]{.code .b .purple}
 
 ## Wait... I can write code! {.center}
 
-👨‍💻 [_demos/19_tools/19_weather-tool.R]{.code .b .purple}
+👨‍💻 [_demos/16_demo_tools/16_weather-tool-app.R]{.code .b .purple}
 
-👨‍💻 [_demos/19_tools/19_weather-tool.py]{.code .b .purple}
+👨‍💻 [_demos/16_demo_tools/16_weather-tool-01-start.py]{.code .b .purple}
 
 ## {.center style="text-align: center" transition="fade"}
 
@@ -275,7 +275,7 @@ def get_weather(lat: float, lon: float):
     return NWS.GetCurrentForecast(lat, lon)
 ```
 
-# Your Turn `15_quiz-game-2` {.slide-your-turn}
+# Your Turn `17_quiz-game-2` {.slide-your-turn}
 
 1. I've given you a function that plays a sound when called.
 
@@ -355,7 +355,7 @@ chat.register_tool(
 :::
 
 
-## Your Turn `16_quiz-game-3` {.slide-your-turn}
+## Your Turn `18_quiz-game-3` {.slide-your-turn}
 
 1. Add tool annotations to our `play_sound` tools.
 
@@ -458,7 +458,7 @@ def get_weather(lat: float, lon: float, location_name: str):
 [chatlas: ContentToolResult](https://posit-dev.github.io/chatlas/reference/types.ContentToolResult.html){preview-link=true}
 :::
 
-## Your Turn `17_quiz-game-4` {.slide-your-turn}
+## Your Turn `19_quiz-game-4` {.slide-your-turn}
 
 1. Pick an `icon` and a `title` for each action in the Quiz show app.
 
@@ -477,20 +477,3 @@ def get_weather(lat: float, lon: float, location_name: str):
 
 * You can **read reactive values**, _if you `isolate()` reads_. (Be careful!)
 :::
-
-<!-- TODO: Demo app with a tool that updates a reactive value -->
-
-## Your Turn `18_quiz-game-5` {.slide-your-turn}
-
-_I've updated the app to show the score in value boxes.\
-(And turned off the sounds.)_
-
-1. In the **system prompt**, tell the model when to use `update_score`.
-
-1. Read `update_score()`. It should update a reactive value in the app when called. Finish implementing it.
-
-1. Complete the tool definition.
-
-1. Add tool annotations (optional, but fun!)
-
-{{< countdown 8:00 left=0 bottom=0 >}}

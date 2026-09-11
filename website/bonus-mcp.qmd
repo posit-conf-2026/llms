@@ -1,0 +1,30 @@
+---
+title: Model Context Protocol
+description: An overview of MCP and how to connect MCP servers to ellmer and chatlas.
+description-short: Connecting MCP servers to LLM chats
+duration: 20min
+---
+
+::: {.callout-note title="Bonus material"}
+
+We won't cover this unit during the workshop. It's included for anyone who wants to go further on their own. Expect to spend about 20 minutes on the activities.
+
+:::
+
+## Slides
+
+{{< revealjs "slides/slides-52.html" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- Overview of MCP and how it works
+- MCP in Positron: https://github.com/posit-dev/positron/issues/8377
+  - MCP in VS Code: https://code.visualstudio.com/docs/copilot/customization/mcp-servers
+- Activity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)
+  - ArXiV: https://github.com/andybrandt/mcp-simple-arxiv
+  - webpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp
+  - stocky: https://github.com/joelio/stocky
+  - fetcher: https://github.com/jae-jae/fetcher-mcp
+  - git-ingest: https://github.com/adhikasp/mcp-git-ingest
+  - github: https://arc.net/l/quote/bvfqahnx
+  - context7: https://github.com/upstash/context7

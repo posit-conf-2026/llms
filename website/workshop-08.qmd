@@ -1,0 +1,29 @@
+---
+title: Agents
+description: Picking up from tool calling to build real agents.
+description-short: Building agents from tools
+duration: 30min
+---
+
+## Slides
+
+{{< revealjs "slides/slides-08.html" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- (30m) Building an agent
+  - Picking up from tool calling to build up to agents
+  - Hadley/Willison definition: agents are LLMs with a read tool and a write tool
+    - Reference: Hadley's series on Substack, in particular [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent) and [A coding agent is six functions in a trenchcoat](https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in)
+  - Demo `_demos/21_demo_databot`: Posit Assistant as an agent — the instructor starts the conversation, then everyone explores the data on their own
+  - Activity `_exercises/22_agent-1`: build a simple coding agent with a read tool and a write tool
+  - Activity `_exercises/23_agent-2`: make that coding agent a little better with a couple more tools (list files, edit files)
+  - Discussion: what if it could run code? Should we add a run code tool?
+    - Coding harnesses, safety, sandboxing, LLM-based safety checks
+    - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
+
+## Further reading
+
+- [A coding agent is six functions in a trenchcoat](https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in) — build a minimal coding agent in R with ellmer, one tool at a time.
+- [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code) — sandboxing, permission prompts, and LLM-based safety checks.
+- [Auto mode knows it's dangerous (and does it anyway)](https://tidydesign.substack.com/p/auto-mode-knows-its-dangerous-and) — a cautionary experiment with `curl | sh` installers.
