@@ -611,7 +611,7 @@
     "href": "workshop-04.html#resources",
     "title": "Programming with LLMs",
     "section": "Resources",
-    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
+    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, LM Studio\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
     "crumbs": [
       "Workshop",
       "Programming with LLMs"
@@ -655,7 +655,7 @@
     "href": "setup.html",
     "title": "Getting set up",
     "section": "",
-    "text": "Bring your personal laptop and a power cord. This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.\n\n\n\n\n\n\nTipSet up Posit AI Pass\n\n\n\n\nWe’ll use Posit AI for every activity in this workshop. Posit AI Pass is a subscription from Posit. It gives you access to LLMs in Posit Assistant, and from ellmer and chatlas in your R or Python code.\nYou don’t need an API key, a payment method, or a Posit AI subscription. A free Posit AI account is enough:\n\nGo to posit.ai and sign up for a Free account with the email you used to register for posit::conf(2026). You can sign up with email, Google, or GitHub.\n\nThat’s it. Your workshop pass gives you a credit grant for the day of the workshop. (If you’re already a paid Posit AI Pass subscriber, you’ll receive the credit grant too.)\nThe first time you call an LLM from ellmer or chatlas, your browser opens so you can log in. After that, you stay logged in for the rest of the day.\nIf you’d also like to try local models (they’re free), install ollama and download a model.\n\n\n\n\n\n\n\n\nImportantBring your own laptop\n\n\n\nYou’ll need a computer with internet access and the ability to install R or Python packages.\nWe strongly recommend using a personal laptop rather than a work laptop. Many work laptops have restrictions that may prevent you from installing necessary software or accessing certain websites.\nYou’ll also want to bring a power cord to keep your laptop charged throughout the workshop. And a bottle of water to stay hydrated (for you, not your laptop)!"
+    "text": "Bring your personal laptop and a power cord. This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.\n\n\n\n\n\n\nTipSet up Posit AI Pass\n\n\n\n\nWe’ll use Posit AI for every activity in this workshop. Posit AI Pass is a subscription from Posit. It gives you access to LLMs in Posit Assistant, and from ellmer and chatlas in your R or Python code.\nYou don’t need an API key, a payment method, or a Posit AI subscription. A free Posit AI account is enough:\n\nGo to posit.ai and sign up for a Free account with the email you used to register for posit::conf(2026). You can sign up with email, Google, or GitHub.\n\nThat’s it. Your workshop pass gives you a credit grant for the day of the workshop. (If you’re already a paid Posit AI Pass subscriber, you’ll receive the credit grant too.)\nThe first time you call an LLM from ellmer or chatlas, your browser opens so you can log in. After that, you stay logged in for the rest of the day.\nIf you’d also like to try local models (they’re free), install LM Studio and download a model.\n\n\n\n\n\n\n\n\nImportantBring your own laptop\n\n\n\nYou’ll need a computer with internet access and the ability to install R or Python packages.\nWe strongly recommend using a personal laptop rather than a work laptop. Many work laptops have restrictions that may prevent you from installing necessary software or accessing certain websites.\nYou’ll also want to bring a power cord to keep your laptop charged throughout the workshop. And a bottle of water to stay hydrated (for you, not your laptop)!"
   },
   {
     "objectID": "setup.html#create-accounts",
@@ -696,8 +696,8 @@
     "objectID": "setup.html#local-models",
     "href": "setup.html#local-models",
     "title": "Getting set up",
-    "section": "Local models with ollama",
-    "text": "Local models with ollama\nollama is an open-source tool for running LLMs locally on your computer. Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.\nYou do not need to install ollama or use local models to participate in the workshop. That said, they’re a fun way to experiment with LLMs without incurring API costs.\nTo use ollama, first download and install it on your computer. Then, you can browse the list of models on the ollama website to find a model that you want to use. Here are a few that we like for local testing. For the workshop, I’d recommend installing gemma3:4b1.\n\n\n\n\n\n\n\n\nID\nSize\nCapabilities\n\n\n\n\n[gemma3:4b][ollama-gemma3-4b]\n3.3GB\nvision\n\n\n[qwen3:8b][ollama-qwen3-8b]\n5.2GB\ntools thinking\n\n\n[gpt-oss:20b][ollama-gpt-oss]\n14GB\ntools thinking\n\n\n\nTo use a model, you first need to download it. For example, to download [gemma3:4b][ollama-gemma3-4b], run the following command in your terminal:\nollama pull gemma3:4b\nThat command downloads the model to your computer. Once the model is downloaded, you can use it on your own computer without needing to be connected to the internet.\nYou can use ollama to chat with the model directly in your terminal\nollama run gemma3:4b\nor you can use ellmer or chatlas to interact with the model from R or Python.\n\n\n\n\nlibrary(ellmer)\n\nchat &lt;- chat_ollama(model = \"gemma3:4b\")\nchat$chat(\"What is the capital of France?\")\n\nThe capital of France is Paris.\nIt’s a global center for art, fashion, gastronomy, and culture. 🌍🇫🇷\n\n\n\nfrom chatlas import ChatOllama\n\nchat = ChatOllama(model=\"gemma3:4b\")\nchat.chat(\"What is the capital of France?\")\n\nThe capital of France is Paris.\nIt’s a global center for art, fashion, gastronomy, and culture. 😊\nDo you want to know anything more about Paris?\n\n\n\n\n\n\n\n\n\n\nNoteWhy use a local model?\n\n\n\n\n\nLocal models are just like the famous ChatGPT or Claude models, but they run entirely on your own computer. You can use them for all of the same tasks: conversational AI, code generation, text processing, vision and more. There are a wide range of models available at many different sizes and capabilities, so you can choose one that fits your hardware and performance needs.\nLocal models are no where near as capable as the flagship models from OpenAI or Anthropic. Still, there are a few reasons you might want to use a local model:\n\nYour conversation never leaves your computer, ensuring complete data privacy.\nNo API costs, making local models very low-cost (other than the cost of your laptop or the hardware to run the model).\nThey work offline, so you can use them without an internet connection.\n\nLocal models are a great option for prototyping, experimentation, and personal use. They’re also useful to companies that want to use LLMs but have strict data privacy requirements and need to ensure that their data never leaves their network.\nOn the other hand, because you’re running the model on your own hardware, local models are slower and less powerful than cloud-based models, especially if you’re using a laptop or desktop computer. Personally, I use local models for experiments and testing to avoid API charges and switch to cloud-based models when I’m putting an LLM-powered application into production."
+    "section": "Local models",
+    "text": "Local models\nLocal models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run them on your own computer without having to pay for API access or sending your data to a third party.\nYou do not need to install LM Studio or use local models to participate in the workshop. That said, they’re a fun way to experiment with LLMs without incurring API costs.\nIf you’d like to try local models, we recommend LM Studio with the Bonsai 27B model. See Local models with LM Studio for full instructions, other model recommendations, and a note on using ollama instead."
   },
   {
     "objectID": "setup.html#the-night-before-the-workshop",
@@ -707,11 +707,58 @@
     "text": "The night before the workshop\nIf you’ve followed the instructions above, you should be all set for the workshop! But we’ll likely be making some last-minute changes to the workshop materials as we get closer to the event.\nTo be completely ready-to-go on the day of the workshop, make sure that you get the latest version of the materials the night before the workshop.\n\nUpdate your local copy of the repository:\nUse git pull in the terminal, or the Git: Pull command in your IDE.\nUpdate your R packages:\nIf you’re using R, run pak::local_install_deps() again to make sure you have the latest package versions.\nUpdate your Python packages:\nIf you’re using Python, run uv sync -p 3.14 again to make sure you have the latest package versions."
   },
   {
-    "objectID": "setup.html#footnotes",
-    "href": "setup.html#footnotes",
-    "title": "Getting set up",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is [gpt-oss:20b][ollama-gpt-oss]. For something a little bit smaller, try [qwen3:8b][ollama-qwen3-8b].↩︎"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programming with LLMs in R and Python",
+    "section": "",
+    "text": "Workshop at posit::conf(2026) in Houston, TXSeptember 14, 2026 :: 09:00 - 17:00Venue: Hilton Americas-Houston | Room: Lanier I"
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Programming with LLMs in R and Python",
+    "section": "Introduction",
+    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and tool calling. Attendees will gain hands-on experience through guided exercises, providing the confidence to start their LLM journey. Bonus material on Retrieval-Augmented Generation (RAG) is included for self-guided study after the workshop."
+  },
+  {
+    "objectID": "index.html#links",
+    "href": "index.html#links",
+    "title": "Programming with LLMs in R and Python",
+    "section": "Links",
+    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n\n📦 Repository\n🍑 posit::conf(2026)"
+  },
+  {
+    "objectID": "bonus-mcp.html",
+    "href": "bonus-mcp.html",
+    "title": "Model Context Protocol",
+    "section": "",
+    "text": "NoteBonus material\n\n\n\nWe won’t cover this unit during the workshop. It’s included for anyone who wants to go further on their own. Expect to spend about 20 minutes on the activities.",
+    "crumbs": [
+      "Workshop",
+      "Model Context Protocol"
+    ]
+  },
+  {
+    "objectID": "bonus-mcp.html#slides",
+    "href": "bonus-mcp.html#slides",
+    "title": "Model Context Protocol",
+    "section": "Slides",
+    "text": "Slides\n    View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Model Context Protocol"
+    ]
+  },
+  {
+    "objectID": "bonus-mcp.html#outline",
+    "href": "bonus-mcp.html#outline",
+    "title": "Model Context Protocol",
+    "section": "Outline",
+    "text": "Outline\n\nOverview of MCP and how it works\nMCP in Positron: https://github.com/posit-dev/positron/issues/8377\n\nMCP in VS Code: https://code.visualstudio.com/docs/copilot/customization/mcp-servers\n\nActivity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)\n\nArXiV: https://github.com/andybrandt/mcp-simple-arxiv\nwebpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp\nstocky: https://github.com/joelio/stocky\nfetcher: https://github.com/jae-jae/fetcher-mcp\ngit-ingest: https://github.com/adhikasp/mcp-git-ingest\ngithub: https://arc.net/l/quote/bvfqahnx\ncontext7: https://github.com/upstash/context7",
+    "crumbs": [
+      "Workshop",
+      "Model Context Protocol"
+    ]
   },
   {
     "objectID": "bonus-rag.html",
@@ -758,58 +805,39 @@
     ]
   },
   {
-    "objectID": "bonus-mcp.html",
-    "href": "bonus-mcp.html",
-    "title": "Model Context Protocol",
+    "objectID": "local-models.html",
+    "href": "local-models.html",
+    "title": "Local models with LM Studio",
     "section": "",
-    "text": "NoteBonus material\n\n\n\nWe won’t cover this unit during the workshop. It’s included for anyone who wants to go further on their own. Expect to spend about 20 minutes on the activities.",
-    "crumbs": [
-      "Workshop",
-      "Model Context Protocol"
-    ]
+    "text": "LM Studio is a desktop app for running LLMs locally on your computer. Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.\nYou do not need to install LM Studio or use local models to participate in the workshop. That said, they’re a fun way to experiment with LLMs without incurring API costs."
   },
   {
-    "objectID": "bonus-mcp.html#slides",
-    "href": "bonus-mcp.html#slides",
-    "title": "Model Context Protocol",
-    "section": "Slides",
-    "text": "Slides\n    View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Model Context Protocol"
-    ]
+    "objectID": "local-models.html#install-lm-studio",
+    "href": "local-models.html#install-lm-studio",
+    "title": "Local models with LM Studio",
+    "section": "Install LM Studio",
+    "text": "Install LM Studio\nDownload and install LM Studio on your computer. Then, use the app to browse and download models. Here are a few that we like for local testing. For the workshop, we’d recommend [Bonsai 27B][lmstudio-bonsai]1.\n\n\n\n\n\n\n\n\nID\nSize\nCapabilities\n\n\n\n\n[Bonsai 27B][lmstudio-bonsai]\n5GB\nvision tools thinking\n\n\n[qwen3.8][lmstudio-qwen38]\n18GB\nvision tools thinking\n\n\n\nOnce you’ve downloaded a model, start LM Studio’s local server from the Developer tab. You can then use ellmer or chatlas to interact with the model from R or Python.\n\n\n\n\nlibrary(ellmer)\n\nchat &lt;- chat_lmstudio(model = \"prism-ml/bonsai-27b\")\nchat$chat(\"What is the capital of France?\")\n\nThe capital of France is Paris.\nIt’s a global center for art, fashion, gastronomy, and culture. 🌍🇫🇷\n\n\n\nfrom chatlas import ChatLMStudio\n\nchat = ChatLMStudio(model=\"prism-ml/bonsai-27b\")\nchat.chat(\"What is the capital of France?\")\n\nThe capital of France is Paris.\nIt’s a global center for art, fashion, gastronomy, and culture. 😊\nDo you want to know anything more about Paris?"
   },
   {
-    "objectID": "bonus-mcp.html#outline",
-    "href": "bonus-mcp.html#outline",
-    "title": "Model Context Protocol",
-    "section": "Outline",
-    "text": "Outline\n\nOverview of MCP and how it works\nMCP in Positron: https://github.com/posit-dev/positron/issues/8377\n\nMCP in VS Code: https://code.visualstudio.com/docs/copilot/customization/mcp-servers\n\nActivity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)\n\nArXiV: https://github.com/andybrandt/mcp-simple-arxiv\nwebpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp\nstocky: https://github.com/joelio/stocky\nfetcher: https://github.com/jae-jae/fetcher-mcp\ngit-ingest: https://github.com/adhikasp/mcp-git-ingest\ngithub: https://arc.net/l/quote/bvfqahnx\ncontext7: https://github.com/upstash/context7",
-    "crumbs": [
-      "Workshop",
-      "Model Context Protocol"
-    ]
+    "objectID": "local-models.html#prefer-ollama",
+    "href": "local-models.html#prefer-ollama",
+    "title": "Local models with LM Studio",
+    "section": "Prefer ollama?",
+    "text": "Prefer ollama?\nYou can also run local models with ollama, which works from the terminal instead of a desktop app. For the workshop, we’d recommend gemma4:12b (7.4GB), which you can download with ollama pull gemma4:12b and use with chat_ollama() in R or ChatOllama in Python."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Programming with LLMs in R and Python",
-    "section": "",
-    "text": "Workshop at posit::conf(2026) in Houston, TXSeptember 14, 2026 :: 09:00 - 17:00Venue: Hilton Americas-Houston | Room: Lanier I"
+    "objectID": "local-models.html#why-use-a-local-model",
+    "href": "local-models.html#why-use-a-local-model",
+    "title": "Local models with LM Studio",
+    "section": "Why use a local model?",
+    "text": "Why use a local model?\nLocal models are just like the famous ChatGPT or Claude models, but they run entirely on your own computer. You can use them for all of the same tasks: conversational AI, code generation, text processing, vision and more. There are a wide range of models available at many different sizes and capabilities, so you can choose one that fits your hardware and performance needs.\nLocal models are no where near as capable as the flagship models from OpenAI or Anthropic. Still, there are a few reasons you might want to use a local model:\n\nYour conversation never leaves your computer, ensuring complete data privacy.\nNo API costs, making local models very low-cost (other than the cost of your laptop or the hardware to run the model).\nThey work offline, so you can use them without an internet connection.\n\nLocal models are a great option for prototyping, experimentation, and personal use. They’re also useful to companies that want to use LLMs but have strict data privacy requirements and need to ensure that their data never leaves their network.\nOn the other hand, because you’re running the model on your own hardware, local models are slower and less powerful than cloud-based models, especially if you’re using a laptop or desktop computer. Personally, I use local models for experiments and testing to avoid API charges and switch to cloud-based models when I’m putting an LLM-powered application into production."
   },
   {
-    "objectID": "index.html#introduction",
-    "href": "index.html#introduction",
-    "title": "Programming with LLMs in R and Python",
-    "section": "Introduction",
-    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and tool calling. Attendees will gain hands-on experience through guided exercises, providing the confidence to start their LLM journey. Bonus material on Retrieval-Augmented Generation (RAG) is included for self-guided study after the workshop."
-  },
-  {
-    "objectID": "index.html#links",
-    "href": "index.html#links",
-    "title": "Programming with LLMs in R and Python",
-    "section": "Links",
-    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n\n📦 Repository\n🍑 posit::conf(2026)"
+    "objectID": "local-models.html#footnotes",
+    "href": "local-models.html#footnotes",
+    "title": "Local models with LM Studio",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nBonsai 27B is a 5GB download and runs comfortably on a typical laptop with 16GB of RAM.↩︎"
   },
   {
     "objectID": "workshop-01.html",
@@ -1232,7 +1260,7 @@
     "href": "slides/slides-04.html#open-weight-and-local-models",
     "title": "Programming with LLMs",
     "section": "Open-weight and local models",
-    "text": "Open-weight and local models\n\nOpen-weight means the trained weights are available to download under a license.\nRun them locally, self-host them, or use a service like Hugging Face.\nPosit AI Pass also serves selected open-weight models.\nSome models are small enough to run on your laptop. Larger models require more memory or specialized hardware.\nOllama and LM Studio are common tools for running models locally.\n\n\nOpen-weight does not necessarily mean open-source or unrestricted. The model’s license determines how you can use, modify, and redistribute it.\nA model running on your computer is local. A model running on infrastructure managed by your organization is self-hosted.\nOpen-weight models aren’t necessarily local."
+    "text": "Open-weight and local models\n\nOpen-weight means the trained weights are available to download under a license.\nRun them locally, self-host them, or use a service like Hugging Face.\nPosit AI Pass also serves selected open-weight models.\nSome models are small enough to run on your laptop. Larger models require more memory or specialized hardware.\nLM Studio and Ollama are common tools for running models locally.\n\n\nOpen-weight does not necessarily mean open-source or unrestricted. The model’s license determines how you can use, modify, and redistribute it.\nA model running on your computer is local. A model running on infrastructure managed by your organization is self-hosted.\nOpen-weight models aren’t necessarily local."
   },
   {
     "objectID": "slides/slides-04.html#posit-ai-pass-models-from-various-providers",
@@ -1260,14 +1288,14 @@
     "href": "slides/slides-04.html#ellmer",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "Providers\n\nchat_posit()\nchat_openai()\nchat_anthropic()\nchat_google_gemini()\n\n\n\nOpen-weight and local models\n\nchat_ollama()\nchat_huggingface()\n\n\n\nEnterprise\n\nchat_aws_bedrock()\n\n\n\nand more!\n\n\n\nhttps://ellmer.tidyverse.org/"
+    "text": "Providers\n\nchat_posit()\nchat_openai()\nchat_anthropic()\nchat_google_gemini()\n\n\n\nOpen-weight and local models\n\nchat_lmstudio()\nchat_huggingface()\n\n\n\nEnterprise\n\nchat_aws_bedrock()\n\n\n\nand more!\n\n\n\nhttps://ellmer.tidyverse.org/"
   },
   {
     "objectID": "slides/slides-04.html#chatlas",
     "href": "slides/slides-04.html#chatlas",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "chatlas\n\n\n\nProviders\n\nChatPosit()\nChatOpenAI()\nChatAnthropic()\nChatGoogle()\n\nOpen-weight and local models\n\nChatOllama()\nChatHuggingFace()\n\nEnterprise\n\nChatBedrockAnthropic()\n\nand more!\n\n\nhttps://posit-dev.github.io/chatlas/get-started/models.html\n\n\nThe constructor determines which provider receives the request. Direct access to Anthropic, OpenAI, or Google requires credentials for that provider.\nPosit AI Pass is also a provider. It hosts models created by several companies. For example, ChatPosit(model=\"moonshotai/Kimi-K3\") sends the request through Posit AI Pass, not directly to Moonshot AI."
+    "text": "chatlas\n\n\n\nProviders\n\nChatPosit()\nChatOpenAI()\nChatAnthropic()\nChatGoogle()\n\nOpen-weight and local models\n\nChatLMStudio()\nChatHuggingFace()\n\nEnterprise\n\nChatBedrockAnthropic()\n\nand more!\n\n\nhttps://posit-dev.github.io/chatlas/get-started/models.html\n\n\nThe constructor determines which provider receives the request. Direct access to Anthropic, OpenAI, or Google requires credentials for that provider.\nPosit AI Pass is also a provider. It hosts models created by several companies. For example, ChatPosit(model=\"moonshotai/Kimi-K3\") sends the request through Posit AI Pass, not directly to Moonshot AI."
   },
   {
     "objectID": "slides/slides-04.html#switch-models-with-model",

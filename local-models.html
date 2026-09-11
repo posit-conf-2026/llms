@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A deeper dive into the things you can do with LLMs when you’re programming with them that are harder to do in a chat interface.">
+<meta name="description" content="How to run LLMs locally on your own computer with LM Studio (or ollama).">
 
-<title>Programming with LLMs – Programming with LLMs in R and Python</title>
+<title>Local models with LM Studio – Programming with LLMs in R and Python</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -37,8 +72,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./workshop-05.html" rel="next">
-<link href="./workshop-03-break.html" rel="prev">
 <link href="./assets/posit-conf-favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -79,24 +112,16 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <meta name="theme-color" content="black">
- 
-  <style>
-  .slide-deck {
-      border: 3px solid #dee2e6;
-      width: 100%;
-  }
-  </style>
-  
 
 
-<meta property="og:title" content="Programming with LLMs – Programming with LLMs in R and Python">
-<meta property="og:description" content="A deeper dive into the things you can do with LLMs when you’re programming with them that are harder to do in a chat interface.">
+<meta property="og:title" content="Local models with LM Studio – Programming with LLMs in R and Python">
+<meta property="og:description" content="How to run LLMs locally on your own computer with LM Studio (or ollama).">
 <meta property="og:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs in R and Python">
 <meta property="og:image:height" content="400">
 <meta property="og:image:width" content="765">
-<meta name="twitter:title" content="Programming with LLMs – Programming with LLMs in R and Python">
-<meta name="twitter:description" content="A deeper dive into the things you can do with LLMs when you’re programming with them that are harder to do in a chat interface.">
+<meta name="twitter:title" content="Local models with LM Studio – Programming with LLMs in R and Python">
+<meta name="twitter:description" content="How to run LLMs locally on your own computer with LM Studio (or ollama).">
 <meta name="twitter:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
 <meta name="twitter:site" content="@posit-dev">
@@ -105,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -130,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./workshop.html" aria-current="page"> 
+    <a class="nav-link" href="./workshop.html"> 
 <span class="menu-text">Workshop</span></a>
   </li>  
   <li class="nav-item">
@@ -149,142 +174,21 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-04.html">Programming with LLMs</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
- <span class="menu-text"><div class="sidebar-divider font-monospace">Morning 1</div></span>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome and getting started</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Anatomy of a conversation</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-03-break.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">☕ Break</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
- <span class="menu-text"><div class="sidebar-divider font-monospace">Morning 2</div></span>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-04.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Programming with LLMs</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prompt Engineering</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-06-break.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🍱 Lunch</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
- <span class="menu-text"><div class="sidebar-divider font-monospace">Afternoon 1</div></span>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool Calling</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Agents</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Agent Skills</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-10-break.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">☕ Break</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
- <span class="menu-text"><div class="sidebar-divider font-monospace">Afternoon 2</div></span>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">shinychat and querychat</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workshop-12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Wrap-up</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
- <span class="menu-text"><div class="sidebar-divider font-monospace">Bonus</div></span>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./bonus-rag.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Augmented Generation</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./bonus-mcp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Model Context Protocol</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#install-lm-studio" id="toc-install-lm-studio" class="nav-link active" data-scroll-target="#install-lm-studio">Install LM Studio</a></li>
+  <li><a href="#prefer-ollama" id="toc-prefer-ollama" class="nav-link" data-scroll-target="#prefer-ollama">Prefer ollama?</a></li>
+  <li><a href="#why-use-a-local-model" id="toc-why-use-a-local-model" class="nav-link" data-scroll-target="#why-use-a-local-model">Why use a local model?</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-04.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/local-models.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -301,12 +205,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming with LLMs</h1>
+<h1 class="title">Local models with LM Studio</h1>
 </div>
 
 <div>
   <div class="description">
-    A deeper dive into the things you can do with LLMs when you’re programming with them that are harder to do in a chat interface.
+    How to run LLMs locally on your own computer with LM Studio (or ollama).
   </div>
 </div>
 
@@ -323,44 +227,91 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-    <p><a href="slides/slides-04.html" target="_blank">View slides in full screen</a></p>
-       <div class="ratio ratio-16x9">
-      <iframe class="slide-deck" src="slides/slides-04.html" height="475px"></iframe>
-    </div>
-  
+<p><a href="https://lmstudio.ai">LM Studio</a> is a desktop app for running LLMs locally on your computer. Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.</p>
+<p><strong>You do not need to install LM Studio or use local models to participate in the workshop.</strong> That said, they’re a fun way to experiment with LLMs without incurring API costs.</p>
+<section id="install-lm-studio" class="level2">
+<h2 class="anchored" data-anchor-id="install-lm-studio">Install LM Studio</h2>
+<p><a href="https://lmstudio.ai/download">Download and install LM Studio</a> on your computer. Then, use the app to browse and download models. Here are a few that we like for local testing. For the workshop, we’d recommend [Bonsai 27B][lmstudio-bonsai]<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">ID</th>
+<th style="text-align: right;">Size</th>
+<th style="text-align: left;">Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">[Bonsai 27B][lmstudio-bonsai]</td>
+<td style="text-align: right;">5GB</td>
+<td style="text-align: left;"><span class="badge text-bg-primary">vision</span> <span class="badge text-bg-primary">tools</span> <span class="badge text-bg-info">thinking</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">[qwen3.8][lmstudio-qwen38]</td>
+<td style="text-align: right;">18GB</td>
+<td style="text-align: left;"><span class="badge text-bg-primary">vision</span> <span class="badge text-bg-primary">tools</span> <span class="badge text-bg-info">thinking</span></td>
+</tr>
+</tbody>
+</table>
+<p>Once you’ve downloaded a model, start LM Studio’s local server from the <strong>Developer</strong> tab. You can then use ellmer or chatlas to interact with the model from R or Python.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="lang">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href=""><img src="assets/icons/r-color.svg" alt="R" height="36"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href=""><img src="assets/icons/python-icon-color.svg" alt="Python" height="36"></a></li></ul>
+<div class="tab-content" data-group="lang">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_lmstudio</span>(<span class="at">model =</span> <span class="st">"prism-ml/bonsai-27b"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"What is the capital of France?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<blockquote class="blockquote">
+<p>The capital of France is <strong>Paris</strong>.</p>
+<p>It’s a global center for art, fashion, gastronomy, and culture. 🌍🇫🇷</p>
+</blockquote>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> chatlas <span class="im">import</span> ChatLMStudio</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>chat <span class="op">=</span> ChatLMStudio(model<span class="op">=</span><span class="st">"prism-ml/bonsai-27b"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>chat.chat(<span class="st">"What is the capital of France?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<blockquote class="blockquote">
+<p>The capital of France is Paris.</p>
+<p>It’s a global center for art, fashion, gastronomy, and culture. 😊</p>
+<p>Do you want to know anything more about Paris?</p>
+</blockquote>
+</div>
+</div>
+</div>
 </section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<ul>
-<li>(15m) Choosing a model
-<ul>
-<li>Overview of major providers: OpenAI, Anthropic, Google, LM Studio</li>
-<li>Tradeoffs: capability, context length, speed, cost, intelligence</li>
-<li>Activity: same question, change one string to switch models, e.g.&nbsp;<code>chat("openai")</code>, <code>chat("anthropic")</code>.</li>
-</ul></li>
-<li>(15m) Multi-modal input (vision, PDF)
-<ul>
-<li>Activity: images of food and ask for recipes</li>
-<li>Activity: take a PDF of a recipe, turn it into markdown</li>
-</ul></li>
-<li>(15m) Structured output
-<ul>
-<li>Explain <code>ellmer::type_*()</code> or <a href="https://posit-dev.github.io/chatlas/get-started/structured-data.html">pydantic model in chatlas</a></li>
-<li>Activity: Extract rich data from the recipe PDF</li>
-<li>Note <a href="https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings">use_attribute_docstrings</a></li>
-</ul></li>
-<li>(10m) Parallel/batch calls
-<ul>
-<li>Activity: Extract recipe data in parallel or batch</li>
-</ul></li>
-</ul>
+<section id="prefer-ollama" class="level2">
+<h2 class="anchored" data-anchor-id="prefer-ollama">Prefer ollama?</h2>
+<p>You can also run local models with <a href="https://ollama.com">ollama</a>, which works from the terminal instead of a desktop app. For the workshop, we’d recommend <code>gemma4:12b</code> (7.4GB), which you can download with <code>ollama pull gemma4:12b</code> and use with <code>chat_ollama()</code> in R or <code>ChatOllama</code> in Python.</p>
+</section>
+<section id="why-use-a-local-model" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-a-local-model">Why use a local model?</h2>
+<p>Local models are just like the famous ChatGPT or Claude models, but they run entirely on your own computer. You can use them for all of the same tasks: conversational AI, code generation, text processing, vision and more. There are a wide range of models available at many different sizes and capabilities, so you can choose one that fits your hardware and performance needs.</p>
+<p><strong>Local models are no where near as capable as the flagship models from OpenAI or Anthropic.</strong> Still, there are a few reasons you might want to use a local model:</p>
+<ol type="1">
+<li>Your conversation never leaves your computer, ensuring complete data privacy.</li>
+<li>No API costs, making local models very low-cost (other than the cost of your laptop or the hardware to run the model).</li>
+<li>They work offline, so you can use them without an internet connection.</li>
+</ol>
+<p>Local models are a great option for prototyping, experimentation, and personal use. They’re also useful to companies that want to use LLMs but have strict data privacy requirements and need to ensure that their data never leaves their network.</p>
+<p>On the other hand, because you’re running the model on your own hardware, local models are slower and less powerful than cloud-based models, especially if you’re using a laptop or desktop computer. Personally, I use local models for experiments and testing to avoid API charges and switch to cloud-based models when I’m putting an LLM-powered application into production.</p>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Bonsai 27B is a 5GB download and runs comfortably on a typical laptop with 16GB of RAM.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -761,18 +712,6 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./workshop-03-break.html" class="pagination-link" aria-label="☕ Break">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">☕ Break</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./workshop-05.html" class="pagination-link" aria-label="Prompt Engineering">
-        <span class="nav-page-text">Prompt Engineering</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -781,7 +720,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p><a href="https://conf.posit.co/2026/">posit::conf(2026)</a></p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-04.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/local-models.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
