@@ -134,8 +134,8 @@ def server(input: Inputs, output: Outputs, session: Session):
         these_turns = turns()
         params: RequestParams = current_params(user_prompt)
 
-        # chat_client = chatlas.ChatOllama(
-        #     model="llama3.2",
+        # chat_client = chatlas.ChatLMStudio(
+        #     model="prism-ml/bonsai-27b",
         #     system_prompt=params.system_prompt,
         #     turns=these_turns,
         # )

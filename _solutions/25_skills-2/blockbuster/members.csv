@@ -1,0 +1,41 @@
+member_id,name,email,tier,joined,notes
+M001,Marisol Vega,marisol.vega@example.com,Founders,2019-03-14,Charter member
+M002,Theo Bennett,theo.bennett@example.com,Founders,2019-06-01,Prefers science fiction
+M003,Anita Flores,,Family,2020-01-18,Manager has her phone number
+M004,Calvin Brooks,calvin.brooks@example.com,Basic,2021-04-09,moved to Portland?
+M005,June Park,june.park@example.com,Family,2021-08-22,Brings the kids on Fridays
+M006,Malik Johnson,malik.johnson@example.com,Basic,2022-02-11,Usually rents action movies
+M007,Elaine Wu,elaine.wu@example.com,Founders,2019-11-30,Asked about the reunion event
+M008,Robert Singh,robert.singh@example.com,Family,2020-07-17,Renewal postcard returned
+M009,Greta Moss,greta.moss@example.com,Founders,2020-02-03,Old register has recent activity
+M010,Peter Ibarra,peter.ibarra@example.com,Family,2021-05-28,Old register has recent activity
+M011,Nora Ellis,nora.ellis@example.com,Basic,2022-09-14,Old register has recent activity
+M012,Samir Patel,samir.patel@example.com,Family,2020-10-06,Boundary rental is 87 days old
+M013,Wendy Hart,wendy.hart@example.com,Basic,2021-03-20,Pays dues but has not rented lately
+M014,Kevin Doyle,kevin.doyle@example.com,Family,2020-12-12,says the tape was scratched
+M015,Brenda Cole,,Basic,2022-06-15,Call after 5 pm
+M016,Oscar Nguyen,oscar.nguyen@example.com,Founders,2019-05-03,Collects Criterion discs
+M017,Paula Reed,paula.reed@example.com,Family,2021-01-27,Prefers text reminders
+M018,Devon Farris,devon.farris@example.com,Basic,2023-02-08,Name spelling needs confirmation
+M019,Heather Lane,heather.lane@example.com,Family,2022-04-19,Uses the family plan
+M020,Mateo Cruz,mateo.cruz@example.com,Basic,2023-07-01,Newer member
+M021,Lena Ford,lena.ford@example.com,Founders,2019-08-25,Asks for classic films
+M022,Jerome Bell,jerome.bell@example.com,Basic,2022-11-09,Weekend regular
+M023,Kimberly Shaw,kimberly.shaw@example.com,Family,2021-09-16,Prefers comedies
+M024,Andre Fisher,andre.fisher@example.com,Basic,2023-03-31,Email confirmed in June
+M025,Sofia Alvarez,sofia.alvarez@example.com,Family,2020-06-04,Returns discs early
+M026,Hannah Price,hannah.price@example.com,Basic,2024-01-12,Student discount expired
+M027,Colin Myers,colin.myers@example.com,Founders,2019-02-28,Member since reopening
+M028,Ruth Vance,ruth.vance@example.com,Family,2021-07-23,Address updated in August
+M028,Ruth Vancee,ruth.vance@example.com,Family,2021-07-23,Duplicate row with spelling drift
+M029,Darius King,darius.king@example.com,Basic,2022-08-05,Prefers new releases
+M030,Tara Bishop,tara.bishop@example.com,Family,2023-05-18,Family movie night
+M031,Willow Grant,willow.grant@example.com,Basic,2024-02-27,Joined after a school event
+M032,Emmett Ross,emmett.ross@example.com,Founders,2019-09-09,Reads the staff picks board
+M033,Isabel Turner,isabel.turner@example.com,Family,2022-01-05,Requests Spanish subtitles
+M034,Noah Green,noah.green@example.com,Basic,2023-09-21,Prefers email receipts
+M035,Carmen Watts,carmen.watts@example.com,Family,2021-11-11,Collects animation
+M036,Victor Hayes,victor.hayes@example.com,Basic,2022-03-03,Lives near the store
+M037,Maya Russell,maya.russell@example.com,Founders,2020-04-26,Member advisory group
+M038,Dennis Long,dennis.long@example.com,Family,2023-06-10,Usually rents documentaries
+M039,Renee Clark,renee.clark@example.com,Basic,2024-03-15,Prefers phone calls

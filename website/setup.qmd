@@ -22,7 +22,7 @@ That's it. Your workshop pass gives you a credit grant for the day of the worksh
 
 The first time you call an LLM from ellmer or chatlas, your browser opens so you can log in. After that, you stay logged in for the rest of the day.
 
-If you'd also like to try local models (they're free), [install ollama and download a model](#local-models).
+If you'd also like to try local models (they're free), [install LM Studio and download a model](local-models.qmd).
 :::
 
 :::::: {.callout-important title="Bring your own laptop"}
@@ -125,11 +125,10 @@ We'll be using [Positron](https://positron.posit.co), the free, next-generation 
 Of course, you're welcome to use [RStudio](https://posit.co/download/rstudio-desktop/), [VS Code](https://code.visualstudio.com/) or any other IDE you prefer.
 
 ::: {.callout-tip title="Why use Positron?"}
-Using Positron offers you the opportunity to try out two new AI-powered features in Positron:
+Positron comes with [Posit Assistant](https://assistant.posit.co) built in, an AI coding assistant for data science.
+Posit Assistant uses context from your interactive work — loaded data, plots, and console history — so its guidance fits core data science workflows like exploratory analysis, data cleaning, and modeling.
 
-* [Positron Assistant](https://positron.posit.co/assistant), a general purpose AI assistant integrated directly into your development environment.
-
-* [Databot](https://positron.posit.co/databot.html), an AI assistant specifically designed to accelerate exploratory data analysis.
+You'll set up Posit Assistant in [the next section](#posit-assistant-and-posit-ai-pass).
 :::
 
 
@@ -345,7 +344,7 @@ Then, open the project in your IDE and run the following commands in the R conso
 pak::repo_add("https://posit-dev.r-universe.dev")
 pak::repo_add("https://rstudio.r-universe.dev")
 
-pak::local_install()
+pak::local_install_deps()
 ```
 
 <details><summary>Alternative: Direct package installation</summary>
@@ -364,100 +363,23 @@ If you don't have `uv` installed, you can install it by following [uv's installa
 Once you're set up with `uv`, open the project in your IDE and run the following command in the terminal to create the Python environment and install the necessary packages:
 
 ``` bash
-uv sync
+uv sync -p 3.14
 ```
 
 That command will create a virtual environment in the project directory and install all the required packages listed in the `pyproject.toml` file.
+The `-p 3.14` flag tells `uv` to use Python 3.14, which is the version we recommend for the workshop.
+You're free to use whatever version of Python you like, but we've found that 3.14 gives the best experience with Positron and the packages we use.
 ::::
 
-## Local models with ollama {#local-models}
+## Local models
 
-[ollama is an open-source tool](https://ollama.com) for running LLMs locally on your computer.
-Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.
+Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run them on your own computer without having to pay for API access or sending your data to a third party.
 
-**You do not need to install ollama or use local models to participate in the workshop.** That said, they're a fun way to experiment with LLMs without incurring API costs.
+**You do not need to install LM Studio or use local models to participate in the workshop.**
+That said, they're a fun way to experiment with LLMs without incurring API costs.
 
-To use ollama, first [download and install it on your computer](https://ollama.com/download).
-Then, you can browse [the list of models on the ollama website](https://ollama.com/search) to find a model that you want to use.
-Here are a few that we like for local testing.
-For the workshop, I'd recommend installing `gemma3:4b`[^1].
-
-[^1]: The best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is \[gpt-oss:20b\]\[ollama-gpt-oss\].
-    For something a little bit smaller, try \[qwen3:8b\]\[ollama-qwen3-8b\].
-
-| ID | Size | Capabilities |
-|-----------------------:|-----------------------:|:-----------------------|
-| \[gemma3:4b\]\[ollama-gemma3-4b\] | 3.3GB | [vision]{.badge .text-bg-danger} |
-| \[qwen3:8b\]\[ollama-qwen3-8b\] | 5.2GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
-| \[gpt-oss:20b\]\[ollama-gpt-oss\] | 14GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
-
-To use a model, you first need to download it.
-For example, to download \[gemma3:4b\]\[ollama-gemma3-4b\], run the following command in your terminal:
-
-``` bash
-ollama pull gemma3:4b
-```
-
-That command downloads the model to your computer.
-Once the model is downloaded, you can use it on your own computer without needing to be connected to the internet.
-
-You can use `ollama` to chat with the model directly in your terminal
-
-``` bash
-ollama run gemma3:4b
-```
-
-or you can use ellmer or chatlas to interact with the model from R or Python.
-
-::: {.panel-tabset group="lang"}
-#### ![](assets/icons/r-color.svg){height="36px" alt="R"}
-
-``` r
-library(ellmer)
-
-chat <- chat_ollama(model = "gemma3:4b")
-chat$chat("What is the capital of France?")
-```
-
-> The capital of France is **Paris**.
->
-> It's a global center for art, fashion, gastronomy, and culture.
-> 🌍🇫🇷
-
-#### ![](assets/icons/python-icon-color.svg){height="36px" alt="Python"}
-
-``` python
-from chatlas import ChatOllama
-
-chat = ChatOllama(model="gemma3:4b")
-chat.chat("What is the capital of France?")
-```
-
-> The capital of France is Paris.
->
-> It’s a global center for art, fashion, gastronomy, and culture.
-> 😊
->
-> Do you want to know anything more about Paris?
-:::
-
-::: {.callout-note title="Why use a local model?" collapse="true"}
-Local models are just like the famous ChatGPT or Claude models, but they run entirely on your own computer.
-You can use them for all of the same tasks: conversational AI, code generation, text processing, vision and more.
-There are a wide range of models available at many different sizes and capabilities, so you can choose one that fits your hardware and performance needs.
-
-**Local models are no where near as capable as the flagship models from OpenAI or Anthropic.** Still, there are a few reasons you might want to use a local model:
-
-1.  Your conversation never leaves your computer, ensuring complete data privacy.
-2.  No API costs, making local models very low-cost (other than the cost of your laptop or the hardware to run the model).
-3.  They work offline, so you can use them without an internet connection.
-
-Local models are a great option for prototyping, experimentation, and personal use.
-They're also useful to companies that want to use LLMs but have strict data privacy requirements and need to ensure that their data never leaves their network.
-
-On the other hand, because you're running the model on your own hardware, local models are slower and less powerful than cloud-based models, especially if you're using a laptop or desktop computer.
-Personally, I use local models for experiments and testing to avoid API charges and switch to cloud-based models when I'm putting an LLM-powered application into production.
-:::
+If you'd like to try local models, we recommend [LM Studio](https://lmstudio.ai) with the [Bonsai 27B](https://lmstudio.ai/models/prism-ml/bonsai-27b) model.
+See [Local models with LM Studio](local-models.qmd) for full instructions, other model recommendations, and a note on using [ollama] instead.
 
 ## The night before the workshop
 
@@ -472,8 +394,8 @@ To be completely ready-to-go on the day of the workshop, make sure that you get 
 
 -   **Update your R packages:**
 
-    If you're using R, run `pak::local_install()` again to make sure you have the latest package versions.
+    If you're using R, run `pak::local_install_deps()` again to make sure you have the latest package versions.
 
 -   **Update your Python packages:**
 
-    If you're using Python, run `uv sync` again to make sure you have the latest package versions.
+    If you're using Python, run `uv sync -p 3.14` again to make sure you have the latest package versions.

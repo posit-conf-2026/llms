@@ -68,176 +68,110 @@ dd:before {
 
 ![](assets/providers-models-07.excalidraw.svg)
 
+## {.text-center transition="fade"}
+
+![](assets/providers-models-08.excalidraw.svg)
+
+::: notes
+Posit AI Pass is the provider we will use today. It hosts models from several
+companies, including Anthropic's Claude models.
+:::
+
 ## How are models different?
+
+::: incremental
+1. **Context:** How many tokens can you give the model?
+1. **Speed:** How many tokens per second?
+1. **Cost:** How much does it cost to use the model?
+1. **Intelligence:** How smart is the model?
+1. **Capabilities:** Does it support images, reasoning, tools, or structured output?
+:::
+
+::: notes
+1. Context: 1M tokens is common among the newest models here. Smaller models can still have shorter windows like 200k for Claude Haiku 4.5.
+1. Speed: In the table, output speed ranges from about 38 tokens/sec (Claude Opus 4.6) to 85 (Gemma 4 26B). These are Artificial Analysis measurements.
+1. Cost: Relative Posit AI Pass costs range from 0.1x for Gemma 4 26B to 1.67x for the Claude Opus models. Output tokens usually cost more than input tokens.
+:::
+
+## {transition="fade"}
+
+![](assets/model-comparison-anthropic-01.excalidraw.svg){style="display: block; margin: auto;"}
+
+::: notes
+Anthropic builds a family of models called Claude. Within that family, model
+tiers trade speed/cost for intelligence.
+:::
+
+## {transition="fade"}
+
+![](assets/model-comparison-anthropic-02.excalidraw.svg){style="display: block; margin: auto;"}
+
+::: notes
+* Haiku is small, fast, and cheap
+* Sonnet balances speed and intelligence
+* Opus is the largest and most intelligent
+
+The positions are conceptual, not benchmark results. Version numbers identify
+newer generations within each tier.
+:::
+
+## {transition="fade"}
+
+![](assets/model-comparison-openai.excalidraw.svg){style="display: block; margin: auto;"}
+
+::: notes
+OpenAI follows a similar pattern. Models with "mini" or "nano" in the name are
+usually faster and cheaper than the full-size model.
+:::
+
+## Open-weight and local models
+
+::: {.incremental}
+* **Open-weight** means the trained weights are available to download under a license.
+* Run them locally, self-host them, or use a service like Hugging Face.
+* Posit AI Pass also serves selected open-weight models.
+* Some models are small enough to run on your laptop. Larger models require more memory or specialized hardware.
+* LM Studio and Ollama are common tools for running models locally.
+:::
+
+::: notes
+Open-weight does not necessarily mean open-source or unrestricted. The model's
+license determines how you can use, modify, and redistribute it.
+
+A model running on your computer is local. A model running on infrastructure
+managed by your organization is self-hosted.
+
+Open-weight models aren't necessarily local.
+:::
+
+
+## Posit AI Pass: Models from various providers {.smaller}
+
+::: {.fragment}
+{{< include ../partials/posit-model-comparison.qmd >}}
+:::
+
+## Artificial Analysis ([artificialanalysis.ai](https://artificialanalysis.ai/leaderboards/models))
+
+![](assets/artificial-analysis.png){alt="Screenshot of the Artificial Analysis website home page, showing independent rankings of AI models by intelligence, speed, and cost per task." style="max-width: 90%; max-height: 72vh; display: block; margin: 0 auto;"}
+
+::: notes
+Ranking of models.
+:::
+
+## Start capable, then test smaller
 
 ::: incremental
-1. **Content:** How many tokens can you give the model?
-1. **Speed:** How many tokens per second?
-1. **Cost:** How much does it cost to use the model?
-1. **Intelligence:** How smart is the model?
-1. **Capabilities:** Vision, reasoning, tools, etc.
+1. Start with a recent model that supports the capabilities you need.
+1. Try a faster or cheaper model.
+1. Keep the smaller model if it performs well on your task.
 :::
 
-::: notes
-1. Content: 200k tokens is normal, 1M tokens in some newer models
-1. Speed: Gemini Flash hits ~350 tokens/sec, 100-200 is very fast, 50-100 normal. Speed is often a trade-off with intelligence.
-1. Cost: $1-5 per million tokens is normal for big frontier models, < $1 for smaller, faster models
-1. Intelligence is a stand-in for lots of concepts
-:::
-
-## How are models different?
-
-1. **Content:** How many tokens can you give the model?
-1. [**Speed:** How many tokens per second?]{style="opacity: 0.25"}
-1. [**Cost:** How much does it cost to use the model?]{style="opacity: 0.25"}
-1. [**Intelligence:** How smart is the model?]{style="opacity: 0.25"}
-1. **Capabilities:** Vision, reasoning, tools, etc.
-
-## How are models different?
-
-1. [**Content:** How many tokens can you give the model?]{style="opacity: 0.25"}
-1. **Speed:** How many tokens per second?
-1. **Cost:** How much does it cost to use the model?
-1. **Intelligence:** How smart is the model?
-1. [**Capabilities:** Vision, reasoning, tools, etc.]{style="opacity: 0.25"}
-
-
-## {transition="fade"}
-
-![](assets/model-sizes-01.excalidraw.svg)
-
-::: notes
-We'll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude.
-:::
-
-## {transition="fade"}
-
-![](assets/model-sizes-02.excalidraw.svg)
-
-::: notes
-Claude comes in different sizes, with different levels of intelligence.
-
-They have a small model that's fast and cheap,
-a large model that's intelligent but expensive,
-and a just-right sized model that balances speed, cost, and intelligence.
-:::
-
-## {transition="fade"}
-
-![](assets/model-sizes-03.excalidraw.svg)
-
-::: notes
-In line with Anthropic's branding, these models are named after different types of poetry.
-
-* Haiku is small, fast, and cheap
-* Sonnet is larger, more expensive, and more intelligent
-* Opus is the largest, most expensive, and most intelligent
-
-Anthropic's poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry.
-(Yes, that's says a lot.)
-:::
-
-## {transition="fade"}
-
-![](assets/model-sizes-04.excalidraw.svg)
-
-::: notes
-But there isn't just one Claude model at different sizes.
-Anthropic keeps training new models which they generally release with a new version number.
-
-* Claude 3.5 was released a year ago (in June 2024)
-* Claude 3.7 was released earlier this year (Feb. 2025)
-* Claude 4 was just released in May 2025
-
-All four of these models are still active and available.
-:::
-
-## {transition="fade"}
-
-![](assets/model-sizes-04a.excalidraw.svg)
-
-::: notes
-When you're choosing a model, you can get higher quality responses by moving up a size tier.
-:::
-
-## {transition="fade"}
-
-![](assets/model-sizes-04b.excalidraw.svg)
-
-::: notes
-And when new releases come out, you can often get similar quality improvements by moving up a version number.
-(This move tends to be cheaper than moving up a size tier.)
-:::
-
-## {transition="fade"}
-
-![](assets/model-sizes-04c.excalidraw.svg)
-
-::: notes
-Oh, wait, sorry, to be very technically accurate, it turns out that the Opus models are only available for Claude 3 and Claude 4, but not for the intermediate versions 3.5 and 3.7.
-
-It remains to be seen if this will be an enduring pattern, or just they way things happened for 3.5 and 3.7.
-:::
-
-## {transition="fade"}
-
-![](assets/model-sizes-07.excalidraw.svg)
-
-## {transition="fade"}
-
-![](assets/model-sizes-06.excalidraw.svg)
-
-## {transition="fade"}
-
-![](assets/model-sizes-05.excalidraw.svg)
-
-## {#model-comparison .smaller}
-
-{{< include ../partials/model-comparison.qmd >}}
-
-## Model Naming Philosophies {.smaller visibility="hidden"}
-
-| Company | Theme | Logic | Clarity |
-|---------|-------|-------|---------|
-| **OpenAI** | _nano_, mini, (regular), pro | Inconsistent across series | Confusing |
-| **Anthropic** | haiku, sonnet, opus | Size/capability hierarchy | Makes you think about it |
-| **Google** | flash, pro, ultra | Clear tier system | Very clear |
-
-: {tbl-colwidths="[10,35,25,20]"}
-
-
-## Choose a model {.smaller .table-spaced-out}
-
-| Task | OpenAI | Anthropic | Gemini |
-| :--- | :--- | :--- | :--- |
-| **Coding** | GPT-5 | Claude 4 Sonnet | Gemini 2.5 Pro |
-| **Fast/General** | GPT-5 mini | Claude 3.5 Sonnet | Gemini 2.0 Flash |
-| **Complex Tasks** | o3 | Claude 4 Opus | Gemini 2.5 Pro |
-| **Cost-Effective** | Mini | Haiku | Flash |
-
-```{=html}
-<style>
-.table-spaced-out table td,
-.table-spaced-out table th {
-  padding-top: 0.66em;
-  padding-bottom: 0.66em;
-}
-</style>
-```
-
-## Learn more
-
-* Ranking of models: [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models)
-* [OpenAI models](https://platform.openai.com/docs/models)
-* [Anthropic models](https://docs.anthropic.com/en/docs/about-claude/models/overview)
-* [Google Gemini models](https://ai.google.dev/gemini-api/docs/models)
-
-
-## {#ellmer .center transition="fade"}
+## {#ellmer .center .smaller transition="fade"}
 
 :::::: {style="display: flex; flex-direction: row; align-items: center; gap: 1em;"}
-::::: {.column}
-![](/assets/logos/ellmer.png){width="400px"}
+::::: {.column style="flex: 0 0 auto;"}
+![](/assets/logos/ellmer.png){width="170px"}
 :::::
 
 ::::: {.column}
@@ -245,24 +179,28 @@ It remains to be seen if this will be an enduring pattern, or just they way thin
 **Providers**
 
 ::: incremental
+* `chat_posit()`
 * `chat_openai()`
-
 * `chat_anthropic()`
-
 * `chat_google_gemini()`
 :::
 ::::
 
 :::: fragment
-**Local models**
+**Open-weight and local models**
 
-* `chat_ollama()`
+* `chat_lmstudio()`
+* `chat_huggingface()`
 ::::
 
 :::: fragment
 **Enterprise**
 
 * `chat_aws_bedrock()`
+::::
+
+:::: fragment
+and more!
 ::::
 :::::
 ::::::
@@ -271,33 +209,35 @@ It remains to be seen if this will be an enduring pattern, or just they way thin
 <https://ellmer.tidyverse.org/>
 :::
 
-## {#chatlas .center transition="fade"}
+## {#chatlas .center .smaller transition="fade"}
 
 ::::: {style="display: flex; flex-direction: row; align-items: center; gap: 1em;"}
-:::: {.column}
-::: {style="text-align: center; width: 400px;"}
+:::: {.column style="flex: 0 0 auto;"}
+::: {style="text-align: center; width: 260px;"}
 **chatlas**
 
-![](/assets/logos/chatlas.png){width="300px"}
+![](/assets/logos/chatlas.png){width="190px"}
 :::
 ::::
 
 :::: {.column}
 **Providers**
 
+* `ChatPosit()`
 * `ChatOpenAI()`
-
 * `ChatAnthropic()`
-
 * `ChatGoogle()`
 
-**Local models**
+**Open-weight and local models**
 
-* `ChatOllama()`
+* `ChatLMStudio()`
+* `ChatHuggingFace()`
 
 **Enterprise**
 
 * `ChatBedrockAnthropic()`
+
+and more!
 ::::
 :::::
 
@@ -305,113 +245,154 @@ It remains to be seen if this will be an enduring pattern, or just they way thin
 <https://posit-dev.github.io/chatlas/get-started/models.html>
 :::
 
-## Chat in Easy Mode {transition="fade"}
+::: notes
+The constructor determines which provider receives the request. Direct access
+to Anthropic, OpenAI, or Google requires credentials for that provider.
 
-::: {style="--code-font-size: 0.66em"}
+Posit AI Pass is also a provider. It hosts models created by several companies.
+For example, `ChatPosit(model="moonshotai/Kimi-K3")` sends the request through
+Posit AI Pass, not directly to Moonshot AI.
+:::
+
+## Switch models with `model=`
+
+::: {.easy-columns .smaller style="--code-font-size: 0.56em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```r
+chat <- chat_anthropic(
+  model = "claude-sonnet-5"
+)
+```
+
+::: fragment
+```r
+chat <- chat_anthropic(
+  model = "claude-opus-4-8"
+)
+```
+:::
+:::
+
+::: col
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```python
+chat = chatlas.ChatAnthropic(
+    model="claude-sonnet-5"
+)
+```
+
+::: fragment
+```python
+chat = chatlas.ChatAnthropic(
+    model="claude-opus-4-8"
+)
+```
+:::
+:::
+:::
+
+::: notes
+Both calls use Anthropic as the provider. Only the model changes. Direct
+Anthropic access requires Anthropic credentials.
+:::
+
+## Shortcut: `chat()` and `ChatAuto()` {transition="fade"}
+
+::: {.easy-columns .smaller style="--code-font-size: 0.56em"}
+::: col
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="3"}
 library(ellmer)
 
-chat <- chat("anthropic")
-```
-
-
-[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
-
-```{.python code-line-numbers="3"}
-import chatlas
-
-chat = chatlas.ChatAuto("anthropic")
+chat <- chat("posit")
 ```
 :::
 
-## Chat in Easy Mode {transition="fade"}
-
-::: {style="--code-font-size: 0.66em"}
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
-
-```{.r code-line-numbers="3-4"}
-library(ellmer)
-
-chat <- chat("anthropic")
-#> Using model = "claude-sonnet-4-20250514".
-```
-
-
+::: col
 [![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
-```{.python code-line-numbers="3-4"}
+```{.python code-line-numbers="3-5"}
 import chatlas
 
-chat = chatlas.ChatAuto("anthropic")
-#> Anthropic/claude-sonnet-4-0
+chat = chatlas.ChatAuto("posit")
+```
+:::
+:::
+
+::: notes
+`chat()` and `ChatAuto()` provide a common interface across providers. Give
+them a provider name to use that provider's default model. Posit AI Pass
+currently selects Claude Sonnet 5 by default.
+:::
+
+## Shortcut: `chat()` and `ChatAuto()` {transition="fade"}
+
+::: {.easy-columns .smaller style="--code-font-size: 0.56em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3-5"}
+library(ellmer)
+
+chat <- chat(
+  "posit/moonshotai/Kimi-K3"
+)
 ```
 :::
 
-## Chat in Easy Mode {transition="fade"}
-
-::: {style="--code-font-size: 0.66em"}
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
-
-```{.r code-line-numbers="3"}
-library(ellmer)
-
-chat <- chat("openai")
-#> Using model = "gpt-4.1".
-```
-
-
+::: col
 [![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
-```{.python code-line-numbers="3"}
+```{.python code-line-numbers="3-5"}
 import chatlas
 
-chat = chatlas.ChatAuto("openai")
-#> OpenAI/gpt-4.1
+chat = chatlas.ChatAuto(
+    "posit/moonshotai/Kimi-K3"
+)
+```
+:::
+:::
+
+::: notes
+Use `"provider/model"` to select both at once. This example still uses
+Posit AI Pass as the provider and selects Kimi K3 as the model.
+:::
+
+## List models available through Posit AI Pass
+
+::: {.easy-columns .smaller style="--code-font-size: 0.66em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```r
+library(ellmer)
+
+models_posit()
 ```
 :::
 
-## Chat in Easy Mode {transition="fade"}
-
-::: {style="--code-font-size: 0.66em"}
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
-
-```{.r code-line-numbers="3"}
-library(ellmer)
-
-chat <- chat("openai/gpt-4.1-nano")
-```
-
-
+::: col
 [![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
-```{.python code-line-numbers="3"}
+```python
 import chatlas
 
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chatlas.ChatPosit().list_models()
 ```
+:::
 :::
 
 # Your Turn `07_models` {.slide-your-turn}
 
 {{< countdown 4:00 top="-1em" >}}
 
-1. Use `chatlas` and `ellmer` to list available models from Anthropic and OpenAI.
-
-2. Send the same prompt to different models and compare the responses.
-
-3. Feel free to change the prompt!
-
-## Favorite models for today
-
-* OpenAI
-    * `gpt-4.1-nano`
-    * `gpt-5`
-
-* Anthropic
-    * `claude-sonnet-4-20250514`
-    * `claude-3-5-haiku-20241022`
+1. List the models available through Posit AI Pass.
+1. Send the same prompt to two models.
+1. Compare the responses.
 
 
 # [Multi-modal input]{.hidden} {background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" background-size="cover" background-position="center"}
@@ -568,12 +549,12 @@ chat.chat(
 #| echo: true
 
 age_free_text <- list(
-    "I go by Alex. 42 years on this planet and counting.",
-    "Pleased to meet you! I'm Jamal, age 27.",
-    "They call me Li Wei. Nineteen years young.",
-    "Fatima here. Just celebrated my 35th birthday last week.",
-    "The name's Robert - 51 years old and proud of it.",
-    "Kwame here - just hit the big 5-0 this year."
+  "I go by Alex. 42 years on this planet and counting.",
+  "Pleased to meet you! I'm Jamal, age 27.",
+  "They call me Li Wei. Nineteen years young.",
+  "Fatima here. Just celebrated my 35th birthday last week.",
+  "The name's Robert - 51 years old and proud of it.",
+  "Kwame here - just hit the big 5-0 this year."
 )
 ```
 
@@ -583,75 +564,120 @@ age_free_text <- list(
 #| echo: true
 
 word_to_num <- function(x) {
-    # normalize
-    x <- tolower(x)
-    # direct numbers
-    if (grepl("\\b\\d+\\b", x)) return(as.integer(regmatches(x, regexpr("\\b\\d+\\b", x))))
-    # hyphenated like "5-0"
-    if (grepl("\\b\\d+\\s*-\\s*\\d+\\b", x)) {
-        parts <- as.integer(unlist(strsplit(regmatches(x, regexpr("\\b\\d+\\s*-\\s*\\d+\\b", x)), "\\s*-\\s*")))
-        return(10 * parts[1] + parts[2])
-    }
-    # simple word numbers
-    ones <- c(
-        zero=0, one=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9,
-        ten=10, eleven=11, twelve=12, thirteen=13, fourteen=14, fifteen=15, sixteen=16,
-        seventeen=17, eighteen=18, nineteen=19
-    )
-    tens <- c(twenty=20, thirty=30, forty=40, fifty=50, sixty=60, seventy=70, eighty=80, ninety=90)
-    # e.g., "nineteen"
-    if (x %in% names(ones)) return(ones[[x]])
-    # e.g., "thirty five" or "thirty-five"
-    x2 <- gsub("-", " ", x)
-    parts <- strsplit(x2, "\\s+")[[1]]
-    if (length(parts) == 2 && parts[1] %in% names(tens) && parts[2] %in% names(ones)) {
-        return(tens[[parts[1]]] + ones[[parts[2]]])
-    }
-    if (length(parts) == 1 && parts[1] %in% names(tens)) return(tens[[parts[1]]])
-    return(NA_integer_)
+  # normalize
+  x <- tolower(x)
+  # direct numbers
+  if (grepl("\\b\\d+\\b", x)) {
+    return(as.integer(regmatches(x, regexpr("\\b\\d+\\b", x))))
+  }
+  # hyphenated like "5-0"
+  if (grepl("\\b\\d+\\s*-\\s*\\d+\\b", x)) {
+    parts <- as.integer(unlist(strsplit(
+      regmatches(x, regexpr("\\b\\d+\\s*-\\s*\\d+\\b", x)),
+      "\\s*-\\s*"
+    )))
+    return(10 * parts[1] + parts[2])
+  }
+  # simple word numbers
+  ones <- c(
+    zero = 0,
+    one = 1,
+    two = 2,
+    three = 3,
+    four = 4,
+    five = 5,
+    six = 6,
+    seven = 7,
+    eight = 8,
+    nine = 9,
+    ten = 10,
+    eleven = 11,
+    twelve = 12,
+    thirteen = 13,
+    fourteen = 14,
+    fifteen = 15,
+    sixteen = 16,
+    seventeen = 17,
+    eighteen = 18,
+    nineteen = 19
+  )
+  tens <- c(
+    twenty = 20,
+    thirty = 30,
+    forty = 40,
+    fifty = 50,
+    sixty = 60,
+    seventy = 70,
+    eighty = 80,
+    ninety = 90
+  )
+  # e.g., "nineteen"
+  if (x %in% names(ones)) {
+    return(ones[[x]])
+  }
+  # e.g., "thirty five" or "thirty-five"
+  x2 <- gsub("-", " ", x)
+  parts <- strsplit(x2, "\\s+")[[1]]
+  if (
+    length(parts) == 2 && parts[1] %in% names(tens) && parts[2] %in% names(ones)
+  ) {
+    return(tens[[parts[1]]] + ones[[parts[2]]])
+  }
+  if (length(parts) == 1 && parts[1] %in% names(tens)) {
+    return(tens[[parts[1]]])
+  }
+  return(NA_integer_)
 }
 
 # Extract name candidates
 extract_name <- function(s) {
-    # patterns that introduce a name
-    pats <- c(
-        "I go by\\s+([A-Z][a-z]+)",
-        "I'm\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
-        "They call me\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
-        "^([A-Z][a-z]+) here",
-        "The name's\\s+([A-Z][a-z]+)",
-        "^([A-Z][a-z]+)\\s" # fallback: leading capital word
-    )
-    for (p in pats) {
-        m <- regexpr(p, s, perl = TRUE)
-        if (m[1] != -1) {
-            return(sub(p, "\\1", regmatches(s, m)))
-        }
+  # patterns that introduce a name
+  pats <- c(
+    "I go by\\s+([A-Z][a-z]+)",
+    "I'm\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
+    "They call me\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
+    "^([A-Z][a-z]+) here",
+    "The name's\\s+([A-Z][a-z]+)",
+    "^([A-Z][a-z]+)\\s" # fallback: leading capital word
+  )
+  for (p in pats) {
+    m <- regexpr(p, s, perl = TRUE)
+    if (m[1] != -1) {
+      return(sub(p, "\\1", regmatches(s, m)))
     }
-    NA_character_
+  }
+  NA_character_
 }
 
 # Extract age phrases and convert to number
 extract_age <- function(s) {
-    # capture common age phrases around a number
-    m <- regexpr("(\\b\\d+\\b|\\b\\d+\\s*-\\s*\\d+\\b|\\b[Nn][a-z-]+\\b)\\s*(years|year|birthday|young|this)", s, perl = TRUE)
-    if (m[1] != -1) {
-        token <- sub("(years|year|birthday|young|this)$", "", trimws(substring(s, m, m + attr(m, "match.length") - 1)))
-        return(word_to_num(token))
-    }
-    # handle pure word-number without trailing keyword (e.g., "Nineteen years young." handled above)
-    m2 <- regexpr("\\b([A-Z][a-z]+)\\b\\s+years", s, perl = TRUE)
-    if (m2[1] != -1) {
-        token <- tolower(sub("\\s+years.*", "", regmatches(s, m2)))
-        return(word_to_num(token))
-    }
-    # handle hyphenated "big 5-0"
-    m3 <- regexpr("big\\s+(\\d+\\s*-\\s*\\d+)", s, perl = TRUE)
-    if (m3[1] != -1) {
-        token <- sub("big\\s+", "", regmatches(s, m3))
-        return(word_to_num(token))
-    }
-    NA_integer_
+  # capture common age phrases around a number
+  m <- regexpr(
+    "(\\b\\d+\\b|\\b\\d+\\s*-\\s*\\d+\\b|\\b[Nn][a-z-]+\\b)\\s*(years|year|birthday|young|this)",
+    s,
+    perl = TRUE
+  )
+  if (m[1] != -1) {
+    token <- sub(
+      "(years|year|birthday|young|this)$",
+      "",
+      trimws(substring(s, m, m + attr(m, "match.length") - 1))
+    )
+    return(word_to_num(token))
+  }
+  # handle pure word-number without trailing keyword (e.g., "Nineteen years young." handled above)
+  m2 <- regexpr("\\b([A-Z][a-z]+)\\b\\s+years", s, perl = TRUE)
+  if (m2[1] != -1) {
+    token <- tolower(sub("\\s+years.*", "", regmatches(s, m2)))
+    return(word_to_num(token))
+  }
+  # handle hyphenated "big 5-0"
+  m3 <- regexpr("big\\s+(\\d+\\s*-\\s*\\d+)", s, perl = TRUE)
+  if (m3[1] != -1) {
+    token <- sub("big\\s+", "", regmatches(s, m3))
+    return(word_to_num(token))
+  }
+  NA_integer_
 }
 ```
 

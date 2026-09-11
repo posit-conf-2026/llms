@@ -27,7 +27,7 @@ py-upgrade:
 .PHONY: r-setup
 r-setup:  ## [r] Setup R environment
 	Rscript -e 'if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")'
-	Rscript -e 'pak::local_install()'
+	Rscript -e 'pak::local_install_deps()'
 
 .PHONY: r-setup-dev
 r-setup-dev: r-setup ## [r] Setup R environment for dev
@@ -64,15 +64,15 @@ py-format:
 py-ipynb:  py-format ## Convert all Python scripts to Jupyter notebooks
 	@echo "\n"
 	@echo "📝 Converting Python scripts to Jupyter notebooks"
-	find _exercises -name "*.py" -not -name "*app.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
-	find _solutions -name "*.py" -not -name "*app.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
-	find _demos/19_tools -name "*.py" -not -name "*app.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
+	find _exercises -name "*.py" -not -name "*app.py" -not -name "_*.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
+	find _solutions -name "*.py" -not -name "*app.py" -not -name "_*.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
+	find _demos/16_demo_tools -name "*.py" -not -name "*app.py" -not -name "_*.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
 
 	@echo "\n\n\n"
 	@echo "🧹 Cleaning Jupyter notebook outputs"
 	find _exercises -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
 	find _solutions -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
-	find _demos/19_tools -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
+	find _demos/16_demo_tools -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
 
 .PHONY: help
 help:  ## Show help messages for make targets

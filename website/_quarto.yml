@@ -77,11 +77,15 @@ website:
         - workshop-06-break.qmd
         - text: '<div class="sidebar-divider font-monospace">Afternoon 1</div>'
         - workshop-07.qmd
-        - workshop-08-break.qmd
-        - text: '<div class="sidebar-divider font-monospace">Afternoon 2</div>'
+        - workshop-08.qmd
         - workshop-09.qmd
+        - workshop-10-break.qmd
+        - text: '<div class="sidebar-divider font-monospace">Afternoon 2</div>'
+        - workshop-11.qmd
+        - workshop-12.qmd
         - text: '<div class="sidebar-divider font-monospace">Bonus</div>'
         - bonus-rag.qmd
+        - bonus-mcp.qmd
 
 format:
   html:

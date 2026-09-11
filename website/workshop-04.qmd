@@ -12,7 +12,7 @@ duration: 50min
 ## Resources
 
 - (15m) Choosing a model
-  - Overview of major providers: OpenAI, Anthropic, Google, ollama
+  - Overview of major providers: OpenAI, Anthropic, Google, LM Studio
   - Tradeoffs: capability, context length, speed, cost, intelligence
   - Activity: same question, change one string to switch models, e.g. `chat("openai")`, `chat("anthropic")`.
 

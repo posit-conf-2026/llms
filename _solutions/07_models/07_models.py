@@ -1,5 +1,5 @@
 # %%
-from chatlas import ChatAuto, ChatPosit
+from chatlas import ChatLMStudio, ChatPosit
 
 # %% [markdown]
 # List models by calling the `list_models` method on a `Chat` instance.
@@ -21,24 +21,13 @@ models
 # Now try sending the same prompt to different models to compare the responses.
 
 # %%
-prompt = "Write a  recipe for an easy weeknight dinner my kids would like."
+prompt = "Write a recipe for an easy weeknight dinner."
 
 ChatPosit().chat(prompt)
 ChatPosit(model="zai-org/GLM-5.3").chat(prompt)
 
 # %%
-# If you have local models installed, try them out with Ollama.
-ChatAuto("ollama/gemma3:4b").chat(prompt)
-
-# %% [markdown]
-# At home, you'd typically connect to providers directly with API keys, using
-# the direct provider functions instead of `ChatPosit()`:
-#
-# ```python
-# from chatlas import ChatAnthropic, ChatOpenAI
-#
-# ChatOpenAI(model="gpt-5")
-# ChatAnthropic(model="claude-3-7-sonnet-20250219")
-# ```
-
-# %%
+# If you have local models installed, try them out with LM Studio.
+# (Local models only work on your own computer -- you can't use them on
+# Posit Cloud.)
+ChatLMStudio(model="prism-ml/bonsai-27b").chat(prompt)

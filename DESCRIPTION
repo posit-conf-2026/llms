@@ -26,6 +26,7 @@ Imports:
     ellmer (>= 0.4.2),
     fontawesome,
     forcats,
+    frontmatter,
     fs,
     ggplot2,
     glue,
@@ -33,7 +34,6 @@ Imports:
     htmltools,
     jsonlite,
     leaflet,
-    mcptools,
     pak,
     purrr,
     querychat (>= 0.3.0.9000),
@@ -48,7 +48,7 @@ Remotes:
     posit-dev/btw,
     posit-dev/querychat/pkg-r,
     posit-dev/shinychat/pkg-r
-Config/Needs/bonus: btw, ragnar
+Config/Needs/bonus: btw, mcptools, ragnar
 Config/Needs/data: janitor
 Config/Needs/dev: lionel-/codegrip, gt, gtExtras
 Config/Needs/website: dplyr, ellmer, fs, gt,

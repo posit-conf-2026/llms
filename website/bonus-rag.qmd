@@ -29,7 +29,7 @@ uv sync --group bonus
 ```
 :::::
 
-The activities also need an embedding model to compute the vectors used for retrieval. You can use any embedding model you like, local or hosted. Both exercises use [nomic-embed-text-v2-moe](https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe-GGUF), which you can run locally with [LM Studio](https://lmstudio.ai/) or [ollama](setup.qmd#local-models):
+The activities also need an embedding model to compute the vectors used for retrieval. You can use any embedding model you like, local or hosted. Both exercises use [nomic-embed-text-v2-moe](https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe-GGUF), which you can run locally with [LM Studio](https://lmstudio.ai/) or [ollama](local-models.qmd#prefer-ollama):
 
 - LM Studio: `text-embedding-nomic-embed-text-v2-moe` (512MB).
 - [ollama: `nomic-embed-text-v2-moe`](https://ollama.com/library/nomic-embed-text-v2-moe) (958MB). Pull it with `ollama pull nomic-embed-text-v2-moe`.

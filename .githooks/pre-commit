@@ -6,7 +6,7 @@ set -eu
 
 staged_py=$(git diff --cached --name-only --diff-filter=ACMR \
     -- '_exercises/*.py' '_solutions/*.py' '_demos/19_tools/*.py' \
-    | grep -v 'app\.py$' || true)
+    | grep -v -E 'app\.py$|/_[^/]*\.py$' || true)
 
 [ -z "$staged_py" ] && exit 0
 

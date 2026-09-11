@@ -1,0 +1,21 @@
+---
+title: shinychat and querychat
+description: |
+  New shinychat features, including `page_chat()`, plus a simple querychat variant for exploring data.
+description-short: shinychat and querychat
+duration: 60min
+---
+
+## Slides
+
+{{< revealjs "slides/slides-11.html" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- (40m) shinychat
+  - New shinychat features, including `page_chat()`
+  - See the shinychat v0.5.0 preview blog post: <https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/>
+
+- (20m) querychat
+  - Simple variant: use querychat to explore some data
+  - Minimal coding required by this point
