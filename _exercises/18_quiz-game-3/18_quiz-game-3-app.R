@@ -5,6 +5,10 @@ library(ellmer)
 library(shinychat)
 
 # Tools ------------------------------------------------------------------------
+  # Going further: tool results can carry a custom title and icon via
+  # ellmer::ContentToolResult, rendered by shinychat:
+  # https://ellmer.tidyverse.org/reference/Content.html
+  # https://shiny.posit.co/blog/posts/shinychat-tool-ui/
 
 #' Plays a sound effect.
 #'

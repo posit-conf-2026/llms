@@ -3,28 +3,17 @@ from chatlas import ChatPosit
 from pyhere import here
 
 # %% [markdown]
-# Your skills-wired agent from `23_skills-1` is back, but its skill is a bad
-# first draft. Open `skills/renewal-letters/SKILL.md` before you continue.
-#
-# **Step 1:** Fix the skill.
-#
-# Start at the top of `skills/renewal-letters/SKILL.md` and work through these
-# questions one at a time:
-#
-# 1. Read only the description. If that were all the agent saw before choosing
-#    a skill, what would it know to do?
-#
-# 2. When will the agent read the first two sentences in the body?
-#
-# 3. Read the rest of the body beside the store files. Which parts tell the
-#    agent something it cannot already find elsewhere?
-#
-# 4. Where and how does the skill describe the process the agent should follow?
-#    Is the process clear? Is there room for interpretation or confusion?
+# Manager: What did you change in the first draft?
+# Author: I moved the use-it and do-not-use-it sentences into the description.
+# Manager: Why did you delete the policy and campaign paragraphs?
+# Author: The agent can read those facts in the store files.
+# Manager: What happened to the conflicting and generic writing advice?
+# Author: I deleted it and kept the existing voice, letter checklist, filename
+# rule, tier incentives, and promises caveat.
 
 # %%
-project_dir = here("_exercises/24_skills-2/blockbuster")
-skills_dir = here("_exercises/24_skills-2/skills")
+project_dir = here("_solutions/22_skills-2/blockbuster")
+skills_dir = here("_solutions/22_skills-2/skills")
 
 
 # %%
@@ -82,6 +71,11 @@ def read_skill(skill: str) -> str:
     Read the full instructions for a listed skill.
 
     Call this before you do the job the skill describes.
+
+    Parameters
+    ----------
+    skill
+        Name of the skill to read, such as "renewal-letters".
     """
     return (skills_dir / skill / "SKILL.md").read_text()
 
@@ -105,13 +99,11 @@ chat.register_tool(list_files)
 chat.register_tool(edit_file)
 chat.register_tool(read_skill)
 
-# %% [markdown]
-# **Step 2:** Put your agent to work.
-#
-# After you fix the skill, re-run the letter task from Exercise 24.
-
 # %%
-chat.chat("____")
+chat.chat(
+    "Draft renewal letters for the top three members on lapsed.csv. "
+    "Save one file for each member in letters/drafts/."
+)
 
 # %% [markdown]
 # Inspect the whole conversation, including every tool call.

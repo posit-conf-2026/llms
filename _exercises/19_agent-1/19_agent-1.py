@@ -7,7 +7,7 @@ from pyhere import here
 # Bend, Oregon. Open the folder and look around before you run this script.
 
 # %%
-project_dir = here("_exercises/21_agent-1/blockbuster")
+project_dir = here("_exercises/19_agent-1/blockbuster")
 
 
 # %%
