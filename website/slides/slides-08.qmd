@@ -108,6 +108,26 @@ Dry run in both R and Python: the trace reads `README.md`, then `notes.md`, then
 Both generated scripts produced 11 rows.
 :::
 
+## Discussion: Did your agent...? {.center}
+
+::: incremental
+* Read `README.md` and `notes.md` before it decided anything?
+
+* Write a script, instead of reading all 1,500 rentals through its tools?
+
+* Say things about the store's rules that it never actually read?
+
+* Would you hand this list to your manager?
+:::
+
+::: notes
+Most agents find all 11 lapsed members but skip `dues.csv`, the unreturned-tape rule, or the sort order — so the lists differ by 2–3 names.
+
+The hallucination question is the important one: agents confidently cite "store rules" they never read. Compare what your agent claimed against `notes.md`.
+
+Ask the room: the manager calls whoever is on this list — what would make you trust it?
+:::
+
 ## The manager finds another export {.center}
 
 The first win-back list has 11 members.
