@@ -137,7 +137,7 @@ Give a default, not a menu: one way to do it, with an escape hatch.
 Gotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions.
 :::
 
-# Your Turn `24_skills-1` {.slide-your-turn}
+# Your Turn `23_skills-1` {.slide-your-turn}
 
 1. Your Blockbuster agent gets a skill: `renewal-letters` holds the letter-writing instructions.
 
@@ -155,7 +155,7 @@ The system prompt listing is the manual version of what real harnesses generate 
 The trace should show read_skill firing when the agent starts the letter task.
 :::
 
-# Your Turn `25_skills-2` {.slide-your-turn}
+# Your Turn `24_skills-2` {.slide-your-turn}
 
 1. The skill has been swapped for a **first draft** with common problems.
 
@@ -229,4 +229,18 @@ MCP servers are about tools — connections to databases, APIs, other software. 
 You built the mechanism yourself today: listing, loading, and writing skills.
 
 The same pattern runs inside the assistant you use every day — now you know how to extend it.
+:::
+
+## Demo: Posit Assistant {.slide-demo}
+
+👨‍💻 [_demos/25_demo_assistant/README.md]{.code .b .purple}
+
+> Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.
+
+::: notes
+Brings the day together: an agent with read, write, and skills — the same one attendees just built.
+
+Instructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.
+
+Watch for: the loop (each step chosen from the last result), read and write actions, permission prompts, and skills firing when relevant.
 :::

@@ -236,10 +236,10 @@ write_workspace <- function(
 
 workspace_specs <- tribble(
   ~exercise     , ~include_old , ~include_lapsed , ~include_drafts ,
-  "22_agent-1"  , FALSE        , FALSE           , FALSE           ,
-  "23_agent-2"  , TRUE         , FALSE           , FALSE           ,
-  "24_skills-1" , TRUE         , TRUE            , TRUE            ,
-  "25_skills-2" , TRUE         , TRUE            , TRUE
+  "21_agent-1"  , FALSE        , FALSE           , FALSE           ,
+  "22_agent-2"  , TRUE         , FALSE           , FALSE           ,
+  "23_skills-1" , TRUE         , TRUE            , TRUE            ,
+  "24_skills-2" , TRUE         , TRUE            , TRUE
 )
 
 write_exercise_workspaces <- function(
@@ -261,14 +261,14 @@ write_exercise_workspaces <- function(
 pwalk(workspace_specs, write_exercise_workspaces)
 
 expected_files <- list(
-  "22_agent-1" = c(
+  "21_agent-1" = c(
     "README.md",
     "dues.csv",
     "members.csv",
     "notes.md",
     "rentals.csv"
   ),
-  "23_agent-2" = c(
+  "22_agent-2" = c(
     "README.md",
     "dues.csv",
     "members.csv",
@@ -276,7 +276,7 @@ expected_files <- list(
     "rentals-old.csv",
     "rentals.csv"
   ),
-  "24_skills-1" = c(
+  "23_skills-1" = c(
     "README.md",
     "dues.csv",
     "lapsed.csv",
@@ -286,7 +286,7 @@ expected_files <- list(
     "rentals-old.csv",
     "rentals.csv"
   ),
-  "25_skills-2" = c(
+  "24_skills-2" = c(
     "README.md",
     "dues.csv",
     "lapsed.csv",

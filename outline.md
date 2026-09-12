@@ -158,19 +158,20 @@ Unit 07: Tool Calling (30m) · Unit 08: Agents (30m) · Unit 09: Agent Skills (3
   - Picking up from tool calling to build up to agents
   - Hadley/Willison definition: agents are LLMs with a read tool and a write tool
     - Reference: Hadley's series on Substack, in particular [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent) and [A coding agent is six functions in a trenchcoat](https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in)
-  - Demo `21_demo_assistant`: Posit Assistant agent demo
-    - Instructor sets up the agent conversation, then students do the exploration themselves
-  - Activity `22_agent-1`: build a simple coding agent with a read tool and a write tool
-  - Activity `23_agent-2`: make that coding agent a little better with a couple more tools (list files, edit files)
+  - Activity `21_agent-1`: build a simple coding agent with a read tool and a write tool
+  - Activity `22_agent-2`: make that coding agent a little better with a couple more tools (list files, edit files)
   - Discussion: what if it could run code? Should we add a run code tool?
     - Coding harnesses, safety, sandboxing, LLM-based safety checks
     - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
 
 - (30m) Agent Skills
   - Explaining what skills are, how they're used, best practices for making them
-  - Activity `24_skills-1`: build on the agent work to wire up a skill tool
+  - Activity `23_skills-1`: build on the agent work to wire up a skill tool
     - Options: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool
-  - Activity `25_skills-2`: take the skill from the first exercise and improve it (fix common problems)
+  - Activity `24_skills-2`: take the skill from the first exercise and improve it (fix common problems)
+  - Demo `25_demo_assistant`: Posit Assistant agent demo to bring everything together
+    - Instructor sets up the agent conversation, then students do the exploration themselves
+    - Consider adding a skills component to this demo
 
 ## Afternoon 2: shinychat, querychat, and the future (90m)
 

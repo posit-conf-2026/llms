@@ -85,23 +85,9 @@ A coding agent is just an agent whose tools mirror how a human works on a codeba
 Hadley: "A coding agent is six functions in a trenchcoat" — read file, write file, edit file, list files, search, run command, plus a big system prompt of advice.
 :::
 
-## Demo: Posit Assistant {.slide-demo}
-
-👨‍💻 [_demos/21_demo_assistant/README.md]{.code .b .purple}
-
-> Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.
-
-::: notes
-Instructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.
-
-Watch for: the loop (each step chosen from the last result), read and write actions, and permission prompts.
-
-Running code is both a read tool and a write tool: it observes the data and changes the project.
-:::
-
 # [Blockbuster Agent]{.hidden} {.no-invert-dark-mode background-image="assets/robot-blockbuster.png" background-size="cover"}
 
-# Your Turn `22_agent-1` {.slide-your-turn}
+# Your Turn `21_agent-1` {.slide-your-turn}
 
 1. Your agent works in the Last Blockbuster's records folder.
 
@@ -134,7 +120,7 @@ Next, the manager drops an old register export into the folder.
 The agent needs a way to discover that file and make a narrow change to the script it already wrote.
 :::
 
-# Your Turn `23_agent-2` {.slide-your-turn}
+# Your Turn `22_agent-2` {.slide-your-turn}
 
 1. Give your agent a **list files** tool and an **edit** tool.
 
