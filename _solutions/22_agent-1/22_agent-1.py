@@ -11,6 +11,14 @@ project_dir = here("_solutions/22_agent-1/blockbuster")
 
 
 # %%
+# STEP 1: Wrap up file reading and writing so the LLM can use them.
+#
+# 1. Inputs: read_file takes the path the LLM wants to inspect;
+#    write_file takes a path and the full contents to put there.
+# 2. Work: resolve the path into the workspace (project_dir / path) and
+#    perform the file operation with pathlib.
+# 3. Outputs: read_file returns the file contents; write_file returns a
+#    short confirmation because the LLM learns from what we return.
 def read_file(path: str) -> str:
     """
     Read the full contents of a file in the Blockbuster workspace.
@@ -22,7 +30,8 @@ def read_file(path: str) -> str:
     path
         Path to a file relative to the Blockbuster workspace.
     """
-    return (project_dir / path).read_text()
+    path = project_dir / path
+    return path.read_text()
 
 
 def write_file(path: str, content: str) -> str:
@@ -38,7 +47,8 @@ def write_file(path: str, content: str) -> str:
     content
         The full contents of the file to write.
     """
-    (project_dir / path).write_text(content)
+    path = project_dir / path
+    path.write_text(content)
     return f"Wrote {path}."
 
 
@@ -47,18 +57,8 @@ chat = ChatPosit(
     model="zai-org/GLM-5.3-Flash",
     system_prompt="""
 You are a coding agent for the Last Blockbuster in Bend, Oregon.
-Start by reading README.md and every store document it names.
-The initial workspace has members.csv, rentals.csv, and dues.csv.
-Do not guess paths that are not in those records.
-Do not read rentals.csv with read_file because it has 1,500 rows.
-Write a script that reads the rental log instead.
-Write the first script for only the files that exist now.
-Do not add support for future exports until the user asks you to update it.
-You cannot run code or use tools beyond the ones registered for you.
+Work in the current directory.
 When a task needs code, write a Python script for the user to run.
-Write scripts with paths relative to the workspace because the user runs them
-from inside the blockbuster folder.
-Do not say a data task is complete until you have written the script.
 """,
 )
 
@@ -68,9 +68,11 @@ chat.register_tool(write_file)
 
 # %%
 chat.chat(
-    "It is time for the renewal drive. Which members have gone quiet? "
-    "Build the win-back list as win-back.csv by writing find_lapsed.py for me "
-    "to run from inside the blockbuster folder."
+    """
+It is time for the renewal drive. Which members have gone quiet?
+Build the win-back list as `win-back.csv` by writing `find_lapsed.py`
+for me to run from inside the blockbuster folder.
+"""
 )
 
 # %% [markdown]

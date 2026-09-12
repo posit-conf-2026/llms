@@ -6,7 +6,13 @@ library(here)
 project_dir <- here("_solutions/22_agent-1", "blockbuster")
 proj_path <- function(path) file.path(project_dir, path)
 
-# Tools ------------------------------------------------------------------------
+# STEP 1: Wrap up file reading and writing so the LLM can use them ------------
+# 1. Inputs: read_file takes the path the LLM wants to inspect;
+#    write_file takes a path and the full contents to put there.
+# 2. Work: resolve the path into the workspace (proj_path) and perform the
+#    file operation with brio.
+# 3. Outputs: read_file returns the file contents; write_file returns a
+#    short confirmation because the LLM learns from what we return.
 
 read_file <- function(path) {
   brio::read_file(proj_path(path))
@@ -17,6 +23,8 @@ write_file <- function(path, content) {
   paste0("Wrote ", path, ".")
 }
 
+# STEP 2: Document each function so the LLM knows when and how to use it ----
+# Remember: the LLM sees only your descriptions, not the R code.
 tool_read_file <- tool(
   read_file,
   description = paste(
@@ -44,32 +52,18 @@ tool_write_file <- tool(
 
 chat <- chat_posit(
   model = "zai-org/GLM-5.3-Flash",
-  system_prompt = "
-    You are a coding agent for the Last Blockbuster in Bend, Oregon.
-    Start by reading README.md and every store document it names.
-    The initial workspace has members.csv, rentals.csv, and dues.csv.
-    Do not guess paths that are not in those records.
-    Do not read rentals.csv with read_file because it has 1,500 rows.
-    Write a script that reads the rental log instead.
-    Write the first script for only the files that exist now.
-    Do not add support for future exports until the user asks you to update it.
-    You cannot run code or use tools beyond the ones registered for you.
-    When a task needs code, write an R script for the user to run.
-    Use base R and aggregate() for per-member summaries so join keys stay columns.
-    Write scripts with paths relative to the workspace because the user runs
-    them from inside the blockbuster folder.
-    Do not say a data task is complete until you have written the script.
-  "
+  system_prompt = r"(You are a coding agent for the Last Blockbuster in Bend, Oregon.
+Work in the current directory.
+When a task needs code, write an R script for the user to run.)"
 )
 
 chat$register_tool(tool_read_file)
 chat$register_tool(tool_write_file)
 
-chat$chat(paste(
-  "It is time for the renewal drive. Which members have gone quiet?",
-  "Build the win-back list as win-back.csv by writing find_lapsed.R for me to",
-  "run from inside the blockbuster folder."
-))
-
+chat$chat(
+  r"(It is time for the renewal drive. Which members have gone quiet?
+Build the win-back list as `win-back.csv` by writing `find_lapsed.R`
+for me to run from inside the blockbuster folder.)"
+)
 # Inspect the whole conversation, including every tool call.
 chat

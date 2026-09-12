@@ -99,20 +99,20 @@ Watch for: the loop (each step chosen from the last result), read and write acti
 Running code is both a read tool and a write tool: it observes the data and changes the project.
 :::
 
+# [Blockbuster Agent]{.hidden} {.no-invert-dark-mode background-image="assets/robot-blockbuster.png" background-size="cover"}
+
 # Your Turn `22_agent-1` {.slide-your-turn}
 
 1. Your agent works in the Last Blockbuster's records folder.
 
-1. Give it a **read** tool and a **write** tool, then ask it to build the win-back list.
+1. **Wrap up** a read tool and a **write** tool for it to use, then ask it to build the win-back list.
 
 1. Run the script it writes, then inspect the trace. Did it read the store rules before it wrote code?
 
 {{< countdown 8:00 left=0 bottom="-2em" >}}
 
 ::: notes
-The tool functions and the coding-agent system prompt are given.
-
-Attendees document the tools, register them, and ask the agent to write `find_lapsed.R` or `find_lapsed.py`.
+The coding-agent system prompt is given. Attendees wrap the file operations into functions (inputs, work, outputs), document the tools, register them, and ask the agent to write `find_lapsed.R` or `find_lapsed.py`.
 
 The attendee runs that script from inside `blockbuster/`.
 
