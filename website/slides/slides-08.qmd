@@ -118,7 +118,7 @@ The attendee runs that script from inside `blockbuster/`.
 
 Watch for the key choice: the agent writes a script instead of trying to read 1,500 rental rows through the tool.
 
-Dry run in both R and Python: the trace reads `README.md`, then `policies.md`, then writes `find_lapsed.*`.
+Dry run in both R and Python: the trace reads `README.md`, then `notes.md`, then writes `find_lapsed.*`.
 Both generated scripts produced 11 rows.
 :::
 

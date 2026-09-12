@@ -315,7 +315,7 @@ write_workspace <- function(
   file.copy(
     file.path(
       source_dir,
-      c("README.md", "policies.md", "members.csv", "dues.csv")
+      c("README.md", "notes.md", "members.csv", "dues.csv")
     ),
     workspace
   )
@@ -363,14 +363,14 @@ expected_files <- list(
     "README.md",
     "dues.csv",
     "members.csv",
-    "policies.md",
+    "notes.md",
     "rentals.csv"
   ),
   `23_agent-2` = c(
     "README.md",
     "dues.csv",
     "members.csv",
-    "policies.md",
+    "notes.md",
     "rentals-old.csv",
     "rentals.csv"
   ),
@@ -380,7 +380,7 @@ expected_files <- list(
     "lapsed.csv",
     "letters/drafts/.gitkeep",
     "members.csv",
-    "policies.md",
+    "notes.md",
     "rentals-old.csv",
     "rentals.csv"
   ),
@@ -390,7 +390,7 @@ expected_files <- list(
     "lapsed.csv",
     "letters/drafts/.gitkeep",
     "members.csv",
-    "policies.md",
+    "notes.md",
     "rentals-old.csv",
     "rentals.csv"
   )
