@@ -222,6 +222,32 @@ Four questions lead attendees from the misplaced trigger to the repeated facts a
 The good skill says when to draft a renewal letter and keeps only the voice, letter structure, tier incentives, filename rule, and promises caveat.
 :::
 
+## Discussion: Did your agent...? {.center}
+
+::: incremental
+* Pick `renewal-letters` first, out of the four skills on offer?
+
+* Read a *second* skill before it started writing?
+
+* Follow the bad skill's rules straight past the letter checklist?
+
+* Treat a vague description as a reason to hedge?
+
+* Write the same letters before and after your fix?
+:::
+
+::: notes
+Stress-test evidence, three runs per skill version, four skills competing: the fixed skill was read first and only, in every run. Rival skills never won the first slot.
+
+But under the bad skill, the agent read a second skill (`lapsed-audit`) in two of three runs — a vague description with no use-when boundary made it hedge, and hedging costs tokens and attention.
+
+The bad skill's planted rules fought the checklist: "mention the title only if it was a recent release" deleted all three title references in one run, and "start every letter with the tier incentive" was ignored in two of three. A bad skill doesn't just misinform — it makes behavior unpredictable.
+
+What stayed right the whole time: correct members, correct Founders perk, correct filenames, no fee talk, in all six runs.
+
+Close on the before/after: same agent, same tools, same task — the only change was the skill, and the letters changed with it.
+:::
+
 ## Skills in Posit Assistant
 
 ::: incremental
