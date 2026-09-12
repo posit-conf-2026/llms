@@ -115,9 +115,19 @@ Build the win-back list as `win-back.csv` by writing `find_lapsed.R`
 for me to run from inside the blockbuster folder.)"
 )
 
-# STEP 5: Your manager found an old register export ----------------------------
-# Tell the agent that your manager found an old register export and dropped it
-# in the folder. Without naming the file, ask it to bring the list up to date.
+# STEP 5: Your manager found an old register export -----------------------------
+# Drop the old register export into the workspace, as if your manager just
+# delivered it. (If this copy fails, copy data/blockbuster/rentals-old.csv into
+# the workspace folder manually.)
+file.copy(
+  here("data/blockbuster", "rentals-old.csv"),
+  project_dir,
+  overwrite = TRUE
+)
+
+# Then tell the agent that your manager found an old register export and
+# dropped it in the folder. Without naming the file, ask it to bring the list
+# up to date.
 chat$chat(
   r"(
 The manager found an old register export and dropped it in the folder.

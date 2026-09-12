@@ -1,4 +1,6 @@
 # %%
+import shutil
+
 from chatlas import ChatPosit
 from pyhere import here
 
@@ -120,8 +122,17 @@ for me to run from inside the blockbuster folder.
 # %% [markdown]
 # **Step 5:** Your manager found an old register export.
 #
-# Tell the agent that your manager found an old register export and dropped it
-# in the folder. Without naming the file, ask it to bring the list up to date.
+# Drop the old register export into the workspace, as if your manager just
+# delivered it. (If this copy fails, copy data/blockbuster/rentals-old.csv into
+# the workspace folder manually.)
+
+# %%
+shutil.copy(here("data/blockbuster/rentals-old.csv"), project_dir)
+
+# %% [markdown]
+# Then tell the agent that your manager found an old register export and
+# dropped it in the folder. Without naming the file, ask it to bring the list
+# up to date.
 
 # %%
 chat.chat(

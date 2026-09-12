@@ -112,6 +112,14 @@ for me to run from inside the blockbuster folder.)"
 )
 
 # STEP 5: Your manager found an old register export ----------------------------
+# Drop the old register export into the workspace, as if your manager just
+# delivered it. (If this copy fails, copy data/blockbuster/rentals-old.csv into
+# the workspace folder manually.)
+file.copy(
+  here("data/blockbuster", "rentals-old.csv"),
+  project_dir,
+  overwrite = TRUE
+)
 chat$chat(
   r"(
 The manager found an old register export and dropped it in the folder.
