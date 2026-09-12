@@ -228,19 +228,5 @@ MCP servers are about tools — connections to databases, APIs, other software. 
 ::: notes
 You built the mechanism yourself today: listing, loading, and writing skills.
 
-The same pattern runs inside the assistant you use every day — now you know how to extend it.
-:::
-
-## Demo: Posit Assistant {.slide-demo}
-
-👨‍💻 [_demos/23_demo_assistant/README.md]{.code .b .purple}
-
-> Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.
-
-::: notes
-Brings the day together: an agent with read, write, and skills — the same one attendees just built.
-
-Instructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.
-
-Watch for: the loop (each step chosen from the last result), read and write actions, permission prompts, and skills firing when relevant.
+Next: put skills to work inside the assistant you use every day.
 :::

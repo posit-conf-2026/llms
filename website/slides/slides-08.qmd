@@ -179,88 +179,6 @@ The `edit_file` error question matters: wrong argument names produced a loud err
 Close on the last bullet: tools guide the agent, but they don't force it — the same answer can arrive by different routes, which is why traces matter.
 :::
 
-## Should the agent run code? {.center}
-
-You just played the run-code tool by hand.
-
-Should the agent close that loop and repair its own errors?
-
-::: notes
-The upside is a closed loop and self-repair.
-
-The risk is code with side effects against the store's data.
-
-Ask the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts.
-:::
-
-## What counts as dangerous?
-
-Danger = expensive, time-consuming, or impossible to **undo**
-
-::: incremental
-* Delete a file outside git
-
-* Drop a database table
-
-* Spend money
-
-* Send an email
-
-* Leak a secret or personal data
-:::
-
-::: notes
-Hadley's framing from "Help! My coding agent can run code": dangerous means hard to undo.
-
-Running the renewal script touches only a disposable, local fixture.
-
-Sending a letter leaves the sandbox and reaches a real person.
-
-The store's no-late-fees settlement is a reminder that careless promises have consequences.
-:::
-
-## Three ways to keep an agent in check
-
-::: incremental
-1. **Ask for permission** — but 99% of approvals are safe, so people click yes without reading
-
-1. **Sandbox** — the OS constrains the process, but temp folders, package libraries, and network access all leak in
-
-1. **Ask an LLM** — run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation
-:::
-
-::: footer
-[Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code){preview-link=true}
-:::
-
-::: notes
-The three approaches, in the order real tools adopted them.
-
-Permission prompts become security theatre. Prefix allowlists fail: `git push` is safe, `git push --force` often isn't.
-
-Sandboxing works but is fiddly: R needs a writable temp dir and a readable library path.
-
-The state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly.
-:::
-
-## Auto mode knows it's dangerous {.center}
-
-> Running curl -fsSL ... | sh
->
-> Sandboxed mktemp isn't writable. Since this installs a binary system-wide (not something I should do silently anyway), I'll retry with sandbox disabled given it's your own explicit install request.
->
-> — Claude Code, asked to install air
-
-::: notes
-From Hadley's "Auto mode knows it's dangerous (and does it anyway)".
-
-Both Claude Code and Codex recognized the curl-pipe-sh installer as dangerous and ran it anyway, because the user asked.
-
-Best practice would be: download, read the script, then run. Neither agent read it.
-
-Auto mode is less protective than it looks. Keep your own eyes on destructive steps.
-:::
-
 ## Agents, recap
 
 ::: incremental
@@ -269,8 +187,6 @@ Auto mode is less protective than it looks. Keep your own eyes on destructive st
 * Read tools observe; write tools change
 
 * The harness does the busy work — you write the tools and the system prompt
-
-* General tools make useful agents, and safety is the price
 :::
 
 ::: notes

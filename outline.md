@@ -138,7 +138,7 @@
 
 ## Afternoon 1: Agents (90m)
 
-Unit 07: Tool Calling (30m) · Unit 08: Agents (25m) · Unit 09: Agent Skills (25m) · Unit 10: Posit Assistant (10m) · Unit 11: Break (30m)
+Unit 07: Tool Calling (30m) · Unit 08: Agents (20m) · Unit 09: Agent Skills (25m) · Unit 10: Posit Assistant (15m) · Unit 11: Break (30m)
 
 > Picking up from tool calling to build real agents, ending with agent skills. People have just had lunch, so this is the most intense part of the afternoon; the day tapers off from here.
 
@@ -153,15 +153,12 @@ Unit 07: Tool Calling (30m) · Unit 08: Agents (25m) · Unit 09: Agent Skills (2
   - Activity `18_quiz-game-3`: add tool annotations to give the tool an icon and title
   - `18_quiz-game-3` exercise and solution point interested people to `ContentToolResult` (ellmer/chatlas) and the shinychat tool UI article for richer tool displays
 
-- (25m) Building an agent
+- (20m) Building an agent
   - Picking up from tool calling to build up to agents
   - Hadley/Willison definition: agents are LLMs with a read tool and a write tool
     - Reference: Hadley's series on Substack, in particular [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent) and [A coding agent is six functions in a trenchcoat](https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in)
   - Activity `19_agent-1` (8m incl. 3m discussion): build a simple coding agent with a read tool and a write tool
   - Activity `20_agent-2` (8m incl. 3m discussion): make that coding agent a little better with a couple more tools (list files, edit files)
-  - Discussion: what if it could run code? Should we add a run code tool?
-    - Coding harnesses, safety, sandboxing, LLM-based safety checks
-    - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
 
 - (25m) Agent Skills
   - Explaining what skills are, how they're used, best practices for making them
@@ -169,10 +166,13 @@ Unit 07: Tool Calling (30m) · Unit 08: Agents (25m) · Unit 09: Agent Skills (2
     - Options: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool
   - Activity `22_skills-2` (8m incl. 3m discussion): take the skill from the first exercise and improve it (fix common problems)
 
-- (10m) Posit Assistant
+- (15m) Posit Assistant
   - Demo `23_demo_assistant`: Posit Assistant agent demo to bring everything together
     - Instructor sets up the agent conversation, then students do the exploration themselves
     - Consider adding a skills component to this demo
+  - Discussion: what if the assistant could run code? It can — what keeps that safe?
+    - Coding harnesses, safety, sandboxing, LLM-based safety checks
+    - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
   - Leaves room for discussion and free practice time in the tool attendees will actually use
 
 ## Afternoon 2: shinychat, querychat, and the future (90m)

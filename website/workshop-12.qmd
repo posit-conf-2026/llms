@@ -1,26 +1,21 @@
 ---
-title: Wrap-up
-description: A closing conversation about the future of AI, feedback, and goodbye.
-description-short: The future of AI and goodbye
-duration: 35min
+title: shinychat and querychat
+description: |
+  New shinychat features, including `page_chat()`, plus a simple querychat variant for exploring data.
+description-short: shinychat and querychat
+duration: 60min
 ---
 
 ## Slides
 
-{{< revealjs "slides/slides-12.html" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-11.html" class="ratio ratio-16x9" >}}
 
 ## Outline
 
-- (30m) The Future of AI
-  - Joe Cheng drops in again for this conversation
-  - Where do we go from here? Let's talk fears and hopes.
+- (40m) shinychat
+  - New shinychat features, including `page_chat()`
+  - See the shinychat v0.5.0 preview blog post: <https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/>
 
-- (5m) Wrap-up
-  - Feedback survey
-  - Goodbye and enjoy the conference!
-
-## Workshop Survey
-
-Please take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!
-
-[pos.it/conf-workshop-survey](https://pos.it/conf-workshop-survey)
+- (20m) querychat
+  - Simple variant: use querychat to explore some data
+  - Minimal coding required by this point

@@ -1,0 +1,125 @@
+---
+title: Posit Assistant
+subtitle: Programming with LLMs in R and Python
+author: <code>posit::conf(2026)</code>
+date: 2026-09-14
+
+editor:
+  render-on-save: true
+---
+
+# [Posit Assistant]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-hologram.jpg" background-size="cover" background-position="center"}
+
+::: {.tc .white .pa1 .br3 .w-50 .absolute bottom="-5em" left=0 style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);"}
+Posit Assistant
+:::
+
+## Demo: Posit Assistant {.slide-demo}
+
+👨‍💻 [_demos/23_demo_assistant/README.md]{.code .b .purple}
+
+> Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.
+
+::: notes
+Brings the day together: an agent with read, write, and skills — the same one attendees just built.
+
+Instructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.
+
+Watch for: the loop (each step chosen from the last result), read and write actions, permission prompts, and skills firing when relevant.
+:::
+
+## Should your assistant run code? {.center}
+
+In the demo, Posit Assistant read the data, wrote scripts, and ran them.
+
+What keeps that from going wrong?
+
+::: notes
+The upside is a closed loop and self-repair: the assistant sees its own errors and fixes them.
+
+The risk is code with side effects against your real data and machine.
+
+Ask the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts.
+:::
+
+## What counts as dangerous?
+
+Danger = expensive, time-consuming, or impossible to **undo**
+
+::: incremental
+* Delete a file outside git
+
+* Drop a database table
+
+* Spend money
+
+* Send an email
+
+* Leak a secret or personal data
+:::
+
+::: notes
+Hadley's framing from "Help! My coding agent can run code": dangerous means hard to undo.
+
+In the demo, running a script touched only a disposable, local fixture.
+
+Sending an email or spending money leaves the sandbox and reaches the real world.
+
+Careless promises have consequences — think of the Blockbuster no-late-fees settlement.
+:::
+
+## Three ways to keep an agent in check
+
+::: incremental
+1. **Ask for permission** — but 99% of approvals are safe, so people click yes without reading
+
+1. **Sandbox** — the OS constrains the process, but temp folders, package libraries, and network access all leak in
+
+1. **Ask an LLM** — run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation
+:::
+
+::: footer
+[Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code){preview-link=true}
+:::
+
+::: notes
+The three approaches, in the order real tools adopted them.
+
+Permission prompts become security theatre. Prefix allowlists fail: `git push` is safe, `git push --force` often isn't.
+
+Sandboxing works but is fiddly: R needs a writable temp dir and a readable library path.
+
+The state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly.
+:::
+
+## Auto mode knows it's dangerous {.center}
+
+> Running curl -fsSL ... | sh
+>
+> Sandboxed mktemp isn't writable. Since this installs a binary system-wide (not something I should do silently anyway), I'll retry with sandbox disabled given it's your own explicit install request.
+>
+> — Claude Code, asked to install air
+
+::: notes
+From Hadley's "Auto mode knows it's dangerous (and does it anyway)".
+
+Both Claude Code and Codex recognized the curl-pipe-sh installer as dangerous and ran it anyway, because the user asked.
+
+Best practice would be: download, read the script, then run. Neither agent read it.
+
+Auto mode is less protective than it looks. Keep your own eyes on destructive steps.
+:::
+
+## Posit Assistant, recap
+
+::: incremental
+* Everything you built today — tools, agents, skills — lives inside the assistant you'll actually use
+
+* Read and write tools are powerful, and safety is the price
+
+* Dangerous means hard to undo: sandboxes and LLM review keep the loop in check
+:::
+
+::: notes
+Next: shinychat and querychat — new ways to put chat inside your own apps.
+:::
