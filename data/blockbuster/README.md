@@ -11,5 +11,4 @@ The store still uses a mix of paper-era records and CSV exports.
 `members.csv` contains `member_id`, `name`, `email`, `tier`, `joined`, and `notes`.
 `rentals.csv` is the current register export with `member_id`, `title`, `rented`, and `returned`.
 `dues.csv` records `member_id` and `paid_on`.
-Older rentals can arrive as another export.
 Read `notes.md` before you decide which members belong on the win-back list.
