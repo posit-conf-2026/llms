@@ -23,11 +23,10 @@ project_dir = here("_exercises/19_agent-1/blockbuster")
 # For each one, think through:
 #
 #   1. What inputs do we want from the LLM?
-#      (e.g. what should it tell us about a file for us to act on its behalf?)
-#      (and why are we using `project_dir / path`?)
-#   2. What do we do with that input?
-#      (This is where we do the real work for the model.)
-#   3. What outputs do we send back to the LLM?
+#
+#   2. Fill in the function to take action for the LLM.
+#
+#   3. What text do we send back to the LLM?
 def read_file(path: str) -> str:
     path = project_dir / path
     # ____
@@ -42,11 +41,29 @@ def write_file(path: str, content: str) -> str:
 # STEP 2: Document each function so the LLM knows when and how to use it.
 # Remember: the LLM sees only the docstrings and type hints, not the code.
 def read_file(path: str) -> str:
+    """
+    ____
+
+    Parameters
+    ----------
+    path
+        Path to a file relative to the Blockbuster workspace.
+    """
     path = project_dir / path
     return path.read_text()
 
 
 def write_file(path: str, content: str) -> str:
+    """
+    ____
+
+    Parameters
+    ----------
+    path
+        Path to a file relative to the Blockbuster workspace.
+    content
+        The full contents of the file to write.
+    """
     path = project_dir / path
     path.write_text(content)
     return f"Wrote {path}."
@@ -66,8 +83,8 @@ When a task needs code, write a Python script for the user to run.
 # **Step 3:** Register both tools with the chat client.
 
 # %%
-chat.____(____)
-chat.____(____)
+chat.register_tool(read_file)
+chat.register_tool(write_file)
 
 # %% [markdown]
 # **Step 4:** Put your agent to work.

@@ -18,11 +18,10 @@ proj_path <- function(path) file.path(project_dir, path)
 # For each one, think through:
 #
 #   1. What inputs do we want from the LLM?
-#      (e.g. what should it tell us about a file for us to act on its behalf?)
-#      (and why are we using `proj_path(path)`?)
-#   2. What do we do with that input?
-#      (This is where we do the real work for the model.)
-#   3. What outputs do we send back to the LLM?
+#
+#   2. Fill in the function to take action for the LLM.
+#
+#   3. What text do we send back to the LLM?
 #
 
 read_file <- function(path) {
@@ -41,7 +40,7 @@ tool_read_file <- tool(
   read_file,
   description = "____",
   arguments = list(
-    path = type_string("____")
+    path = type_string("Path to a file relative to the Blockbuster workspace.")
   )
 )
 
@@ -49,8 +48,8 @@ tool_write_file <- tool(
   write_file,
   description = "____",
   arguments = list(
-    path = type_string("____"),
-    content = type_string("____")
+    path = type_string("Path to a file relative to the Blockbuster workspace."),
+    content = type_string("The full contents of the file to write.")
   )
 )
 
@@ -65,8 +64,8 @@ When a task needs code, write an R script for the user to run.)"
 )
 
 # STEP 3: Register both tools with the chat client ----
-chat$____(____)
-chat$____(____)
+chat$register_tool(tool_read_file)
+chat$register_tool(tool_write_file)
 
 # STEP 4: Put your agent to work ----
 # Ask the agent to build the win-back list as `win-back.csv`.

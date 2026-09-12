@@ -7,12 +7,29 @@ project_dir <- here("_solutions/19_agent-1", "blockbuster")
 proj_path <- function(path) file.path(project_dir, path)
 
 # STEP 1: Wrap up file reading and writing so the LLM can use them ------------
-# 1. Inputs: read_file takes the path the LLM wants to inspect;
-#    write_file takes a path and the full contents to put there.
-# 2. Work: resolve the path into the workspace (proj_path) and perform the
-#    file operation with brio.
-# 3. Outputs: read_file returns the file contents; write_file returns a
-#    short confirmation because the LLM learns from what we return.
+
+# The {brio} package gives us two great functions for reading and writing files:
+#
+#   * brio::read_file()
+#   * brio::write_file()
+#
+# But we're not going to just give those directly to the LLM! We wrap the
+# operations we trust it with into functions and hand those to it as tools.
+# For each one, think through:
+#
+#   1. What inputs do we want from the LLM?
+#
+#   2. Fill in the function to take action for the LLM.
+#
+#   3. What text do we send back to the LLM?
+#
+# Answers:
+#   1. Inputs: read_file takes the path the LLM wants to inspect;
+#      write_file takes a path and the full contents to put there.
+#   2. Work: resolve the path into the workspace (proj_path) and perform the
+#      file operation with brio.
+#   3. Outputs: read_file returns the file contents; write_file returns a
+#      short confirmation because the LLM learns from what we return.
 
 read_file <- function(path) {
   brio::read_file(proj_path(path))
