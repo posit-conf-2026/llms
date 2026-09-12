@@ -53,7 +53,7 @@ def read_skill(skill: str) -> str:
 # We've written `list_skills()` for you:
 # it reads each skill folder's SKILL.md frontmatter and returns a
 # `name: description` line per skill.
-# Run it to see what it produces, then check the system prompt below.
+# Run it to see what it produces, then use it in the system prompt below.
 
 
 # %%
