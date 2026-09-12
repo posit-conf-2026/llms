@@ -138,7 +138,7 @@
 
 ## Afternoon 1: Agents (90m)
 
-Unit 07: Tool Calling (30m) · Unit 08: Agents (30m) · Unit 09: Agent Skills (30m) · Unit 10: Break (30m)
+Unit 07: Tool Calling (30m) · Unit 08: Agents (20m) · Unit 09: Agent Skills (25m) · Unit 10: Posit Assistant (15m) · Unit 11: Break (30m)
 
 > Picking up from tool calling to build real agents, ending with agent skills. People have just had lunch, so this is the most intense part of the afternoon; the day tapers off from here.
 
@@ -146,35 +146,38 @@ Unit 07: Tool Calling (30m) · Unit 08: Agents (30m) · Unit 09: Agent Skills (3
   - Explain how tool calling pattern, mostly following <https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny>
     - Demo `15_demo_manual-tools`: human in the loop tools
     - Demo `16_demo_tools`: preview of an app with tools
-  - Activity: quiz show
+  - Activity `17_quiz-game-2`: quiz show
     - We provide an R/Python function that plays a sound
       - R: `beepr`, Python: [playsound](https://pypi.org/project/playsound3/)
     - They document the function and register it as a tool in the Quiz Show app
-  - Activity: Add tool annotations to give the tool an icon and title
-  - Activity: Use `ContentToolResult` to return custom title and icon
-  - (Considering) Activity `20_tool-extra`: additional tool exercise, if we rewrite tool calling
+  - Activity `18_quiz-game-3`: add tool annotations to give the tool an icon and title
+  - `18_quiz-game-3` exercise and solution point interested people to `ContentToolResult` (ellmer/chatlas) and the shinychat tool UI article for richer tool displays
 
-- (30m) Building an agent
+- (20m) Building an agent
   - Picking up from tool calling to build up to agents
   - Hadley/Willison definition: agents are LLMs with a read tool and a write tool
     - Reference: Hadley's series on Substack, in particular [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent) and [A coding agent is six functions in a trenchcoat](https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in)
-  - Demo `21_demo_assistant`: Posit Assistant agent demo
+  - Activity `19_agent-1` (8m incl. 3m discussion): build a simple coding agent with a read tool and a write tool
+  - Activity `20_agent-2` (8m incl. 3m discussion): make that coding agent a little better with a couple more tools (list files, edit files)
+
+- (25m) Agent Skills
+  - Explaining what skills are, how they're used, best practices for making them
+  - Activity `21_skills-1` (8m incl. 3m discussion): build on the agent work to wire up a skill tool
+    - Options: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool
+  - Activity `22_skills-2` (8m incl. 3m discussion): take the skill from the first exercise and improve it (fix common problems)
+
+- (15m) Posit Assistant
+  - Demo `23_demo_assistant`: Posit Assistant agent demo to bring everything together
     - Instructor sets up the agent conversation, then students do the exploration themselves
-  - Activity `22_agent-1`: build a simple coding agent with a read tool and a write tool
-  - Activity `23_agent-2`: make that coding agent a little better with a couple more tools (list files, edit files)
-  - Discussion: what if it could run code? Should we add a run code tool?
+    - Consider adding a skills component to this demo
+  - Discussion: what if the assistant could run code? It can — what keeps that safe?
     - Coding harnesses, safety, sandboxing, LLM-based safety checks
     - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
-
-- (30m) Agent Skills
-  - Explaining what skills are, how they're used, best practices for making them
-  - Activity `24_skills-1`: build on the agent work to wire up a skill tool
-    - Options: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool
-  - Activity `25_skills-2`: take the skill from the first exercise and improve it (fix common problems)
+  - Leaves room for discussion and free practice time in the tool attendees will actually use
 
 ## Afternoon 2: shinychat, querychat, and the future (90m)
 
-Unit 11: shinychat and querychat (60m) · Unit 12: Wrap-up (35m)
+Unit 12: shinychat and querychat (60m) · Unit 13: Wrap-up (35m)
 
 > New shinychat features, a little querychat, and a closing conversation. Coding intensity is medium here and minimal by the end: the day tapers off as attendees get tired.
 
@@ -183,9 +186,9 @@ Unit 11: shinychat and querychat (60m) · Unit 12: Wrap-up (35m)
     - New shinychat features, including `page_chat()`
     - See the shinychat v0.5.0 preview blog post: <https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/>
   - (20m) querychat
-    - Activity `26_shinychat-1` and Activity `27_shinychat-2`: new shinychat exercises using v0.5.0 features like `page_chat()`
+    - Activity `24_shinychat-1` and Activity `25_shinychat-2`: new shinychat exercises using v0.5.0 features like `page_chat()`
     - Simple variant: use querychat to explore some data
-    - Activity `28_querychat`
+    - Activity `26_querychat`
     - Minimal coding required by this point
 
 - (30m) The Future of AI

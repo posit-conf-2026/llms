@@ -8,3 +8,5 @@
 .DS_Store
 people.json
 __pycache__/
+_exercises/20_agent-2/blockbuster/rentals-old.csv
+_solutions/20_agent-2/blockbuster/rentals-old.csv

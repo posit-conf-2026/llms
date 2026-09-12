@@ -2,7 +2,7 @@
 title: Agent Skills
 description: What skills are, how they're used, and how to make your own.
 description-short: Teaching agents new skills
-duration: 30min
+duration: 25min
 ---
 
 ## Slides
@@ -13,9 +13,9 @@ duration: 30min
 
 - (30m) Agent Skills
   - Explaining what skills are, how they're used, best practices for making them
-  - Activity `_exercises/24_skills-1`: build on the agent work to wire up a skill tool
+  - Activity `_exercises/21_skills-1`: build on the agent work to wire up a skill tool
     - Options: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool
-  - Activity `_exercises/25_skills-2`: take the skill from the first exercise and improve it (fix common problems)
+  - Activity `_exercises/22_skills-2`: take the skill from the first exercise and improve it (fix common problems)
 
 ## Further reading
 
