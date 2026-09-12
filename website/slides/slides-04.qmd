@@ -120,8 +120,7 @@ newer generations within each tier.
 ![](assets/model-comparison-openai.excalidraw.svg){style="display: block; margin: auto;"}
 
 ::: notes
-OpenAI follows a similar pattern. Models with "mini" or "nano" in the name are
-usually faster and cheaper than the full-size model.
+OpenAI follows a similar pattern. they used to do mini, nano, pro, but now have planet / space themed names.
 :::
 
 ## Open-weight and local models
@@ -401,6 +400,10 @@ chatlas.ChatPosit().list_models()
 
 # [Multi-modal input]{.hidden} {background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" background-size="cover" background-position="center"}
 
+::: notes
+Modern LLMs aren't just text - they can handle images and PDFs too. This is called multi-modal input.
+:::
+
 [Multi-modal input]{.white .b .absolute top="-400px" right=0 style="font-size: 3em;"}
 
 ## A picture is worth a thousand words {.center}
@@ -421,6 +424,10 @@ The count depends on the model and image-processing settings.
 :::
 
 ## 🌆 content_image_file {transition="fade"}
+
+::: notes
+Use content_image_file() to pass an image from your local filesystem. Just provide the path to the image.
+:::
 
 ::: {style="--code-font-size: 0.58em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
@@ -452,6 +459,10 @@ chat.chat(
 :::
 
 ## [🐈](https://placecats.com/bella/400/400){target="_blank" rel="noopener noreferrer"} content_image_url {transition="fade"}
+
+::: notes
+Or use content_image_url() to pass an image from a URL. Same pattern, different source.
+:::
 
 ::: {style="--code-font-size: 0.66em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
@@ -490,6 +501,10 @@ chat.chat(
 
 ## 📑 content_pdf_file
 
+::: notes
+LLMs can also read PDFs. Use content_pdf_file() to pass a PDF from your filesystem.
+:::
+
 ::: {style="--code-font-size: 0.66em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
@@ -518,6 +533,10 @@ chat.chat(
 :::
 
 ## 📑 content_pdf_url
+
+::: notes
+Or use content_pdf_url() to pass a PDF from a URL. Same pattern, different source.
+:::
 
 ::: {style="--code-font-size: 0.66em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
@@ -556,7 +575,15 @@ chat.chat(
 
 # Structured output {background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" background-size="cover" background-position="center top"}
 
+::: notes
+Now let's talk about structured output - getting LLMs to return data in a predictable format instead of free text.
+:::
+
 ## How would you extract name and age? {style="--code-font-size: 0.66em"}
+
+::: notes
+Here's a common problem - you have messy text data and need to extract specific fields like name and age.
+:::
 
 ```{r}
 #| echo: true
@@ -572,6 +599,10 @@ age_free_text <- list(
 ```
 
 ## If you wrote R code, it might look like this... {.scrollable style="--code-font-size: 0.66em"}
+
+::: notes
+If you tried to solve this with traditional R code, you'd need complex regex patterns and string parsing. This is painful.
+:::
 
 ```{r}
 #| echo: true
@@ -696,6 +727,10 @@ extract_age <- function(s) {
 
 ## If you wrote R code, it might look like this... {.scrollable}
 
+::: notes
+And here's what running that code looks like. It works, but look at all the code you had to write!
+:::
+
 ::: {.easy-columns .gap-2}
 ```{r}
 #| echo: true
@@ -715,6 +750,10 @@ age_free_text
 
 ## But if you ask an LLM... {transition="fade"}
 
+::: notes
+But with an LLM, you can just ask it to extract the name and age. Much simpler!
+:::
+
 ```{.r code-line-numbers="4-5|8,11"}
 library(ellmer)
 
@@ -730,6 +769,10 @@ chat$chat(age_free_text[[2]])
 ```
 
 ## But if you ask an LLM... {transition="fade"}
+
+::: notes
+And it works! The LLM correctly extracts names and ages. But the output is still free text - wouldn't it be nice to get proper R objects?
+:::
 
 ```{.r code-line-numbers="8-12"}
 library(ellmer)
@@ -747,6 +790,10 @@ chat$chat(age_free_text[[2]])
 
 ## Wouldn't this be nice? {transition="fade"}
 
+::: notes
+What we really want is a proper R list with named fields. That's what structured output gives us.
+:::
+
 ```{.r}
 chat$chat(age_free_text[[1]])
 #> list(
@@ -757,6 +804,10 @@ chat$chat(age_free_text[[1]])
 
 ## Structured chat output {transition="fade"}
 
+::: notes
+this is a job for chat_structured(), which will return structured data instead of text. But we need to tell it what structure we want.
+:::
+
 ```{.r code-line-numbers="1"}
 chat$chat_structured(age_free_text[[1]])
 #> list(
@@ -766,6 +817,12 @@ chat$chat_structured(age_free_text[[1]])
 ```
 
 ## Structured chat output {transition="fade"}
+
+::: notes
+Define the structure with type_object(). Specify each field and its type. Then pass it to chat_structured().
+
+type object creats a list but each element must have specified type
+:::
 
 ```{.r code-line-numbers="1-4|6"}
 type_person <- type_object(
@@ -782,6 +839,10 @@ chat$chat_structured(age_free_text[[1]], type = type_person)
 
 ## Structured chat output {transition="fade"}
 
+::: notes
+And you get back proper R objects: a character vector for name, an integer for age. 
+:::
+
 ```{.r code-line-numbers="7-11"}
 type_person <- type_object(
   name = type_string(),
@@ -797,6 +858,10 @@ chat$chat_structured(age_free_text[[1]], type = type_person)
 ```
 
 ## ellmer's type functions
+
+::: notes
+Here are all the type functions available in ellmer. You can also add descriptions to help the LLM understand what each field means.
+:::
 
 ![](assets/ellmer-type-functions.png)
 
@@ -826,6 +891,14 @@ chat.chat_structured(
 )
 #> Person(name='Alex', age=42)
 ```
+
+::: notes
+Pydantic defines the expected fields and types for one structured result.
+chatlas converts the Pydantic model into a schema for the provider.
+After the provider responds, chatlas uses Pydantic to validate the response and return a `Person`.
+The same Pydantic model works for single, parallel, and batch requests.
+chatlas, rather than Pydantic, controls how the requests are submitted.
+:::
 
 ::: footer
 [chatlas: Structured Data](https://posit-dev.github.io/chatlas/get-started/structured-data.html)
@@ -1071,7 +1144,10 @@ people = [result.data for result in results]
 ```
 
 ::: notes
+`Person` still defines and validates one structured result.
+It does not control parallel processing.
 `parallel_chat_structured()` is asynchronous in Python, so call it with `await`.
+chatlas submits ordinary requests concurrently and keeps at most `max_active` requests active.
 Each result contains the extracted Pydantic object in its `data` attribute.
 :::
 
@@ -1127,7 +1203,8 @@ results = chatlas.batch_chat_structured(
 ```
 
 ::: notes
-The Python helper uses the same provider-managed batch workflow.
+`Person` still defines and validates each structured result in the batch.
+chatlas submits the prompts through the provider's batch API and retrieves the results.
 This example also requires direct Anthropic credentials.
 :::
 
