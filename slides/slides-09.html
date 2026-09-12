@@ -378,15 +378,62 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="the-scene-win-back-letters" class="slide level2 center">
+<h2>The scene: win-back letters</h2>
+<p>Your win-back work paid off and found three Founders members we really want to keep. Your job is to write those letters.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Member</th>
+<th style="text-align: left;">Tier</th>
+<th style="text-align: left;">Last rented</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Elaine Wu</td>
+<td style="text-align: left;">Founders</td>
+<td style="text-align: left;">The Princess Bride</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Theo Bennett</td>
+<td style="text-align: left;">Founders</td>
+<td style="text-align: left;">The Matrix</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Marisol Vega</td>
+<td style="text-align: left;">Founders</td>
+<td style="text-align: left;">The Goonies</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>This is the ground truth for the exercise: the win-back list from the last round narrowed to three members, and all three are Founders tier — the ones we most want to keep — so each letter should offer the commemorative card, not a free-rental code or family bundle.</p>
+<p>A good letter also greets the member by name, references their last rented title, invites them back, and never mentions overdue fees or unlisted discounts. Letters land in <code>letters/drafts/</code>, named like <code>elaine-wu.md</code>.</p>
+<p>You don’t need to read the skill or the CSVs in detail to judge the agent: right three people, right perk, warm voice, no fee talk, three files.</p>
+<p>If your agent drafts for a Basic member like Malik Johnson, or invents a tier fact, you’ll now spot it immediately.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
-<section id="your-turn-24_skills-1" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>24_skills-1</code></h1>
+<section>
+<section id="your-turn-21_skills-1" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>21_skills-1</code></h1>
 <ol type="1">
 <li><p>Your Blockbuster agent gets a skill: <code>renewal-letters</code> holds the letter-writing instructions.</p></li>
 <li><p>List the skill in the system prompt, and give the agent a tool to read it.</p></li>
-<li><p>Draft letters for the top three lapsed members. Watch the agent read the skill <strong>before</strong> it starts drafting.</p></li>
+<li><p>Draft letters for the top three lapsed members. Watch the agent read the skill <strong>before</strong> it starts drafting — and check them against the scene we just saw.</p></li>
 </ol>
-<countdown-timer id="timer_496a671a934beb5eaa058e4a82682ed36a3cd805" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_e78e7a4b669efea2cf4055cd0ff38ec9be6e2f50" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The read_skill tool is like the read_file tool, pointed at the skills folder.</p>
@@ -404,21 +451,75 @@
           display:block!important;
       }</style></aside>
 </section>
-
+<section id="discussion-did-your-agent" class="slide level2 center">
+<h2>Discussion: Did your agent…?</h2>
+<ul>
+<li class="fragment"><p>Read the skill <strong>before</strong> it drafted a single letter?</p></li>
+<li class="fragment"><p>Pick the right top three members from <code>lapsed.csv</code>?</p></li>
+<li class="fragment"><p>Invent tier facts — a Founders perk for someone who isn’t one?</p></li>
+<li class="fragment"><p>Mention overdue fees, even though the skill forbids it?</p></li>
+<li class="fragment"><p>Leave the data files untouched?</p></li>
+</ul>
+<aside class="notes">
+<p>Stress-test evidence, five runs: the mechanism you built works — <code>read_skill</code> fired first in every single run, before any drafting.</p>
+<p>But the agent picked the wrong “top three” in one of five runs, drafting for Malik Johnson instead of Elaine Wu — reading the file isn’t the same as reading it carefully.</p>
+<p>That same run compounded the error: it called a Basic-tier member “one of our Founders members” and gave him a commemorative card. Wrong pick, wrong perk.</p>
+<p>Another run wrote “late fees we won’t dwell on” in a letter — a direct brush with the skill’s no-fees rule.</p>
+<p>The good news: in all five runs the data files were left untouched, tool calls were clean, and four of five letter sets were correct.</p>
+<p>Close on the failure modes: skills load reliably, but grounding — who are the top three, what tier are they — still depends on the agent checking its sources.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section>
-<section id="your-turn-25_skills-2" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>25_skills-2</code></h1>
+<section id="your-turn-22_skills-2" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>22_skills-2</code></h1>
 <ol type="1">
 <li><p>The skill has been swapped for a <strong>first draft</strong> with common problems.</p></li>
 <li><p>Use the diagnostic questions to fix <code>SKILL.md</code>, then re-run the letter task.</p></li>
 <li><p>Compare: same agent, same tools, different skill, different letters and token spend.</p></li>
 </ol>
-<countdown-timer id="timer_496a671a934beb5eaa058e4a82682ed36a3cd805" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_e78e7a4b669efea2cf4055cd0ff38ec9be6e2f50" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The planted problems: the description is background about the manager’s notes, while the actual trigger sits in the body. The body also repeats policies, generic advice, and conflicting process instructions.</p>
 <p>Four questions lead attendees from the misplaced trigger to the repeated facts and conflicting process. They move and delete text; they do not need to invent new instructions.</p>
 <p>The good skill says when to draft a renewal letter and keeps only the voice, letter structure, tier incentives, filename rule, and promises caveat.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="discussion-did-your-agent-1" class="slide level2 center">
+<h2>Discussion: Did your agent…?</h2>
+<ul>
+<li class="fragment"><p>Pick <code>renewal-letters</code> first, out of the four skills on offer?</p></li>
+<li class="fragment"><p>Read a <em>second</em> skill before it started writing?</p></li>
+<li class="fragment"><p>Follow the bad skill’s rules straight past the letter checklist?</p></li>
+<li class="fragment"><p>Treat a vague description as a reason to hedge?</p></li>
+<li class="fragment"><p>Write the same letters before and after your fix?</p></li>
+</ul>
+<aside class="notes">
+<p>Stress-test evidence, three runs per skill version, four skills competing: the fixed skill was read first and only, in every run. Rival skills never won the first slot.</p>
+<p>But under the bad skill, the agent read a second skill (<code>lapsed-audit</code>) in two of three runs — a vague description with no use-when boundary made it hedge, and hedging costs tokens and attention.</p>
+<p>The bad skill’s planted rules fought the checklist: “mention the title only if it was a recent release” deleted all three title references in one run, and “start every letter with the tier incentive” was ignored in two of three. A bad skill doesn’t just misinform — it makes behavior unpredictable.</p>
+<p>What stayed right the whole time: correct members, correct Founders perk, correct filenames, no fee talk, in all six runs.</p>
+<p>Close on the before/after: same agent, same tools, same task — the only change was the skill, and the letters changed with it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -517,7 +618,7 @@
 </ul>
 <aside class="notes">
 <p>You built the mechanism yourself today: listing, loading, and writing skills.</p>
-<p>The same pattern runs inside the assistant you use every day — now you know how to extend it.</p>
+<p>Next: put skills to work inside the assistant you use every day.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

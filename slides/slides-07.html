@@ -374,6 +374,9 @@
 <h2>Wait… I can write code!</h2>
 <p>👨‍💻 <span class="code b purple">_demos/16_demo_tools/16_weather-tool-app.R</span></p>
 <p>👨‍💻 <span class="code b purple">_demos/16_demo_tools/16_weather-tool-01-start.py</span></p>
+<div class="footer">
+<p><a href="https://ellmer.tidyverse.org/reference/Content.html">ellmer: ContentToolResult</a> · <a href="https://posit-dev.github.io/chatlas/reference/types.ContentToolResult.html">chatlas: ContentToolResult</a> · <a href="https://shiny.posit.co/blog/posts/shinychat-tool-ui/">Tool calling UI in shinychat</a></p>
+</div>
 </section>
 <section id="section-9" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
@@ -544,7 +547,7 @@
 <li><p>Your job: teach the model to play sounds in the Quiz Show game we made earlier today.</p></li>
 <li><p><em>You can use your prompt or switch <code>_exercises</code> → <code>_solutions</code> to use ours.</em></p></li>
 </ol>
-<countdown-timer id="timer_0a132a42f6372fcafd6dc59c9df90f74aa0e0abc" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_c88c51e8040324ef723a2fb970ecfb069f6645ea" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Follow up question: why send a string back to the LLM that says the sound was played?</p>
@@ -651,98 +654,7 @@
 <li><p>Add tool annotations to our <code>play_sound</code> tools.</p></li>
 <li><p>Pick an icon from <a href="https://fontawesome.com/search?q=speaker&amp;ic=free&amp;o=r">FontAwesome free icons</a></p></li>
 </ol>
-<countdown-timer id="timer_0a132a42f6372fcafd6dc59c9df90f74aa0e0abc" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
- </countdown-timer>
-</section>
-<section id="what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool" class="slide level2 center">
-<h2>What if we want to decide <code>title</code> and <code>icon</code> dynamically <em>in the tool</em>?</h2>
-</section>
-<section id="ellmercontenttoolresult" class="slide level2">
-<h2>ellmer::ContentToolResult</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(lat, lon) {</span>
-<span id="cb9-2"><a aria-label="2"></a>  weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon)</span>
-<span id="cb9-3"><a aria-label="3"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="footer">
-<p><a href="https://ellmer.tidyverse.org/reference/Content.html" data-preview-link="true">ellmer: ContentToolResult</a></p>
-</div>
-</section>
-<section id="ellmercontenttoolresult-1" class="slide level2">
-<h2>ellmer::ContentToolResult</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(lat, lon) {</span>
-<span id="cb10-2"><a aria-label="2"></a>  forecast <span class="ot">&lt;-</span> weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon)</span>
-<span id="cb10-3"><a aria-label="3"></a></span>
-<span id="cb10-4"><a aria-label="4"></a>  <span class="fu">ContentToolResult</span>(</span>
-<span id="cb10-5"><a aria-label="5"></a>    forecast</span>
-<span id="cb10-6"><a aria-label="6"></a>  )</span>
-<span id="cb10-7"><a aria-label="7"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="footer">
-<p><a href="https://ellmer.tidyverse.org/reference/Content.html" data-preview-link="true">ellmer: ContentToolResult</a></p>
-</div>
-</section>
-<section id="ellmercontenttoolresult-2" class="slide level2">
-<h2>ellmer::ContentToolResult</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(lat, lon) {</span>
-<span id="cb11-2"><a aria-label="2"></a>  forecast <span class="ot">&lt;-</span> weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon)</span>
-<span id="cb11-3"><a aria-label="3"></a></span>
-<span id="cb11-4"><a aria-label="4"></a>  <span class="fu">ContentToolResult</span>(</span>
-<span id="cb11-5"><a aria-label="5"></a>    forecast,</span>
-<span id="cb11-6"><a aria-label="6"></a>    <span class="at">extra =</span> <span class="fu">list</span>(</span>
-<span id="cb11-7"><a aria-label="7"></a>      <span class="at">display =</span> <span class="fu">list</span>(</span>
-<span id="cb11-8"><a aria-label="8"></a>        <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Weather for"</span>, lat, lon),</span>
-<span id="cb11-9"><a aria-label="9"></a>        <span class="at">icon =</span> fontawesome<span class="sc">::</span><span class="fu">fa_i</span>(<span class="st">"cloud-sun"</span>)</span>
-<span id="cb11-10"><a aria-label="10"></a>      )</span>
-<span id="cb11-11"><a aria-label="11"></a>    )</span>
-<span id="cb11-12"><a aria-label="12"></a>  )</span>
-<span id="cb11-13"><a aria-label="13"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="footer">
-<p><a href="https://ellmer.tidyverse.org/reference/Content.html" data-preview-link="true">ellmer: ContentToolResult</a></p>
-</div>
-</section>
-<section id="ellmercontenttoolresult-3" class="slide level2">
-<h2>ellmer::ContentToolResult</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(lat, lon, location_name) {</span>
-<span id="cb12-2"><a aria-label="2"></a>  forecast <span class="ot">&lt;-</span> weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon)</span>
-<span id="cb12-3"><a aria-label="3"></a></span>
-<span id="cb12-4"><a aria-label="4"></a>  <span class="fu">ContentToolResult</span>(</span>
-<span id="cb12-5"><a aria-label="5"></a>    forecast,</span>
-<span id="cb12-6"><a aria-label="6"></a>    <span class="at">extra =</span> <span class="fu">list</span>(</span>
-<span id="cb12-7"><a aria-label="7"></a>      <span class="at">display =</span> <span class="fu">list</span>(</span>
-<span id="cb12-8"><a aria-label="8"></a>        <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Weather for"</span>, location_name),</span>
-<span id="cb12-9"><a aria-label="9"></a>        <span class="at">icon =</span> fontawesome<span class="sc">::</span><span class="fu">fa_i</span>(<span class="st">"cloud-sun"</span>)</span>
-<span id="cb12-10"><a aria-label="10"></a>      )</span>
-<span id="cb12-11"><a aria-label="11"></a>    )</span>
-<span id="cb12-12"><a aria-label="12"></a>  )</span>
-<span id="cb12-13"><a aria-label="13"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="footer">
-<p><a href="https://ellmer.tidyverse.org/reference/Content.html" data-preview-link="true">ellmer: ContentToolResult</a></p>
-</div>
-</section>
-<section id="chatlas.contenttoolresult" class="slide level2">
-<h2>chatlas.ContentToolResult</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-code-line-numbers="|2|4-5,12|6-11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-label="1"></a><span class="kw">def</span> get_weather(lat: <span class="bu">float</span>, lon: <span class="bu">float</span>, location_name: <span class="bu">str</span>):</span>
-<span id="cb13-2"><a aria-label="2"></a>    forecast <span class="op">=</span> NWS.GetCurrentForecast(lat, lon)</span>
-<span id="cb13-3"><a aria-label="3"></a></span>
-<span id="cb13-4"><a aria-label="4"></a>    <span class="cf">return</span> ContentToolResult(</span>
-<span id="cb13-5"><a aria-label="5"></a>        forecast,</span>
-<span id="cb13-6"><a aria-label="6"></a>        extra<span class="op">=</span>{</span>
-<span id="cb13-7"><a aria-label="7"></a>            <span class="st">"display"</span>: {</span>
-<span id="cb13-8"><a aria-label="8"></a>                <span class="st">"title"</span>: <span class="ss">f"Weather for </span><span class="sc">{</span>location_name<span class="sc">}</span><span class="ss">"</span>,</span>
-<span id="cb13-9"><a aria-label="9"></a>                <span class="st">"icon"</span>: faicons.fa_i(<span class="st">"cloud-sun"</span>),</span>
-<span id="cb13-10"><a aria-label="10"></a>            }</span>
-<span id="cb13-11"><a aria-label="11"></a>        },</span>
-<span id="cb13-12"><a aria-label="12"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="footer">
-<p><a href="https://posit-dev.github.io/chatlas/reference/types.ContentToolResult.html" data-preview-link="true">chatlas: ContentToolResult</a></p>
-</div>
-</section>
-<section id="your-turn-19_quiz-game-4" class="slide level2 slide-your-turn">
-<h2>Your Turn <code>19_quiz-game-4</code></h2>
-<ol type="1">
-<li><p>Pick an <code>icon</code> and a <code>title</code> for each action in the Quiz show app.</p></li>
-<li><p>Return a <code>ContentToolResult</code> from each tool that sets the <code>icon</code> and <code>title</code>.</p></li>
-<li><p>Play the game again to see the icons and titles in action.</p></li>
-</ol>
-<countdown-timer id="timer_0a132a42f6372fcafd6dc59c9df90f74aa0e0abc" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<countdown-timer id="timer_c88c51e8040324ef723a2fb970ecfb069f6645ea" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
  </countdown-timer>
 </section>
 <section id="tools-in-shiny" class="slide level2">

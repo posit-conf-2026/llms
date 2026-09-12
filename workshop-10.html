@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Get up and move around! We’ll start back up at 11:00.">
+<meta name="description" content="Putting it all together in the assistant you’ll actually use, and keeping coding agents safe.">
 
-<title>☕ Break – Programming with LLMs in R and Python</title>
+<title>Posit Assistant – Programming with LLMs in R and Python</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -37,8 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./workshop-04.html" rel="next">
-<link href="./workshop-02.html" rel="prev">
+<link href="./workshop-11-break.html" rel="next">
+<link href="./workshop-09.html" rel="prev">
 <link href="./assets/posit-conf-favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -79,16 +79,24 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <meta name="theme-color" content="black">
+ 
+  <style>
+  .slide-deck {
+      border: 3px solid #dee2e6;
+      width: 100%;
+  }
+  </style>
+  
 
 
-<meta property="og:title" content="☕ Break – Programming with LLMs in R and Python">
-<meta property="og:description" content="Get up and move around! We’ll start back up at 11:00.">
+<meta property="og:title" content="Posit Assistant – Programming with LLMs in R and Python">
+<meta property="og:description" content="Putting it all together in the assistant you’ll actually use, and keeping coding agents safe.">
 <meta property="og:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs in R and Python">
 <meta property="og:image:height" content="400">
 <meta property="og:image:width" content="765">
-<meta name="twitter:title" content="☕ Break – Programming with LLMs in R and Python">
-<meta name="twitter:description" content="Get up and move around! We’ll start back up at 11:00.">
+<meta name="twitter:title" content="Posit Assistant – Programming with LLMs in R and Python">
+<meta name="twitter:description" content="Putting it all together in the assistant you’ll actually use, and keeping coding agents safe.">
 <meta name="twitter:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
 <meta name="twitter:site" content="@posit-dev">
@@ -146,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-03-break.html">☕ Break</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-10.html">Posit Assistant</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -181,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-03-break.html" class="sidebar-item-text sidebar-link active">
+  <a href="./workshop-03-break.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">☕ Break</span></a>
   </div>
 </li>
@@ -229,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-10.html" class="sidebar-item-text sidebar-link">
+  <a href="./workshop-10.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Posit Assistant</span></a>
   </div>
 </li>
@@ -274,8 +282,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-10.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -292,12 +308,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">☕ Break</h1>
+<h1 class="title">Posit Assistant</h1>
 </div>
 
 <div>
   <div class="description">
-    <p>Get up and move around! We’ll start back up at 11:00.</p>
+    Putting it all together in the assistant you’ll actually use, and keeping coding agents safe.
   </div>
 </div>
 
@@ -314,16 +330,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<video autoplay="" muted="" loop="" playsinline="" poster="/assets/gen-ai/hzq24c8v9drm80cs93v9wv2s6g.jpg">
-  <source src="./assets/gen-ai/replicate-prediction-4g5k6y6gp1rme0cs941rsyk8xg.mp4" type="video/mp4">
-</video>
-<style>
-  video, img {
-    max-width: 100%;
-  }
-</style>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+    <p><a href="slides/slides-10.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="slides/slides-10.html" height="475px"></iframe>
+    </div>
+  
+</section>
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<ul>
+<li><p>Demo <code>_demos/23_demo_assistant</code>: Posit Assistant as an agent — brings everything together; the instructor starts the conversation, then everyone explores the data on their own</p></li>
+<li><p>Discussion: what if the assistant could run code? It can — what keeps that safe?</p>
+<ul>
+<li>Coding harnesses, safety, sandboxing, LLM-based safety checks</li>
+<li>Reference: <a href="https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code">Help! My coding agent can run code</a></li>
+<li>Free practice time in the tool attendees will actually use</li>
+</ul></li>
+</ul>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code">Help! My coding agent can run code</a> — sandboxing, permission prompts, and LLM-based safety checks.</li>
+<li><a href="https://tidydesign.substack.com/p/auto-mode-knows-its-dangerous-and">Auto mode knows it’s dangerous (and does it anyway)</a> — a cautionary experiment with <code>curl | sh</code> installers.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -728,13 +763,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./workshop-02.html" class="pagination-link" aria-label="Anatomy of a conversation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Anatomy of a conversation</span>
+      <a href="./workshop-09.html" class="pagination-link" aria-label="Agent Skills">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Agent Skills</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./workshop-04.html" class="pagination-link" aria-label="Programming with LLMs">
-        <span class="nav-page-text">Programming with LLMs</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./workshop-11-break.html" class="pagination-link" aria-label="☕ Break">
+        <span class="nav-page-text">☕ Break</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -746,7 +781,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p><a href="https://conf.posit.co/2026/">posit::conf(2026)</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-03-break.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-10.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

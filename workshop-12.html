@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A closing conversation about the future of AI, feedback, and goodbye.">
+<meta name="description" content="New shinychat features, including page_chat(), plus a simple querychat variant for exploring data.">
 
-<title>Wrap-up – Programming with LLMs in R and Python</title>
+<title>shinychat and querychat – Programming with LLMs in R and Python</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -37,8 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./bonus-rag.html" rel="next">
-<link href="./workshop-11.html" rel="prev">
+<link href="./workshop-13.html" rel="next">
+<link href="./workshop-11-break.html" rel="prev">
 <link href="./assets/posit-conf-favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -89,14 +89,14 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-<meta property="og:title" content="Wrap-up – Programming with LLMs in R and Python">
-<meta property="og:description" content="A closing conversation about the future of AI, feedback, and goodbye.">
+<meta property="og:title" content="shinychat and querychat – Programming with LLMs in R and Python">
+<meta property="og:description" content="New shinychat features, including page_chat(), plus a simple querychat variant for exploring data.">
 <meta property="og:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs in R and Python">
 <meta property="og:image:height" content="400">
 <meta property="og:image:width" content="765">
-<meta name="twitter:title" content="Wrap-up – Programming with LLMs in R and Python">
-<meta name="twitter:description" content="A closing conversation about the future of AI, feedback, and goodbye.">
+<meta name="twitter:title" content="shinychat and querychat – Programming with LLMs in R and Python">
+<meta name="twitter:description" content="New shinychat features, including page_chat(), plus a simple querychat variant for exploring data.">
 <meta name="twitter:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
 <meta name="twitter:site" content="@posit-dev">
@@ -154,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-12.html">Wrap-up</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-12.html">shinychat and querychat</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -237,7 +237,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-10-break.html" class="sidebar-item-text sidebar-link">
+  <a href="./workshop-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Posit Assistant</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-11-break.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">☕ Break</span></a>
   </div>
 </li>
@@ -246,13 +252,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-11.html" class="sidebar-item-text sidebar-link">
+  <a href="./workshop-12.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">shinychat and querychat</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workshop-12.html" class="sidebar-item-text sidebar-link active">
+  <a href="./workshop-13.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wrap-up</span></a>
   </div>
 </li>
@@ -283,7 +289,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
-  <li><a href="#workshop-survey" id="toc-workshop-survey" class="nav-link" data-scroll-target="#workshop-survey">Workshop Survey</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-12.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -302,12 +307,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Wrap-up</h1>
+<h1 class="title">shinychat and querychat</h1>
 </div>
 
 <div>
   <div class="description">
-    A closing conversation about the future of AI, feedback, and goodbye.
+    <p>New shinychat features, including <code>page_chat()</code>, plus a simple querychat variant for exploring data.</p>
   </div>
 </div>
 
@@ -326,31 +331,26 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>
-    <p><a href="slides/slides-12.html" target="_blank">View slides in full screen</a></p>
+    <p><a href="slides/slides-11.html" target="_blank">View slides in full screen</a></p>
        <div class="ratio ratio-16x9">
-      <iframe class="slide-deck" src="slides/slides-12.html" height="475px"></iframe>
+      <iframe class="slide-deck" src="slides/slides-11.html" height="475px"></iframe>
     </div>
   
 </section>
 <section id="outline" class="level2">
 <h2 class="anchored" data-anchor-id="outline">Outline</h2>
 <ul>
-<li>(30m) The Future of AI
+<li>(40m) shinychat
 <ul>
-<li>Joe Cheng drops in again for this conversation</li>
-<li>Where do we go from here? Let’s talk fears and hopes.</li>
+<li>New shinychat features, including <code>page_chat()</code></li>
+<li>See the shinychat v0.5.0 preview blog post: <a href="https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/" class="uri">https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/</a></li>
 </ul></li>
-<li>(5m) Wrap-up
+<li>(20m) querychat
 <ul>
-<li>Feedback survey</li>
-<li>Goodbye and enjoy the conference!</li>
+<li>Simple variant: use querychat to explore some data</li>
+<li>Minimal coding required by this point</li>
 </ul></li>
 </ul>
-</section>
-<section id="workshop-survey" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-survey">Workshop Survey</h2>
-<p>Please take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!</p>
-<p><a href="https://pos.it/conf-workshop-survey">pos.it/conf-workshop-survey</a></p>
 
 
 </section>
@@ -758,13 +758,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./workshop-11.html" class="pagination-link" aria-label="shinychat and querychat">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">shinychat and querychat</span>
+      <a href="./workshop-11-break.html" class="pagination-link" aria-label="☕ Break">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">☕ Break</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./bonus-rag.html" class="pagination-link" aria-label="Augmented Generation">
-        <span class="nav-page-text">Augmented Generation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./workshop-13.html" class="pagination-link" aria-label="Wrap-up">
+        <span class="nav-page-text">Wrap-up</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

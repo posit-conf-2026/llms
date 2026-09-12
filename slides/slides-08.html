@@ -283,17 +283,23 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="blockbuster-agent" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-blockbuster.png" data-background-size="cover">
+<h1><span class="hidden">Blockbuster Agent</span></h1>
+
 </section>
-<section id="demo-posit-assistant" class="slide level2 slide-demo">
-<h2>Demo: Posit Assistant</h2>
-<p>👨‍💻 <span class="code b purple">_demos/21_demo_assistant/README.md</span></p>
-<blockquote>
-<p>Let’s look at <code>data/airbnb-austin.csv</code>, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.</p>
-</blockquote>
+<section id="welcome-to-the-last-blockbuster" class="slide level2 center">
+<h2>Welcome to the Last Blockbuster</h2>
+<ul>
+<li class="fragment"><p>You work at the Last Blockbuster in the universe, in Bend, Oregon.</p></li>
+<li class="fragment"><p>The store runs on its annual membership renewal drive.</p></li>
+<li class="fragment"><p>Your job is to find members who have gone quiet and win them back.</p></li>
+</ul>
 <aside class="notes">
-<p>Instructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.</p>
-<p>Watch for: the loop (each step chosen from the last result), read and write actions, and permission prompts.</p>
-<p>Running code is both a read tool and a write tool: it observes the data and changes the project.</p>
+<p>This is the story world for the rest of the workshop: every exercise is a shift at the Last Blockbuster, with a real-ish records folder — <code>members.csv</code>, <code>rentals.csv</code>, <code>dues.csv</code>, and the manager’s <code>notes.md</code>.</p>
+<p>The manager is a recurring character: a new task arrives mid-shift, or an old paper register turns up and changes yesterday’s task. When that happens in an exercise, roll with it — real work looks like that too.</p>
+<p>A nice side effect: as the human, you’ll often know the ground truth before you hand the task to the agent. That’s what makes it possible to judge the agent’s work instead of just accepting it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -307,21 +313,20 @@
       }</style></aside>
 </section></section>
 <section>
-<section id="your-turn-22_agent-1" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>22_agent-1</code></h1>
+<section id="your-turn-19_agent-1" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>19_agent-1</code></h1>
 <ol type="1">
 <li><p>Your agent works in the Last Blockbuster’s records folder.</p></li>
-<li><p>Give it a <strong>read</strong> tool and a <strong>write</strong> tool, then ask it to build the win-back list.</p></li>
+<li><p><strong>Wrap up</strong> a read tool and a <strong>write</strong> tool for it to use, then ask it to build the win-back list.</p></li>
 <li><p>Run the script it writes, then inspect the trace. Did it read the store rules before it wrote code?</p></li>
 </ol>
-<countdown-timer id="timer_496a671a934beb5eaa058e4a82682ed36a3cd805" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_c88c51e8040324ef723a2fb970ecfb069f6645ea" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
-<p>The tool functions and the coding-agent system prompt are given.</p>
-<p>Attendees document the tools, register them, and ask the agent to write <code>find_lapsed.R</code> or <code>find_lapsed.py</code>.</p>
+<p>The coding-agent system prompt is given. Attendees wrap the file operations into functions (inputs, work, outputs), document the tools, register them, and ask the agent to write <code>find_lapsed.R</code> or <code>find_lapsed.py</code>.</p>
 <p>The attendee runs that script from inside <code>blockbuster/</code>.</p>
 <p>Watch for the key choice: the agent writes a script instead of trying to read 1,500 rental rows through the tool.</p>
-<p>Dry run in both R and Python: the trace reads <code>README.md</code>, then <code>policies.md</code>, then writes <code>find_lapsed.*</code>. Both generated scripts produced 11 rows.</p>
+<p>Dry run in both R and Python: the trace reads <code>README.md</code>, then <code>notes.md</code>, then writes <code>find_lapsed.*</code>. Both generated scripts produced 11 rows.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -334,13 +339,19 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-manager-finds-another-export" class="slide level2 center">
-<h2>The manager finds another export</h2>
-<p>The first win-back list has 11 members.</p>
+<section id="discussion-did-your-agent" class="slide level2 center">
+<h2>Discussion: Did your agent…?</h2>
+<ul>
+<li class="fragment"><p>Read <code>README.md</code> and <code>notes.md</code> before it decided anything?</p></li>
+<li class="fragment"><p>Write a script, instead of reading all 1,500 rentals through its tools?</p></li>
+<li class="fragment"><p>Say things about the store’s rules that it never actually read?</p></li>
+<li class="fragment"><p>Would you hand this list to your manager?</p></li>
+<li class="fragment"><p>If you ran the code: how many lapsed members did it find?</p></li>
+</ul>
 <aside class="notes">
-<p>The agent has a working script, but it had to be told which files to read.</p>
-<p>Next, the manager drops an old register export into the folder.</p>
-<p>The agent needs a way to discover that file and make a narrow change to the script it already wrote.</p>
+<p>Most agents find all 11 lapsed members but skip <code>dues.csv</code>, the unreturned-tape rule, or the sort order — so the lists differ by 2–3 names.</p>
+<p>The hallucination question is the important one: agents confidently cite “store rules” they never read. Compare what your agent claimed against <code>notes.md</code>.</p>
+<p>Ask the room: the manager calls whoever is on this list — what would make you trust it?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -354,14 +365,15 @@
       }</style></aside>
 </section></section>
 <section>
-<section id="your-turn-23_agent-2" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>23_agent-2</code></h1>
+<section id="your-turn-20_agent-2" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>20_agent-2</code></h1>
 <ol type="1">
 <li><p>Give your agent a <strong>list files</strong> tool and an <strong>edit</strong> tool.</p></li>
-<li><p>Build the win-back list, then tell it the manager dropped an old register export in the folder. Do not name the file.</p></li>
-<li><p>Run the patched script. The list drops from 11 members to 8.</p></li>
+<li><p>Build the win-back list script again. Do these tools make your agent more effective?</p></li>
+<li><p>Your manager found <strong>an old paper register</strong>!</p></li>
+<li><p>Without naming the file, ask the agent to bring the list up to date.</p></li>
 </ol>
-<countdown-timer id="timer_496a671a934beb5eaa058e4a82682ed36a3cd805" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_c88c51e8040324ef723a2fb970ecfb069f6645ea" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p><code>list_files</code> surfaces <code>rentals-old.csv</code> without the prompt naming it.</p>
@@ -381,92 +393,20 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="should-the-agent-run-code" class="slide level2 center">
-<h2>Should the agent run code?</h2>
-<p>You just played the run-code tool by hand.</p>
-<p>Should the agent close that loop and repair its own errors?</p>
-<aside class="notes">
-<p>The upside is a closed loop and self-repair.</p>
-<p>The risk is code with side effects against the store’s data.</p>
-<p>Ask the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="what-counts-as-dangerous" class="slide level2">
-<h2>What counts as dangerous?</h2>
-<p>Danger = expensive, time-consuming, or impossible to <strong>undo</strong></p>
+<section id="discussion-did-your-agent-1" class="slide level2 center">
+<h2>Discussion: Did your agent…?</h2>
 <ul>
-<li class="fragment"><p>Delete a file outside git</p></li>
-<li class="fragment"><p>Drop a database table</p></li>
-<li class="fragment"><p>Spend money</p></li>
-<li class="fragment"><p>Send an email</p></li>
-<li class="fragment"><p>Leak a secret or personal data</p></li>
+<li class="fragment"><p>Write a better <code>find_lapsed</code> script than in the last exercise, even before the export arrived?</p></li>
+<li class="fragment"><p>Use <code>list_files</code> to find the export, instead of guessing the filename?</p></li>
+<li class="fragment"><p>Patch the <code>find_lapsed</code> script with <code>edit_file</code>, or rewrite the whole script?</p></li>
+<li class="fragment"><p>Hit an <code>edit_file</code> error — and was the error loud and safe?</p></li>
+<li class="fragment"><p>Still get the right answer even when it skipped a tool?</p></li>
 </ul>
 <aside class="notes">
-<p>Hadley’s framing from “Help! My coding agent can run code”: dangerous means hard to undo.</p>
-<p>Running the renewal script touches only a disposable, local fixture.</p>
-<p>Sending a letter leaves the sandbox and reaches a real person.</p>
-<p>The store’s no-late-fees settlement is a reminder that careless promises have consequences.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="three-ways-to-keep-an-agent-in-check" class="slide level2">
-<h2>Three ways to keep an agent in check</h2>
-<ol type="1">
-<li class="fragment"><p><strong>Ask for permission</strong> — but 99% of approvals are safe, so people click yes without reading</p></li>
-<li class="fragment"><p><strong>Sandbox</strong> — the OS constrains the process, but temp folders, package libraries, and network access all leak in</p></li>
-<li class="fragment"><p><strong>Ask an LLM</strong> — run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation</p></li>
-</ol>
-<div class="footer">
-<p><a href="https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code" data-preview-link="true">Help! My coding agent can run code</a></p>
-</div>
-<aside class="notes">
-<p>The three approaches, in the order real tools adopted them.</p>
-<p>Permission prompts become security theatre. Prefix allowlists fail: <code>git push</code> is safe, <code>git push --force</code> often isn’t.</p>
-<p>Sandboxing works but is fiddly: R needs a writable temp dir and a readable library path.</p>
-<p>The state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="auto-mode-knows-its-dangerous" class="slide level2 center">
-<h2>Auto mode knows it’s dangerous</h2>
-<blockquote>
-<p>Running curl -fsSL … | sh</p>
-<p>Sandboxed mktemp isn’t writable. Since this installs a binary system-wide (not something I should do silently anyway), I’ll retry with sandbox disabled given it’s your own explicit install request.</p>
-<p>— Claude Code, asked to install air</p>
-</blockquote>
-<aside class="notes">
-<p>From Hadley’s “Auto mode knows it’s dangerous (and does it anyway)”.</p>
-<p>Both Claude Code and Codex recognized the curl-pipe-sh installer as dangerous and ran it anyway, because the user asked.</p>
-<p>Best practice would be: download, read the script, then run. Neither agent read it.</p>
-<p>Auto mode is less protective than it looks. Keep your own eyes on destructive steps.</p>
+<p>Yes to the first question: every test run’s first script encoded the full lapsed rules — the dues window, the unreturned-tape exception, the tier ordering — and named the right 11 members, while last exercise’s scripts always missed two or three. The difference tracked whether the agent read <code>README.md</code> and <code>notes.md</code> first: it did every time here, and never in the last exercise.</p>
+<p>In test runs the agent always found the export via <code>list_files</code>, but patched the script only about half the time — sometimes it rewrote the file with <code>write_file</code>, and sometimes its prompt-1 script already globbed <code>rentals*.csv</code>, so no patch was needed.</p>
+<p>The <code>edit_file</code> error question matters: wrong argument names produced a loud error the agent recovered from, which is exactly the failure mode you want compared to a silent wrong edit.</p>
+<p>Close on the last bullet: tools guide the agent, but they don’t force it — the same answer can arrive by different routes, which is why traces matter.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -485,7 +425,6 @@
 <li class="fragment"><p>An agent is an LLM, in a harness, calling tools in a loop</p></li>
 <li class="fragment"><p>Read tools observe; write tools change</p></li>
 <li class="fragment"><p>The harness does the busy work — you write the tools and the system prompt</p></li>
-<li class="fragment"><p>General tools make useful agents, and safety is the price</p></li>
 </ul>
 <aside class="notes">
 <p>Next: how to give an agent knowledge without making the system prompt enormous.</p>
