@@ -13,6 +13,27 @@ from pyhere import here
 # %%
 skills_dir = here("_exercises/21_skills-1/skills")
 
+# %% [markdown]
+# **Step 1:** Document the `read_skill` tool.
+#
+# Read `read_skill()` below, then describe it for the LLM.
+# Remember: the LLM sees only your docstring, not the Python code.
+
+
+# %%
+def read_skill(skill: str) -> str:
+    """____"""
+    return (skills_dir / skill / "SKILL.md").read_text()
+
+
+# %% [markdown]
+# **Step 2:** List your skills.
+#
+# We've written `list_skills()` for you:
+# it reads each skill folder's SKILL.md frontmatter and returns a
+# `name: description` line per skill. Run it to see what it produces,
+# then use it in the system prompt below.
+
 
 # %%
 def list_skills(skills_dir):
@@ -24,16 +45,12 @@ def list_skills(skills_dir):
     )
 
 
-# %%
-# STEP 1: Document this function so the LLM knows when and how to use it.
-def read_skill(skill: str) -> str:
-    """____"""
-    return (skills_dir / skill / "SKILL.md").read_text()
+list_skills(skills_dir)
 
-
-# %%
-# STEP 2: List your skills in the system prompt.
+# %% [markdown]
 # Add each skill's name and description to the system prompt.
+
+# %%
 chat = ChatPosit(
     model="zai-org/GLM-5.3-Flash",
     system_prompt=f"""
@@ -53,14 +70,11 @@ chat.register_tool(write_file)
 chat.register_tool(list_files)
 chat.register_tool(edit_file)
 
-# %% [markdown]
-# **Step 3:** Register the `read_skill` tool with the chat.
-
-# %%
-chat.____(____)
+# Register the `read_skill` tool.
+chat.register_tool(read_skill)
 
 # %% [markdown]
-# **Step 4:** Put your agent to work.
+# **Step 3:** Put your agent to work.
 #
 # Draft renewal letters for the top three members on `lapsed.csv`.
 # Save one file for each member in `letters/drafts/`.
