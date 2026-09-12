@@ -4,15 +4,16 @@ library(here)
 # Your agent works in `blockbuster/`, the records for the Last Blockbuster in
 # Bend, Oregon. Open the folder and look around before you run this script.
 project_dir <- here("_solutions/22_agent-1", "blockbuster")
+proj_path <- function(path) file.path(project_dir, path)
 
 # Tools ------------------------------------------------------------------------
 
 read_file <- function(path) {
-  paste(readLines(file.path(project_dir, path)), collapse = "\n")
+  brio::read_file(proj_path(path))
 }
 
 write_file <- function(path, content) {
-  writeLines(content, file.path(project_dir, path))
+  brio::write_file(content, proj_path(path))
   paste0("Wrote ", path, ".")
 }
 

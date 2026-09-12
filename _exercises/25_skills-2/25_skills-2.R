@@ -20,16 +20,17 @@ library(here)
 #    Is the process clear? Is there room for interpretation or confusion?
 #
 project_dir <- here("_exercises/25_skills-2", "blockbuster")
+proj_path <- function(path) file.path(project_dir, path)
 skills_dir <- here("_exercises/25_skills-2", "skills")
 
 # Tools ------------------------------------------------------------------------
 
 read_file <- function(path) {
-  paste(readLines(file.path(project_dir, path)), collapse = "\n")
+  brio::read_file(proj_path(path))
 }
 
 write_file <- function(path, content) {
-  writeLines(content, file.path(project_dir, path))
+  brio::write_file(content, proj_path(path))
   paste0("Wrote ", path, ".")
 }
 
@@ -38,8 +39,8 @@ list_files <- function() {
 }
 
 edit_file <- function(path, old, new) {
-  full <- file.path(project_dir, path)
-  content <- paste(readLines(full), collapse = "\n")
+  full <- proj_path(path)
+  content <- brio::read_file(full)
   matches <- gregexpr(old, content, fixed = TRUE)[[1]]
 
   if (identical(matches, -1L)) {
@@ -56,13 +57,13 @@ edit_file <- function(path, old, new) {
     )
   }
 
-  writeLines(sub(old, new, content, fixed = TRUE), full)
+  brio::write_file(sub(old, new, content, fixed = TRUE), full)
   paste0("Edited ", path, ".")
 }
 
 read_skill <- function(skill) {
   path <- file.path(skills_dir, skill, "SKILL.md")
-  paste(readLines(path), collapse = "\n")
+  brio::read_file(path)
 }
 
 tool_read_file <- tool(

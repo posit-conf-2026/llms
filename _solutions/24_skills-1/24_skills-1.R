@@ -26,7 +26,7 @@ list_skills <- function(skills_dir) {
 
 read_skill <- function(skill) {
   path <- file.path(skills_dir, skill, "SKILL.md")
-  paste(readLines(path), collapse = "\n")
+  brio::read_file(path)
 }
 
 tool_read_skill <- tool(
