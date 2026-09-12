@@ -833,11 +833,53 @@
     "text": "Today we’ll use Posit AI Pass!\n\n\nGo to posit.ai and sign up for a Free account\nwith the email you used to sign up for the workshop\nYou’ll get a credit grant for the day –\nno API keys, no payment info, no subscription needed\nUse it for all of our activities today.\nPlay and explore! But please be considerate :)"
   },
   {
+    "objectID": "slides/slides-01.html#turn-on-posit-assistant",
+    "href": "slides/slides-01.html#turn-on-posit-assistant",
+    "title": "Welcome!",
+    "section": "Turn on Posit Assistant",
+    "text": "Turn on Posit Assistant"
+  },
+  {
+    "objectID": "slides/slides-01.html#install-posit-assistant",
+    "href": "slides/slides-01.html#install-posit-assistant",
+    "title": "Welcome!",
+    "section": "Install Posit Assistant",
+    "text": "Install Posit Assistant"
+  },
+  {
+    "objectID": "slides/slides-01.html#trust-the-workspace",
+    "href": "slides/slides-01.html#trust-the-workspace",
+    "title": "Welcome!",
+    "section": "Trust the workspace",
+    "text": "Trust the workspace"
+  },
+  {
+    "objectID": "slides/slides-01.html#sign-in-to-posit-ai",
+    "href": "slides/slides-01.html#sign-in-to-posit-ai",
+    "title": "Welcome!",
+    "section": "Sign in to Posit AI",
+    "text": "Sign in to Posit AI"
+  },
+  {
+    "objectID": "slides/slides-01.html#youre-ready-to-chat",
+    "href": "slides/slides-01.html#youre-ready-to-chat",
+    "title": "Welcome!",
+    "section": "You’re ready to chat",
+    "text": "You’re ready to chat"
+  },
+  {
+    "objectID": "slides/slides-01.html#ask-posit-assistant-when-youre-stuck",
+    "href": "slides/slides-01.html#ask-posit-assistant-when-youre-stuck",
+    "title": "Welcome!",
+    "section": "Ask Posit Assistant when you’re stuck",
+    "text": "Ask Posit Assistant when you’re stuck\n\nJust ask it for help directly!\nUse /help if you get stuck\nOr /explain if you want an explanation for anything\nOr /check-my-work if you want kudos or a second look"
+  },
+  {
     "objectID": "slides/slides-01.html#your-turn-01_hello-llm",
     "href": "slides/slides-01.html#your-turn-01_hello-llm",
     "title": "Welcome!",
     "section": "Your Turn 01_hello-llm",
-    "text": "Your Turn 01_hello-llm\n\n\n🔑 Log in at posit.ai with the email you\nused to sign up for the workshop\n🤖 Run the code in _exercises/01_hello-llm"
+    "text": "Your Turn 01_hello-llm\n\n\n🔑 Log in to Posit Assistant or posit.ai\nwith the email you used to sign up for the workshop\n🤖 Run the code in _exercises/01_hello-llm\n💬 Paste the result into Posit Assistant and ask it to\ncritique your social media post"
   },
   {
     "objectID": "workshop.html",
