@@ -158,6 +158,8 @@ Both patched scripts produced eight rows without Greta Moss, Peter Ibarra, or No
 ## Discussion: Did your agent...? {.center}
 
 ::: incremental
+* Write a better `find_lapsed` script than in the last exercise, even before the export arrived?
+
 * Use `list_files` to find the export, instead of guessing the filename?
 
 * Patch the `find_lapsed` script with `edit_file`, or rewrite the whole script?
@@ -168,6 +170,8 @@ Both patched scripts produced eight rows without Greta Moss, Peter Ibarra, or No
 :::
 
 ::: notes
+Yes to the first question: every test run's first script encoded the full lapsed rules — the dues window, the unreturned-tape exception, the tier ordering — and named the right 11 members, while last exercise's scripts always missed two or three. The difference tracked whether the agent read `README.md` and `notes.md` first: it did every time here, and never in the last exercise.
+
 In test runs the agent always found the export via `list_files`, but patched the script only about half the time — sometimes it rewrote the file with `write_file`, and sometimes its prompt-1 script already globbed `rentals*.csv`, so no patch was needed.
 
 The `edit_file` error question matters: wrong argument names produced a loud error the agent recovered from, which is exactly the failure mode you want compared to a silent wrong edit.
