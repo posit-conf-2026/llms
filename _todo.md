@@ -43,33 +43,37 @@ Unit 07: Tool Calling
 - [x] 16_demo_tools: Automated weather tool, shown at the start of the unit
 - [x] 17_quiz-game-2: Quiz game show with tools for sounds
 - [x] 18_quiz-game-3: Quiz game show, add icon and title to tool def
-- [x] 19_quiz-game-4: Quiz game show, set title and icon in tool result
-- [ ] (considering) 20_tool-extra (new, rewrite tool calling): Optional additional tool exercise, spot reserved
+- [x] 19_quiz-game-4: Dropped; ContentToolResult and shinychat tool UI linked from 16_demo_tools instead
+- [ ] (considering) 20_tool-extra: Dropped
 
 Unit 08: Agents
 
-- [ ] 21_agent-1 (new): Build a simple coding agent with a read tool and a write tool
-- [ ] 22_agent-2 (new): Make the coding agent a little better with list files and edit file tools
+- [ ] 19_agent-1 (new): Build a simple coding agent with a read tool and a write tool
+- [ ] 20_agent-2 (new): Make the coding agent a little better with list files and edit file tools
 
 Unit 09: Agent Skills
 
-- [ ] 23_skills-1 (new): Wire up a skill tool (skill listing in the system prompt, a read tool, or your own skill tool)
-- [ ] 24_skills-2 (new): Take the skill from skills-1 and improve it (fix common problems)
-- [x] 25_demo_assistant: Posit Assistant agent demo, moved after skills to bring everything together
-  - [x] Rework as demo/exercise: instructor sets up the agent conversation, students explore a bit themselves
+- [ ] 21_skills-1 (new): Wire up a skill tool (skill listing in the system prompt, a read tool, or your own skill tool)
+- [ ] 22_skills-2 (new): Take the skill from skills-1 and improve it (fix common problems)
 
-Unit 10: Break
+Unit 10: Posit Assistant (10m)
+
+- [x] 23_demo_assistant: Posit Assistant agent demo, now its own unit after skills to bring everything together
+  - [x] Rework as demo/exercise: instructor sets up the agent conversation, students explore a bit themselves
+  - [ ] Consider adding a skills component to this demo
+
+Unit 11: Break
 
 ### Afternoon 2
 
-Unit 11: shinychat and querychat
+Unit 12: shinychat and querychat
 
-- [ ] 26_shinychat-1 (new): First shinychat exercise using the v0.5.0 features like `page_chat()`
-- [ ] 27_shinychat-2 (new): Second shinychat exercise
-- [ ] 28_querychat
+- [ ] 24_shinychat-1 (new): First shinychat exercise using the v0.5.0 features like `page_chat()`
+- [ ] 25_shinychat-2 (new): Second shinychat exercise
+- [ ] 26_querychat
   - [x] Rewrite Python examples to use pandas instead of polars
 
-Unit 12: Wrap-up
+Unit 13: Wrap-up
 
 No exercises.
 

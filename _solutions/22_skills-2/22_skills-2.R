@@ -8,9 +8,9 @@ library(here)
 # Manager: What happened to the conflicting and generic writing advice?
 # Author: I deleted it and kept the existing voice, letter checklist, filename
 # rule, tier incentives, and promises caveat.
-project_dir <- here("_solutions/24_skills-2", "blockbuster")
+project_dir <- here("_solutions/22_skills-2", "blockbuster")
 proj_path <- function(path) file.path(project_dir, path)
-skills_dir <- here("_solutions/24_skills-2", "skills")
+skills_dir <- here("_solutions/22_skills-2", "skills")
 
 # Tools ------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 from pyhere import here
 
-project_dir = here("_exercises/23_skills-1/blockbuster")
+project_dir = here("_exercises/21_skills-1/blockbuster")
 
 
 def read_file(path: str) -> str:

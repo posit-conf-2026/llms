@@ -1,9 +1,9 @@
 library(ellmer)
 library(here)
 
-# Your agent from `21_agent-1` gets two more tools today: one to list the
+# Your agent from `19_agent-1` gets two more tools today: one to list the
 # files in the workspace and one to make targeted edits.
-project_dir <- here("_solutions/22_agent-2", "blockbuster")
+project_dir <- here("_solutions/20_agent-2", "blockbuster")
 proj_path <- function(path) file.path(project_dir, path)
 
 # Tools ------------------------------------------------------------------------

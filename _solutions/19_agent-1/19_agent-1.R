@@ -3,7 +3,7 @@ library(here)
 
 # Your agent works in `blockbuster/`, the records for the Last Blockbuster in
 # Bend, Oregon. Open the folder and look around before you run this script.
-project_dir <- here("_solutions/21_agent-1", "blockbuster")
+project_dir <- here("_solutions/19_agent-1", "blockbuster")
 proj_path <- function(path) file.path(project_dir, path)
 
 # STEP 1: Wrap up file reading and writing so the LLM can use them ------------

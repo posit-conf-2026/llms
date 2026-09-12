@@ -1,4 +1,4 @@
-project_dir <- here("_solutions/23_skills-1", "blockbuster")
+project_dir <- here("_solutions/21_skills-1", "blockbuster")
 proj_path <- function(path) file.path(project_dir, path)
 
 read_file <- function(path) {

@@ -1,7 +1,7 @@
 library(ellmer)
 library(here)
 
-# Your skills-wired agent from `23_skills-1` is back, but its skill is a bad
+# Your skills-wired agent from `21_skills-1` is back, but its skill is a bad
 # first draft. Open `skills/renewal-letters/SKILL.md` before you continue.
 #
 # STEP 1: Fix the skill ----
@@ -19,9 +19,9 @@ library(here)
 # 4. Where and how does the skill describe the process the agent should follow?
 #    Is the process clear? Is there room for interpretation or confusion?
 #
-project_dir <- here("_exercises/24_skills-2", "blockbuster")
+project_dir <- here("_exercises/22_skills-2", "blockbuster")
 proj_path <- function(path) file.path(project_dir, path)
-skills_dir <- here("_exercises/24_skills-2", "skills")
+skills_dir <- here("_exercises/22_skills-2", "skills")
 
 # Tools ------------------------------------------------------------------------
 

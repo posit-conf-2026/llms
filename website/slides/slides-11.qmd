@@ -73,7 +73,7 @@ def server(input, output, session):
 app = App(app_ui, server)
 ```
 
-# Your Turn `28_querychat` {.slide-your-turn}
+# Your Turn `26_querychat` {.slide-your-turn}
 
 1. I've made a Shiny dashboard to explore Airbnb listings in Austin, TX.
    * Spend 1-2 min: which Neighborhood has most private rooms?

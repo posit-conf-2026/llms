@@ -137,7 +137,7 @@ Give a default, not a menu: one way to do it, with an escape hatch.
 Gotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions.
 :::
 
-# Your Turn `23_skills-1` {.slide-your-turn}
+# Your Turn `21_skills-1` {.slide-your-turn}
 
 1. Your Blockbuster agent gets a skill: `renewal-letters` holds the letter-writing instructions.
 
@@ -145,7 +145,7 @@ Gotchas are the highest-value content: the environment-specific facts that defy 
 
 1. Draft letters for the top three lapsed members. Watch the agent read the skill **before** it starts drafting.
 
-{{< countdown 8:00 left=0 bottom="-2em" >}}
+{{< countdown 5:00 left=0 bottom="-2em" >}}
 
 ::: notes
 The read_skill tool is like the read_file tool, pointed at the skills folder.
@@ -155,7 +155,7 @@ The system prompt listing is the manual version of what real harnesses generate 
 The trace should show read_skill firing when the agent starts the letter task.
 :::
 
-# Your Turn `24_skills-2` {.slide-your-turn}
+# Your Turn `22_skills-2` {.slide-your-turn}
 
 1. The skill has been swapped for a **first draft** with common problems.
 
@@ -163,7 +163,7 @@ The trace should show read_skill firing when the agent starts the letter task.
 
 1. Compare: same agent, same tools, different skill, different letters and token spend.
 
-{{< countdown 8:00 left=0 bottom="-2em" >}}
+{{< countdown 5:00 left=0 bottom="-2em" >}}
 
 ::: notes
 The planted problems: the description is background about the manager's notes, while the actual trigger sits in the body. The body also repeats policies, generic advice, and conflicting process instructions.
@@ -233,7 +233,7 @@ The same pattern runs inside the assistant you use every day — now you know ho
 
 ## Demo: Posit Assistant {.slide-demo}
 
-👨‍💻 [_demos/25_demo_assistant/README.md]{.code .b .purple}
+👨‍💻 [_demos/23_demo_assistant/README.md]{.code .b .purple}
 
 > Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.
 

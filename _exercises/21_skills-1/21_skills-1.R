@@ -1,13 +1,13 @@
 library(ellmer)
 library(here)
 
-# Your agent from `22_agent-2` gets a new ability today: skills.
+# Your agent from `20_agent-2` gets a new ability today: skills.
 # A skill is a folder with a SKILL.md file: frontmatter with a name and
 # description, then instructions for a job.
 # `skills/renewal-letters/SKILL.md` holds the letter-writing instructions.
-skills_dir <- here("_exercises/23_skills-1", "skills")
+skills_dir <- here("_exercises/21_skills-1", "skills")
 
-source(here("_exercises/23_skills-1", "_tools.R"))
+source(here("_exercises/21_skills-1", "_tools.R"))
 
 # Skills -----------------------------------------------------------------------
 
