@@ -494,7 +494,28 @@
     "href": "slides/slides-00.html#welcome-to-programming-with-llm-apis",
     "title": "Welcome!",
     "section": "Welcome to Programming with LLM APIs !",
-    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2026.github.io/llms/setup.html\nJoin the Discord: pos.it/joinconf26\nwifi(  network=“TODO”,  password=“TODO”)\nConference details: conf.posit.co/2026"
+    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nGet set up for the workshop:\nposit-conf-2026.github.io/llms\nJoin the Discord: pos.it/joinconf26\nwifi: TODO pwd: TODO\nConference details: conf.posit.co/2026"
+  },
+  {
+    "objectID": "slides/slides-00.html#positron-get-the-latest-updates",
+    "href": "slides/slides-00.html#positron-get-the-latest-updates",
+    "title": "Welcome!",
+    "section": "Positron: Get the latest updates",
+    "text": "Positron: Get the latest updates\n\nOpen git panel, git fetch, then sync changes\nOr Git: Pull in Command Palette"
+  },
+  {
+    "objectID": "slides/slides-00.html#rstudio-get-the-latest-updates",
+    "href": "slides/slides-00.html#rstudio-get-the-latest-updates",
+    "title": "Welcome!",
+    "section": "Rstudio: Get the latest updates",
+    "text": "Rstudio: Get the latest updates\n\nOpen Git panel\nClick ⬇ Pull"
+  },
+  {
+    "objectID": "slides/slides-00.html#install-all-the-things",
+    "href": "slides/slides-00.html#install-all-the-things",
+    "title": "Welcome!",
+    "section": "Install All The Things",
+    "text": "Install All The Things\nOpen the llms project and…\n\ninstall.packages(\"pak\") # if you don't have it yet\n\npak::local_install_deps()\n Python\nuv sync -p 3.14"
   },
   {
     "objectID": "workshop-12.html",
