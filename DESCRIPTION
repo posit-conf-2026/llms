@@ -46,8 +46,8 @@ Imports:
     weathR
 Remotes:
     posit-dev/btw,
-    posit-dev/querychat,
-    posit-dev/shinychat
+    posit-dev/querychat/pkg-r,
+    posit-dev/shinychat/pkg-r
 Config/Needs/bonus: btw, mcptools, ragnar
 Config/Needs/data: janitor
 Config/Needs/dev: lionel-/codegrip, gt, gtExtras
