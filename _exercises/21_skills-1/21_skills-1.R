@@ -33,7 +33,7 @@ tool_read_skill <- tool(
 # `name: description` line per skill. Run it to see what it produces,
 # then use it in the system prompt below.
 list_skills <- function(skills_dir) {
-  files <- fs::dir_ls(skills_dir, recurse = TRUE, glob = "SKILL.md")
+  files <- fs::dir_ls(skills_dir, recurse = TRUE, glob = "**/SKILL.md")
   skills <- purrr::map_dfr(
     files,
     \(path) frontmatter::read_front_matter(path)$data
