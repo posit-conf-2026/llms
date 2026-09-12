@@ -9,8 +9,11 @@ recipes <-
 
 
 ui_ingredients <- function(ingredients) {
-  items <- purrr::map(ingredients, function(ingredient) {
-    id <- paste0("ingredient-", gsub(" ", "-", tolower(ingredient$name)))
+  items <- purrr::imap(ingredients, function(ingredient, index) {
+    id <- paste0(
+      "ingredient-", index, "-",
+      gsub(" ", "-", tolower(ingredient$name))
+    )
 
     tags$li(
       tags$input(
