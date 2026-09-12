@@ -142,8 +142,11 @@ chat$register_tool(tool_edit_file)
 chat$register_tool(tool_read_skill)
 
 # STEP 2: Put your agent to work ----
-# After you fix the skill, re-run the letter task from Exercise 24.
-chat$chat("____")
+# After you fix the skill, re-run the letter task from `21_skills-1`.
+chat$chat(paste(
+  "Draft renewal letters for the top three members on lapsed.csv.",
+  "Save one file for each member in letters/drafts/."
+))
 
 # Inspect the whole conversation, including every tool call.
 chat

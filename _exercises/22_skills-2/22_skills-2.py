@@ -108,10 +108,13 @@ chat.register_tool(read_skill)
 # %% [markdown]
 # **Step 2:** Put your agent to work.
 #
-# After you fix the skill, re-run the letter task from Exercise 24.
+# After you fix the skill, re-run the letter task from `21_skills-1`.
 
 # %%
-chat.chat("____")
+chat.chat(
+    "Draft renewal letters for the top three members on lapsed.csv. "
+    "Save one file for each member in letters/drafts/."
+)
 
 # %% [markdown]
 # Inspect the whole conversation, including every tool call.
