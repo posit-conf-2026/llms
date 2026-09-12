@@ -260,6 +260,40 @@ write_exercise_workspaces <- function(
 
 pwalk(workspace_specs, write_exercise_workspaces)
 
+# Skills are fixtures too: exercises get the bad first draft, solutions the
+# fixed skill, and 22_skills-2 gets three rivals its description must compete
+# with.
+skills_source <- path(source_dir, "skills")
+
+skill_sets <- tribble(
+  ~exercise     , ~exercise_skill       , ~solution_skill   , ~rivals ,
+  "21_skills-1" , "renewal-letters"     , "renewal-letters" , FALSE   ,
+  "22_skills-2" , "renewal-letters-bad" , "renewal-letters" , TRUE
+)
+
+sync_skills <- function(exercise, exercise_skill, solution_skill, rivals) {
+  cli::cli_progress_step("Syncing skills for {.path {exercise}}")
+  for (parent in c("_exercises", "_solutions")) {
+    skills_dir <- path(root, parent, exercise, "skills")
+    if (dir_exists(skills_dir)) {
+      dir_delete(skills_dir)
+    }
+    skill <- if (parent == "_exercises") exercise_skill else solution_skill
+    dir_create(path(skills_dir, "renewal-letters"))
+    file_copy(
+      path(skills_source, skill, "SKILL.md"),
+      path(skills_dir, "renewal-letters", "SKILL.md")
+    )
+    if (rivals) {
+      for (rival in dir_ls(path(skills_source, "rivals"))) {
+        dir_copy(rival, path(skills_dir, path_file(rival)))
+      }
+    }
+  }
+}
+
+pwalk(skill_sets, sync_skills)
+
 expected_files <- list(
   "19_agent-1" = c(
     "README.md",
@@ -313,6 +347,25 @@ verify_exercise_files <- function(expected, exercise) {
 }
 
 iwalk(expected_files, verify_exercise_files)
+
+expected_skills <- list(
+  "21_skills-1" = "renewal-letters/SKILL.md",
+  "22_skills-2" = c(
+    "lapsed-audit/SKILL.md",
+    "renewal-letters/SKILL.md",
+    "social-media-voice/SKILL.md",
+    "tape-tracking/SKILL.md"
+  )
+)
+
+verify_exercise_skills <- function(expected, exercise) {
+  for (parent in c("_exercises", "_solutions")) {
+    skills_dir <- path(root, parent, exercise, "skills")
+    stopifnot(identical(list_workspace_files(skills_dir), sort(expected)))
+  }
+}
+
+iwalk(expected_skills, verify_exercise_skills)
 
 cli_alert_success(
   "Wrote {nrow(rentals)} current rentals, {nrow(rentals_old)} old rentals, \\
