@@ -8,97 +8,14 @@ library(here)
 # Manager: What happened to the conflicting and generic writing advice?
 # Author: I deleted it and kept the existing voice, letter checklist, filename
 # rule, tier incentives, and promises caveat.
-project_dir <- here("_solutions/22_skills-2", "blockbuster")
-proj_path <- function(path) file.path(project_dir, path)
 skills_dir <- here("_solutions/22_skills-2", "skills")
 
-# Tools ------------------------------------------------------------------------
-
-read_file <- function(path) {
-  brio::read_file(proj_path(path))
-}
-
-write_file <- function(path, content) {
-  brio::write_file(content, proj_path(path))
-  paste0("Wrote ", path, ".")
-}
-
-list_files <- function() {
-  paste(list.files(project_dir), collapse = "\n")
-}
-
-edit_file <- function(path, old, new) {
-  full <- proj_path(path)
-  content <- brio::read_file(full)
-  matches <- gregexpr(old, content, fixed = TRUE)[[1]]
-
-  if (identical(matches, -1L)) {
-    stop("Could not find the text to replace in ", path, ".")
-  }
-
-  if (length(matches) != 1L) {
-    stop(
-      "Expected one exact match in ",
-      path,
-      ", but found ",
-      length(matches),
-      "."
-    )
-  }
-
-  brio::write_file(sub(old, new, content, fixed = TRUE), full)
-  paste0("Edited ", path, ".")
-}
+source(here("_solutions/22_skills-2", "_tools.R"))
 
 read_skill <- function(skill) {
   path <- file.path(skills_dir, skill, "SKILL.md")
   brio::read_file(path)
 }
-
-tool_read_file <- tool(
-  read_file,
-  description = paste(
-    "Read the full contents of a file in the Blockbuster workspace.",
-    "Use this to inspect the store records before you write a script."
-  ),
-  arguments = list(
-    path = type_string("Path to a file relative to the Blockbuster workspace.")
-  )
-)
-
-tool_write_file <- tool(
-  write_file,
-  description = paste(
-    "Write a file in the Blockbuster workspace, overwriting it if it exists.",
-    "Use this to create a script, a CSV, or a letter draft."
-  ),
-  arguments = list(
-    path = type_string("Path to a file relative to the Blockbuster workspace."),
-    content = type_string("The full contents of the file to write.")
-  )
-)
-
-tool_list_files <- tool(
-  list_files,
-  description = paste(
-    "List the names of files in the Blockbuster workspace.",
-    "Use this to discover new files before you read or edit them."
-  )
-)
-
-tool_edit_file <- tool(
-  edit_file,
-  description = paste(
-    "Replace one exact span of text in a workspace file.",
-    "The existing text must appear exactly once or the tool returns an error.",
-    "Use this to patch a script instead of rewriting it."
-  ),
-  arguments = list(
-    path = type_string("Path to a file relative to the Blockbuster workspace."),
-    old = type_string("The exact existing text to replace."),
-    new = type_string("The text that replaces it.")
-  )
-)
 
 tool_read_skill <- tool(
   read_skill,
@@ -111,23 +28,44 @@ tool_read_skill <- tool(
   )
 )
 
+list_skills <- function(skills_dir) {
+  files <- fs::dir_ls(skills_dir, recurse = TRUE, glob = "**/SKILL.md")
+  skills <- purrr::map_dfr(
+    files,
+    \(path) frontmatter::read_front_matter(path)$data
+  )
+
+  paste(
+    interpolate("- {{ skills$name }}: {{ skills$description }}"),
+    collapse = "\n"
+  )
+}
+
+list_skills(skills_dir)
+
 # Agent ------------------------------------------------------------------------
 
 chat <- chat_posit(
   model = "zai-org/GLM-5.3-Flash",
-  system_prompt = "
+  system_prompt = interpolate(
+    "
     You are a coding agent for the Last Blockbuster in Bend, Oregon.
 
-    You have one skill: 'renewal-letters' drafts a renewal letter for a
-    lapsed Last Blockbuster member. Read it with the read_skill tool before
-    you draft a renewal letter.
-  "
+    Read a skill with the read_skill tool before you do the job it describes.
+
+    ## Available skills
+
+    {{ list_skills(skills_dir) }}
+    "
+  )
 )
 
 chat$register_tool(tool_read_file)
 chat$register_tool(tool_write_file)
 chat$register_tool(tool_list_files)
 chat$register_tool(tool_edit_file)
+
+# Register the read_skill tool.
 chat$register_tool(tool_read_skill)
 
 chat$chat(paste(

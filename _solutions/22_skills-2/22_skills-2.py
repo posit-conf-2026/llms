@@ -1,4 +1,6 @@
 # %%
+import frontmatter
+from _tools import edit_file, list_files, read_file, write_file
 from chatlas import ChatPosit
 from pyhere import here
 
@@ -12,58 +14,7 @@ from pyhere import here
 # rule, tier incentives, and promises caveat.
 
 # %%
-project_dir = here("_solutions/22_skills-2/blockbuster")
 skills_dir = here("_solutions/22_skills-2/skills")
-
-
-# %%
-def read_file(path: str) -> str:
-    """
-    Read the full contents of a file in the Blockbuster workspace.
-
-    Use this to inspect the store records before you write a script.
-    """
-    return (project_dir / path).read_text()
-
-
-def write_file(path: str, content: str) -> str:
-    """
-    Write a file in the Blockbuster workspace, overwriting it if it exists.
-
-    Use this to create a script, a CSV, or a letter draft.
-    """
-    (project_dir / path).write_text(content)
-    return f"Wrote {path}."
-
-
-def list_files() -> str:
-    """
-    List the names of files in the Blockbuster workspace.
-
-    Use this to discover new files before you read or edit them.
-    """
-    return "\n".join(p.name for p in project_dir.iterdir())
-
-
-def edit_file(path: str, old: str, new: str) -> str:
-    """
-    Replace one exact span of text in a workspace file.
-
-    The existing text must appear exactly once or the tool returns an error.
-    Use this to patch a script instead of rewriting it.
-    """
-    full = project_dir / path
-    content = full.read_text()
-    matches = content.count(old)
-
-    if matches == 0:
-        raise ValueError(f"Could not find the text to replace in {path}.")
-
-    if matches != 1:
-        raise ValueError(f"Expected one exact match in {path}, but found {matches}.")
-
-    full.write_text(content.replace(old, new))
-    return f"Edited {path}."
 
 
 def read_skill(skill: str) -> str:
@@ -80,15 +31,28 @@ def read_skill(skill: str) -> str:
     return (skills_dir / skill / "SKILL.md").read_text()
 
 
+def list_skills(skills_dir):
+    skill_files = sorted(skills_dir.rglob("SKILL.md"))
+    skill_metadata = [frontmatter.load(path).metadata for path in skill_files]
+
+    return "\n".join(
+        f"- {skill['name']}: {skill['description']}" for skill in skill_metadata
+    )
+
+
+list_skills(skills_dir)
+
 # %%
 chat = ChatPosit(
     model="zai-org/GLM-5.3-Flash",
-    system_prompt="""
+    system_prompt=f"""
 You are a coding agent for the Last Blockbuster in Bend, Oregon.
 
-You have one skill: 'renewal-letters' drafts a renewal letter for a lapsed Last
-Blockbuster member. Read it with the read_skill tool before you draft a renewal
-letter.
+Read a skill with the read_skill tool before you do the job it describes.
+
+## Available skills
+
+{list_skills(skills_dir)}
 """,
 )
 
