@@ -42,6 +42,8 @@ def write_file(path: str, content: str) -> str:
     return f"Wrote {path}."
 
 
+# %%
+# STEP 1: The list files tool.
 def list_files() -> str:
     """
     List the names of files in the Blockbuster workspace.
@@ -51,6 +53,8 @@ def list_files() -> str:
     return "\n".join(p.name for p in project_dir.iterdir())
 
 
+# %%
+# STEP 2: The edit file tool.
 def edit_file(path: str, old: str, new: str) -> str:
     """
     Replace one exact span of text in a workspace file.
@@ -81,25 +85,16 @@ def edit_file(path: str, old: str, new: str) -> str:
     return f"Edited {path}."
 
 
+# %% [markdown]
+# **Step 3:** Prepare the agent with its tools.
+
 # %%
 chat = ChatPosit(
     model="zai-org/GLM-5.3-Flash",
     system_prompt="""
 You are a coding agent for the Last Blockbuster in Bend, Oregon.
-Start by reading README.md and every store document it names.
-The initial workspace has members.csv, rentals.csv, and dues.csv.
-Do not guess paths that are not in those records.
-Do not read rentals.csv with read_file because it has 1,500 rows.
-Write a script that reads the rental log instead.
-Write the first script for only the files that exist now.
-Do not add support for future exports until the user asks you to update it.
-For the initial renewal-drive task, use only those records.
-Do not use list_files or look for another export until the user says one arrived.
-You cannot run code or use tools beyond the ones registered for you.
+Work in the current directory.
 When a task needs code, write a Python script for the user to run.
-Write scripts with paths relative to the workspace because the user runs them
-from inside the blockbuster folder.
-Do not say a data task is complete until you have written the script.
 """,
 )
 
@@ -109,17 +104,27 @@ chat.register_tool(write_file)
 chat.register_tool(list_files)
 chat.register_tool(edit_file)
 
-# %%
-chat.chat(
-    "It is time for the renewal drive. Which members have gone quiet? "
-    "Build the win-back list as win-back.csv by writing find_lapsed.py for me "
-    "to run from inside the blockbuster folder."
-)
+# %% [markdown]
+# **Step 4:** Put your agent to work.
 
 # %%
 chat.chat(
-    "The manager found an old register export and dropped it in the folder. "
-    "Bring the win-back list up to date."
+    """
+It is time for the renewal drive. Which members have gone quiet?
+Build the win-back list as `win-back.csv` by writing `find_lapsed.py`
+for me to run from inside the blockbuster folder.
+"""
+)
+
+# %% [markdown]
+# **Step 5:** Your manager found an old register export.
+
+# %%
+chat.chat(
+    """
+The manager found an old register export and dropped it in the folder.
+Bring the win-back list up to date.
+"""
 )
 
 # %% [markdown]

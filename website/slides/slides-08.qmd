@@ -118,6 +118,8 @@ Both generated scripts produced 11 rows.
 * Say things about the store's rules that it never actually read?
 
 * Would you hand this list to your manager?
+
+* If you ran the code: how many lapsed members did it find?
 :::
 
 ::: notes
@@ -128,25 +130,15 @@ The hallucination question is the important one: agents confidently cite "store 
 Ask the room: the manager calls whoever is on this list — what would make you trust it?
 :::
 
-## The manager finds another export {.center}
-
-The first win-back list has 11 members.
-
-::: notes
-The agent has a working script, but it had to be told which files to read.
-
-Next, the manager drops an old register export into the folder.
-
-The agent needs a way to discover that file and make a narrow change to the script it already wrote.
-:::
-
 # Your Turn `20_agent-2` {.slide-your-turn}
 
 1. Give your agent a **list files** tool and an **edit** tool.
 
-1. Build the win-back list, then tell it the manager dropped an old register export in the folder. Do not name the file.
+1. Build the win-back list script again. Do these tools make your agent more effective?
 
-1. Run the patched script. The list drops from 11 members to 8.
+1. Your manager found **an old paper register**!
+
+1. Without naming the file, ask the agent to bring the list up to date.
 
 {{< countdown 5:00 left=0 bottom="-2em" >}}
 

@@ -6,7 +6,9 @@ library(here)
 project_dir <- here("_solutions/20_agent-2", "blockbuster")
 proj_path <- function(path) file.path(project_dir, path)
 
-# Tools ------------------------------------------------------------------------
+# Read/Write Tools -------------------------------------------------------------
+# These are the read and write tools from the last exercise.
+# Skip ahead to the list files tool.
 
 read_file <- function(path) {
   brio::read_file(proj_path(path))
@@ -40,33 +42,9 @@ tool_write_file <- tool(
   )
 )
 
-# New tools --------------------------------------------------------------------
-
+# STEP 1: The list files tool --------------------------------------------------
 list_files <- function() {
   paste(list.files(project_dir), collapse = "\n")
-}
-
-edit_file <- function(path, old, new) {
-  full <- proj_path(path)
-  content <- brio::read_file(full)
-  matches <- gregexpr(old, content, fixed = TRUE)[[1]]
-
-  if (identical(matches, -1L)) {
-    stop("Could not find the text to replace in ", path, ".")
-  }
-
-  if (length(matches) != 1L) {
-    stop(
-      "Expected one exact match in ",
-      path,
-      ", but found ",
-      length(matches),
-      "."
-    )
-  }
-
-  brio::write_file(sub(old, new, content, fixed = TRUE), full)
-  paste0("Edited ", path, ".")
 }
 
 tool_list_files <- tool(
@@ -76,6 +54,26 @@ tool_list_files <- tool(
     "Use this to discover new files before you read or edit them."
   )
 )
+
+# STEP 2: The edit file tool ---------------------------------------------------
+edit_file <- function(path, old, new) {
+  full <- proj_path(path)
+  content <- brio::read_file(full)
+  matches <- gregexpr(old, content, fixed = TRUE)[[1]]
+
+  if (identical(matches, -1L)) {
+    cli::cli_abort("Could not find the text to replace in {path}.")
+  }
+
+  if (length(matches) != 1L) {
+    cli::cli_abort(
+      "Expected one exact match in {path}, but found {length(matches)}."
+    )
+  }
+
+  brio::write_file(sub(old, new, content, fixed = TRUE), full)
+  paste0("Edited ", path, ".")
+}
 
 tool_edit_file <- tool(
   edit_file,
@@ -91,28 +89,13 @@ tool_edit_file <- tool(
   )
 )
 
-# Agent ------------------------------------------------------------------------
-
+# STEP 3: Prepare the agent with its tools -------------------------------------
 chat <- chat_posit(
   model = "zai-org/GLM-5.3-Flash",
-  system_prompt = "
-    You are a coding agent for the Last Blockbuster in Bend, Oregon.
-    Start by reading README.md and every store document it names.
-    The initial workspace has members.csv, rentals.csv, and dues.csv.
-    Do not guess paths that are not in those records.
-    Do not read rentals.csv with read_file because it has 1,500 rows.
-    Write a script that reads the rental log instead.
-    Write the first script for only the files that exist now.
-    Do not add support for future exports until the user asks you to update it.
-    For the initial renewal-drive task, use only those records.
-    Do not use list_files or look for another export until the user says one arrived.
-    You cannot run code or use tools beyond the ones registered for you.
-    When a task needs code, write an R script for the user to run.
-    Use base R and aggregate() for per-member summaries so join keys stay columns.
-    Write scripts with paths relative to the workspace because the user runs
-    them from inside the blockbuster folder.
-    Do not say a data task is complete until you have written the script.
-  "
+  system_prompt = r"(
+You are a coding agent for the Last Blockbuster in Bend, Oregon.
+Work in the current directory.
+When a task needs code, write an R script for the user to run.)"
 )
 
 chat$register_tool(tool_read_file)
@@ -120,16 +103,20 @@ chat$register_tool(tool_write_file)
 chat$register_tool(tool_list_files)
 chat$register_tool(tool_edit_file)
 
-chat$chat(paste(
-  "It is time for the renewal drive. Which members have gone quiet?",
-  "Build the win-back list as win-back.csv by writing find_lapsed.R for me to",
-  "run from inside the blockbuster folder."
-))
+# STEP 4: Put your agent to work -----------------------------------------------
+chat$chat(
+  r"(
+It is time for the renewal drive. Which members have gone quiet?
+Build the win-back list as `win-back.csv` by writing `find_lapsed.R`
+for me to run from inside the blockbuster folder.)"
+)
 
-chat$chat(paste(
-  "The manager found an old register export and dropped it in the folder.",
-  "Bring the win-back list up to date."
-))
+# STEP 5: Your manager found an old register export ----------------------------
+chat$chat(
+  r"(
+The manager found an old register export and dropped it in the folder.
+Bring the win-back list up to date.)"
+)
 
 # Inspect the whole conversation, including every tool call.
 chat
