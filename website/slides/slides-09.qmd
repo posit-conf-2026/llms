@@ -137,13 +137,34 @@ Give a default, not a menu: one way to do it, with an escape hatch.
 Gotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions.
 :::
 
+## The scene: win-back letters {.center}
+
+Your win-back work paid off and found three Founders members we really want to keep.
+Your job is to write those letters.
+
+| Member | Tier | Last rented |
+|:----------|:-------|:------------------|
+| Elaine Wu | Founders | The Princess Bride |
+| Theo Bennett | Founders | The Matrix |
+| Marisol Vega | Founders | The Goonies |
+
+::: notes
+This is the ground truth for the exercise: the win-back list from the last round narrowed to three members, and all three are Founders tier — the ones we most want to keep — so each letter should offer the commemorative card, not a free-rental code or family bundle.
+
+A good letter also greets the member by name, references their last rented title, invites them back, and never mentions overdue fees or unlisted discounts. Letters land in `letters/drafts/`, named like `elaine-wu.md`.
+
+You don't need to read the skill or the CSVs in detail to judge the agent: right three people, right perk, warm voice, no fee talk, three files.
+
+If your agent drafts for a Basic member like Malik Johnson, or invents a tier fact, you'll now spot it immediately.
+:::
+
 # Your Turn `21_skills-1` {.slide-your-turn}
 
 1. Your Blockbuster agent gets a skill: `renewal-letters` holds the letter-writing instructions.
 
 1. List the skill in the system prompt, and give the agent a tool to read it.
 
-1. Draft letters for the top three lapsed members. Watch the agent read the skill **before** it starts drafting.
+1. Draft letters for the top three lapsed members. Watch the agent read the skill **before** it starts drafting — and check them against the scene we just saw.
 
 {{< countdown 5:00 left=0 bottom="-2em" >}}
 
@@ -153,6 +174,34 @@ The read_skill tool is like the read_file tool, pointed at the skills folder.
 The system prompt listing is the manual version of what real harnesses generate automatically at startup.
 
 The trace should show read_skill firing when the agent starts the letter task.
+:::
+
+## Discussion: Did your agent...? {.center}
+
+::: incremental
+* Read the skill **before** it drafted a single letter?
+
+* Pick the right top three members from `lapsed.csv`?
+
+* Invent tier facts — a Founders perk for someone who isn't one?
+
+* Mention overdue fees, even though the skill forbids it?
+
+* Leave the data files untouched?
+:::
+
+::: notes
+Stress-test evidence, five runs: the mechanism you built works — `read_skill` fired first in every single run, before any drafting.
+
+But the agent picked the wrong "top three" in one of five runs, drafting for Malik Johnson instead of Elaine Wu — reading the file isn't the same as reading it carefully.
+
+That same run compounded the error: it called a Basic-tier member "one of our Founders members" and gave him a commemorative card. Wrong pick, wrong perk.
+
+Another run wrote "late fees we won't dwell on" in a letter — a direct brush with the skill's no-fees rule.
+
+The good news: in all five runs the data files were left untouched, tool calls were clean, and four of five letter sets were correct.
+
+Close on the failure modes: skills load reliably, but grounding — who are the top three, what tier are they — still depends on the agent checking its sources.
 :::
 
 # Your Turn `22_skills-2` {.slide-your-turn}

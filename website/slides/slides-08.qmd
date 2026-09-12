@@ -87,6 +87,24 @@ Hadley: "A coding agent is six functions in a trenchcoat" — read file, write f
 
 # [Blockbuster Agent]{.hidden} {.no-invert-dark-mode background-image="assets/robot-blockbuster.png" background-size="cover"}
 
+## Welcome to the Last Blockbuster {.center}
+
+::: incremental
+* You work at the Last Blockbuster in the universe, in Bend, Oregon.
+
+* The store runs on its annual membership renewal drive.
+
+* Your job is to find members who have gone quiet and win them back.
+:::
+
+::: notes
+This is the story world for the rest of the workshop: every exercise is a shift at the Last Blockbuster, with a real-ish records folder — `members.csv`, `rentals.csv`, `dues.csv`, and the manager's `notes.md`.
+
+The manager is a recurring character: a new task arrives mid-shift, or an old paper register turns up and changes yesterday's task. When that happens in an exercise, roll with it — real work looks like that too.
+
+A nice side effect: as the human, you'll often know the ground truth before you hand the task to the agent. That's what makes it possible to judge the agent's work instead of just accepting it.
+:::
+
 # Your Turn `19_agent-1` {.slide-your-turn}
 
 1. Your agent works in the Last Blockbuster's records folder.
