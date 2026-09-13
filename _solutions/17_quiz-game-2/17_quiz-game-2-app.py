@@ -17,6 +17,7 @@ sound_map: dict[SoundChoice, Path] = {
 }
 
 
+# STEP 1: Document this function so the LLM knows how to use it ----
 def play_sound(sound: SoundChoice = "correct") -> str:
     """
     Plays a sound effect.
@@ -51,24 +52,27 @@ app_ui = ui.page_fillable(
 
 
 def server(input, output, session):
+    # Recall: We set up the Chat UI server logic and the chat client in the
+    # server function so that each user session gets its own chat history.
     chat_ui = ui.Chat(id="chat")
-
-    # Set up the chat instance
     client = chatlas.ChatPosit(
         model="zai-org/GLM-5.3-Flash",
         system_prompt=here("_solutions/17_quiz-game-2/prompt.md").read_text(),
     )
+
+    # STEP 2: Register the tool with the chat client ----
     client.register_tool(play_sound)
 
     @chat_ui.on_user_submit
     async def handle_user_input(user_input: str):
-        # Use `content="all"` to include tool calls in the response stream
+        # STEP 3: Set `content="all"` when streaming from the chatlas client
+        # so that the Chat UI includes tool calls
         response = await client.stream_async(user_input, content="all")
         await chat_ui.append_message_stream(response)
 
     @reactive.effect
     def _():
-        # Start the game when the app launches
+        # Note: This block starts the game when the app launches
         chat_ui.update_user_input(value="Let's play the quiz game!", submit=True)
 
 

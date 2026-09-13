@@ -52,7 +52,7 @@ def server(input, output, session):
     async def handle_user_input(user_input: str):
         # STEP 3: Set `content="all"` when streaming from the chatlas client
         # so that the Chat UI includes tool calls
-        response = await client.stream_async(user_input)
+        response = await client.stream_async(user_input, content="____")
         await chat_ui.append_message_stream(response)
 
     @reactive.effect

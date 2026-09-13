@@ -27,6 +27,8 @@ play_sound <- function(
   glue::glue("The '{sound}' sound was played.")
 }
 
+# STEP 1: Create a tool definition with documentation ----
+# Remember: you're teaching the LLM how and when to use this function.
 tool_play_sound <- tool(
   play_sound,
   description = "Play a sound effect",
@@ -59,12 +61,13 @@ server <- function(input, output, session) {
     )
   )
 
+  # STEP 2: Register the tool with the chat client ----
   client$register_tool(tool_play_sound)
 
   chat <- chat_mod_server("chat", client)
 
   observe({
-    # Start the game when the app launches
+    # Note: This block starts the game when the app launches
     chat$update_user_input(
       value = "Let's play the quiz game!",
       submit = TRUE
