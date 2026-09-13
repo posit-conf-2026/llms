@@ -741,7 +741,8 @@ extract_age <- function(s) {
 ## If you wrote R code, it might look like this... {.scrollable}
 
 ::: notes
-And here's what running that code looks like. It works, but look at all the code you had to write!
+Here's what running that code looks like.
+The missing values and incorrect age for Kwame show how brittle handwritten parsing can be.
 :::
 
 ::: {.easy-columns .gap-2}
