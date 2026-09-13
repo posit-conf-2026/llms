@@ -473,7 +473,7 @@ Fear keeps them standing.
 
    > Answer in as few words as possible.
 
-1. **Ask:** _What ellmer and chatlas functions create an Anthropic chat?_
+1. **Ask:** _What creates an Anthropic chat in ellmer and chatlas?_
 
 1. **Ask:** _What about OpenAI?_
 
@@ -494,7 +494,7 @@ Answer in as few words as possible.
 **First question:**
 
 ```{.markdown code-line-numbers=false}
-What ellmer and chatlas functions create an Anthropic chat?
+What creates an Anthropic chat in ellmer and chatlas?
 ```
 
 **Second question:**
@@ -777,6 +777,6 @@ Passing `client=` gives `Chat` the same batteries-included behavior as
 
 2. Your job: create a chatbot that plays a "20 questions" style word guessing game with you.
 
-3. The model comes up with a word, and it's your job to guess the word.
+3. The model was given a secret word, and it's your job to guess it.
 
 {{< countdown 7:00 top="-1em" >}}
