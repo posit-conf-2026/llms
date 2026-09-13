@@ -16,9 +16,3 @@ chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
 
 # %%
 chat.console()
-
-# %% [markdown]
-# After a bit, exit the chat and try chatting in a Shiny app.
-
-# %%
-chat.app()

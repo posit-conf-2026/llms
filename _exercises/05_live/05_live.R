@@ -9,6 +9,3 @@ chat <- chat_posit(model = "zai-org/GLM-5.3-Flash")
 
 # Converse with the chatbot in your console.
 live_console(chat)
-
-# After a bit, exit the chat and try chatting in a Shiny app.
-live_browser(chat)
