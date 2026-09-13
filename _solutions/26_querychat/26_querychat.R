@@ -1,0 +1,24 @@
+library(ellmer)
+library(querychat)
+
+# Load the data
+airbnb_data <- read.csv(here::here("data/airbnb-austin.csv"))
+
+# QueryChat turns a data frame into an app with chat, data, and SQL views.
+qc <- QueryChat$new(
+  airbnb_data,
+  "airbnb_data",
+  client = chat_posit(model = "zai-org/GLM-5.3-Flash"),
+  greeting = "Ask me about Austin Airbnb listings.",
+  data_dict = here::here("data/airbnb-austin_data-dict.yaml")
+)
+
+qc$app()
+
+# Your turn -------------------------------------------------------------------
+
+# 1. Ask: Which neighborhood has the most private rooms?
+# 2. Open the data drawer and select Show Query to inspect the generated SQL.
+# 3. Ask a follow-up question about the private rooms in that neighborhood.
+# 4. Uncomment `data_dict`, restart the app, and ask: Among private rooms, which
+#    property types are most common?

@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import querychat
 import shinywidgets as sw
+from chatlas import ChatPosit
 from faicons import icon_svg
 from pyhere import here
 from shiny import App, reactive, render, ui
@@ -18,15 +19,20 @@ room_type_choices = sorted(airbnb_data["room_type"].dropna().unique().tolist())
 neighborhood_choices = airbnb_data["neighborhood"].dropna().unique().tolist()
 
 # Step 1: Set up querychat ----------
-# Configure querychat. This is where you specify the dataset and can also
-# override options like the greeting message, system prompt, model, etc.
-airbnb_qc_config = querychat.init(airbnb_data, "airbnb_data")
+# Create a QueryChat object with the dataset, its SQL table name, and a Posit
+# AI Pass client. You can also set options such as the greeting message and
+# system prompt.
+airbnb_qc = querychat.QueryChat(
+    airbnb_data,
+    "airbnb_data",
+    client=ChatPosit(),
+)
 
 # UI ===------------------------------------------------------------------------
 app_ui = ui.page_sidebar(
     # Step 2: Replace sidebar ----
-    # Replace the entire sidebar with querychat.sidebar("airbnb")
-    querychat.sidebar("airbnb"),
+    # Replace the entire sidebar with airbnb_qc.sidebar().
+    airbnb_qc.sidebar(),
     # Extra UI added when you add in querychat
     ui.card(
         ui.card_body(
@@ -49,7 +55,7 @@ app_ui = ui.page_sidebar(
         max_height="400px",
         full_screen=True,
     )
-    if "airbnb_qc_config" in globals()
+    if "airbnb_qc" in globals()
     else None,
     # Value boxes ----
     ui.layout_columns(
@@ -100,16 +106,15 @@ app_ui = ui.page_sidebar(
 # Server -----------------------------------------------------------------------
 def server(input, output, session):
     # Step 3: Set up querychat server ----
-    # Create an `airbnb_qc` querychat object by calling `querychat.server()`
-    # with the same ID and config from steps 2 and 1.
-    airbnb_qc = querychat.server("airbnb", airbnb_qc_config)
+    # Create session-specific reactive values by calling airbnb_qc.server().
+    airbnb_qc_vals = airbnb_qc.server()
 
     # Step 4: Use the querychat-filtered data ----
     # Replace all of the logic inside of `filtered_data()` with
-    # `pl.DataFrame(airbnb_qc.df())`.
+    # `airbnb_qc_vals.df()`.
     @reactive.calc
     def filtered_data():
-        return airbnb_qc.df()
+        return airbnb_qc_vals.df()
 
     @render.text
     def num_listings():
@@ -151,7 +156,7 @@ def server(input, output, session):
         fig.update_layout(showlegend=True, font_size=14)
         fig.update_yaxes(title_text="Count")
         fig.update_xaxes()
-        fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
+        fig.update_layout(margin={"l": 0, "r": 0, "t": 0, "b": 0})
         return fig
 
     @sw.render_widget
@@ -220,20 +225,25 @@ def server(input, output, session):
         )
 
         fig.update_layout(
-            mapbox_style="open-street-map", margin=dict(l=0, r=0, t=0, b=0)
+            mapbox_style="open-street-map",
+            margin={"l": 0, "r": 0, "t": 0, "b": 0},
         )
         return fig
 
-    if "airbnb_qc_config" in globals():
+    if "airbnb_qc" in globals():
 
         @render.ui
         def ui_sql():
-            sql = airbnb_qc.sql() if airbnb_qc.sql() else "SELECT * FROM airbnb_data"
+            sql = (
+                airbnb_qc_vals.sql()
+                if airbnb_qc_vals.sql()
+                else "SELECT * FROM airbnb_data"
+            )
             return ui.pre(ui.code(sql))
 
         @render.data_frame
         def table():
-            return airbnb_qc.df()
+            return airbnb_qc_vals.df()
 
 
 app = App(app_ui, server)

@@ -18,9 +18,14 @@ airbnb_data <-
   mutate(occupancy_pct = (365 - availability_365) / 365)
 
 # Step 1: Set up querychat ----------
-# Configure querychat. This is where you specify the dataset and can also
-# override options like the greeting message, system prompt, model, etc.
-airbnb_qc_config <- querychat_init(airbnb_data)
+# Create a QueryChat object with the dataset, its SQL table name, and a Posit
+# AI Pass client. You can also set options such as the greeting message and
+# system prompt.
+airbnb_qc <- QueryChat$new(
+  airbnb_data,
+  "airbnb_data",
+  client = chat_posit(model = "zai-org/GLM-5.3-Flash")
+)
 
 # UI --------------------------------------------------------------------------
 ui <- page_sidebar(
@@ -28,10 +33,10 @@ ui <- page_sidebar(
   class = "bslib-page-dashboard",
 
   # Step 2: Replace sidebar ----
-  # Replace the entire sidebar with querychat_sidebar("airbnb")
-  sidebar = querychat_sidebar("airbnb"),
+  # Replace the entire sidebar with airbnb_qc$sidebar().
+  sidebar = airbnb_qc$sidebar(),
 
-  if (exists("airbnb_qc_config")) {
+  if (exists("airbnb_qc")) {
     card(
       fill = FALSE,
       max_height = "400px",
@@ -104,15 +109,14 @@ ui <- page_sidebar(
 
 server <- function(input, output, session) {
   # Step 3: Set up querychat server ----
-  # Create an `airbnb_qc` querychat object by calling `querychat_server()` with
-  # the same ID and config from steps 2 and 1.
-  airbnb_qc <- querychat_server("airbnb", airbnb_qc_config)
+  # Create session-specific reactive values by calling airbnb_qc$server().
+  airbnb_qc_vals <- airbnb_qc$server()
 
   # Step 4: Use the querychat-filtered data ----
   # Replace all of the logic inside of `filtered_data()` with
-  # `airbnb_qc$df()`.
+  # `airbnb_qc_vals$df()`.
   filtered_data <- reactive({
-    airbnb_qc$df()
+    airbnb_qc_vals$df()
   })
 
   # Value boxes
@@ -177,16 +181,16 @@ server <- function(input, output, session) {
   # querychat outputs
   if (exists("airbnb_qc")) {
     output$ui_sql <- renderUI({
-      sql <- airbnb_qc$sql()
+      sql <- airbnb_qc_vals$sql()
       if (!isTruthy(sql)) {
-        sql <- "SELECT * FROM aibnb_data"
+        sql <- "SELECT * FROM airbnb_data"
       }
       HTML(paste0("<pre><code>", sql, "</code></pre>"))
     })
 
     output$table <- renderReactable({
       reactable(
-        airbnb_qc$df(),
+        airbnb_qc_vals$df(),
         columns = list(
           name = colDef(minWidth = 200),
           price = colDef(
@@ -209,7 +213,7 @@ server <- function(input, output, session) {
         striped = TRUE,
         showPageSizeOptions = TRUE,
         details = function(index) {
-          row <- airbnb_qc$df()[index, ]
+          row <- airbnb_qc_vals$df()[index, ]
           htmltools::div(
             style = "padding: 16px;",
             htmltools::tags$strong("Description:"),
