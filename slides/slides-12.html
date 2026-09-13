@@ -235,6 +235,72 @@
 <h1><span class="hidden">querychat</span></h1>
 
 </section>
+<section id="ask-questions.-inspect-the-sql." class="slide level2 center">
+<h2>Ask questions. Inspect the SQL.</h2>
+<p>querychat turns a question about your data into a SQL query, runs the query, and shows the result.</p>
+<ul>
+<li>Ask questions in natural language.</li>
+<li>Inspect the generated SQL.</li>
+<li>See the filtered data in the same app.</li>
+</ul>
+<p>The built-in app includes chat, a data table, and a SQL view.</p>
+</section>
+<section id="start-with-a-data-frame" class="slide level2 center">
+<h2>Start with a data frame</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="r">R</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-fragment-index="1" data-code-line-numbers="|3|5|6-7|8|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">library</span>(querychat)</span>
+<span id="cb1-4"><a aria-label="4"></a></span>
+<span id="cb1-5"><a aria-label="5"></a>qc <span class="ot">&lt;-</span> QueryChat<span class="sc">$</span><span class="fu">new</span>(</span>
+<span id="cb1-6"><a aria-label="6"></a>  airbnb_data,</span>
+<span id="cb1-7"><a aria-label="7"></a>  <span class="st">"airbnb_data"</span>,</span>
+<span id="cb1-8"><a aria-label="8"></a>  <span class="at">client =</span> <span class="fu">chat_posit</span>()</span>
+<span id="cb1-9"><a aria-label="9"></a>)</span>
+<span id="cb1-10"><a aria-label="10"></a></span>
+<span id="cb1-11"><a aria-label="11"></a>qc<span class="sc">$</span><span class="fu">app</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<h3 id="python">Python</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a aria-label="2"></a><span class="im">from</span> chatlas <span class="im">import</span> ChatPosit</span>
+<span id="cb2-3"><a aria-label="3"></a><span class="im">from</span> querychat <span class="im">import</span> QueryChat</span>
+<span id="cb2-4"><a aria-label="4"></a></span>
+<span id="cb2-5"><a aria-label="5"></a>qc <span class="op">=</span> QueryChat(</span>
+<span id="cb2-6"><a aria-label="6"></a>    airbnb_data,</span>
+<span id="cb2-7"><a aria-label="7"></a>    <span class="st">"airbnb_data"</span>,</span>
+<span id="cb2-8"><a aria-label="8"></a>    client<span class="op">=</span>ChatPosit(),</span>
+<span id="cb2-9"><a aria-label="9"></a>)</span>
+<span id="cb2-10"><a aria-label="10"></a></span>
+<span id="cb2-11"><a aria-label="11"></a>app <span class="op">=</span> qc.app()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<aside class="notes">
+<p>When column names need explanation, pass a data dictionary with <code>data_dict</code>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="your-turn-26_querychat" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>26_querychat</code></h1>
+<ol type="1">
+<li><p>Chat with the app. Which neighborhood has the most private rooms?</p></li>
+<li><p>Open the data drawer and select <strong>Show Query</strong> to inspect the SQL.</p></li>
+<li><p>Restart the app with <code>data_dict</code> included.<br>
+<em>Among private rooms, which property types are most common?</em></p></li>
+</ol>
+<countdown-timer id="timer_ee51e783c2c5791afdee9aff1d0f8fdec3f9a9f8" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
+ </countdown-timer>
+</section>
 <section id="section" class="slide level2 center tc" data-transition="fade">
 <h2></h2>
 
@@ -249,68 +315,74 @@
 <img data-src="assets/querychat-parts.excalidraw.svg" class="r-stretch"></section>
 <section id="querychat-in-r" class="slide level2">
 <h2>querychat in R</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="|3|5|8|13|8,13|15-17"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(bslib)</span>
-<span id="cb1-3"><a aria-label="3"></a><span class="fu">library</span>(querychat)</span>
-<span id="cb1-4"><a aria-label="4"></a></span>
-<span id="cb1-5"><a aria-label="5"></a>mtcars_qc_config <span class="ot">&lt;-</span> <span class="fu">querychat_init</span>(mtcars)</span>
-<span id="cb1-6"><a aria-label="6"></a></span>
-<span id="cb1-7"><a aria-label="7"></a>ui <span class="ot">&lt;-</span> <span class="fu">page_sidebar</span>(</span>
-<span id="cb1-8"><a aria-label="8"></a>  <span class="at">sidebar =</span> <span class="fu">querychat_sidebar</span>(<span class="st">"mtcars"</span>),</span>
-<span id="cb1-9"><a aria-label="9"></a>  <span class="co"># plots, tables, etc.</span></span>
-<span id="cb1-10"><a aria-label="10"></a>)</span>
-<span id="cb1-11"><a aria-label="11"></a></span>
-<span id="cb1-12"><a aria-label="12"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb1-13"><a aria-label="13"></a>  mtcars_qc <span class="ot">&lt;-</span> <span class="fu">querychat_server</span>(<span class="st">"mtcars"</span>, mtcars_qc_config)</span>
-<span id="cb1-14"><a aria-label="14"></a></span>
-<span id="cb1-15"><a aria-label="15"></a>  output<span class="sc">$</span>table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
-<span id="cb1-16"><a aria-label="16"></a>    mtcars_qc<span class="sc">$</span><span class="fu">df</span>()</span>
-<span id="cb1-17"><a aria-label="17"></a>  })</span>
-<span id="cb1-18"><a aria-label="18"></a>}</span>
-<span id="cb1-19"><a aria-label="19"></a></span>
-<span id="cb1-20"><a aria-label="20"></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="|4|6|9|14|9,14|16-18"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">library</span>(bslib)</span>
+<span id="cb3-3"><a aria-label="3"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb3-4"><a aria-label="4"></a><span class="fu">library</span>(querychat)</span>
+<span id="cb3-5"><a aria-label="5"></a></span>
+<span id="cb3-6"><a aria-label="6"></a>mtcars_qc <span class="ot">&lt;-</span> QueryChat<span class="sc">$</span><span class="fu">new</span>(mtcars, <span class="at">client =</span> <span class="fu">chat_posit</span>())</span>
+<span id="cb3-7"><a aria-label="7"></a></span>
+<span id="cb3-8"><a aria-label="8"></a>ui <span class="ot">&lt;-</span> <span class="fu">page_sidebar</span>(</span>
+<span id="cb3-9"><a aria-label="9"></a>  <span class="at">sidebar =</span> mtcars_qc<span class="sc">$</span><span class="fu">sidebar</span>(),</span>
+<span id="cb3-10"><a aria-label="10"></a>  <span class="co"># plots, tables, etc.</span></span>
+<span id="cb3-11"><a aria-label="11"></a>)</span>
+<span id="cb3-12"><a aria-label="12"></a></span>
+<span id="cb3-13"><a aria-label="13"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb3-14"><a aria-label="14"></a>  mtcars_qc_vals <span class="ot">&lt;-</span> mtcars_qc<span class="sc">$</span><span class="fu">server</span>()</span>
+<span id="cb3-15"><a aria-label="15"></a></span>
+<span id="cb3-16"><a aria-label="16"></a>  output<span class="sc">$</span>table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb3-17"><a aria-label="17"></a>    mtcars_qc_vals<span class="sc">$</span><span class="fu">df</span>()</span>
+<span id="cb3-18"><a aria-label="18"></a>  })</span>
+<span id="cb3-19"><a aria-label="19"></a>}</span>
+<span id="cb3-20"><a aria-label="20"></a></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="querychat-in-python" class="slide level2">
 <h2>querychat in Python</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="|2|5-7|10|15|10,15|17-19"><pre class="sourceCode numberSource python scrollable number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb2-2"><a aria-label="2"></a><span class="im">import</span> querychat</span>
-<span id="cb2-3"><a aria-label="3"></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
-<span id="cb2-4"><a aria-label="4"></a></span>
-<span id="cb2-5"><a aria-label="5"></a>mtcars <span class="op">=</span> pl.read_csv(<span class="st">"data/mtcars.csv"</span>)</span>
-<span id="cb2-6"><a aria-label="6"></a></span>
-<span id="cb2-7"><a aria-label="7"></a>mtcars_qc_config <span class="op">=</span> querychat.init(mtcars, <span class="st">"mtcars"</span>)</span>
-<span id="cb2-8"><a aria-label="8"></a></span>
-<span id="cb2-9"><a aria-label="9"></a>app_ui <span class="op">=</span> ui.page_sidebar(</span>
-<span id="cb2-10"><a aria-label="10"></a>    querychat.sidebar(<span class="st">"mtcars"</span>),</span>
-<span id="cb2-11"><a aria-label="11"></a>    <span class="co"># plots, tables, etc.</span></span>
-<span id="cb2-12"><a aria-label="12"></a>)</span>
-<span id="cb2-13"><a aria-label="13"></a></span>
-<span id="cb2-14"><a aria-label="14"></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb2-15"><a aria-label="15"></a>    mtcars_qc <span class="op">=</span> querychat.server(<span class="st">"mtcars"</span>, mtcars_qc_config)</span>
-<span id="cb2-16"><a aria-label="16"></a></span>
-<span id="cb2-17"><a aria-label="17"></a>    <span class="at">@render.data_frame</span></span>
-<span id="cb2-18"><a aria-label="18"></a>    <span class="kw">def</span> data_table():</span>
-<span id="cb2-19"><a aria-label="19"></a>        <span class="cf">return</span> qc.df()</span>
-<span id="cb2-20"><a aria-label="20"></a></span>
-<span id="cb2-21"><a aria-label="21"></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section></section>
-<section id="your-turn-26_querychat" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>26_querychat</code></h1>
-<ol type="1">
-<li><p>I’ve made a Shiny dashboard to explore Airbnb listings in Austin, TX.</p>
-<ul>
-<li>Spend 1-2 min: which Neighborhood has most private rooms?</li>
-</ul></li>
-<li><p>Work through the steps in the comments to use <code>querychat</code>.</p></li>
-<li><p>Spend a few minutes exploring the data and chatting with the app.<br>
-Which area has the most private rooms?</p></li>
-</ol>
-<countdown-timer id="timer_243450695542e77fd83822351904d6c1073eb752" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
- </countdown-timer>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers="|2|5-7|10|15|10,15|17-19"><pre class="sourceCode numberSource python scrollable number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="im">import</span> querychat</span>
+<span id="cb4-3"><a aria-label="3"></a><span class="im">from</span> chatlas <span class="im">import</span> ChatPosit</span>
+<span id="cb4-4"><a aria-label="4"></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
+<span id="cb4-5"><a aria-label="5"></a></span>
+<span id="cb4-6"><a aria-label="6"></a>mtcars <span class="op">=</span> pl.read_csv(<span class="st">"data/mtcars.csv"</span>)</span>
+<span id="cb4-7"><a aria-label="7"></a></span>
+<span id="cb4-8"><a aria-label="8"></a>mtcars_qc <span class="op">=</span> querychat.QueryChat(mtcars, <span class="st">"mtcars"</span>, client<span class="op">=</span>ChatPosit())</span>
+<span id="cb4-9"><a aria-label="9"></a></span>
+<span id="cb4-10"><a aria-label="10"></a>app_ui <span class="op">=</span> ui.page_sidebar(</span>
+<span id="cb4-11"><a aria-label="11"></a>    mtcars_qc.sidebar(),</span>
+<span id="cb4-12"><a aria-label="12"></a>    <span class="co"># plots, tables, etc.</span></span>
+<span id="cb4-13"><a aria-label="13"></a>)</span>
+<span id="cb4-14"><a aria-label="14"></a></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb4-16"><a aria-label="16"></a>    mtcars_qc_vals <span class="op">=</span> mtcars_qc.server()</span>
+<span id="cb4-17"><a aria-label="17"></a></span>
+<span id="cb4-18"><a aria-label="18"></a>    <span class="at">@render.data_frame</span></span>
+<span id="cb4-19"><a aria-label="19"></a>    <span class="kw">def</span> data_table():</span>
+<span id="cb4-20"><a aria-label="20"></a>        <span class="cf">return</span> mtcars_qc_vals.df()</span>
+<span id="cb4-21"><a aria-label="21"></a></span>
+<span id="cb4-22"><a aria-label="22"></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="demo-querychat-dashboard" class="slide level2 slide-demo center">
+<h2>Demo: querychat dashboard</h2>
+<p>👨‍💻 <span class="code b purple">_demos/27_querychat</span></p>
+<aside class="notes">
+<p>Which neighborhood has the most private rooms?</p>
+<p>Among private rooms, which property types are most common?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!-- TODO: New shinychat section (page_chat and v0.5.0 features) -->
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

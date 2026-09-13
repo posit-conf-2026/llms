@@ -98,18 +98,39 @@
     "text": "In Python…\n\n\n\n\n\n\n\nhttps://posit-dev.github.io/raghilda/"
   },
   {
+    "objectID": "slides/slides-12.html#ask-questions.-inspect-the-sql.",
+    "href": "slides/slides-12.html#ask-questions.-inspect-the-sql.",
+    "title": "shinychat and querychat",
+    "section": "Ask questions. Inspect the SQL.",
+    "text": "Ask questions. Inspect the SQL.\nquerychat turns a question about your data into a SQL query, runs the query, and shows the result.\n\nAsk questions in natural language.\nInspect the generated SQL.\nSee the filtered data in the same app.\n\nThe built-in app includes chat, a data table, and a SQL view."
+  },
+  {
+    "objectID": "slides/slides-12.html#start-with-a-data-frame",
+    "href": "slides/slides-12.html#start-with-a-data-frame",
+    "title": "shinychat and querychat",
+    "section": "Start with a data frame",
+    "text": "Start with a data frame\n\n\nR\n\nlibrary(ellmer)\nlibrary(querychat)\n\nqc &lt;- QueryChat$new(\n  airbnb_data,\n  \"airbnb_data\",\n  client = chat_posit()\n)\n\nqc$app()\n\nPython\nimport pandas as pd\nfrom chatlas import ChatPosit\nfrom querychat import QueryChat\n\nqc = QueryChat(\n    airbnb_data,\n    \"airbnb_data\",\n    client=ChatPosit(),\n)\n\napp = qc.app()\n\n\nWhen column names need explanation, pass a data dictionary with data_dict."
+  },
+  {
     "objectID": "slides/slides-12.html#querychat-in-r",
     "href": "slides/slides-12.html#querychat-in-r",
     "title": "shinychat and querychat",
     "section": "querychat in R",
-    "text": "querychat in R\nlibrary(shiny)\nlibrary(bslib)\nlibrary(querychat)\n\nmtcars_qc_config &lt;- querychat_init(mtcars)\n\nui &lt;- page_sidebar(\n  sidebar = querychat_sidebar(\"mtcars\"),\n  # plots, tables, etc.\n)\n\nserver &lt;- function(input, output, session) {\n  mtcars_qc &lt;- querychat_server(\"mtcars\", mtcars_qc_config)\n\n  output$table &lt;- renderTable({\n    mtcars_qc$df()\n  })\n}\n\nshinyApp(ui, server)"
+    "text": "querychat in R\nlibrary(shiny)\nlibrary(bslib)\nlibrary(ellmer)\nlibrary(querychat)\n\nmtcars_qc &lt;- QueryChat$new(mtcars, client = chat_posit())\n\nui &lt;- page_sidebar(\n  sidebar = mtcars_qc$sidebar(),\n  # plots, tables, etc.\n)\n\nserver &lt;- function(input, output, session) {\n  mtcars_qc_vals &lt;- mtcars_qc$server()\n\n  output$table &lt;- renderTable({\n    mtcars_qc_vals$df()\n  })\n}\n\nshinyApp(ui, server)"
   },
   {
     "objectID": "slides/slides-12.html#querychat-in-python",
     "href": "slides/slides-12.html#querychat-in-python",
     "title": "shinychat and querychat",
     "section": "querychat in Python",
-    "text": "querychat in Python\nimport polars as pl\nimport querychat\nfrom shiny import App, render, ui\n\nmtcars = pl.read_csv(\"data/mtcars.csv\")\n\nmtcars_qc_config = querychat.init(mtcars, \"mtcars\")\n\napp_ui = ui.page_sidebar(\n    querychat.sidebar(\"mtcars\"),\n    # plots, tables, etc.\n)\n\ndef server(input, output, session):\n    mtcars_qc = querychat.server(\"mtcars\", mtcars_qc_config)\n\n    @render.data_frame\n    def data_table():\n        return qc.df()\n\napp = App(app_ui, server)"
+    "text": "querychat in Python\nimport polars as pl\nimport querychat\nfrom chatlas import ChatPosit\nfrom shiny import App, render, ui\n\nmtcars = pl.read_csv(\"data/mtcars.csv\")\n\nmtcars_qc = querychat.QueryChat(mtcars, \"mtcars\", client=ChatPosit())\n\napp_ui = ui.page_sidebar(\n    mtcars_qc.sidebar(),\n    # plots, tables, etc.\n)\n\ndef server(input, output, session):\n    mtcars_qc_vals = mtcars_qc.server()\n\n    @render.data_frame\n    def data_table():\n        return mtcars_qc_vals.df()\n\napp = App(app_ui, server)"
+  },
+  {
+    "objectID": "slides/slides-12.html#demo-querychat-dashboard",
+    "href": "slides/slides-12.html#demo-querychat-dashboard",
+    "title": "shinychat and querychat",
+    "section": "Demo: querychat dashboard",
+    "text": "Demo: querychat dashboard\n👨‍💻 _demos/27_querychat\n\nWhich neighborhood has the most private rooms?\nAmong private rooms, which property types are most common?"
   },
   {
     "objectID": "slides/slides-09.html#youve-been-using-skills-all-day",
