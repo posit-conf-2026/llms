@@ -18,7 +18,7 @@ get_weather <- tool(
     forecast <- sf::st_drop_geometry(weathR::point_forecast(lat, lon))
     jsonlite::toJSON(forecast, auto_unbox = TRUE)
   },
-  name = "point_forecast",
+  name = "get_weather",
   description = "Get forecast data for a specific latitude and longitude.",
   arguments = list(
     lat = type_number("Latitude of the location."),
