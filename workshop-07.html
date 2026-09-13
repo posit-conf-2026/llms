@@ -343,19 +343,10 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>(30m) Tool calling
 <ul>
-<li>Explain how tool calling pattern, mostly following <a href="https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny" class="uri">https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny</a></li>
-<li>Activity: quiz show
-<ul>
-<li>We provide an R/Python function that plays a sound
-<ul>
-<li>R: <code>beepr</code>, Python: <a href="https://pypi.org/project/playsound3/">playsound</a></li>
-</ul></li>
-<li>They document the function and register it as a tool in the Quiz Show app</li>
-</ul></li>
-<li>Activity: Add tool annotations to give the tool an icon and title</li>
-<li>Activity: Use <code>ContentToolResult</code> to return custom title and icon</li>
-<li>Activity: Track answers and score in the app (add/update value boxes)</li>
-<li>(Considering) Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.</li>
+<li>Demo <a href="https://github.com/posit-conf-2026/llms/tree/main/_demos/15_demo_manual-tools"><code>_demos/15_demo_manual-tools</code></a>: a human relays tool calls between the LLM and the functions</li>
+<li>Demo <a href="https://github.com/posit-conf-2026/llms/tree/main/_demos/16_demo_tools"><code>_demos/16_demo_tools</code></a>: the same tools, registered with ellmer or chatlas</li>
+<li>Your Turn <a href="https://github.com/posit-conf-2026/llms/tree/main/_exercises/17_quiz-game-2"><code>_exercises/17_quiz-game-2</code></a>: register a <code>play_sound</code> tool (<code>beepr</code> in R, <a href="https://pypi.org/project/playsound3/">playsound</a> in Python) in the Quiz Show app</li>
+<li>Your Turn <a href="https://github.com/posit-conf-2026/llms/tree/main/_exercises/18_quiz-game-3"><code>_exercises/18_quiz-game-3</code></a>: add tool annotations to give the tool a title and an icon. The exercise points to <code>ContentToolResult</code> if you want richer tool displays.</li>
 </ul></li>
 </ul>
 </section>

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="New shinychat features, including page_chat(), plus a simple querychat variant for exploring data.">
+<meta name="description" content="Use querychat to explore data in natural language, then new shinychat features, including page_chat().">
 
 <title>shinychat and querychat – Programming with LLMs in R and Python</title>
 <style>
@@ -90,13 +90,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="shinychat and querychat – Programming with LLMs in R and Python">
-<meta property="og:description" content="New shinychat features, including page_chat(), plus a simple querychat variant for exploring data.">
+<meta property="og:description" content="Use querychat to explore data in natural language, then new shinychat features, including page_chat().">
 <meta property="og:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs in R and Python">
 <meta property="og:image:height" content="400">
 <meta property="og:image:width" content="765">
 <meta name="twitter:title" content="shinychat and querychat – Programming with LLMs in R and Python">
-<meta name="twitter:description" content="New shinychat features, including page_chat(), plus a simple querychat variant for exploring data.">
+<meta name="twitter:description" content="Use querychat to explore data in natural language, then new shinychat features, including page_chat().">
 <meta name="twitter:image" content="https://posit-conf-2026.github.io/llms/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
 <meta name="twitter:site" content="@posit-dev">
@@ -312,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    <p>New shinychat features, including <code>page_chat()</code>, plus a simple querychat variant for exploring data.</p>
+    <p>Use querychat to explore data in natural language, then new shinychat features, including <code>page_chat()</code>.</p>
   </div>
 </div>
 
@@ -331,24 +331,26 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>
-    <p><a href="slides/slides-11.html" target="_blank">View slides in full screen</a></p>
+    <p><a href="slides/slides-12.html" target="_blank">View slides in full screen</a></p>
        <div class="ratio ratio-16x9">
-      <iframe class="slide-deck" src="slides/slides-11.html" height="475px"></iframe>
+      <iframe class="slide-deck" src="slides/slides-12.html" height="475px"></iframe>
     </div>
   
 </section>
 <section id="outline" class="level2">
 <h2 class="anchored" data-anchor-id="outline">Outline</h2>
 <ul>
-<li>(40m) shinychat
-<ul>
-<li>New shinychat features, including <code>page_chat()</code></li>
-<li>See the shinychat v0.5.0 preview blog post: <a href="https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/" class="uri">https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/</a></li>
-</ul></li>
 <li>(20m) querychat
 <ul>
-<li>Simple variant: use querychat to explore some data</li>
-<li>Minimal coding required by this point</li>
+<li>Ask questions about your data in natural language, then inspect the SQL that querychat writes</li>
+<li>Your Turn <a href="https://github.com/posit-conf-2026/llms/tree/main/_exercises/26_querychat"><code>_exercises/26_querychat</code></a>: explore the airbnb data in the built-in querychat app, inspect the SQL, and restart the app with a data dictionary</li>
+<li>Demo <a href="https://github.com/posit-conf-2026/llms/tree/main/_demos/27_querychat"><code>_demos/27_querychat</code></a>: a Shiny dashboard built around querychat</li>
+</ul></li>
+<li>(40m) shinychat
+<ul>
+<li>Your Turn <a href="https://github.com/posit-conf-2026/llms/tree/main/_exercises/24_shinychat-1"><code>_exercises/24_shinychat-1</code></a>: put the Blockbuster renewal agent in a <code>page_chat()</code> app and add a greeting with suggestion cards</li>
+<li>Your Turn <a href="https://github.com/posit-conf-2026/llms/tree/main/_exercises/25_shinychat-2"><code>_exercises/25_shinychat-2</code></a>: connect the agent to a drafts drawer with <code>show_letter()</code>, then edit a saved draft</li>
+<li>Discussion: did the agent read the current draft before editing your saved change?</li>
 </ul></li>
 </ul>
 

@@ -165,9 +165,47 @@
 <section>
 <section id="posit-assistant" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-hologram.jpg" data-background-size="cover" data-background-position="center">
 <h1><span class="hidden">Posit Assistant</span></h1>
-<div class="tc white pa1 br3 w-50 absolute" style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);left: 0px; bottom: -5em; ">
+<div class="tl white ph4 br3 w-40 absolute" style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);left: 0px; bottom: -5em; ">
 <p>Posit Assistant</p>
 </div>
+</section>
+<section id="should-your-agent-run-code-for-you" class="slide level2 center">
+<h2>Should your agent run code for you?</h2>
+<ul>
+<li class="fragment"><p>Agent writes, you run</p></li>
+<li class="fragment"><p>Agent writes, you verify, agent runs</p></li>
+<li class="fragment"><p>Agent writes, agent runs, you <span contenteditable="true">________</span></p></li>
+</ul>
+</section>
+<section id="what-could-go-wrong" class="slide level2">
+<h2>What could go wrong?</h2>
+<div contenteditable="true">
+<ul>
+<li><hr></li>
+<li><hr></li>
+</ul>
+</div>
+<aside class="notes">
+<p>Hadley’s framing from “Help! My coding agent can run code”: dangerous means hard to undo. Danger = expensive, time-consuming, or impossible to <strong>undo</strong></p>
+<ul>
+<li>delete a file</li>
+<li>drop your production database</li>
+<li>spend money</li>
+<li>send an email</li>
+<li>Leak a secret or personal data</li>
+</ul>
+<p>In the demo, running a script touched only a disposable, local fixture. Sending an email or spending money leaves the sandbox and reaches the real world.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="demo-posit-assistant" class="slide level2 slide-demo">
 <h2>Demo: Posit Assistant</h2>
@@ -199,33 +237,6 @@
 <p>The upside is a closed loop and self-repair: the assistant sees its own errors and fixes them.</p>
 <p>The risk is code with side effects against your real data and machine.</p>
 <p>Ask the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="what-counts-as-dangerous" class="slide level2">
-<h2>What counts as dangerous?</h2>
-<p>Danger = expensive, time-consuming, or impossible to <strong>undo</strong></p>
-<ul>
-<li class="fragment"><p>Delete a file outside git</p></li>
-<li class="fragment"><p>Drop a database table</p></li>
-<li class="fragment"><p>Spend money</p></li>
-<li class="fragment"><p>Send an email</p></li>
-<li class="fragment"><p>Leak a secret or personal data</p></li>
-</ul>
-<aside class="notes">
-<p>Hadley’s framing from “Help! My coding agent can run code”: dangerous means hard to undo.</p>
-<p>In the demo, running a script touched only a disposable, local fixture.</p>
-<p>Sending an email or spending money leaves the sandbox and reaches the real world.</p>
-<p>Careless promises have consequences — think of the Blockbuster no-late-fees settlement.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

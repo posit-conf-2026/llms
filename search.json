@@ -98,6 +98,13 @@
     "text": "In Python…\n\n\n\n\n\n\n\nhttps://posit-dev.github.io/raghilda/"
   },
   {
+    "objectID": "slides/slides-12.html#querychat-1",
+    "href": "slides/slides-12.html#querychat-1",
+    "title": "shinychat and querychat",
+    "section": "querychat",
+    "text": "querychat"
+  },
+  {
     "objectID": "slides/slides-12.html#ask-questions.-inspect-the-sql.",
     "href": "slides/slides-12.html#ask-questions.-inspect-the-sql.",
     "title": "shinychat and querychat",
@@ -131,6 +138,62 @@
     "title": "shinychat and querychat",
     "section": "Demo: querychat dashboard",
     "text": "Demo: querychat dashboard\n👨‍💻 _demos/27_querychat\n\nWhich neighborhood has the most private rooms?\nAmong private rooms, which property types are most common?"
+  },
+  {
+    "objectID": "slides/slides-12.html#shinychat-1",
+    "href": "slides/slides-12.html#shinychat-1",
+    "title": "shinychat and querychat",
+    "section": "shinychat",
+    "text": "shinychat"
+  },
+  {
+    "objectID": "slides/slides-12.html#chat-can-be-the-application",
+    "href": "slides/slides-12.html#chat-can-be-the-application",
+    "title": "shinychat and querychat",
+    "section": "Chat can be the application",
+    "text": "Chat can be the application\npage_chat() gives a conversation its own page.\nIt includes conversation history, a chat home, and room for artifacts and other application UI.\n\nThe earlier word-game app put a chat in a page.\nHere, the conversation becomes the page.\nThe agent and skills are familiar from the Blockbuster activities.\nThe new work is the application around them."
+  },
+  {
+    "objectID": "slides/slides-12.html#start-with-page_chat",
+    "href": "slides/slides-12.html#start-with-page_chat",
+    "title": "shinychat and querychat",
+    "section": "Start with page_chat()",
+    "text": "Start with page_chat()\n\n\nR\nui &lt;- page_chat(\n  \"Blockbuster renewal assistant\",\n  id = \"chat\"\n)\n\nserver &lt;- function(input, output, session) {\n  client &lt;- chat_posit()\n  prep_blockbuster_agent(client, ...)\n  chat_server(\"chat\", client)\n}\n\nPython\napp_ui = page_chat(\n    \"Blockbuster renewal assistant\",\n    id=\"chat\",\n)\n\ndef server(input, output, session):\n    client = ChatPosit()\n    prep_blockbuster_agent(client, ...)\n    Chat(\"chat\", client=client)\n\n\nchat_server() and Chat(client=...) provide the chat behavior, including history, streaming, and cancellation.\nprep_blockbuster_agent() adds the system prompt, tools, and skills from the last exercise.\nThe client stays visible in the app code."
+  },
+  {
+    "objectID": "slides/slides-12.html#give-people-a-useful-start",
+    "href": "slides/slides-12.html#give-people-a-useful-start",
+    "title": "shinychat and querychat",
+    "section": "Give people a useful start",
+    "text": "Give people a useful start\nA greeting explains the app and can offer prompts they can use or edit.\n## Welcome to the renewal desk\n\n* &lt;span class=\"suggestion submit\"&gt;Draft renewal letters for the top three lapsed members.&lt;/span&gt;\n* &lt;span class=\"suggestion submit\"&gt;List the draft letters already in the workspace.&lt;/span&gt;\n* &lt;span class=\"suggestion submit\"&gt;Explain the renewal-letter skill.&lt;/span&gt;\n\nA suggestion fills the chat input.\nAdd submit to send it immediately.\nThe greeting disappears after the first user message by default."
+  },
+  {
+    "objectID": "slides/slides-12.html#discussion-did-your-app",
+    "href": "slides/slides-12.html#discussion-did-your-app",
+    "title": "shinychat and querychat",
+    "section": "Discussion: Did your app…?",
+    "text": "Discussion: Did your app…?\n\nGive the renewal agent a clear purpose before anyone typed?\nOffer prompts that match the jobs the agent can do?\nKeep the agent tools and skills out of the app code you edited?\nPreserve the conversation after you followed a suggestion?\n\n\nThe main point is composition.\nA complete chat application can remain small when the agent implementation lives behind a compact interface.\nAsk whether the prefilled prompt needed editing before it was sent."
+  },
+  {
+    "objectID": "slides/slides-12.html#artifacts-stay-beside-the-conversation",
+    "href": "slides/slides-12.html#artifacts-stay-beside-the-conversation",
+    "title": "shinychat and querychat",
+    "section": "Artifacts stay beside the conversation",
+    "text": "Artifacts stay beside the conversation\nA drawer can hold the drafts an agent creates.\nThe user can select a letter, edit it in a code editor, and save it to the workspace.\n\nThe code editor is an input.\nIts value reaches the server when the user leaves the editor or presses Ctrl/Cmd+Enter.\nThe save button writes that value to the selected draft."
+  },
+  {
+    "objectID": "slides/slides-12.html#tools-can-control-the-app",
+    "href": "slides/slides-12.html#tools-can-control-the-app",
+    "title": "shinychat and querychat",
+    "section": "Tools can control the app",
+    "text": "Tools can control the app\nWhen the agent writes or edits a letter, it calls show_letter().\nshow_letter() selects that file in the drawer and opens it for the person to review.\n\nThis is a normal model tool, but its side effect is in the Shiny interface.\nThe model still uses write_file() and edit_file() from the earlier agent exercises.\nNew drafts use names such as elaine-wu-v1.md and elaine-wu-v2.md."
+  },
+  {
+    "objectID": "slides/slides-12.html#discussion-did-your-agent",
+    "href": "slides/slides-12.html#discussion-did-your-agent",
+    "title": "shinychat and querychat",
+    "section": "Discussion: Did your agent…?",
+    "text": "Discussion: Did your agent…?\n\nList the drafts before it created a new version?\nWrite a draft named elaine-wu-v1.md or the next available version?\nOpen the letter it wrote in the drawer?\nPreserve your edit when you saved it?\nRead the current letter before it tried to edit it?\n\n\nThe final question is deliberately not a requirement in the system prompt.\nAsk people to inspect the trace and consider what happens when a person and an agent edit the same file.\nThe app has separate state in the conversation, the selected draft, the editor, and the workspace.\nThis is a small example of a much larger application-design problem."
   },
   {
     "objectID": "slides/slides-09.html#youve-been-using-skills-all-day",
@@ -962,7 +1025,7 @@
     "href": "workshop-12.html#outline",
     "title": "shinychat and querychat",
     "section": "Outline",
-    "text": "Outline\n\n(40m) shinychat\n\nNew shinychat features, including page_chat()\nSee the shinychat v0.5.0 preview blog post: https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/\n\n(20m) querychat\n\nSimple variant: use querychat to explore some data\nMinimal coding required by this point",
+    "text": "Outline\n\n(20m) querychat\n\nAsk questions about your data in natural language, then inspect the SQL that querychat writes\nYour Turn _exercises/26_querychat: explore the airbnb data in the built-in querychat app, inspect the SQL, and restart the app with a data dictionary\nDemo _demos/27_querychat: a Shiny dashboard built around querychat\n\n(40m) shinychat\n\nYour Turn _exercises/24_shinychat-1: put the Blockbuster renewal agent in a page_chat() app and add a greeting with suggestion cards\nYour Turn _exercises/25_shinychat-2: connect the agent to a drafts drawer with show_letter(), then edit a saved draft\nDiscussion: did the agent read the current draft before editing your saved change?",
     "crumbs": [
       "Workshop",
       "shinychat and querychat"
@@ -995,7 +1058,7 @@
     "href": "workshop-10.html#outline",
     "title": "Posit Assistant",
     "section": "Outline",
-    "text": "Outline\n\nDemo _demos/23_demo_assistant: Posit Assistant as an agent — brings everything together; the instructor starts the conversation, then everyone explores the data on their own\nDiscussion: what if the assistant could run code? It can — what keeps that safe?\n\nCoding harnesses, safety, sandboxing, LLM-based safety checks\nReference: Help! My coding agent can run code\nFree practice time in the tool attendees will actually use",
+    "text": "Outline\n\n(15m) Posit Assistant\n\nDemo _demos/23_demo_assistant: Posit Assistant explores data/airbnb-austin.csv with its read, write, and skill tools. The instructor starts the conversation, then everyone explores on their own.\nDiscussion: what keeps an assistant that runs code safe?\n\nPermission prompts, sandboxing, and LLM-based safety checks\nReference: Help! My coding agent can run code\n\nFree practice time in the tool attendees will actually use",
     "crumbs": [
       "Workshop",
       "Posit Assistant"
@@ -1039,7 +1102,7 @@
     "href": "workshop-08.html#outline",
     "title": "Agents",
     "section": "Outline",
-    "text": "Outline\n\n(30m) Building an agent\n\nPicking up from tool calling to build up to agents\nHadley/Willison definition: agents are LLMs with a read tool and a write tool\n\nReference: Hadley’s series on Substack, in particular What is an agent? and A coding agent is six functions in a trenchcoat\n\nActivity _exercises/19_agent-1: build a simple coding agent with a read tool and a write tool\nActivity _exercises/20_agent-2: make that coding agent a little better with a couple more tools (list files, edit files)",
+    "text": "Outline\n\n(20m) Building an agent\n\nThe definition we use: an agent is an LLM with a read tool and a write tool\n\nReference: Hadley’s series on Substack, in particular What is an agent? and A coding agent is six functions in a trenchcoat\n\nYour Turn _exercises/19_agent-1: build a simple coding agent with a read tool and a write tool\nYour Turn _exercises/20_agent-2: give the agent more tools (list files, edit files)",
     "crumbs": [
       "Workshop",
       "Agents"
@@ -1404,7 +1467,7 @@
     "href": "workshop-07.html#outline",
     "title": "Tool Calling",
     "section": "Outline",
-    "text": "Outline\n\n(30m) Tool calling\n\nExplain how tool calling pattern, mostly following https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny\nActivity: quiz show\n\nWe provide an R/Python function that plays a sound\n\nR: beepr, Python: playsound\n\nThey document the function and register it as a tool in the Quiz Show app\n\nActivity: Add tool annotations to give the tool an icon and title\nActivity: Use ContentToolResult to return custom title and icon\nActivity: Track answers and score in the app (add/update value boxes)\n(Considering) Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.",
+    "text": "Outline\n\n(30m) Tool calling\n\nDemo _demos/15_demo_manual-tools: a human relays tool calls between the LLM and the functions\nDemo _demos/16_demo_tools: the same tools, registered with ellmer or chatlas\nYour Turn _exercises/17_quiz-game-2: register a play_sound tool (beepr in R, playsound in Python) in the Quiz Show app\nYour Turn _exercises/18_quiz-game-3: add tool annotations to give the tool a title and an icon. The exercise points to ContentToolResult if you want richer tool displays.",
     "crumbs": [
       "Workshop",
       "Tool Calling"
@@ -1448,7 +1511,7 @@
     "href": "workshop-09.html#outline",
     "title": "Agent Skills",
     "section": "Outline",
-    "text": "Outline\n\n(30m) Agent Skills\n\nExplaining what skills are, how they’re used, best practices for making them\nActivity _exercises/21_skills-1: build on the agent work to wire up a skill tool\n\nOptions: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool\n\nActivity _exercises/22_skills-2: take the skill from the first exercise and improve it (fix common problems)",
+    "text": "Outline\n\n(25m) Agent skills\n\nWhat skills are, how agents load them, and how to write a good one\nYour Turn _exercises/21_skills-1: give your Blockbuster agent a skill. List it in the system prompt and add a tool that reads it.\nYour Turn _exercises/22_skills-2: fix a first-draft skill with common problems, then re-run the task with the improved skill",
     "crumbs": [
       "Workshop",
       "Agent Skills"
@@ -1492,7 +1555,7 @@
     "href": "workshop-13.html#outline",
     "title": "Wrap-up",
     "section": "Outline",
-    "text": "Outline\n\n(30m) The Future of AI\n\nJoe Cheng drops in again for this conversation\nWhere do we go from here? Let’s talk fears and hopes.\n\n(5m) Wrap-up\n\nFeedback survey\nGoodbye and enjoy the conference!",
+    "text": "Outline\n\n(30m) The future of AI\n\nJoe Cheng joins for a closing conversation\nWhere do we go from here? Let’s talk fears and hopes.\n\n(5m) Wrap-up\n\nFeedback survey and goodbye",
     "crumbs": [
       "Workshop",
       "Wrap-up"
@@ -1895,6 +1958,20 @@
     "text": "Agents, recap\n\nAn agent is an LLM, in a harness, calling tools in a loop\nRead tools observe; write tools change\nThe harness does the busy work — you write the tools and the system prompt\n\n\nNext: how to give an agent knowledge without making the system prompt enormous."
   },
   {
+    "objectID": "slides/slides-10.html#should-your-agent-run-code-for-you",
+    "href": "slides/slides-10.html#should-your-agent-run-code-for-you",
+    "title": "Posit Assistant",
+    "section": "Should your agent run code for you?",
+    "text": "Should your agent run code for you?\n\nAgent writes, you run\nAgent writes, you verify, agent runs\nAgent writes, agent runs, you ________"
+  },
+  {
+    "objectID": "slides/slides-10.html#what-could-go-wrong",
+    "href": "slides/slides-10.html#what-could-go-wrong",
+    "title": "Posit Assistant",
+    "section": "What could go wrong?",
+    "text": "What could go wrong?\n\n\n\n\n\n\n\nHadley’s framing from “Help! My coding agent can run code”: dangerous means hard to undo. Danger = expensive, time-consuming, or impossible to undo\n\ndelete a file\ndrop your production database\nspend money\nsend an email\nLeak a secret or personal data\n\nIn the demo, running a script touched only a disposable, local fixture. Sending an email or spending money leaves the sandbox and reaches the real world."
+  },
+  {
     "objectID": "slides/slides-10.html#demo-posit-assistant",
     "href": "slides/slides-10.html#demo-posit-assistant",
     "title": "Posit Assistant",
@@ -1907,13 +1984,6 @@
     "title": "Posit Assistant",
     "section": "Should your assistant run code?",
     "text": "Should your assistant run code?\nIn the demo, Posit Assistant read the data, wrote scripts, and ran them.\nWhat keeps that from going wrong?\n\nThe upside is a closed loop and self-repair: the assistant sees its own errors and fixes them.\nThe risk is code with side effects against your real data and machine.\nAsk the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts."
-  },
-  {
-    "objectID": "slides/slides-10.html#what-counts-as-dangerous",
-    "href": "slides/slides-10.html#what-counts-as-dangerous",
-    "title": "Posit Assistant",
-    "section": "What counts as dangerous?",
-    "text": "What counts as dangerous?\nDanger = expensive, time-consuming, or impossible to undo\n\nDelete a file outside git\nDrop a database table\nSpend money\nSend an email\nLeak a secret or personal data\n\n\nHadley’s framing from “Help! My coding agent can run code”: dangerous means hard to undo.\nIn the demo, running a script touched only a disposable, local fixture.\nSending an email or spending money leaves the sandbox and reaches the real world.\nCareless promises have consequences — think of the Blockbuster no-late-fees settlement."
   },
   {
     "objectID": "slides/slides-10.html#three-ways-to-keep-an-agent-in-check",
