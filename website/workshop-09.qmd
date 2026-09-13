@@ -11,11 +11,10 @@ duration: 25min
 
 ## Outline
 
-- (30m) Agent Skills
-  - Explaining what skills are, how they're used, best practices for making them
-  - Activity `_exercises/21_skills-1`: build on the agent work to wire up a skill tool
-    - Options: skill listing in the system prompt, a read tool to read a skill, or make your own skill tool
-  - Activity `_exercises/22_skills-2`: take the skill from the first exercise and improve it (fix common problems)
+- (25m) Agent skills
+  - What skills are, how agents load them, and how to write a good one
+  - Your Turn [`_exercises/21_skills-1`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/21_skills-1): give your Blockbuster agent a skill. List it in the system prompt and add a tool that reads it.
+  - Your Turn [`_exercises/22_skills-2`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/22_skills-2): fix a first-draft skill with common problems, then re-run the task with the improved skill
 
 ## Further reading
 

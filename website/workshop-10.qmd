@@ -11,11 +11,11 @@ duration: 15min
 
 ## Outline
 
-- Demo `_demos/23_demo_assistant`: Posit Assistant as an agent — brings everything together; the instructor starts the conversation, then everyone explores the data on their own
-
-- Discussion: what if the assistant could run code? It can — what keeps that safe?
-  - Coding harnesses, safety, sandboxing, LLM-based safety checks
-  - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
+- (15m) Posit Assistant
+  - Demo [`_demos/23_demo_assistant`](https://github.com/posit-conf-2026/llms/tree/main/_demos/23_demo_assistant): Posit Assistant explores `data/airbnb-austin.csv` with its read, write, and skill tools. The instructor starts the conversation, then everyone explores on their own.
+  - Discussion: what keeps an assistant that runs code safe?
+    - Permission prompts, sandboxing, and LLM-based safety checks
+    - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
   - Free practice time in the tool attendees will actually use
 
 ## Further reading

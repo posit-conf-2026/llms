@@ -11,12 +11,11 @@ duration: 20min
 
 ## Outline
 
-- (30m) Building an agent
-  - Picking up from tool calling to build up to agents
-  - Hadley/Willison definition: agents are LLMs with a read tool and a write tool
+- (20m) Building an agent
+  - The definition we use: an agent is an LLM with a read tool and a write tool
     - Reference: Hadley's series on Substack, in particular [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent) and [A coding agent is six functions in a trenchcoat](https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in)
-  - Activity `_exercises/19_agent-1`: build a simple coding agent with a read tool and a write tool
-  - Activity `_exercises/20_agent-2`: make that coding agent a little better with a couple more tools (list files, edit files)
+  - Your Turn [`_exercises/19_agent-1`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/19_agent-1): build a simple coding agent with a read tool and a write tool
+  - Your Turn [`_exercises/20_agent-2`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/20_agent-2): give the agent more tools (list files, edit files)
 
 ## Further reading
 
