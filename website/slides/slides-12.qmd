@@ -10,6 +10,10 @@ editor:
 
 # [querychat]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-querychat.jpg" background-size="cover" background-position="center"}
 
+## [querychat]{.hidden} {.center .tc}
+
+![](../assets/logos/querychat.png)
+
 ## Ask questions. Inspect the SQL. {.center}
 
 querychat turns a question about your data into a SQL query, runs the query, and shows the result.
@@ -162,6 +166,10 @@ Among private rooms, which property types are most common?
 :::
 
 # [shinychat]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-querychat.jpg" background-size="cover" background-position="center"}
+
+## [shinychat]{.hidden} {.center .tc}
+
+![](../assets/logos/shinychat.png){style="max-width: 100%; max-height: 500px"}
 
 ## Chat can be the application {.center}
 
