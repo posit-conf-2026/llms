@@ -14,7 +14,7 @@ editor:
 
 1. ellmer and chatlas let you show the model your plots!
 
-2. Create a basic `mtcars` scatter plot and ask GLM 5.3 Flash to interpret it.
+2. Create a basic `mtcars` scatter plot and ask GLM 5.3 to interpret it.
 
 3. How does it do?
 
@@ -24,7 +24,7 @@ editor:
 
 1. Replace the scatter plot with random noise.
 
-2. Show this new plot to GLM 5.3 Flash and ask it to interpret it. How does it do this time?
+2. Show this new plot to GLM 5.3 and ask it to interpret it. How does it do this time?
 
 3. Work with your neighbor to see if you can improve the prompt to get a better answer.
 
@@ -502,7 +502,7 @@ For each case, we can compare the input, target, model answer, and score.
 1. Run the eval to test each prompt on two plots.
 
 1. Open the viewer.
-   Compare the prompts, responses, and scores.
+   Take a look at the responses and scores. 
 
 1. What do these runs suggest?
    Which prompts pass both cases?
