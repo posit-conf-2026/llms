@@ -40,6 +40,6 @@ Not every attendee has `make`, so each target is written such that the underlyin
 
 - Keep R and Python versions of exercises in sync.
 - Numbered directory prefixes define activity order; `-break` pages mark schedule breaks.
-- Python scripts in exercises/solutions are jupytext-paired with notebooks — edit the `.py`, not the `.ipynb`; a pre-commit hook in `.githooks` regenerates notebooks from staged `.py` files.
+- Python scripts in exercises/solutions, except `*-app.py`, are jupytext-paired with notebooks — edit the `.py`, not the `.ipynb`; a pre-commit hook in `.githooks` regenerates notebooks from staged `.py` files. App scripts do not have notebooks.
 - Commit small, logically grouped commits using conventional commit messages.
 - Write prose markdown with one sentence per line.
