@@ -507,4 +507,4 @@ For each case, we can compare the input, target, model answer, and score.
 1. What do these runs suggest?
    Which prompts pass both cases?
 
-{{< countdown 10:00 left=0 bottom="-2em" >}}
+{{< countdown 7:00 left=0 bottom="-2em" >}}
