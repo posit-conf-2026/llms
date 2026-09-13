@@ -7,7 +7,7 @@ chat = chatlas.____(
 )
 
 # 2. Fill in the blank to ask the first question:
-____("What ellmer and chatlas functions create an Anthropic chat?")
+____("What creates an Anthropic chat in ellmer and chatlas?")
 
 # 3. Fill in the blank to ask the second question, using the same chat object:
 _____("What about OpenAI?")
