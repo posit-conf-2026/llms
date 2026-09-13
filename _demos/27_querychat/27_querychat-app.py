@@ -156,7 +156,7 @@ def server(input, output, session):
         fig.update_layout(showlegend=True, font_size=14)
         fig.update_yaxes(title_text="Count")
         fig.update_xaxes()
-        fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
+        fig.update_layout(margin={"l": 0, "r": 0, "t": 0, "b": 0})
         return fig
 
     @sw.render_widget
@@ -225,7 +225,8 @@ def server(input, output, session):
         )
 
         fig.update_layout(
-            mapbox_style="open-street-map", margin=dict(l=0, r=0, t=0, b=0)
+            mapbox_style="open-street-map",
+            margin={"l": 0, "r": 0, "t": 0, "b": 0},
         )
         return fig
 

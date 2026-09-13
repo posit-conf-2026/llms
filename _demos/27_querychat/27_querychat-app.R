@@ -21,7 +21,11 @@ airbnb_data <-
 # Create a QueryChat object with the dataset, its SQL table name, and a Posit
 # AI Pass client. You can also set options such as the greeting message and
 # system prompt.
-# airbnb_qc <- ____
+airbnb_qc <- QueryChat$new(
+  airbnb_data,
+  "airbnb_data",
+  client = chat_posit(model = "zai-org/GLM-5.3-Flash")
+)
 
 # UI --------------------------------------------------------------------------
 ui <- page_sidebar(
@@ -30,32 +34,8 @@ ui <- page_sidebar(
 
   # Step 2: Replace sidebar ----
   # Replace the entire sidebar with airbnb_qc$sidebar().
-  sidebar = sidebar(
-    checkboxGroupInput(
-      "room_type",
-      "Room Type",
-      choices = unique(airbnb_data$room_type),
-      selected = unique(airbnb_data$room_type)
-    ),
-    selectInput(
-      "neighborhood",
-      "Neighborhood",
-      choices = c("All" = "", unique(airbnb_data$neighborhood)),
-      multiple = TRUE
-    ),
-    sliderInput(
-      "price",
-      "Price Range",
-      min = 0,
-      max = 7000,
-      value = c(0, 7000),
-      step = 50,
-      ticks = FALSE,
-      pre = "$"
-    )
-  ),
+  sidebar = airbnb_qc$sidebar(),
 
-  # Extra UI added when you add in querychat
   if (exists("airbnb_qc")) {
     card(
       fill = FALSE,
@@ -99,9 +79,9 @@ ui <- page_sidebar(
       showcase = fontawesome::fa_i("calendar-check")
     )
   ),
-
   # Cards ----
   layout_columns(
+    min_height = "400px",
     card(
       full_screen = TRUE,
       card_body(
@@ -130,20 +110,13 @@ ui <- page_sidebar(
 server <- function(input, output, session) {
   # Step 3: Set up querychat server ----
   # Create session-specific reactive values by calling airbnb_qc$server().
-  # airbnb_qc_vals <- ______
+  airbnb_qc_vals <- airbnb_qc$server()
 
   # Step 4: Use the querychat-filtered data ----
   # Replace all of the logic inside of `filtered_data()` with
   # `airbnb_qc_vals$df()`.
   filtered_data <- reactive({
-    data <- airbnb_data
-    if (length(input$room_type)) {
-      data <- data |> filter(room_type %in% input$room_type)
-    }
-    if (any(nzchar(input$neighborhood))) {
-      data <- data |> filter(neighborhood %in% input$neighborhood)
-    }
-    data |> filter(price >= input$price[1] & price <= input$price[2])
+    airbnb_qc_vals$df()
   })
 
   # Value boxes

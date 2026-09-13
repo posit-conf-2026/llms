@@ -1,0 +1,123 @@
+name: airbnb-austin
+description: Austin Airbnb listings.
+
+tables:
+  airbnb_data:
+    description: >
+      One row per Airbnb listing in Austin, Texas.
+      Snapshot downloaded from Inside Airbnb on 2026-06-22.
+      Listings without reviews have missing review dates and scores.
+    columns:
+      - name: id
+        type: string
+        description: Unique identifier for the listing.
+      - name: zip_code
+        type: number(id)
+        description: >
+          ZIP code from the source listing.
+          The neighborhood field is assigned from this ZIP code for display.
+      - name: neighborhood
+        type: enum
+        values:
+          - Airport Area
+          - Bee Cave
+          - Cherrywood
+          - Downtown
+          - East Austin
+          - Hyde Park
+          - Lake Travis
+          - Lakeway
+          - North Austin
+          - Northeast Austin
+          - Northwest Austin
+          - Old West Austin
+          - Riverside
+          - Rosedale
+          - South Austin
+          - Southeast Austin
+          - Southwest Austin
+          - University of Texas
+          - West Austin
+        description: >
+          Display neighborhood assigned from the listing ZIP code.
+          It is not a source field from the original listing.
+      - name: property_type
+        type: string
+        description: >
+          Physical type of accommodation, such as an entire home, rental unit,
+          or guesthouse.
+          This differs from room_type, which describes the rental arrangement.
+      - name: room_type
+        type: enum
+        values: [Entire home/apt, Hotel room, Private room, Shared room]
+        description: >
+          Rental arrangement offered by the listing.
+          This differs from property_type, which describes the physical accommodation.
+      - name: price
+        type: number(quantity)
+        units: USD per night
+        description: Listed nightly price in U.S. dollars.
+      - name: n_accommodates
+        type: number(quantity)
+        units: guests
+        description: Maximum number of guests the listing accommodates.
+      - name: amenities
+        type: string
+        description: >
+          Semicolon-separated list of amenities supplied by the listing.
+          Each row may contain many amenities.
+      - name: availability_365
+        type: number(quantity)
+        units: days
+        description: >
+          Number of days the listing is available during the 365-day availability window.
+          It is not a direct measure of nights booked or occupancy.
+      - name: n_reviews
+        type: number(quantity)
+        units: reviews
+        description: Total number of guest reviews.
+      - name: first_review
+        type: date
+        description: >
+          Date of the first guest review.
+          Missing when the listing has no reviews.
+      - name: last_review
+        type: date
+        description: >
+          Date of the most recent guest review.
+          Missing when the listing has no reviews.
+      - name: n_reviews_per_month
+        type: number(quantity)
+        units: reviews per month
+        description: Average number of guest reviews per month.
+      - name: score_rating
+        type: number
+        description: >
+          Overall guest review score on a 1-to-5 scale.
+          Missing when the listing has no reviews.
+      - name: score_cleanliness
+        type: number
+        description: >
+          Guest cleanliness review score on a 1-to-5 scale.
+          Missing when the listing has no reviews.
+      - name: score_location
+        type: number
+        description: >
+          Guest location review score on a 1-to-5 scale.
+          Missing when the listing has no reviews.
+      - name: score_value
+        type: number
+        description: >
+          Guest value review score on a 1-to-5 scale.
+          Missing when the listing has no reviews.
+      - name: host_is_superhost
+        type: enum
+        values: [f, t]
+        description: Whether the source marks the host as a superhost.
+      - name: host_n_listings
+        type: number(quantity)
+        units: listings
+        description: Number of listings associated with the host.
+
+glossary:
+  availability: Days when a listing can be booked during the 365-day availability window.
