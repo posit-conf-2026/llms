@@ -1042,7 +1042,7 @@ This is the motivation for `parallel_chat_structured()`, which we see next.
 ## Parallel chat calls {transition="fade"}
 
 ```{.r}
-chat <- chat_posit(model = "zai-org/GLM-5.3-Flash")
+chat <- chat_posit(model = "claude-haiku-4-5")
 
 parallel_chat_structured(
   chat,
@@ -1056,7 +1056,7 @@ parallel_chat_structured(
 ## Parallel chat calls {transition="fade"}
 
 ```{.r}
-chat <- chat_posit(model = "zai-org/GLM-5.3-Flash")
+chat <- chat_posit(model = "claude-haiku-4-5")
 
 parallel_chat_structured(
   chat,
@@ -1071,7 +1071,7 @@ parallel_chat_structured(
 ## Parallel chat calls {transition="fade"}
 
 ```{.r}
-chat <- chat_posit(model = "zai-org/GLM-5.3-Flash")
+chat <- chat_posit(model = "claude-haiku-4-5")
 
 parallel_chat_structured(
   chat,
@@ -1147,7 +1147,7 @@ prompts = [
     "Pleased to meet you! I'm Jamal, age 27.",
 ]
 
-chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 
 results = await chatlas.parallel_chat_structured(
     chat,
