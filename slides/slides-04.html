@@ -343,7 +343,7 @@ dd:before {
 <h2></h2>
 
 <img data-src="assets/model-comparison-anthropic-01.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"><aside class="notes">
-<p>Anthropic builds a family of models called Claude. Within that family, model tiers trade speed/cost for intelligence.</p>
+<p>Anthropic builds a family of models called Claude. Within that family, model tiers trade speed and cost for intelligence.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -361,9 +361,9 @@ dd:before {
 
 <img data-src="assets/model-comparison-anthropic-02.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"><aside class="notes">
 <ul>
-<li>Haiku is small, fast, and cheap</li>
-<li>Sonnet balances speed and intelligence</li>
-<li>Opus is the largest and most intelligent</li>
+<li>Haiku is small, fast, and cheap.</li>
+<li>Sonnet balances speed and intelligence.</li>
+<li>Opus is the largest and most intelligent.</li>
 </ul>
 <p>The positions are conceptual, not benchmark results. Version numbers identify newer generations within each tier.</p>
 <style type="text/css">
@@ -382,7 +382,7 @@ dd:before {
 <h2></h2>
 
 <img data-src="assets/model-comparison-openai.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"><aside class="notes">
-<p>OpenAI follows a similar pattern. Models with “mini” or “nano” in the name are usually faster and cheaper than the full-size model.</p>
+<p>OpenAI now uses space-themed names such as Luna, Terra, Sol, and Astra. Earlier model families used labels such as mini, nano, and pro.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1000,11 +1000,12 @@ dd:before {
       }</style></aside>
 </div>
 </section>
-<section id="artificial-analysis-artificialanalysis.ai" class="slide level2">
+<section id="artificial-analysis-artificialanalysis.ai" class="slide level2 center">
 <h2>Artificial Analysis (<a href="https://artificialanalysis.ai/leaderboards/models">artificialanalysis.ai</a>)</h2>
-<p><img data-src="assets/artificial-analysis.png" style="max-width: 90%; max-height: 72vh; display: block; margin: 0 auto;" alt="Screenshot of the Artificial Analysis website home page, showing independent rankings of AI models by intelligence, speed, and cost per task."></p>
+<p><a href="https://artificialanalysis.ai/models?cost=intelligence-vs-cost-per-task&amp;models=deepseek-v4-flash,claude-4-5-haiku-reasoning,claude-sonnet-4-6-adaptive,claude-sonnet-5,claude-sonnet-5-medium,claude-sonnet-5-low,claude-opus-4-6-adaptive,claude-opus-4-8,claude-opus-5,claude-opus-5-medium,claude-opus-5-low,glm-5-3-flash,glm-5-3,glm-5-2,kimi-k3,kimi-k3-low#intelligence-comparison-tabs"><img data-src="assets/artificial-analysis-intelligence-vs-cost-2026-09-11.png.png" style="max-width: none; transform: translateX(-5%);;width:111.0%" alt="Scatter plot of Artificial Analysis Intelligence Index against cost per task for 16 models available through Posit AI. The upper-left green quadrant marks models with higher intelligence and lower cost."></a></p>
 <aside class="notes">
-<p>Ranking of models.</p>
+<p>Up and to the left is better. That means higher intelligence at a lower cost per task.</p>
+<p>The green area marks the most attractive quadrant, and the dotted curve marks the Pareto line.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1229,7 +1230,7 @@ dd:before {
 </section></section>
 <section id="your-turn-07_models" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>07_models</code></h1>
-<countdown-timer id="timer_3170ea56a151f7483f01cb3d16b532656f0a7c71" minutes="04" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<countdown-timer id="timer_0a4d316db4c4f533b9e1eec1979f004f451c5471" minutes="04" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
  </countdown-timer>
 <ol type="1">
 <li>List the models available through Posit AI Pass.</li>
@@ -1239,47 +1240,101 @@ dd:before {
 </section>
 
 <section>
-<section id="multi-modal-input" class="title-slide slide level1 center" data-background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" data-background-size="cover" data-background-position="center">
-<h1><span class="hidden">Multi-modal input</span></h1>
-<p><span class="white b absolute" style="font-size: 3em;top: -400px; right: 0px; ">Multi-modal input</span></p>
+<section id="multimodal-input" class="title-slide slide level1 center" data-background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">Multimodal input</span></h1>
+<aside class="notes">
+<p>Modern LLMs can handle images and PDFs in addition to text. This is called multimodal input.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p><span class="white b absolute" style="font-size: 3em;top: -400px; right: 0px; ">Multimodal input</span></p>
 </section>
 <section id="a-picture-is-worth-a-thousand-words" class="slide level2 center">
 <h2>A picture is worth a thousand words</h2>
+<div class="fragment text-center">
+<p><img data-src="assets/cat.png" alt="A tortoiseshell cat sleeping on a gray blanket." height="400"></p>
 <div class="fragment">
-<p>Or for an LLM, a picture is roughly 227 words, or <span class="b blue">170 tokens</span>.</p>
+<p>or, for Claude Sonnet 5, <span class="b blue">274 tokens</span>.</p>
 </div>
-<div class="fragment">
-<p>🖼️ 🔍 <a href="https://storage.googleapis.com/openimages/web/visualizer/index.html?type=localized%20narratives&amp;set=train&amp;c=/m/06_fw&amp;id=025d772e7181ca1f" data-preview-link="true">Open Images Dataset</a></p>
 </div>
+<aside class="notes">
+<p><code>content_image_file()</code> resizes images to fit within 512 by 512 pixels by default. This 4:3 photo becomes 512 by 384 pixels. Claude Sonnet 5 currently reports 274 input tokens for an image-only request. The count depends on the model and image-processing settings. chatlas’s <code>content_image_file()</code> also defaults to at most 512 by 512 (<code>resize="low"</code>), but prints a <code>MissingResizeWarning</code> unless you pass <code>resize</code> explicitly. use <code>resize="high"</code> for higher quality.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="content_image_file" class="slide level2" data-transition="fade">
 <h2>🌆 content_image_file</h2>
-<div style="--code-font-size: 0.66em">
+<aside class="notes">
+<p>Use <code>content_image_file()</code> to pass an image from your local filesystem. Provide the path to the image.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div style="--code-font-size: 0.58em">
 <p><span class="flex items-center gap-1"><img data-src="../assets/icons/r-color.svg" alt="R" height="36"> ellmer</span></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-code-line-numbers="4-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-code-line-numbers="4|5-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb11-2"><a aria-label="2"></a></span>
-<span id="cb11-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
-<span id="cb11-4"><a aria-label="4"></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
-<span id="cb11-5"><a aria-label="5"></a>  <span class="fu">content_image_file</span>(<span class="st">"cute-cats.jpg"</span>),</span>
-<span id="cb11-6"><a aria-label="6"></a>  <span class="st">"What do you see in this image?"</span></span>
-<span id="cb11-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"posit"</span>)</span>
+<span id="cb11-4"><a aria-label="4"></a>image <span class="ot">&lt;-</span> <span class="fu">content_image_file</span>(<span class="st">"assets/cat.png"</span>)</span>
+<span id="cb11-5"><a aria-label="5"></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
+<span id="cb11-6"><a aria-label="6"></a>  image,</span>
+<span id="cb11-7"><a aria-label="7"></a>  <span class="st">"What do you see in this image?"</span></span>
+<span id="cb11-8"><a aria-label="8"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><span class="flex items-center gap-1"><img data-src="../assets/icons/python-icon-color.svg" alt="Python" height="36"> chatlas</span></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-code-line-numbers="4-7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a><span class="im">import</span> chatlas</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-code-line-numbers="4|5-8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a><span class="im">import</span> chatlas</span>
 <span id="cb12-2"><a aria-label="2"></a></span>
-<span id="cb12-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
-<span id="cb12-4"><a aria-label="4"></a>chat.chat(</span>
-<span id="cb12-5"><a aria-label="5"></a>    chatlas.content_image_file(<span class="st">"cute-cats.jpg"</span>),</span>
-<span id="cb12-6"><a aria-label="6"></a>    <span class="st">"What do you see in this image?"</span></span>
-<span id="cb12-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"posit"</span>)</span>
+<span id="cb12-4"><a aria-label="4"></a>image <span class="op">=</span> chatlas.content_image_file(<span class="st">"assets/cat.png"</span>)</span>
+<span id="cb12-5"><a aria-label="5"></a>chat.chat(</span>
+<span id="cb12-6"><a aria-label="6"></a>    image,</span>
+<span id="cb12-7"><a aria-label="7"></a>    <span class="st">"What do you see in this image?"</span></span>
+<span id="cb12-8"><a aria-label="8"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="content_image_url" class="slide level2" data-transition="fade">
 <h2><a href="https://placecats.com/bella/400/400" target="_blank" rel="noopener noreferrer">🐈</a> content_image_url</h2>
+<aside class="notes">
+<p>Use <code>content_image_url()</code> to pass an image from a URL. The rest of the call stays the same.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div style="--code-font-size: 0.66em">
 <p><span class="flex items-center gap-1"><img data-src="../assets/icons/r-color.svg" alt="R" height="36"> ellmer</span></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb13-2"><a aria-label="2"></a></span>
-<span id="cb13-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb13-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"posit"</span>)</span>
 <span id="cb13-4"><a aria-label="4"></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
 <span id="cb13-5"><a aria-label="5"></a>  <span class="fu">content_image_url</span>(<span class="st">"https://placecats.com/bella/400/400"</span>),</span>
 <span id="cb13-6"><a aria-label="6"></a>  <span class="st">"What do you see in this image?"</span></span>
@@ -1287,7 +1342,7 @@ dd:before {
 <p><span class="flex items-center gap-1"><img data-src="../assets/icons/python-icon-color.svg" alt="Python" height="36"> chatlas</span></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-label="1"></a><span class="im">import</span> chatlas</span>
 <span id="cb14-2"><a aria-label="2"></a></span>
-<span id="cb14-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb14-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"posit"</span>)</span>
 <span id="cb14-4"><a aria-label="4"></a>chat.chat(</span>
 <span id="cb14-5"><a aria-label="5"></a>    chatlas.content_image_url(<span class="st">"https://placecats.com/bella/400/400"</span>),</span>
 <span id="cb14-6"><a aria-label="6"></a>    <span class="st">"What do you see in this image?"</span></span>
@@ -1300,16 +1355,29 @@ dd:before {
 <li><p>I’ve put some images of food in the <code>data/recipes/images</code> folder.</p></li>
 <li><p>Your job: show the food to the LLM and see if it gets hungry.</p></li>
 </ol>
-<countdown-timer id="timer_3170ea56a151f7483f01cb3d16b532656f0a7c71" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<countdown-timer id="timer_0a4d316db4c4f533b9e1eec1979f004f451c5471" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
  </countdown-timer>
 </section>
 <section id="content_pdf_file" class="slide level2">
 <h2>📑 content_pdf_file</h2>
+<aside class="notes">
+<p>LLMs can also read PDFs. Use <code>content_pdf_file()</code> to pass a PDF from your filesystem.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div style="--code-font-size: 0.66em">
 <p><span class="flex items-center gap-1"><img data-src="../assets/icons/r-color.svg" alt="R" height="36"> ellmer</span></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb15-2"><a aria-label="2"></a></span>
-<span id="cb15-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb15-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>(<span class="at">model =</span> <span class="st">"claude-haiku-4-5"</span>)</span>
 <span id="cb15-4"><a aria-label="4"></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
 <span id="cb15-5"><a aria-label="5"></a>  <span class="fu">content_pdf_file</span>(<span class="st">"financial-report.pdf"</span>),</span>
 <span id="cb15-6"><a aria-label="6"></a>  <span class="st">"What's my tax liability for 2024?"</span></span>
@@ -1317,32 +1385,47 @@ dd:before {
 <p><span class="flex items-center gap-1"><img data-src="../assets/icons/python-icon-color.svg" alt="Python" height="36"> chatlas</span></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-label="1"></a><span class="im">import</span> chatlas</span>
 <span id="cb16-2"><a aria-label="2"></a></span>
-<span id="cb16-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb16-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatPosit(model<span class="op">=</span><span class="st">"claude-haiku-4-5"</span>)</span>
 <span id="cb16-4"><a aria-label="4"></a>chat.chat(</span>
-<span id="cb16-5"><a aria-label="5"></a>    content_pdf_file(<span class="st">"financial-report.pdf"</span>),</span>
+<span id="cb16-5"><a aria-label="5"></a>    chatlas.content_pdf_file(<span class="st">"financial-report.pdf"</span>),</span>
 <span id="cb16-6"><a aria-label="6"></a>    <span class="st">"What's my tax liability for 2024?"</span></span>
 <span id="cb16-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="content_pdf_url" class="slide level2">
 <h2>📑 content_pdf_url</h2>
+<aside class="notes">
+<p>Use <code>content_pdf_url()</code> to pass a PDF from a URL. The rest of the call stays the same.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div style="--code-font-size: 0.66em">
 <p><span class="flex items-center gap-1"><img data-src="../assets/icons/r-color.svg" alt="R" height="36"> ellmer</span></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb17-2"><a aria-label="2"></a></span>
-<span id="cb17-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb17-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>(<span class="at">model =</span> <span class="st">"claude-haiku-4-5"</span>)</span>
 <span id="cb17-4"><a aria-label="4"></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
 <span id="cb17-5"><a aria-label="5"></a>  <span class="fu">content_pdf_url</span>(<span class="st">"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"</span>),</span>
-<span id="cb17-6"><a aria-label="6"></a>  <span class="st">"Describe Tesla’s executive compensation and stock award programs."</span></span>
+<span id="cb17-6"><a aria-label="6"></a>  <span class="st">"Describe Tesla's executive compensation and stock award programs."</span></span>
 <span id="cb17-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><span class="flex items-center gap-1"><img data-src="../assets/icons/python-icon-color.svg" alt="Python" height="36"> chatlas</span></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-label="1"></a><span class="im">import</span> chatlas</span>
 <span id="cb18-2"><a aria-label="2"></a></span>
-<span id="cb18-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb18-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatPosit(model<span class="op">=</span><span class="st">"claude-haiku-4-5"</span>)</span>
 <span id="cb18-4"><a aria-label="4"></a>chat.chat(</span>
-<span id="cb18-5"><a aria-label="5"></a>    content_pdf_url(<span class="st">"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"</span>),</span>
-<span id="cb18-6"><a aria-label="6"></a>    <span class="st">"Describe Tesla’s executive compensation and stock award programs."</span></span>
-<span id="cb18-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-5"><a aria-label="5"></a>    chatlas.content_pdf_url(</span>
+<span id="cb18-6"><a aria-label="6"></a>        <span class="st">"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"</span></span>
+<span id="cb18-7"><a aria-label="7"></a>    ),</span>
+<span id="cb18-8"><a aria-label="8"></a>    <span class="st">"Describe Tesla's executive compensation and stock award programs."</span></span>
+<span id="cb18-9"><a aria-label="9"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="your-turn-09_pdf" class="slide level2 slide-your-turn">
@@ -1351,16 +1434,41 @@ dd:before {
 <li><p>We have the actual recipes as PDFs in the <code>data/recipes/pdf</code> folder.</p></li>
 <li><p>Your job: ask the LLM to convert the recipes to markdown.</p></li>
 </ol>
-<countdown-timer id="timer_3170ea56a151f7483f01cb3d16b532656f0a7c71" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<countdown-timer id="timer_0a4d316db4c4f533b9e1eec1979f004f451c5471" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
  </countdown-timer>
 </section></section>
 <section>
 <section id="structured-output" class="title-slide slide level1 center" data-background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" data-background-size="cover" data-background-position="center top">
 <h1>Structured output</h1>
-
+<aside class="notes">
+<p>Structured output asks an LLM to return data in a predictable format instead of free text.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="how-would-you-extract-name-and-age" class="slide level2" style="--code-font-size: 0.66em">
 <h2>How would you extract name and age?</h2>
+<aside class="notes">
+<p>Here’s a common problem. You have messy text data and need to extract specific field like name and age.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>age_free_text <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb19-2"><a aria-label="2"></a>  <span class="st">"I go by Alex. 42 years on this planet and counting."</span>,</span>
@@ -1374,6 +1482,19 @@ dd:before {
 </section>
 <section id="if-you-wrote-r-code-it-might-look-like-this" class="slide level2 scrollable" style="--code-font-size: 0.66em">
 <h2>If you wrote R code, it might look like this…</h2>
+<aside class="notes">
+<p>If you tried to solve this with traditional R code, you’d need complex regex patterns and string parsing. This is painful.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>word_to_num <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb20-2"><a aria-label="2"></a>  <span class="co"># normalize</span></span>
@@ -1495,6 +1616,19 @@ dd:before {
 </section>
 <section id="if-you-wrote-r-code-it-might-look-like-this-1" class="slide level2 scrollable">
 <h2>If you wrote R code, it might look like this…</h2>
+<aside class="notes">
+<p>Here’s what running that code looks like. The missing values and incorrect age for Kwame show how brittle handwritten parsing can be.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="easy-columns gap-2">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">tibble</span>(</span>
@@ -1536,42 +1670,76 @@ dd:before {
 </div>
 </div>
 </div>
-<div class="footer">
-<p>😬 not great, <code>gpt-5</code>.</p>
-</div>
 </section>
 <section id="but-if-you-ask-an-llm" class="slide level2" data-transition="fade">
 <h2>But if you ask an LLM…</h2>
+<aside class="notes">
+<p>But with an LLM, you can just ask it to extract the name and age. Much simpler!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25" data-code-line-numbers="4-5|8,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb25-2"><a aria-label="2"></a></span>
-<span id="cb25-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(</span>
-<span id="cb25-4"><a aria-label="4"></a>  <span class="st">"openai/gpt-5-nano"</span>,</span>
-<span id="cb25-5"><a aria-label="5"></a>  <span class="at">system_prompt =</span> <span class="st">"Extract the name and age."</span></span>
-<span id="cb25-6"><a aria-label="6"></a>)</span>
-<span id="cb25-7"><a aria-label="7"></a></span>
-<span id="cb25-8"><a aria-label="8"></a>chat<span class="sc">$</span><span class="fu">chat</span>(age_free_text[[<span class="dv">1</span>]])</span>
-<span id="cb25-9"><a aria-label="9"></a><span class="co">#&gt;</span></span>
-<span id="cb25-10"><a aria-label="10"></a></span>
-<span id="cb25-11"><a aria-label="11"></a>chat<span class="sc">$</span><span class="fu">chat</span>(age_free_text[[<span class="dv">2</span>]])</span>
-<span id="cb25-12"><a aria-label="12"></a><span class="co">#&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>(</span>
+<span id="cb25-4"><a aria-label="4"></a>  <span class="at">system_prompt =</span> <span class="st">"Extract the name and age."</span></span>
+<span id="cb25-5"><a aria-label="5"></a>)</span>
+<span id="cb25-6"><a aria-label="6"></a></span>
+<span id="cb25-7"><a aria-label="7"></a>chat<span class="sc">$</span><span class="fu">chat</span>(age_free_text[[<span class="dv">1</span>]])</span>
+<span id="cb25-8"><a aria-label="8"></a><span class="co">#&gt;</span></span>
+<span id="cb25-9"><a aria-label="9"></a></span>
+<span id="cb25-10"><a aria-label="10"></a>chat<span class="sc">$</span><span class="fu">chat</span>(age_free_text[[<span class="dv">2</span>]])</span>
+<span id="cb25-11"><a aria-label="11"></a><span class="co">#&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="but-if-you-ask-an-llm-1" class="slide level2" data-transition="fade">
 <h2>But if you ask an LLM…</h2>
+<aside class="notes">
+<p>And it works! The LLM correctly extracts names and ages. But the output is still free text - wouldn’t it be nice to get proper R objects?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26" data-code-line-numbers="8-12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb26-2"><a aria-label="2"></a></span>
-<span id="cb26-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(</span>
-<span id="cb26-4"><a aria-label="4"></a>  <span class="st">"openai/gpt-5-nano"</span>,</span>
-<span id="cb26-5"><a aria-label="5"></a>  <span class="at">system_prompt =</span> <span class="st">"Extract the name and age."</span></span>
-<span id="cb26-6"><a aria-label="6"></a>)</span>
-<span id="cb26-7"><a aria-label="7"></a></span>
-<span id="cb26-8"><a aria-label="8"></a>chat<span class="sc">$</span><span class="fu">chat</span>(age_free_text[[<span class="dv">1</span>]])</span>
-<span id="cb26-9"><a aria-label="9"></a><span class="co">#&gt; Name: Alex; Age: 42</span></span>
-<span id="cb26-10"><a aria-label="10"></a></span>
-<span id="cb26-11"><a aria-label="11"></a>chat<span class="sc">$</span><span class="fu">chat</span>(age_free_text[[<span class="dv">2</span>]])</span>
-<span id="cb26-12"><a aria-label="12"></a><span class="co">#&gt; Name: Jamal; Age: 27</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-3"><a aria-label="3"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>(</span>
+<span id="cb26-4"><a aria-label="4"></a>  <span class="at">system_prompt =</span> <span class="st">"Extract the name and age."</span></span>
+<span id="cb26-5"><a aria-label="5"></a>)</span>
+<span id="cb26-6"><a aria-label="6"></a></span>
+<span id="cb26-7"><a aria-label="7"></a>chat<span class="sc">$</span><span class="fu">chat</span>(age_free_text[[<span class="dv">1</span>]])</span>
+<span id="cb26-8"><a aria-label="8"></a><span class="co">#&gt; Name: Alex; Age: 42</span></span>
+<span id="cb26-9"><a aria-label="9"></a></span>
+<span id="cb26-10"><a aria-label="10"></a>chat<span class="sc">$</span><span class="fu">chat</span>(age_free_text[[<span class="dv">2</span>]])</span>
+<span id="cb26-11"><a aria-label="11"></a><span class="co">#&gt; Name: Jamal; Age: 27</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="wouldnt-this-be-nice" class="slide level2" data-transition="fade">
 <h2>Wouldn’t this be nice?</h2>
+<aside class="notes">
+<p>What we really want is a proper R list with named fields. That’s what structured output gives us.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(age_free_text[[<span class="dv">1</span>]])</span>
 <span id="cb27-2"><a aria-label="2"></a><span class="co">#&gt; list(</span></span>
 <span id="cb27-3"><a aria-label="3"></a><span class="co">#&gt;   name = "Alex",</span></span>
@@ -1580,6 +1748,19 @@ dd:before {
 </section>
 <section id="structured-chat-output" class="slide level2" data-transition="fade">
 <h2>Structured chat output</h2>
+<aside class="notes">
+<p>this is a job for chat_structured(), which will return structured data instead of text. But we need to tell it what structure we want. <code>chat_structured()</code> requires a type</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>chat<span class="sc">$</span><span class="fu">chat_structured</span>(age_free_text[[<span class="dv">1</span>]])</span>
 <span id="cb28-2"><a aria-label="2"></a><span class="co">#&gt; list(</span></span>
 <span id="cb28-3"><a aria-label="3"></a><span class="co">#&gt;   name = "Alex",</span></span>
@@ -1588,6 +1769,19 @@ dd:before {
 </section>
 <section id="structured-chat-output-1" class="slide level2" data-transition="fade">
 <h2>Structured chat output</h2>
+<aside class="notes">
+<p>Define the structure with type_object(). Specify each field and its type. Then pass it to chat_structured().</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29" data-code-line-numbers="1-4|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a>type_person <span class="ot">&lt;-</span> <span class="fu">type_object</span>(</span>
 <span id="cb29-2"><a aria-label="2"></a>  <span class="at">name =</span> <span class="fu">type_string</span>(),</span>
 <span id="cb29-3"><a aria-label="3"></a>  <span class="at">age =</span> <span class="fu">type_integer</span>()</span>
@@ -1601,6 +1795,19 @@ dd:before {
 </section>
 <section id="structured-chat-output-2" class="slide level2" data-transition="fade">
 <h2>Structured chat output</h2>
+<aside class="notes">
+<p>And you get back proper R objects: a character vector for name, an integer for age.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30" data-code-line-numbers="7-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>type_person <span class="ot">&lt;-</span> <span class="fu">type_object</span>(</span>
 <span id="cb30-2"><a aria-label="2"></a>  <span class="at">name =</span> <span class="fu">type_string</span>(),</span>
 <span id="cb30-3"><a aria-label="3"></a>  <span class="at">age =</span> <span class="fu">type_integer</span>()</span>
@@ -1615,6 +1822,19 @@ dd:before {
 </section>
 <section id="ellmers-type-functions" class="slide level2">
 <h2>ellmer’s type functions</h2>
+<aside class="notes">
+<p>Here are the type functions available in ellmer. You can add descriptions to explain what each field means.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 <img data-src="assets/ellmer-type-functions.png" class="r-stretch"><div class="fragment">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>type_person <span class="ot">&lt;-</span> <span class="fu">type_object</span>(</span>
@@ -1632,12 +1852,25 @@ dd:before {
 <span id="cb32-5"><a aria-label="5"></a>    name: <span class="bu">str</span></span>
 <span id="cb32-6"><a aria-label="6"></a>    age: <span class="bu">int</span></span>
 <span id="cb32-7"><a aria-label="7"></a></span>
-<span id="cb32-8"><a aria-label="8"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-5-nano"</span>)</span>
+<span id="cb32-8"><a aria-label="8"></a>chat <span class="op">=</span> chatlas.ChatPosit(model<span class="op">=</span><span class="st">"claude-haiku-4-5"</span>)</span>
 <span id="cb32-9"><a aria-label="9"></a>chat.chat_structured(</span>
 <span id="cb32-10"><a aria-label="10"></a>    <span class="st">"I go by Alex. 42 years on this planet and counting."</span>,</span>
 <span id="cb32-11"><a aria-label="11"></a>    data_model<span class="op">=</span>Person</span>
 <span id="cb32-12"><a aria-label="12"></a>)</span>
 <span id="cb32-13"><a aria-label="13"></a><span class="co">#&gt; Person(name='Alex', age=42)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Pydantic defines the expected fields and types for one structured result. chatlas converts the Pydantic model into a schema for the provider. After the provider responds, chatlas uses Pydantic to validate the response and return a <code>Person</code>. The same Pydantic model works for single, parallel, and batch requests. chatlas, rather than Pydantic, controls how the requests are submitted.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="footer">
 <p><a href="https://posit-dev.github.io/chatlas/get-started/structured-data.html">chatlas: Structured Data</a></p>
 </div>
@@ -1648,15 +1881,28 @@ dd:before {
 <span id="cb33-2"><a aria-label="2"></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
 <span id="cb33-3"><a aria-label="3"></a></span>
 <span id="cb33-4"><a aria-label="4"></a><span class="kw">class</span> Person(BaseModel):</span>
-<span id="cb33-5"><a aria-label="5"></a>    name: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"The person's name"</span>)</span>
-<span id="cb33-6"><a aria-label="6"></a>    age: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"The person's age in years"</span>)</span>
+<span id="cb33-5"><a aria-label="5"></a>    name: <span class="bu">str</span> <span class="op">=</span> Field(description<span class="op">=</span><span class="st">"The person's name"</span>)</span>
+<span id="cb33-6"><a aria-label="6"></a>    age: <span class="bu">int</span> <span class="op">=</span> Field(description<span class="op">=</span><span class="st">"The person's age in years"</span>)</span>
 <span id="cb33-7"><a aria-label="7"></a></span>
-<span id="cb33-8"><a aria-label="8"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-5-nano"</span>)</span>
+<span id="cb33-8"><a aria-label="8"></a>chat <span class="op">=</span> chatlas.ChatPosit(model<span class="op">=</span><span class="st">"claude-haiku-4-5"</span>)</span>
 <span id="cb33-9"><a aria-label="9"></a>chat.chat_structured(</span>
 <span id="cb33-10"><a aria-label="10"></a>    <span class="st">"I go by Alex. 42 years on this planet and counting."</span>,</span>
 <span id="cb33-11"><a aria-label="11"></a>    data_model<span class="op">=</span>Person</span>
 <span id="cb33-12"><a aria-label="12"></a>)</span>
 <span id="cb33-13"><a aria-label="13"></a><span class="co">#&gt; Person(name='Alex', age=42)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Field descriptions give the model context about what to extract. When the input might omit a value, allow <code>None</code> in the field’s type. This helps the model return a missing value instead of inventing one.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="in-python-use-pydantic-2" class="slide level2" data-transition="fade">
 <h2>In Python, use Pydantic</h2>
@@ -1670,6 +1916,19 @@ dd:before {
 <span id="cb34-8"><a aria-label="8"></a>    <span class="co">"""The person's name"""</span></span>
 <span id="cb34-9"><a aria-label="9"></a>    age: <span class="bu">int</span></span>
 <span id="cb34-10"><a aria-label="10"></a>    <span class="co">"""The person's age in years"""</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Attribute docstrings require the class source code to be available at runtime. They do not work in an interactive interpreter, where <code>Field(description=...)</code> is more reliable.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="footer">
 <p><a href="https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings">pydantic: use_attribute_docstrings</a></p>
 </div>
@@ -1677,17 +1936,17 @@ dd:before {
 <section id="your-turn-10_structured-output" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>10_structured-output</code></h1>
 <ol type="1">
-<li><p>We also have text versions of the recipes in <code>data/recipes/txt</code>.</p></li>
+<li><p>We also have text versions of the recipes in <code>data/recipes/text</code>.</p></li>
 <li><p>Use <code>ellmer::type_*()</code> or a Pydantic model to extract structured data from the recipe you used in <strong>activity 09</strong>.</p></li>
 <li><p>I’ve given you the expected structure, you just need to implement it.</p></li>
 </ol>
-<countdown-timer id="timer_3170ea56a151f7483f01cb3d16b532656f0a7c71" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+<countdown-timer id="timer_0a4d316db4c4f533b9e1eec1979f004f451c5471" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
  </countdown-timer>
 </section>
 
 <section>
-<section id="parallel-and-batch-calls" class="title-slide slide level1 center" data-background-image="assets/barna-bartis-1DLPzq1kL3M-unsplash.jpg" data-background-size="cover" data-background-position="center">
-<h1>Parallel and batch calls</h1>
+<section id="parallel-calls" class="title-slide slide level1 center" data-background-image="assets/barna-bartis-1DLPzq1kL3M-unsplash.jpg" data-background-size="cover" data-background-position="center">
+<h1>Parallel calls</h1>
 
 </section>
 <section id="structured-chat-output-3" class="slide level2" data-transition="fade">
@@ -1703,6 +1962,19 @@ dd:before {
 <span id="cb35-9"><a aria-label="9"></a><span class="co">#&gt;</span></span>
 <span id="cb35-10"><a aria-label="10"></a><span class="co">#&gt; $age</span></span>
 <span id="cb35-11"><a aria-label="11"></a><span class="co">#&gt; [1] 42</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>One prompt produces one structured result. So far, every example processes one string at a time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="structured-chat-output-4" class="slide level2" data-transition="fade">
 <h2>Structured chat output</h2>
@@ -1713,6 +1985,19 @@ dd:before {
 <span id="cb36-5"><a aria-label="5"></a></span>
 <span id="cb36-6"><a aria-label="6"></a>chat<span class="sc">$</span><span class="fu">chat_structured</span>(age_free_text, <span class="at">type =</span> type_person)</span>
 <span id="cb36-7"><a aria-label="7"></a><span class="co">#&gt; ???</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Pose the question: what happens if we pass the whole list of prompts instead of just one? Take guesses from the room before advancing to the next slide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="structured-chat-output-5" class="slide level2" data-transition="fade">
 <h2>Structured chat output</h2>
@@ -1724,46 +2009,98 @@ dd:before {
 <span id="cb37-6"><a aria-label="6"></a>chat<span class="sc">$</span><span class="fu">chat_structured</span>(age_free_text, <span class="at">type =</span> type_person)</span>
 <span id="cb37-7"><a aria-label="7"></a><span class="co">#&gt; Error in `FUN()`:</span></span>
 <span id="cb37-8"><a aria-label="8"></a><span class="co">#&gt; ! `...` must be made up strings or &lt;content&gt; objects, not a list.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>It fails: <code>chat_structured()</code> takes individual prompts via <code>...</code>, not a collection. The takeaway is that you can’t vectorize structured output by passing a list. This is the motivation for <code>parallel_chat_structured()</code>, which we see next.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="parallel-chat-calls" class="slide level2" data-transition="fade">
 <h2>Parallel chat calls</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">parallel_chat_structured</span>(</span>
-<span id="cb38-2"><a aria-label="2"></a>  chat,</span>
-<span id="cb38-3"><a aria-label="3"></a>  age_free_text,</span>
-<span id="cb38-4"><a aria-label="4"></a>  <span class="at">type =</span> type_person</span>
-<span id="cb38-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>(<span class="at">model =</span> <span class="st">"claude-haiku-4-5"</span>)</span>
+<span id="cb38-2"><a aria-label="2"></a></span>
+<span id="cb38-3"><a aria-label="3"></a><span class="fu">parallel_chat_structured</span>(</span>
+<span id="cb38-4"><a aria-label="4"></a>  chat,</span>
+<span id="cb38-5"><a aria-label="5"></a>  age_free_text,</span>
+<span id="cb38-6"><a aria-label="6"></a>  <span class="at">type =</span> type_person,</span>
+<span id="cb38-7"><a aria-label="7"></a>  <span class="at">max_active =</span> <span class="dv">4</span>,</span>
+<span id="cb38-8"><a aria-label="8"></a>  <span class="at">on_error =</span> <span class="st">"stop"</span></span>
+<span id="cb38-9"><a aria-label="9"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>We use claude-haiku-4-5 for these parallel examples. GLM-5.3-Flash sometimes returned incomplete structured extractions</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="parallel-chat-calls-1" class="slide level2" data-transition="fade">
 <h2>Parallel chat calls</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a><span class="fu">parallel_chat_structured</span>(</span>
-<span id="cb39-2"><a aria-label="2"></a>  chat,</span>
-<span id="cb39-3"><a aria-label="3"></a>  age_free_text,</span>
-<span id="cb39-4"><a aria-label="4"></a>  <span class="at">type =</span> type_person</span>
-<span id="cb39-5"><a aria-label="5"></a>)</span>
-<span id="cb39-6"><a aria-label="6"></a><span class="co">#&gt; [working] (0 + 0) -&gt; 2 -&gt; 4 | ■■■■■■■■■■■■■■■■■■■■■             67%</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>(<span class="at">model =</span> <span class="st">"claude-haiku-4-5"</span>)</span>
+<span id="cb39-2"><a aria-label="2"></a></span>
+<span id="cb39-3"><a aria-label="3"></a><span class="fu">parallel_chat_structured</span>(</span>
+<span id="cb39-4"><a aria-label="4"></a>  chat,</span>
+<span id="cb39-5"><a aria-label="5"></a>  age_free_text,</span>
+<span id="cb39-6"><a aria-label="6"></a>  <span class="at">type =</span> type_person,</span>
+<span id="cb39-7"><a aria-label="7"></a>  <span class="at">max_active =</span> <span class="dv">4</span>,</span>
+<span id="cb39-8"><a aria-label="8"></a>  <span class="at">on_error =</span> <span class="st">"stop"</span></span>
+<span id="cb39-9"><a aria-label="9"></a>)</span>
+<span id="cb39-10"><a aria-label="10"></a><span class="co">#&gt; [working] (0 + 0) -&gt; 2 -&gt; 4 | ■■■■■■■■■■■■■■■■■■■■■             67%</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="parallel-chat-calls-2" class="slide level2" data-transition="fade">
 <h2>Parallel chat calls</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="fu">parallel_chat_structured</span>(</span>
-<span id="cb40-2"><a aria-label="2"></a>  chat,</span>
-<span id="cb40-3"><a aria-label="3"></a>  age_free_text,</span>
-<span id="cb40-4"><a aria-label="4"></a>  <span class="at">type =</span> type_person</span>
-<span id="cb40-5"><a aria-label="5"></a>)</span>
-<span id="cb40-6"><a aria-label="6"></a><span class="co">#&gt;     name age</span></span>
-<span id="cb40-7"><a aria-label="7"></a><span class="co">#&gt; 1   Alex  42</span></span>
-<span id="cb40-8"><a aria-label="8"></a><span class="co">#&gt; 2  Jamal  27</span></span>
-<span id="cb40-9"><a aria-label="9"></a><span class="co">#&gt; 3 Li Wei  19</span></span>
-<span id="cb40-10"><a aria-label="10"></a><span class="co">#&gt; 4 Fatima  35</span></span>
-<span id="cb40-11"><a aria-label="11"></a><span class="co">#&gt; 5 Robert  51</span></span>
-<span id="cb40-12"><a aria-label="12"></a><span class="co">#&gt; 6  Kwame  50</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>(<span class="at">model =</span> <span class="st">"claude-haiku-4-5"</span>)</span>
+<span id="cb40-2"><a aria-label="2"></a></span>
+<span id="cb40-3"><a aria-label="3"></a><span class="fu">parallel_chat_structured</span>(</span>
+<span id="cb40-4"><a aria-label="4"></a>  chat,</span>
+<span id="cb40-5"><a aria-label="5"></a>  age_free_text,</span>
+<span id="cb40-6"><a aria-label="6"></a>  <span class="at">type =</span> type_person,</span>
+<span id="cb40-7"><a aria-label="7"></a>  <span class="at">max_active =</span> <span class="dv">4</span>,</span>
+<span id="cb40-8"><a aria-label="8"></a>  <span class="at">on_error =</span> <span class="st">"stop"</span></span>
+<span id="cb40-9"><a aria-label="9"></a>)</span>
+<span id="cb40-10"><a aria-label="10"></a><span class="co">#&gt;     name age</span></span>
+<span id="cb40-11"><a aria-label="11"></a><span class="co">#&gt; 1   Alex  42</span></span>
+<span id="cb40-12"><a aria-label="12"></a><span class="co">#&gt; 2  Jamal  27</span></span>
+<span id="cb40-13"><a aria-label="13"></a><span class="co">#&gt; 3 Li Wei  19</span></span>
+<span id="cb40-14"><a aria-label="14"></a><span class="co">#&gt; 4 Fatima  35</span></span>
+<span id="cb40-15"><a aria-label="15"></a><span class="co">#&gt; 5 Robert  51</span></span>
+<span id="cb40-16"><a aria-label="16"></a><span class="co">#&gt; 6  Kwame  50</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="batch-chat-calls" class="slide level2" data-transition="fade">
 <h2>Batch chat calls</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-label="1"></a><span class="fu">batch_chat_structured</span>(</span>
 <span id="cb41-2"><a aria-label="2"></a>  chat,</span>
 <span id="cb41-3"><a aria-label="3"></a>  age_free_text,</span>
-<span id="cb41-4"><a aria-label="4"></a>  <span class="at">type =</span> type_person</span>
-<span id="cb41-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb41-4"><a aria-label="4"></a>  <span class="at">type =</span> type_person,</span>
+<span id="cb41-5"><a aria-label="5"></a>  <span class="at">path =</span> <span class="st">"people.json"</span></span>
+<span id="cb41-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>This introduces the batch helper. The current <code>chat</code> uses Posit AI, so this call is not runnable yet. The next slide switches to a direct provider that supports batching.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="batch-chat-calls-1" class="slide level2" data-transition="fade">
 <h2>Batch chat calls</h2>
@@ -1773,16 +2110,74 @@ dd:before {
 <span id="cb42-4"><a aria-label="4"></a>  <span class="at">type =</span> type_person,</span>
 <span id="cb42-5"><a aria-label="5"></a>  <span class="at">path =</span> <span class="st">"people.json"</span></span>
 <span id="cb42-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>The path stores the batch job state and completed responses. You can stop waiting and later call the same function with the same path to resume.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="batch-chat-calls-2" class="slide level2" data-transition="fade">
 <h2>Batch chat calls</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"anthropic/claude-3-5-haiku-20241022"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"anthropic/claude-haiku-4-5"</span>)</span>
 <span id="cb43-2"><a aria-label="2"></a><span class="fu">batch_chat_structured</span>(</span>
 <span id="cb43-3"><a aria-label="3"></a>  chat,</span>
 <span id="cb43-4"><a aria-label="4"></a>  age_free_text,</span>
 <span id="cb43-5"><a aria-label="5"></a>  <span class="at">type =</span> type_person,</span>
 <span id="cb43-6"><a aria-label="6"></a>  <span class="at">path =</span> <span class="st">"people.json"</span></span>
 <span id="cb43-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>This final call is runnable with direct Anthropic credentials. Posit AI does not expose the Anthropic batch API.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="parallel-chat-calls-in-python" class="slide level2">
+<h2>Parallel chat calls in Python</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44" data-code-line-numbers="6|8-14|16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-label="1"></a>prompts <span class="op">=</span> [</span>
+<span id="cb44-2"><a aria-label="2"></a>    <span class="st">"I go by Alex. 42 years on this planet and counting."</span>,</span>
+<span id="cb44-3"><a aria-label="3"></a>    <span class="st">"Pleased to meet you! I'm Jamal, age 27."</span>,</span>
+<span id="cb44-4"><a aria-label="4"></a>]</span>
+<span id="cb44-5"><a aria-label="5"></a></span>
+<span id="cb44-6"><a aria-label="6"></a>chat <span class="op">=</span> chatlas.ChatPosit(model<span class="op">=</span><span class="st">"claude-haiku-4-5"</span>)</span>
+<span id="cb44-7"><a aria-label="7"></a></span>
+<span id="cb44-8"><a aria-label="8"></a>results <span class="op">=</span> <span class="cf">await</span> chatlas.parallel_chat_structured(</span>
+<span id="cb44-9"><a aria-label="9"></a>    chat,</span>
+<span id="cb44-10"><a aria-label="10"></a>    prompts,</span>
+<span id="cb44-11"><a aria-label="11"></a>    Person,</span>
+<span id="cb44-12"><a aria-label="12"></a>    max_active<span class="op">=</span><span class="dv">4</span>,</span>
+<span id="cb44-13"><a aria-label="13"></a>    on_error<span class="op">=</span><span class="st">"stop"</span>,</span>
+<span id="cb44-14"><a aria-label="14"></a>)</span>
+<span id="cb44-15"><a aria-label="15"></a></span>
+<span id="cb44-16"><a aria-label="16"></a>people <span class="op">=</span> [result.data <span class="cf">for</span> result <span class="kw">in</span> results]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p><code>Person</code> still defines and validates one structured result. It does not control parallel processing. <code>parallel_chat_structured()</code> is asynchronous in Python, so call it with <code>await</code>. chatlas submits ordinary requests concurrently and keeps at most <code>max_active</code> requests active. Each result contains the extracted Pydantic object in its <code>data</code> attribute.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="batch-vs.-parallel" class="slide level2">
 <h2>Batch vs.&nbsp;parallel</h2>
@@ -1790,47 +2185,71 @@ dd:before {
 <section id="parallel" class="col">
 <h3>Parallel</h3>
 <ul>
-<li><p>🌲 Works for any provider/model<br>&nbsp;</p></li>
-<li><p>⚡ Much faster for small jobs</p></li>
-<li><p>💸 More expensive</p></li>
-<li><p>😓 Not easy to stop/resume</p></li>
-<li><p><span class="fragment" data-fragment-index="1">🔜 Coming soon to chatlas</span></p></li>
+<li><p>Sends ordinary requests at the same time</p></li>
+<li><p>Returns results during the current session</p></li>
+<li><p>Uses ordinary per-request pricing</p></li>
+<li><p>Works through Posit AI</p></li>
 </ul>
 </section>
-<section id="batch" class="col">
-<h3>Batch</h3>
+<section id="provider-batch-api" class="col">
+<h3>Provider batch API</h3>
 <ul>
-<li><p>🌱 Only works for some providers (OpenAI, Anthropic)</p></li>
-<li><p>⏲️ Finishes… eventually</p></li>
-<li><p>🏦 Much cheaper per prompt</p></li>
-<li><p>😎 Easy to stop/resume</p></li>
-<li><p><span class="fragment" data-fragment-index="1">🧑‍🚀 Works in chatlas</span></p></li>
+<li><p>Uploads requests to a provider-managed queue</p></li>
+<li><p>May take up to 24 hours</p></li>
+<li><p>Often has lower per-token pricing</p></li>
+<li><p>Is not available through Posit AI</p></li>
 </ul>
 </section>
 </div>
+<aside class="notes">
+<p>Parallel processing does not combine the prompts into one request. It sends one normal request for each prompt and limits how many requests are active.</p>
+<p>A provider batch API is a separate service. The provider stores the requests, schedules them, and makes the results available later. That scheduling flexibility is why providers can offer lower batch prices.</p>
+<p>Posit AI supports parallel ordinary requests but does not expose provider batch APIs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="chatlas.batch_chat_structured" class="slide level2" data-transition="fade">
 <h2>chatlas.batch_chat_structured</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-label="1"></a><span class="im">from</span> chatlas <span class="im">import</span> ChatAuto, batch_chat_structured</span>
-<span id="cb44-2"><a aria-label="2"></a></span>
-<span id="cb44-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"anthropic/claude-3-haiku-20240307"</span>)</span>
-<span id="cb44-4"><a aria-label="4"></a>res <span class="op">=</span> batch_chat_structured(</span>
-<span id="cb44-5"><a aria-label="5"></a>    chat<span class="op">=</span>chat,</span>
-<span id="cb44-6"><a aria-label="6"></a>    prompts<span class="op">=</span>age_free_text,</span>
-<span id="cb44-7"><a aria-label="7"></a>    data_model<span class="op">=</span>Person,</span>
-<span id="cb44-8"><a aria-label="8"></a>    path<span class="op">=</span><span class="st">"people.json"</span>,</span>
-<span id="cb44-9"><a aria-label="9"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a aria-label="1"></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"anthropic/claude-haiku-4-5"</span>)</span>
+<span id="cb45-2"><a aria-label="2"></a>results <span class="op">=</span> chatlas.batch_chat_structured(</span>
+<span id="cb45-3"><a aria-label="3"></a>    chat<span class="op">=</span>chat,</span>
+<span id="cb45-4"><a aria-label="4"></a>    prompts<span class="op">=</span>prompts,</span>
+<span id="cb45-5"><a aria-label="5"></a>    data_model<span class="op">=</span>Person,</span>
+<span id="cb45-6"><a aria-label="6"></a>    path<span class="op">=</span><span class="st">"people.json"</span>,</span>
+<span id="cb45-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p><code>Person</code> still defines and validates each structured result in the batch. chatlas submits the prompts through the provider’s batch API and retrieves the results. This example also requires direct Anthropic credentials.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
-<section id="your-turn-11_batch" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>11_batch</code></h1>
+<section id="your-turn-11_parallel" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>11_parallel</code></h1>
 <ol type="1">
 <li><p>Take your <code>type_recipe</code> or <code>Recipe</code> model from <strong>activity 10</strong>…</p></li>
-<li><p>And apply it to <em>all the text recipes</em> in <code>data/recipes/txt</code>.</p></li>
-<li><p>Use parallel processing with <code>gpt-4.1-nano</code> from OpenAI.</p></li>
-<li><p>Use the Batch API with Claude 3.5 Haiku from Anthropic.</p></li>
-<li><p>Save the results to <code>data/recipes/recipes.json</code> and try out the Shiny recipe cookbook app!</p></li>
+<li><p>And apply it to <em>all the text recipes</em> in <code>data/recipes/text</code>.</p></li>
+<li><p>Use <code>parallel_chat_structured()</code> with Posit AI.</p></li>
+<li><p>Allow no more than four active requests at once.</p></li>
+<li><p>Save the results to <code>data/recipes/recipes.json</code> and try the Shiny recipe cookbook app.</p></li>
 </ol>
-<countdown-timer id="timer_3170ea56a151f7483f01cb3d16b532656f0a7c71" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+<countdown-timer id="timer_0a4d316db4c4f533b9e1eec1979f004f451c5471" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
  </countdown-timer>
 
 

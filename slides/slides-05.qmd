@@ -14,7 +14,7 @@ editor:
 
 1. ellmer and chatlas let you show the model your plots!
 
-2. Create a basic `mtcars` scatter plot and ask Claude 4 Sonnet to interpret it.
+2. Create a basic `mtcars` scatter plot and ask GLM 5.3 Flash to interpret it.
 
 3. How does it do?
 
@@ -24,7 +24,7 @@ editor:
 
 1. Replace the scatter plot with random noise.
 
-2. Show this new plot to Claude 4 Sonnet and ask it to interpret it. How does it do this time?
+2. Show this new plot to GLM 5.3 Flash and ask it to interpret it. How does it do this time?
 
 3. Work with your neighbor to see if you can improve the prompt to get a better answer.
 
@@ -43,16 +43,19 @@ editor:
 :::
 
 ::: notes
-> There's going to be 3 questions we're usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1
->
-> so number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?
->
->  And then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see.
+Start by trying a stronger model.
+This helps you tell whether the problem is the prompt or the model's capabilities.
+
+Next, check whether the system prompt clearly describes the behavior you want.
+
+If the model still struggles, add examples of good responses.
 :::
 
 ## System prompt vs. user prompt
 
-Short answer: put instructions and background knowledge in the system prompt.
+Short answer: Put instructions and background knowledge in the system prompt.
+
+Put the current task in the user prompt.
 
 ## More tips {.scrollable}
 
@@ -157,27 +160,108 @@ Review this summary for accuracy, clarity, and completeness on
 a graded A-F scale.
 ```
 
+## Keep large prompts in separate files {style="--code-font-size: 0.72em"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### R
+
+```r
+prompt <- interpolate_file(
+  "prompt.md"
+)
+
+chat_posit(
+  system_prompt = prompt
+)
+```
+:::
+
+::: {.column width="50%"}
+### Python
+
+```python
+from pathlib import Path
+
+prompt = Path(
+    "prompt.md"
+).read_text()
+
+ChatPosit(
+    system_prompt=prompt
+)
+```
+:::
+
+::::
+
+Prompts in files are easier to read, review, and compare in version control.
+
+::: notes
+In R, `interpolate_file()` reads the file and replaces any `{{ }}` expressions.
+
+In Python, `Path.read_text()` reads the prompt before passing it to `ChatPosit()`.
+
+The quiz-game exercises use this pattern.
+:::
+
 ## More tips
 
-**Get large prompts out of the code and into separate files.**
+**(Advanced) Ask the model to track limits out loud.**
 
-- Easier to read (both locally and on GitHub)
-
-- Easier to read diffs in version control
-
-- We will do this in one of our exercises later
+E.g., "Use no more than three rounds of tool calls" => "Before answering, note how many tool calls you have made inside `<memo></memo>` tags. If you have made three, stop and answer."
 
 ## More tips
 
-**(Advanced) Force the model to say things out loud.**
-
-E.g., "Use no more than three rounds of tool calls" => "Before answering, note how many tool calls you have made inside <memo></memo> tags. If you have made three, stop and answer."
-
-## More tips
-
-See Anthropic's [_Prompt Engineering Overview_](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) and OpenAI's [_OpenAI Cookbook_](https://cookbook.openai.com/) are excellent, and contain lots of tips and examples.
+Anthropic's [_Prompt Engineering Overview_](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) and OpenAI's [_OpenAI Cookbook_](https://cookbook.openai.com/) are excellent, and contain lots of tips and examples.
 
 Google's [_Prompt Design Strategies_](https://ai.google.dev/gemini-api/docs/prompting-strategies) may also be useful.
+
+## Interpolation in R
+
+```{r}
+#| echo: true
+#| output-location: fragment
+#| code-line-numbers: "3|5-7"
+
+library(ellmer)
+
+words <- c("elephant", "bicycle", "sandwich")
+
+interpolate(
+  "The secret word is {{ sample(words, 1) }}."
+)
+```
+
+## Interpolation in R
+
+```{r}
+#| echo: true
+#| code-line-numbers: "5-7"
+
+library(ellmer)
+
+words <- c("elephant", "bicycle", "sandwich")
+
+interpolate(
+  "The secret word is {{ words }}."
+)
+```
+
+## Interpolation in Python
+
+```{python}
+#| echo: true
+#| output-location: fragment
+#| code-line-numbers: "3|5"
+
+import random
+
+words = ["elephant", "bicycle", "sandwich"]
+
+f"The secret word is {random.choice(words)}."
+```
 
 # Your Turn `14_quiz-game-1` {.slide-your-turn}
 
@@ -196,3 +280,231 @@ Google's [_Prompt Design Strategies_](https://ai.google.dev/gemini-api/docs/prom
 :::
 
 {{< countdown 8:00 left=0 bottom="-1em" >}}
+
+## How do you know...
+
+<style>
+#how-do-you-know h2 {
+  font-size: 1.8em;
+}
+
+#how-do-you-know .question-list {
+  font-size: 1.35em;
+  line-height: 1.5;
+  margin-top: 1.1em;
+}
+</style>
+
+::: {.incremental .question-list}
+- Which model should you use?
+
+- Which prompt works best?
+
+- If one agent is better than another?
+:::
+
+::: notes
+Trying each option once and deciding based on vibes is probably not enough.
+
+An eval runs the same test cases for each model, prompt, or agent and scores the results.
+:::
+
+## Evals
+
+::: {.fragment}
+
+:::: {.columns}
+
+::: {.column style="width: 50%; text-align: center;"}
+![](../assets/logos/vitals.png){fig-alt="The vitals package hex sticker shows a teddy bear dressed as a doctor." height="360px"}
+
+### `vitals`
+:::
+
+::: {.column style="width: 50%; text-align: center; padding-top: 2.2em; font-size: 2.4em; font-weight: 700;"}
+Inspect
+:::
+
+::::
+
+:::
+
+::: notes
+In R, we use vitals.
+
+In Python, we use Inspect.
+chatlas can turn a chat object into an Inspect solver.
+Both approaches use the same core ideas.
+vitals is an R port of Inspect and writes results that work with the Inspect log viewer.
+:::
+
+## Three parts to an eval
+
+:::: {.columns style="font-size: 0.86em;"}
+
+::: {.column .fragment width="32%"}
+### Dataset
+
+A set of test cases.
+
+Each case contains:
+
+- an **input**, such as a prompt and image
+- a **target** answer or grading guide
+:::
+
+::: {.column .fragment width="32%"}
+### Solver
+
+The code that takes each input and produces an output.
+
+It may make one model call or run a multi-step agent with tools.
+:::
+
+::: {.column .fragment width="32%"}
+### Scorer
+
+The grading rule for each output.
+
+It may compare the output with the target or use another grading method.
+:::
+
+::::
+
+::: notes
+use realistic inputs
+The target is not always one correct answer.
+For open-ended tasks, it can describe what a good response must contain.
+
+The solver should reproduce the behavior you want to test.
+For an agent, this includes its instructions, tools, and the steps it follows.
+:::
+
+## {#eval-task-code}
+
+[`Task` combines a dataset, solver, and scorer into an eval you can run.]{style="font-size: 1.2em;"}
+
+:::: {.columns style="--code-font-size: 0.68em; margin-top: 1.2em;"}
+
+::: {.column width="50%"}
+### R: vitals
+
+```{.r code-line-numbers="|1-3|6|7|8|5-9|11"}
+chat <- chat_posit()
+
+task <- Task$new(
+  dataset = cases,
+  solver = generate(chat),
+  scorer = model_graded_qa()
+)
+
+task$eval()
+```
+:::
+
+::: {.column width="50%"}
+### Python: Inspect
+
+```{.python code-line-numbers="|1-3|6|7|8|5-9|11"}
+chat = ChatPosit()
+
+task = Task(
+    dataset=cases,
+    solver=chat.to_solver(),
+    scorer=model_graded_qa_posit(),
+)
+
+eval(task)
+```
+:::
+
+::::
+
+::: footer
+[vitals](https://vitals.tidyverse.org/) · [chatlas evals](https://posit-dev.github.io/chatlas/misc/evals.html)
+:::
+
+::: notes
+A task is the complete eval specification.
+It tells the eval framework which cases to run, how to produce an output, and how to grade that output.
+
+The dataset contains the inputs and targets.
+
+In R, `generate()` turns an ellmer chat into a vitals solver.
+In Python, `chat.to_solver()` turns a chatlas chat into an Inspect solver.
+
+Another model grades the response against the target criteria.
+:::
+
+## Scorers
+
+::: {.smaller}
+| Method | How it works | Tradeoff |
+|---|---|---|
+| **Deterministic** | Match text, check a number, run tests. | Fast, deterministic, may be too narrow. |
+| **Model-graded** | Another LLM judges the output against grading criteria. | Flexible, but the grader must be validated. |
+| **Human review** | A person reads and grades the output. | High control for you, but slow and expensive at scale. |
+:::
+
+::: notes
+Human review is really useful when creating the dataset, checking the scorer, and investigating failures.
+:::
+
+## bluffbench
+
+::: {.fragment}
+> plot mpg vs hp in `mtcars` and tell me what you see.
+:::
+
+::: {.fragment}
+![](assets/bluffbench-example.png){fig-alt="A scatter plot of miles per gallon against horsepower in a secretly altered mtcars dataset. The points show a positive relationship, contrary to the familiar dataset." width="60%"}
+:::
+
+::: footer
+[bluffbench](https://posit-dev.github.io/bluffbench/)
+:::
+
+::: notes
+bluffbench secretly changes a familiar dataset, then asks a model to plot and describe it.
+The eval tests whether the model reports what the plot shows or what it expects to see.
+:::
+
+## {#bluffbench-results}
+
+::: {style="font-size: 0.7em; text-align: center; margin-bottom: -0.4em;"}
+<span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #67a9cf;"></span> Correct
+&nbsp;&nbsp;&nbsp;
+<span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #ef8a62;"></span> Incorrect
+:::
+
+![](assets/bluffbench-results.png){fig-alt="A horizontal stacked bar chart comparing models on bluffbench. Blue shows correct plot interpretations and orange shows incorrect interpretations, with separate panels for thinking and non-thinking models." width="76%"}
+
+::: footer
+[bluffbench](https://posit-dev.github.io/bluffbench/)
+:::
+
+## {#bluffbench-logs}
+
+[![](assets/bluffbench-logs.png){fig-alt="The Inspect log viewer showing a Bluffbench evaluation of GPT-5.2. The table lists each sample's input, target, answer, and score." width="100%"}](https://posit-dev.github.io/bluffbench/logs/){target="_blank"}
+
+::: notes
+The aggregate result tells us how often the model passed.
+The log lets us inspect individual cases.
+
+For each case, we can compare the input, target, model answer, and score.
+:::
+
+
+# Your Turn `15_evals` {.slide-your-turn}
+
+1. Keep the seed prompt and write two prompt variants of your own.
+
+1. Run the eval to test each prompt on two plots.
+
+1. Open the viewer.
+   Take a look at the responses and scores. 
+
+1. What do these runs suggest?
+   Which prompts pass both cases?
+
+{{< countdown 7:00 left=0 bottom="-2em" >}}

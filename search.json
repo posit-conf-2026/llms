@@ -466,21 +466,21 @@
     "href": "slides/slides-04.html#section-9",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "Anthropic builds a family of models called Claude. Within that family, model tiers trade speed/cost for intelligence."
+    "text": "Anthropic builds a family of models called Claude. Within that family, model tiers trade speed and cost for intelligence."
   },
   {
     "objectID": "slides/slides-04.html#section-10",
     "href": "slides/slides-04.html#section-10",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "Haiku is small, fast, and cheap\nSonnet balances speed and intelligence\nOpus is the largest and most intelligent\n\nThe positions are conceptual, not benchmark results. Version numbers identify newer generations within each tier."
+    "text": "Haiku is small, fast, and cheap.\nSonnet balances speed and intelligence.\nOpus is the largest and most intelligent.\n\nThe positions are conceptual, not benchmark results. Version numbers identify newer generations within each tier."
   },
   {
     "objectID": "slides/slides-04.html#section-11",
     "href": "slides/slides-04.html#section-11",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "OpenAI follows a similar pattern. Models with “mini” or “nano” in the name are usually faster and cheaper than the full-size model."
+    "text": "OpenAI now uses space-themed names such as Luna, Terra, Sol, and Astra. Earlier model families used labels such as mini, nano, and pro."
   },
   {
     "objectID": "slides/slides-04.html#open-weight-and-local-models",
@@ -501,7 +501,7 @@
     "href": "slides/slides-04.html#artificial-analysis-artificialanalysis.ai",
     "title": "Programming with LLMs",
     "section": "Artificial Analysis (artificialanalysis.ai)",
-    "text": "Artificial Analysis (artificialanalysis.ai)\n\n\nRanking of models."
+    "text": "Artificial Analysis (artificialanalysis.ai)\n\n\nUp and to the left is better. That means higher intelligence at a lower cost per task.\nThe green area marks the most attractive quadrant, and the dotted curve marks the Pareto line."
   },
   {
     "objectID": "slides/slides-04.html#start-capable-then-test-smaller",
@@ -557,21 +557,21 @@
     "href": "slides/slides-04.html#a-picture-is-worth-a-thousand-words",
     "title": "Programming with LLMs",
     "section": "A picture is worth a thousand words",
-    "text": "A picture is worth a thousand words\n\nOr for an LLM, a picture is roughly 227 words, or 170 tokens.\n\n\n🖼️ 🔍 Open Images Dataset"
+    "text": "A picture is worth a thousand words\n\n\n\nor, for Claude Sonnet 5, 274 tokens.\n\n\n\ncontent_image_file() resizes images to fit within 512 by 512 pixels by default. This 4:3 photo becomes 512 by 384 pixels. Claude Sonnet 5 currently reports 274 input tokens for an image-only request. The count depends on the model and image-processing settings. chatlas’s content_image_file() also defaults to at most 512 by 512 (resize=\"low\"), but prints a MissingResizeWarning unless you pass resize explicitly. use resize=\"high\" for higher quality."
   },
   {
     "objectID": "slides/slides-04.html#content_image_file",
     "href": "slides/slides-04.html#content_image_file",
     "title": "Programming with LLMs",
     "section": "🌆 content_image_file",
-    "text": "🌆 content_image_file\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_image_file(\"cute-cats.jpg\"),\n  \"What do you see in this image?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    chatlas.content_image_file(\"cute-cats.jpg\"),\n    \"What do you see in this image?\"\n)"
+    "text": "🌆 content_image_file\n\nUse content_image_file() to pass an image from your local filesystem. Provide the path to the image.\n\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"posit\")\nimage &lt;- content_image_file(\"assets/cat.png\")\nchat$chat(\n  image,\n  \"What do you see in this image?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"posit\")\nimage = chatlas.content_image_file(\"assets/cat.png\")\nchat.chat(\n    image,\n    \"What do you see in this image?\"\n)"
   },
   {
     "objectID": "slides/slides-04.html#content_image_url",
     "href": "slides/slides-04.html#content_image_url",
     "title": "Programming with LLMs",
     "section": "🐈 content_image_url",
-    "text": "🐈 content_image_url\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_image_url(\"https://placecats.com/bella/400/400\"),\n  \"What do you see in this image?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    chatlas.content_image_url(\"https://placecats.com/bella/400/400\"),\n    \"What do you see in this image?\"\n)"
+    "text": "🐈 content_image_url\n\nUse content_image_url() to pass an image from a URL. The rest of the call stays the same.\n\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"posit\")\nchat$chat(\n  content_image_url(\"https://placecats.com/bella/400/400\"),\n  \"What do you see in this image?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"posit\")\nchat.chat(\n    chatlas.content_image_url(\"https://placecats.com/bella/400/400\"),\n    \"What do you see in this image?\"\n)"
   },
   {
     "objectID": "slides/slides-04.html#your-turn-08_vision",
@@ -585,14 +585,14 @@
     "href": "slides/slides-04.html#content_pdf_file",
     "title": "Programming with LLMs",
     "section": "📑 content_pdf_file",
-    "text": "📑 content_pdf_file\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_pdf_file(\"financial-report.pdf\"),\n  \"What's my tax liability for 2024?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    content_pdf_file(\"financial-report.pdf\"),\n    \"What's my tax liability for 2024?\"\n)"
+    "text": "📑 content_pdf_file\n\nLLMs can also read PDFs. Use content_pdf_file() to pass a PDF from your filesystem.\n\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit(model = \"claude-haiku-4-5\")\nchat$chat(\n  content_pdf_file(\"financial-report.pdf\"),\n  \"What's my tax liability for 2024?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit(model=\"claude-haiku-4-5\")\nchat.chat(\n    chatlas.content_pdf_file(\"financial-report.pdf\"),\n    \"What's my tax liability for 2024?\"\n)"
   },
   {
     "objectID": "slides/slides-04.html#content_pdf_url",
     "href": "slides/slides-04.html#content_pdf_url",
     "title": "Programming with LLMs",
     "section": "📑 content_pdf_url",
-    "text": "📑 content_pdf_url\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_pdf_url(\"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf\"),\n  \"Describe Tesla’s executive compensation and stock award programs.\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    content_pdf_url(\"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf\"),\n    \"Describe Tesla’s executive compensation and stock award programs.\"\n)"
+    "text": "📑 content_pdf_url\n\nUse content_pdf_url() to pass a PDF from a URL. The rest of the call stays the same.\n\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit(model = \"claude-haiku-4-5\")\nchat$chat(\n  content_pdf_url(\"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf\"),\n  \"Describe Tesla's executive compensation and stock award programs.\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit(model=\"claude-haiku-4-5\")\nchat.chat(\n    chatlas.content_pdf_url(\n        \"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf\"\n    ),\n    \"Describe Tesla's executive compensation and stock award programs.\"\n)"
   },
   {
     "objectID": "slides/slides-04.html#your-turn-09_pdf",
@@ -606,168 +606,175 @@
     "href": "slides/slides-04.html#how-would-you-extract-name-and-age",
     "title": "Programming with LLMs",
     "section": "How would you extract name and age?",
-    "text": "How would you extract name and age?\n\nage_free_text &lt;- list(\n  \"I go by Alex. 42 years on this planet and counting.\",\n  \"Pleased to meet you! I'm Jamal, age 27.\",\n  \"They call me Li Wei. Nineteen years young.\",\n  \"Fatima here. Just celebrated my 35th birthday last week.\",\n  \"The name's Robert - 51 years old and proud of it.\",\n  \"Kwame here - just hit the big 5-0 this year.\"\n)"
+    "text": "How would you extract name and age?\n\nHere’s a common problem. You have messy text data and need to extract specific field like name and age.\n\n\nage_free_text &lt;- list(\n  \"I go by Alex. 42 years on this planet and counting.\",\n  \"Pleased to meet you! I'm Jamal, age 27.\",\n  \"They call me Li Wei. Nineteen years young.\",\n  \"Fatima here. Just celebrated my 35th birthday last week.\",\n  \"The name's Robert - 51 years old and proud of it.\",\n  \"Kwame here - just hit the big 5-0 this year.\"\n)"
   },
   {
     "objectID": "slides/slides-04.html#if-you-wrote-r-code-it-might-look-like-this",
     "href": "slides/slides-04.html#if-you-wrote-r-code-it-might-look-like-this",
     "title": "Programming with LLMs",
     "section": "If you wrote R code, it might look like this…",
-    "text": "If you wrote R code, it might look like this…\n\nword_to_num &lt;- function(x) {\n  # normalize\n  x &lt;- tolower(x)\n  # direct numbers\n  if (grepl(\"\\\\b\\\\d+\\\\b\", x)) {\n    return(as.integer(regmatches(x, regexpr(\"\\\\b\\\\d+\\\\b\", x))))\n  }\n  # hyphenated like \"5-0\"\n  if (grepl(\"\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b\", x)) {\n    parts &lt;- as.integer(unlist(strsplit(\n      regmatches(x, regexpr(\"\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b\", x)),\n      \"\\\\s*-\\\\s*\"\n    )))\n    return(10 * parts[1] + parts[2])\n  }\n  # simple word numbers\n  ones &lt;- c(\n    zero = 0,\n    one = 1,\n    two = 2,\n    three = 3,\n    four = 4,\n    five = 5,\n    six = 6,\n    seven = 7,\n    eight = 8,\n    nine = 9,\n    ten = 10,\n    eleven = 11,\n    twelve = 12,\n    thirteen = 13,\n    fourteen = 14,\n    fifteen = 15,\n    sixteen = 16,\n    seventeen = 17,\n    eighteen = 18,\n    nineteen = 19\n  )\n  tens &lt;- c(\n    twenty = 20,\n    thirty = 30,\n    forty = 40,\n    fifty = 50,\n    sixty = 60,\n    seventy = 70,\n    eighty = 80,\n    ninety = 90\n  )\n  # e.g., \"nineteen\"\n  if (x %in% names(ones)) {\n    return(ones[[x]])\n  }\n  # e.g., \"thirty five\" or \"thirty-five\"\n  x2 &lt;- gsub(\"-\", \" \", x)\n  parts &lt;- strsplit(x2, \"\\\\s+\")[[1]]\n  if (\n    length(parts) == 2 && parts[1] %in% names(tens) && parts[2] %in% names(ones)\n  ) {\n    return(tens[[parts[1]]] + ones[[parts[2]]])\n  }\n  if (length(parts) == 1 && parts[1] %in% names(tens)) {\n    return(tens[[parts[1]]])\n  }\n  return(NA_integer_)\n}\n\n# Extract name candidates\nextract_name &lt;- function(s) {\n  # patterns that introduce a name\n  pats &lt;- c(\n    \"I go by\\\\s+([A-Z][a-z]+)\",\n    \"I'm\\\\s+([A-Z][a-z]+(?:\\\\s+[A-Z][a-z]+)?)\",\n    \"They call me\\\\s+([A-Z][a-z]+(?:\\\\s+[A-Z][a-z]+)?)\",\n    \"^([A-Z][a-z]+) here\",\n    \"The name's\\\\s+([A-Z][a-z]+)\",\n    \"^([A-Z][a-z]+)\\\\s\" # fallback: leading capital word\n  )\n  for (p in pats) {\n    m &lt;- regexpr(p, s, perl = TRUE)\n    if (m[1] != -1) {\n      return(sub(p, \"\\\\1\", regmatches(s, m)))\n    }\n  }\n  NA_character_\n}\n\n# Extract age phrases and convert to number\nextract_age &lt;- function(s) {\n  # capture common age phrases around a number\n  m &lt;- regexpr(\n    \"(\\\\b\\\\d+\\\\b|\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b|\\\\b[Nn][a-z-]+\\\\b)\\\\s*(years|year|birthday|young|this)\",\n    s,\n    perl = TRUE\n  )\n  if (m[1] != -1) {\n    token &lt;- sub(\n      \"(years|year|birthday|young|this)$\",\n      \"\",\n      trimws(substring(s, m, m + attr(m, \"match.length\") - 1))\n    )\n    return(word_to_num(token))\n  }\n  # handle pure word-number without trailing keyword (e.g., \"Nineteen years young.\" handled above)\n  m2 &lt;- regexpr(\"\\\\b([A-Z][a-z]+)\\\\b\\\\s+years\", s, perl = TRUE)\n  if (m2[1] != -1) {\n    token &lt;- tolower(sub(\"\\\\s+years.*\", \"\", regmatches(s, m2)))\n    return(word_to_num(token))\n  }\n  # handle hyphenated \"big 5-0\"\n  m3 &lt;- regexpr(\"big\\\\s+(\\\\d+\\\\s*-\\\\s*\\\\d+)\", s, perl = TRUE)\n  if (m3[1] != -1) {\n    token &lt;- sub(\"big\\\\s+\", \"\", regmatches(s, m3))\n    return(word_to_num(token))\n  }\n  NA_integer_\n}"
+    "text": "If you wrote R code, it might look like this…\n\nIf you tried to solve this with traditional R code, you’d need complex regex patterns and string parsing. This is painful.\n\n\nword_to_num &lt;- function(x) {\n  # normalize\n  x &lt;- tolower(x)\n  # direct numbers\n  if (grepl(\"\\\\b\\\\d+\\\\b\", x)) {\n    return(as.integer(regmatches(x, regexpr(\"\\\\b\\\\d+\\\\b\", x))))\n  }\n  # hyphenated like \"5-0\"\n  if (grepl(\"\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b\", x)) {\n    parts &lt;- as.integer(unlist(strsplit(\n      regmatches(x, regexpr(\"\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b\", x)),\n      \"\\\\s*-\\\\s*\"\n    )))\n    return(10 * parts[1] + parts[2])\n  }\n  # simple word numbers\n  ones &lt;- c(\n    zero = 0,\n    one = 1,\n    two = 2,\n    three = 3,\n    four = 4,\n    five = 5,\n    six = 6,\n    seven = 7,\n    eight = 8,\n    nine = 9,\n    ten = 10,\n    eleven = 11,\n    twelve = 12,\n    thirteen = 13,\n    fourteen = 14,\n    fifteen = 15,\n    sixteen = 16,\n    seventeen = 17,\n    eighteen = 18,\n    nineteen = 19\n  )\n  tens &lt;- c(\n    twenty = 20,\n    thirty = 30,\n    forty = 40,\n    fifty = 50,\n    sixty = 60,\n    seventy = 70,\n    eighty = 80,\n    ninety = 90\n  )\n  # e.g., \"nineteen\"\n  if (x %in% names(ones)) {\n    return(ones[[x]])\n  }\n  # e.g., \"thirty five\" or \"thirty-five\"\n  x2 &lt;- gsub(\"-\", \" \", x)\n  parts &lt;- strsplit(x2, \"\\\\s+\")[[1]]\n  if (\n    length(parts) == 2 && parts[1] %in% names(tens) && parts[2] %in% names(ones)\n  ) {\n    return(tens[[parts[1]]] + ones[[parts[2]]])\n  }\n  if (length(parts) == 1 && parts[1] %in% names(tens)) {\n    return(tens[[parts[1]]])\n  }\n  return(NA_integer_)\n}\n\n# Extract name candidates\nextract_name &lt;- function(s) {\n  # patterns that introduce a name\n  pats &lt;- c(\n    \"I go by\\\\s+([A-Z][a-z]+)\",\n    \"I'm\\\\s+([A-Z][a-z]+(?:\\\\s+[A-Z][a-z]+)?)\",\n    \"They call me\\\\s+([A-Z][a-z]+(?:\\\\s+[A-Z][a-z]+)?)\",\n    \"^([A-Z][a-z]+) here\",\n    \"The name's\\\\s+([A-Z][a-z]+)\",\n    \"^([A-Z][a-z]+)\\\\s\" # fallback: leading capital word\n  )\n  for (p in pats) {\n    m &lt;- regexpr(p, s, perl = TRUE)\n    if (m[1] != -1) {\n      return(sub(p, \"\\\\1\", regmatches(s, m)))\n    }\n  }\n  NA_character_\n}\n\n# Extract age phrases and convert to number\nextract_age &lt;- function(s) {\n  # capture common age phrases around a number\n  m &lt;- regexpr(\n    \"(\\\\b\\\\d+\\\\b|\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b|\\\\b[Nn][a-z-]+\\\\b)\\\\s*(years|year|birthday|young|this)\",\n    s,\n    perl = TRUE\n  )\n  if (m[1] != -1) {\n    token &lt;- sub(\n      \"(years|year|birthday|young|this)$\",\n      \"\",\n      trimws(substring(s, m, m + attr(m, \"match.length\") - 1))\n    )\n    return(word_to_num(token))\n  }\n  # handle pure word-number without trailing keyword (e.g., \"Nineteen years young.\" handled above)\n  m2 &lt;- regexpr(\"\\\\b([A-Z][a-z]+)\\\\b\\\\s+years\", s, perl = TRUE)\n  if (m2[1] != -1) {\n    token &lt;- tolower(sub(\"\\\\s+years.*\", \"\", regmatches(s, m2)))\n    return(word_to_num(token))\n  }\n  # handle hyphenated \"big 5-0\"\n  m3 &lt;- regexpr(\"big\\\\s+(\\\\d+\\\\s*-\\\\s*\\\\d+)\", s, perl = TRUE)\n  if (m3[1] != -1) {\n    token &lt;- sub(\"big\\\\s+\", \"\", regmatches(s, m3))\n    return(word_to_num(token))\n  }\n  NA_integer_\n}"
   },
   {
     "objectID": "slides/slides-04.html#if-you-wrote-r-code-it-might-look-like-this-1",
     "href": "slides/slides-04.html#if-you-wrote-r-code-it-might-look-like-this-1",
     "title": "Programming with LLMs",
     "section": "If you wrote R code, it might look like this…",
-    "text": "If you wrote R code, it might look like this…\n\n\ndplyr::tibble(\n  name = purrr::map_chr(age_free_text, extract_name),\n  age = purrr::map_int(age_free_text, extract_age)\n)\n\n# A tibble: 6 × 2\n  name     age\n  &lt;chr&gt;  &lt;int&gt;\n1 Alex      42\n2 Jamal     NA\n3 Li Wei    NA\n4 Fatima    NA\n5 Robert    51\n6 Kwame      5\n\n\n\nage_free_text\n\n[[1]]\n[1] \"I go by Alex. 42 years on this planet and counting.\"\n\n[[2]]\n[1] \"Pleased to meet you! I'm Jamal, age 27.\"\n\n[[3]]\n[1] \"They call me Li Wei. Nineteen years young.\"\n\n[[4]]\n[1] \"Fatima here. Just celebrated my 35th birthday last week.\"\n\n[[5]]\n[1] \"The name's Robert - 51 years old and proud of it.\"\n\n[[6]]\n[1] \"Kwame here - just hit the big 5-0 this year.\"\n\n\n\n\n😬 not great, gpt-5."
+    "text": "If you wrote R code, it might look like this…\n\nHere’s what running that code looks like. The missing values and incorrect age for Kwame show how brittle handwritten parsing can be.\n\n\n\ndplyr::tibble(\n  name = purrr::map_chr(age_free_text, extract_name),\n  age = purrr::map_int(age_free_text, extract_age)\n)\n\n# A tibble: 6 × 2\n  name     age\n  &lt;chr&gt;  &lt;int&gt;\n1 Alex      42\n2 Jamal     NA\n3 Li Wei    NA\n4 Fatima    NA\n5 Robert    51\n6 Kwame      5\n\n\n\nage_free_text\n\n[[1]]\n[1] \"I go by Alex. 42 years on this planet and counting.\"\n\n[[2]]\n[1] \"Pleased to meet you! I'm Jamal, age 27.\"\n\n[[3]]\n[1] \"They call me Li Wei. Nineteen years young.\"\n\n[[4]]\n[1] \"Fatima here. Just celebrated my 35th birthday last week.\"\n\n[[5]]\n[1] \"The name's Robert - 51 years old and proud of it.\"\n\n[[6]]\n[1] \"Kwame here - just hit the big 5-0 this year.\""
   },
   {
     "objectID": "slides/slides-04.html#but-if-you-ask-an-llm",
     "href": "slides/slides-04.html#but-if-you-ask-an-llm",
     "title": "Programming with LLMs",
     "section": "But if you ask an LLM…",
-    "text": "But if you ask an LLM…\nlibrary(ellmer)\n\nchat &lt;- chat(\n  \"openai/gpt-5-nano\",\n  system_prompt = \"Extract the name and age.\"\n)\n\nchat$chat(age_free_text[[1]])\n#&gt;\n\nchat$chat(age_free_text[[2]])\n#&gt;"
+    "text": "But if you ask an LLM…\n\nBut with an LLM, you can just ask it to extract the name and age. Much simpler!\n\nlibrary(ellmer)\n\nchat &lt;- chat_posit(\n  system_prompt = \"Extract the name and age.\"\n)\n\nchat$chat(age_free_text[[1]])\n#&gt;\n\nchat$chat(age_free_text[[2]])\n#&gt;"
   },
   {
     "objectID": "slides/slides-04.html#but-if-you-ask-an-llm-1",
     "href": "slides/slides-04.html#but-if-you-ask-an-llm-1",
     "title": "Programming with LLMs",
     "section": "But if you ask an LLM…",
-    "text": "But if you ask an LLM…\nlibrary(ellmer)\n\nchat &lt;- chat(\n  \"openai/gpt-5-nano\",\n  system_prompt = \"Extract the name and age.\"\n)\n\nchat$chat(age_free_text[[1]])\n#&gt; Name: Alex; Age: 42\n\nchat$chat(age_free_text[[2]])\n#&gt; Name: Jamal; Age: 27"
+    "text": "But if you ask an LLM…\n\nAnd it works! The LLM correctly extracts names and ages. But the output is still free text - wouldn’t it be nice to get proper R objects?\n\nlibrary(ellmer)\n\nchat &lt;- chat_posit(\n  system_prompt = \"Extract the name and age.\"\n)\n\nchat$chat(age_free_text[[1]])\n#&gt; Name: Alex; Age: 42\n\nchat$chat(age_free_text[[2]])\n#&gt; Name: Jamal; Age: 27"
   },
   {
     "objectID": "slides/slides-04.html#wouldnt-this-be-nice",
     "href": "slides/slides-04.html#wouldnt-this-be-nice",
     "title": "Programming with LLMs",
     "section": "Wouldn’t this be nice?",
-    "text": "Wouldn’t this be nice?\nchat$chat(age_free_text[[1]])\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
+    "text": "Wouldn’t this be nice?\n\nWhat we really want is a proper R list with named fields. That’s what structured output gives us.\n\nchat$chat(age_free_text[[1]])\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
   },
   {
     "objectID": "slides/slides-04.html#structured-chat-output",
     "href": "slides/slides-04.html#structured-chat-output",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
-    "text": "Structured chat output\nchat$chat_structured(age_free_text[[1]])\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
+    "text": "Structured chat output\n\nthis is a job for chat_structured(), which will return structured data instead of text. But we need to tell it what structure we want. chat_structured() requires a type\n\nchat$chat_structured(age_free_text[[1]])\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
   },
   {
     "objectID": "slides/slides-04.html#structured-chat-output-1",
     "href": "slides/slides-04.html#structured-chat-output-1",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
-    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
+    "text": "Structured chat output\n\nDefine the structure with type_object(). Specify each field and its type. Then pass it to chat_structured().\n\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
   },
   {
     "objectID": "slides/slides-04.html#structured-chat-output-2",
     "href": "slides/slides-04.html#structured-chat-output-2",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
-    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; $name\n#&gt; [1] \"Alex\"\n#&gt;\n#&gt; $age\n#&gt; [1] 42"
+    "text": "Structured chat output\n\nAnd you get back proper R objects: a character vector for name, an integer for age.\n\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; $name\n#&gt; [1] \"Alex\"\n#&gt;\n#&gt; $age\n#&gt; [1] 42"
   },
   {
     "objectID": "slides/slides-04.html#ellmers-type-functions",
     "href": "slides/slides-04.html#ellmers-type-functions",
     "title": "Programming with LLMs",
     "section": "ellmer’s type functions",
-    "text": "ellmer’s type functions\n\n\ntype_person &lt;- type_object(\n  name = type_string(\"The person's name\"),\n  age = type_integer(\"The person's age in years\")\n)"
+    "text": "ellmer’s type functions\n\nHere are the type functions available in ellmer. You can add descriptions to explain what each field means.\n\n\n\ntype_person &lt;- type_object(\n  name = type_string(\"The person's name\"),\n  age = type_integer(\"The person's age in years\")\n)"
   },
   {
     "objectID": "slides/slides-04.html#in-python-use-pydantic",
     "href": "slides/slides-04.html#in-python-use-pydantic",
     "title": "Programming with LLMs",
     "section": "In Python, use Pydantic",
-    "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel\n\nclass Person(BaseModel):\n    name: str\n    age: int\n\nchat = chatlas.ChatAuto(\"openai/gpt-5-nano\")\nchat.chat_structured(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    data_model=Person\n)\n#&gt; Person(name='Alex', age=42)\n\nchatlas: Structured Data"
+    "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel\n\nclass Person(BaseModel):\n    name: str\n    age: int\n\nchat = chatlas.ChatPosit(model=\"claude-haiku-4-5\")\nchat.chat_structured(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    data_model=Person\n)\n#&gt; Person(name='Alex', age=42)\n\nPydantic defines the expected fields and types for one structured result. chatlas converts the Pydantic model into a schema for the provider. After the provider responds, chatlas uses Pydantic to validate the response and return a Person. The same Pydantic model works for single, parallel, and batch requests. chatlas, rather than Pydantic, controls how the requests are submitted.\n\n\nchatlas: Structured Data"
   },
   {
     "objectID": "slides/slides-04.html#in-python-use-pydantic-1",
     "href": "slides/slides-04.html#in-python-use-pydantic-1",
     "title": "Programming with LLMs",
     "section": "In Python, use Pydantic",
-    "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel, Field\n\nclass Person(BaseModel):\n    name: str = Field(..., description=\"The person's name\")\n    age: int = Field(..., description=\"The person's age in years\")\n\nchat = chatlas.ChatAuto(\"openai/gpt-5-nano\")\nchat.chat_structured(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    data_model=Person\n)\n#&gt; Person(name='Alex', age=42)"
+    "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel, Field\n\nclass Person(BaseModel):\n    name: str = Field(description=\"The person's name\")\n    age: int = Field(description=\"The person's age in years\")\n\nchat = chatlas.ChatPosit(model=\"claude-haiku-4-5\")\nchat.chat_structured(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    data_model=Person\n)\n#&gt; Person(name='Alex', age=42)\n\nField descriptions give the model context about what to extract. When the input might omit a value, allow None in the field’s type. This helps the model return a missing value instead of inventing one."
   },
   {
     "objectID": "slides/slides-04.html#in-python-use-pydantic-2",
     "href": "slides/slides-04.html#in-python-use-pydantic-2",
     "title": "Programming with LLMs",
     "section": "In Python, use Pydantic",
-    "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel, ConfigDict\n\nclass Person(BaseModel):\n    model_config = ConfigDict(use_attribute_docstrings=True)\n\n    name: str\n    \"\"\"The person's name\"\"\"\n    age: int\n    \"\"\"The person's age in years\"\"\"\n\npydantic: use_attribute_docstrings"
+    "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel, ConfigDict\n\nclass Person(BaseModel):\n    model_config = ConfigDict(use_attribute_docstrings=True)\n\n    name: str\n    \"\"\"The person's name\"\"\"\n    age: int\n    \"\"\"The person's age in years\"\"\"\n\nAttribute docstrings require the class source code to be available at runtime. They do not work in an interactive interpreter, where Field(description=...) is more reliable.\n\n\npydantic: use_attribute_docstrings"
   },
   {
     "objectID": "slides/slides-04.html#structured-chat-output-3",
     "href": "slides/slides-04.html#structured-chat-output-3",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
-    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; $name\n#&gt; [1] \"Alex\"\n#&gt;\n#&gt; $age\n#&gt; [1] 42"
+    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; $name\n#&gt; [1] \"Alex\"\n#&gt;\n#&gt; $age\n#&gt; [1] 42\n\nOne prompt produces one structured result. So far, every example processes one string at a time."
   },
   {
     "objectID": "slides/slides-04.html#structured-chat-output-4",
     "href": "slides/slides-04.html#structured-chat-output-4",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
-    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text, type = type_person)\n#&gt; ???"
+    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text, type = type_person)\n#&gt; ???\n\nPose the question: what happens if we pass the whole list of prompts instead of just one? Take guesses from the room before advancing to the next slide."
   },
   {
     "objectID": "slides/slides-04.html#structured-chat-output-5",
     "href": "slides/slides-04.html#structured-chat-output-5",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
-    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text, type = type_person)\n#&gt; Error in `FUN()`:\n#&gt; ! `...` must be made up strings or &lt;content&gt; objects, not a list."
+    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text, type = type_person)\n#&gt; Error in `FUN()`:\n#&gt; ! `...` must be made up strings or &lt;content&gt; objects, not a list.\n\nIt fails: chat_structured() takes individual prompts via ..., not a collection. The takeaway is that you can’t vectorize structured output by passing a list. This is the motivation for parallel_chat_structured(), which we see next."
   },
   {
     "objectID": "slides/slides-04.html#parallel-chat-calls",
     "href": "slides/slides-04.html#parallel-chat-calls",
     "title": "Programming with LLMs",
     "section": "Parallel chat calls",
-    "text": "Parallel chat calls\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)"
+    "text": "Parallel chat calls\nchat &lt;- chat_posit(model = \"claude-haiku-4-5\")\n\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  max_active = 4,\n  on_error = \"stop\"\n)\n\nWe use claude-haiku-4-5 for these parallel examples. GLM-5.3-Flash sometimes returned incomplete structured extractions"
   },
   {
     "objectID": "slides/slides-04.html#parallel-chat-calls-1",
     "href": "slides/slides-04.html#parallel-chat-calls-1",
     "title": "Programming with LLMs",
     "section": "Parallel chat calls",
-    "text": "Parallel chat calls\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)\n#&gt; [working] (0 + 0) -&gt; 2 -&gt; 4 | ■■■■■■■■■■■■■■■■■■■■■             67%"
+    "text": "Parallel chat calls\nchat &lt;- chat_posit(model = \"claude-haiku-4-5\")\n\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  max_active = 4,\n  on_error = \"stop\"\n)\n#&gt; [working] (0 + 0) -&gt; 2 -&gt; 4 | ■■■■■■■■■■■■■■■■■■■■■             67%"
   },
   {
     "objectID": "slides/slides-04.html#parallel-chat-calls-2",
     "href": "slides/slides-04.html#parallel-chat-calls-2",
     "title": "Programming with LLMs",
     "section": "Parallel chat calls",
-    "text": "Parallel chat calls\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)\n#&gt;     name age\n#&gt; 1   Alex  42\n#&gt; 2  Jamal  27\n#&gt; 3 Li Wei  19\n#&gt; 4 Fatima  35\n#&gt; 5 Robert  51\n#&gt; 6  Kwame  50"
+    "text": "Parallel chat calls\nchat &lt;- chat_posit(model = \"claude-haiku-4-5\")\n\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  max_active = 4,\n  on_error = \"stop\"\n)\n#&gt;     name age\n#&gt; 1   Alex  42\n#&gt; 2  Jamal  27\n#&gt; 3 Li Wei  19\n#&gt; 4 Fatima  35\n#&gt; 5 Robert  51\n#&gt; 6  Kwame  50"
   },
   {
     "objectID": "slides/slides-04.html#batch-chat-calls",
     "href": "slides/slides-04.html#batch-chat-calls",
     "title": "Programming with LLMs",
     "section": "Batch chat calls",
-    "text": "Batch chat calls\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)"
+    "text": "Batch chat calls\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  path = \"people.json\"\n)\n\nThis introduces the batch helper. The current chat uses Posit AI, so this call is not runnable yet. The next slide switches to a direct provider that supports batching."
   },
   {
     "objectID": "slides/slides-04.html#batch-chat-calls-1",
     "href": "slides/slides-04.html#batch-chat-calls-1",
     "title": "Programming with LLMs",
     "section": "Batch chat calls",
-    "text": "Batch chat calls\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  path = \"people.json\"\n)"
+    "text": "Batch chat calls\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  path = \"people.json\"\n)\n\nThe path stores the batch job state and completed responses. You can stop waiting and later call the same function with the same path to resume."
   },
   {
     "objectID": "slides/slides-04.html#batch-chat-calls-2",
     "href": "slides/slides-04.html#batch-chat-calls-2",
     "title": "Programming with LLMs",
     "section": "Batch chat calls",
-    "text": "Batch chat calls\nchat &lt;- chat(\"anthropic/claude-3-5-haiku-20241022\")\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  path = \"people.json\"\n)"
+    "text": "Batch chat calls\nchat &lt;- chat(\"anthropic/claude-haiku-4-5\")\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  path = \"people.json\"\n)\n\nThis final call is runnable with direct Anthropic credentials. Posit AI does not expose the Anthropic batch API."
+  },
+  {
+    "objectID": "slides/slides-04.html#parallel-chat-calls-in-python",
+    "href": "slides/slides-04.html#parallel-chat-calls-in-python",
+    "title": "Programming with LLMs",
+    "section": "Parallel chat calls in Python",
+    "text": "Parallel chat calls in Python\nprompts = [\n    \"I go by Alex. 42 years on this planet and counting.\",\n    \"Pleased to meet you! I'm Jamal, age 27.\",\n]\n\nchat = chatlas.ChatPosit(model=\"claude-haiku-4-5\")\n\nresults = await chatlas.parallel_chat_structured(\n    chat,\n    prompts,\n    Person,\n    max_active=4,\n    on_error=\"stop\",\n)\n\npeople = [result.data for result in results]\n\nPerson still defines and validates one structured result. It does not control parallel processing. parallel_chat_structured() is asynchronous in Python, so call it with await. chatlas submits ordinary requests concurrently and keeps at most max_active requests active. Each result contains the extracted Pydantic object in its data attribute."
   },
   {
     "objectID": "slides/slides-04.html#batch-vs.-parallel",
     "href": "slides/slides-04.html#batch-vs.-parallel",
     "title": "Programming with LLMs",
     "section": "Batch vs. parallel",
-    "text": "Batch vs. parallel\n\n\nParallel\n\n🌲 Works for any provider/model \n⚡ Much faster for small jobs\n💸 More expensive\n😓 Not easy to stop/resume\n🔜 Coming soon to chatlas\n\n\n\nBatch\n\n🌱 Only works for some providers (OpenAI, Anthropic)\n⏲️ Finishes… eventually\n🏦 Much cheaper per prompt\n😎 Easy to stop/resume\n🧑‍🚀 Works in chatlas"
+    "text": "Batch vs. parallel\n\n\nParallel\n\nSends ordinary requests at the same time\nReturns results during the current session\nUses ordinary per-request pricing\nWorks through Posit AI\n\n\n\nProvider batch API\n\nUploads requests to a provider-managed queue\nMay take up to 24 hours\nOften has lower per-token pricing\nIs not available through Posit AI\n\n\n\n\nParallel processing does not combine the prompts into one request. It sends one normal request for each prompt and limits how many requests are active.\nA provider batch API is a separate service. The provider stores the requests, schedules them, and makes the results available later. That scheduling flexibility is why providers can offer lower batch prices.\nPosit AI supports parallel ordinary requests but does not expose provider batch APIs."
   },
   {
     "objectID": "slides/slides-04.html#chatlas.batch_chat_structured",
     "href": "slides/slides-04.html#chatlas.batch_chat_structured",
     "title": "Programming with LLMs",
     "section": "chatlas.batch_chat_structured",
-    "text": "chatlas.batch_chat_structured\nfrom chatlas import ChatAuto, batch_chat_structured\n\nchat = chatlas.ChatAuto(\"anthropic/claude-3-haiku-20240307\")\nres = batch_chat_structured(\n    chat=chat,\n    prompts=age_free_text,\n    data_model=Person,\n    path=\"people.json\",\n)"
+    "text": "chatlas.batch_chat_structured\nchat = chatlas.ChatAuto(\"anthropic/claude-haiku-4-5\")\nresults = chatlas.batch_chat_structured(\n    chat=chat,\n    prompts=prompts,\n    data_model=Person,\n    path=\"people.json\",\n)\n\nPerson still defines and validates each structured result in the batch. chatlas submits the prompts through the provider’s batch API and retrieves the results. This example also requires direct Anthropic credentials."
   },
   {
     "objectID": "slides/slides-01.html#welcome-to-programming-with-llm-apis",
@@ -1142,11 +1149,11 @@
     ]
   },
   {
-    "objectID": "workshop-04.html#resources",
-    "href": "workshop-04.html#resources",
+    "objectID": "workshop-04.html#outline",
+    "href": "workshop-04.html#outline",
     "title": "Programming with LLMs",
-    "section": "Resources",
-    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, LM Studio\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
+    "section": "Outline",
+    "text": "Outline\n\n(15m) Providers and models\n\nOverview of providers and models\nTradeoffs: context, speed, cost, intelligence, and capabilities\nActivity (07_models): compare responses from two models\n\n(15m) Multimodal input\n\nImages and PDFs from local files and URLs\nActivity (08_vision): show images of food to an LLM\nActivity (09_pdf): convert a recipe PDF to Markdown\n\n(15m) Structured output\n\nellmer::type_*() and Pydantic models in chatlas\nActivity (10_structured-output): extract structured recipe data\n\n(10m) Parallel and batch calls\n\nDifferences between parallel requests and provider batch APIs\nActivity (11_parallel): extract all recipes in parallel and open them in the recipe app",
     "crumbs": [
       "Workshop",
       "Programming with LLMs"
@@ -1434,7 +1441,7 @@
     "href": "workshop-05.html#outline",
     "title": "Prompt Engineering",
     "section": "Outline",
-    "text": "Outline\n\n(35m) Prompting engineering and hallucinations\n\nActivity: images of mpg vs weight and ask for interpretation\nActivity (part 1): same question, but we’ve replaced the image with random noise\nActivity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image\nPrompt engineering best practices, in particular the system prompt\nActivity: create the prompt for the quiz game show",
+    "text": "Outline\n\n(35m) Prompt engineering\n\nActivity (12_plot-image-1): ask an LLM to interpret a scatter plot\nActivity (13_plot-image-2): replace the plot with random noise and improve the prompt\nSystem and user prompts, examples, prompt structure, and interpolation\nActivity (14_quiz-game-1): write the system prompt for a quiz game\n\n(15m) Evals\n\nDatasets, solvers, and scorers\nEvals with vitals in R and Inspect with chatlas in Python\nScorer options and the bluffbench example\nActivity (15_evals): compare three prompts on two plots",
     "crumbs": [
       "Workshop",
       "Prompt Engineering"
@@ -1857,14 +1864,14 @@
     "href": "slides/slides-05.html#three-questions-to-ask-yourself",
     "title": "Prompt Engineering",
     "section": "Three questions to ask yourself",
-    "text": "Three questions to ask yourself\n\nDid you use the best models?\nDid you clearly explain what you want the model to do in the system prompt?\nDid you provide examples of what you want?\n\n\n\nThere’s going to be 3 questions we’re usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1\nso number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?\nAnd then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see."
+    "text": "Three questions to ask yourself\n\nDid you use the best models?\nDid you clearly explain what you want the model to do in the system prompt?\nDid you provide examples of what you want?\n\n\nStart by trying a stronger model. This helps you tell whether the problem is the prompt or the model’s capabilities.\nNext, check whether the system prompt clearly describes the behavior you want.\nIf the model still struggles, add examples of good responses."
   },
   {
     "objectID": "slides/slides-05.html#system-prompt-vs.-user-prompt",
     "href": "slides/slides-05.html#system-prompt-vs.-user-prompt",
     "title": "Prompt Engineering",
     "section": "System prompt vs. user prompt",
-    "text": "System prompt vs. user prompt\nShort answer: put instructions and background knowledge in the system prompt."
+    "text": "System prompt vs. user prompt\nShort answer: Put instructions and background knowledge in the system prompt.\nPut the current task in the user prompt."
   },
   {
     "objectID": "slides/slides-05.html#more-tips",
@@ -1881,25 +1888,102 @@
     "text": "More tips\n\nUse Markdown headings and XML tags to give structure to your prompts.\nUse variables to insert dynamic content into your prompts–BUT be aware of prompt injection!\n\nYour task is to provide feedback on a research paper summary.\nHere is a summary of a medical research paper:\n&lt;summary&gt;\n{{SUMMARY}}\n&lt;/summary&gt;\n\nHere is the research paper:\n&lt;paper&gt;\n{{RESEARCH_PAPER}}\n&lt;/paper&gt;\n\nReview this summary for accuracy, clarity, and completeness on\na graded A-F scale."
   },
   {
+    "objectID": "slides/slides-05.html#keep-large-prompts-in-separate-files",
+    "href": "slides/slides-05.html#keep-large-prompts-in-separate-files",
+    "title": "Prompt Engineering",
+    "section": "Keep large prompts in separate files",
+    "text": "Keep large prompts in separate files\n\n\nR\nprompt &lt;- interpolate_file(\n  \"prompt.md\"\n)\n\nchat_posit(\n  system_prompt = prompt\n)\n\nPython\nfrom pathlib import Path\n\nprompt = Path(\n    \"prompt.md\"\n).read_text()\n\nChatPosit(\n    system_prompt=prompt\n)\n\nPrompts in files are easier to read, review, and compare in version control.\n\nIn R, interpolate_file() reads the file and replaces any { } expressions.\nIn Python, Path.read_text() reads the prompt before passing it to ChatPosit().\nThe quiz-game exercises use this pattern."
+  },
+  {
     "objectID": "slides/slides-05.html#more-tips-2",
     "href": "slides/slides-05.html#more-tips-2",
     "title": "Prompt Engineering",
     "section": "More tips",
-    "text": "More tips\nGet large prompts out of the code and into separate files.\n\nEasier to read (both locally and on GitHub)\nEasier to read diffs in version control\nWe will do this in one of our exercises later"
+    "text": "More tips\n(Advanced) Ask the model to track limits out loud.\nE.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside &lt;memo&gt;&lt;/memo&gt; tags. If you have made three, stop and answer.”"
   },
   {
     "objectID": "slides/slides-05.html#more-tips-3",
     "href": "slides/slides-05.html#more-tips-3",
     "title": "Prompt Engineering",
     "section": "More tips",
-    "text": "More tips\n(Advanced) Force the model to say things out loud.\nE.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside  tags. If you have made three, stop and answer.”"
+    "text": "More tips\nAnthropic’s Prompt Engineering Overview and OpenAI’s OpenAI Cookbook are excellent, and contain lots of tips and examples.\nGoogle’s Prompt Design Strategies may also be useful."
   },
   {
-    "objectID": "slides/slides-05.html#more-tips-4",
-    "href": "slides/slides-05.html#more-tips-4",
+    "objectID": "slides/slides-05.html#interpolation-in-r",
+    "href": "slides/slides-05.html#interpolation-in-r",
     "title": "Prompt Engineering",
-    "section": "More tips",
-    "text": "More tips\nSee Anthropic’s Prompt Engineering Overview and OpenAI’s OpenAI Cookbook are excellent, and contain lots of tips and examples.\nGoogle’s Prompt Design Strategies may also be useful."
+    "section": "Interpolation in R",
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is elephant."
+  },
+  {
+    "objectID": "slides/slides-05.html#interpolation-in-r-1",
+    "href": "slides/slides-05.html#interpolation-in-r-1",
+    "title": "Prompt Engineering",
+    "section": "Interpolation in R",
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ words }}.\"\n)\n\n[1] │ The secret word is elephant.\n[2] │ The secret word is bicycle.\n[3] │ The secret word is sandwich."
+  },
+  {
+    "objectID": "slides/slides-05.html#interpolation-in-python",
+    "href": "slides/slides-05.html#interpolation-in-python",
+    "title": "Prompt Engineering",
+    "section": "Interpolation in Python",
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
+  },
+  {
+    "objectID": "slides/slides-05.html#how-do-you-know",
+    "href": "slides/slides-05.html#how-do-you-know",
+    "title": "Prompt Engineering",
+    "section": "How do you know…",
+    "text": "How do you know…\n\n\n\nWhich model should you use?\nWhich prompt works best?\nIf one agent is better than another?\n\n\n\nTrying each option once and deciding based on vibes is probably not enough.\nAn eval runs the same test cases for each model, prompt, or agent and scores the results."
+  },
+  {
+    "objectID": "slides/slides-05.html#evals",
+    "href": "slides/slides-05.html#evals",
+    "title": "Prompt Engineering",
+    "section": "Evals",
+    "text": "Evals\n\n\n\n\nvitals\n\nInspect\n\n\n\nIn R, we use vitals.\nIn Python, we use Inspect. chatlas can turn a chat object into an Inspect solver. Both approaches use the same core ideas. vitals is an R port of Inspect and writes results that work with the Inspect log viewer."
+  },
+  {
+    "objectID": "slides/slides-05.html#three-parts-to-an-eval",
+    "href": "slides/slides-05.html#three-parts-to-an-eval",
+    "title": "Prompt Engineering",
+    "section": "Three parts to an eval",
+    "text": "Three parts to an eval\n\n\nDataset\nA set of test cases.\nEach case contains:\n\nan input, such as a prompt and image\na target answer or grading guide\n\n\nSolver\nThe code that takes each input and produces an output.\nIt may make one model call or run a multi-step agent with tools.\n\nScorer\nThe grading rule for each output.\nIt may compare the output with the target or use another grading method.\n\n\nuse realistic inputs The target is not always one correct answer. For open-ended tasks, it can describe what a good response must contain.\nThe solver should reproduce the behavior you want to test. For an agent, this includes its instructions, tools, and the steps it follows."
+  },
+  {
+    "objectID": "slides/slides-05.html#eval-task-code",
+    "href": "slides/slides-05.html#eval-task-code",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "Task combines a dataset, solver, and scorer into an eval you can run.\n\n\nR: vitals\nchat &lt;- chat_posit()\n\ntask &lt;- Task$new(\n  dataset = cases,\n  solver = generate(chat),\n  scorer = model_graded_qa()\n)\n\ntask$eval()\n\nPython: Inspect\nchat = ChatPosit()\n\ntask = Task(\n    dataset=cases,\n    solver=chat.to_solver(),\n    scorer=model_graded_qa_posit(),\n)\n\neval(task)\n\n\nvitals · chatlas evals\n\n\nA task is the complete eval specification. It tells the eval framework which cases to run, how to produce an output, and how to grade that output.\nThe dataset contains the inputs and targets.\nIn R, generate() turns an ellmer chat into a vitals solver. In Python, chat.to_solver() turns a chatlas chat into an Inspect solver.\nAnother model grades the response against the target criteria."
+  },
+  {
+    "objectID": "slides/slides-05.html#scorers",
+    "href": "slides/slides-05.html#scorers",
+    "title": "Prompt Engineering",
+    "section": "Scorers",
+    "text": "Scorers\n\n\n\n\n\n\n\n\n\nMethod\nHow it works\nTradeoff\n\n\n\n\nDeterministic\nMatch text, check a number, run tests.\nFast, deterministic, may be too narrow.\n\n\nModel-graded\nAnother LLM judges the output against grading criteria.\nFlexible, but the grader must be validated.\n\n\nHuman review\nA person reads and grades the output.\nHigh control for you, but slow and expensive at scale.\n\n\n\n\n\nHuman review is really useful when creating the dataset, checking the scorer, and investigating failures."
+  },
+  {
+    "objectID": "slides/slides-05.html#bluffbench",
+    "href": "slides/slides-05.html#bluffbench",
+    "title": "Prompt Engineering",
+    "section": "bluffbench",
+    "text": "bluffbench\n\n\nplot mpg vs hp in mtcars and tell me what you see.\n\n\n\n\n\n\nbluffbench\n\n\nbluffbench secretly changes a familiar dataset, then asks a model to plot and describe it. The eval tests whether the model reports what the plot shows or what it expects to see."
+  },
+  {
+    "objectID": "slides/slides-05.html#bluffbench-results",
+    "href": "slides/slides-05.html#bluffbench-results",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "Correct      Incorrect\n\n\n\nbluffbench"
+  },
+  {
+    "objectID": "slides/slides-05.html#bluffbench-logs",
+    "href": "slides/slides-05.html#bluffbench-logs",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "The aggregate result tells us how often the model passed. The log lets us inspect individual cases.\nFor each case, we can compare the input, target, model answer, and score."
   },
   {
     "objectID": "slides/slides-08.html#whats-an-agent",

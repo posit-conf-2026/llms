@@ -288,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2026/llms/edit/main/website/workshop-04.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2026/llms/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -337,29 +337,30 @@ ul.task-list li input[type="checkbox"] {
     </div>
   
 </section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
 <ul>
-<li>(15m) Choosing a model
+<li>(15m) Providers and models
 <ul>
-<li>Overview of major providers: OpenAI, Anthropic, Google, LM Studio</li>
-<li>Tradeoffs: capability, context length, speed, cost, intelligence</li>
-<li>Activity: same question, change one string to switch models, e.g.&nbsp;<code>chat("openai")</code>, <code>chat("anthropic")</code>.</li>
+<li>Overview of providers and models</li>
+<li>Tradeoffs: context, speed, cost, intelligence, and capabilities</li>
+<li>Activity (<code>07_models</code>): compare responses from two models</li>
 </ul></li>
-<li>(15m) Multi-modal input (vision, PDF)
+<li>(15m) Multimodal input
 <ul>
-<li>Activity: images of food and ask for recipes</li>
-<li>Activity: take a PDF of a recipe, turn it into markdown</li>
+<li>Images and PDFs from local files and URLs</li>
+<li>Activity (<code>08_vision</code>): show images of food to an LLM</li>
+<li>Activity (<code>09_pdf</code>): convert a recipe PDF to Markdown</li>
 </ul></li>
 <li>(15m) Structured output
 <ul>
-<li>Explain <code>ellmer::type_*()</code> or <a href="https://posit-dev.github.io/chatlas/get-started/structured-data.html">pydantic model in chatlas</a></li>
-<li>Activity: Extract rich data from the recipe PDF</li>
-<li>Note <a href="https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings">use_attribute_docstrings</a></li>
+<li><code>ellmer::type_*()</code> and <a href="https://posit-dev.github.io/chatlas/get-started/structured-data.html">Pydantic models in chatlas</a></li>
+<li>Activity (<code>10_structured-output</code>): extract structured recipe data</li>
 </ul></li>
-<li>(10m) Parallel/batch calls
+<li>(10m) Parallel and batch calls
 <ul>
-<li>Activity: Extract recipe data in parallel or batch</li>
+<li>Differences between parallel requests and provider batch APIs</li>
+<li>Activity (<code>11_parallel</code>): extract all recipes in parallel and open them in the recipe app</li>
 </ul></li>
 </ul>
 

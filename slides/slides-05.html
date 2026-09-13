@@ -239,10 +239,10 @@
 <h1>Your Turn <code>12_plot-image-1</code></h1>
 <ol type="1">
 <li><p>ellmer and chatlas let you show the model your plots!</p></li>
-<li><p>Create a basic <code>mtcars</code> scatter plot and ask Claude 4 Sonnet to interpret it.</p></li>
+<li><p>Create a basic <code>mtcars</code> scatter plot and ask GLM 5.3 Flash to interpret it.</p></li>
 <li><p>How does it do?</p></li>
 </ol>
-<countdown-timer id="timer_3170ea56a151f7483f01cb3d16b532656f0a7c71" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_c8f06799a721f652ca26fcd1cfdd550bd168c118" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 </section>
 
@@ -250,10 +250,10 @@
 <h1>Your Turn <code>13_plot-image-2</code></h1>
 <ol type="1">
 <li><p>Replace the scatter plot with random noise.</p></li>
-<li><p>Show this new plot to Claude 4 Sonnet and ask it to interpret it. How does it do this time?</p></li>
+<li><p>Show this new plot to GLM 5.3 Flash and ask it to interpret it. How does it do this time?</p></li>
 <li><p>Work with your neighbor to see if you can improve the prompt to get a better answer.</p></li>
 </ol>
-<countdown-timer id="timer_3170ea56a151f7483f01cb3d16b532656f0a7c71" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_c8f06799a721f652ca26fcd1cfdd550bd168c118" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 </section>
 
@@ -270,11 +270,9 @@
 <li class="fragment"><p>Did you provide examples of what you want?</p></li>
 </ol>
 <aside class="notes">
-<blockquote>
-<p>There’s going to be 3 questions we’re usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1</p>
-<p>so number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?</p>
-<p>And then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see.</p>
-</blockquote>
+<p>Start by trying a stronger model. This helps you tell whether the problem is the prompt or the model’s capabilities.</p>
+<p>Next, check whether the system prompt clearly describes the behavior you want.</p>
+<p>If the model still struggles, add examples of good responses.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -289,7 +287,8 @@
 </section>
 <section id="system-prompt-vs.-user-prompt" class="slide level2">
 <h2>System prompt vs.&nbsp;user prompt</h2>
-<p>Short answer: put instructions and background knowledge in the system prompt.</p>
+<p>Short answer: Put instructions and background knowledge in the system prompt.</p>
+<p>Put the current task in the user prompt.</p>
 </section>
 <section id="more-tips" class="slide level2 scrollable">
 <h2>More tips</h2>
@@ -389,25 +388,107 @@
 <span id="cb2-12"><a aria-label="12"></a>Review this summary for accuracy, clarity, and completeness on</span>
 <span id="cb2-13"><a aria-label="13"></a>a graded A-F scale.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="keep-large-prompts-in-separate-files" class="slide level2" style="--code-font-size: 0.72em">
+<h2>Keep large prompts in separate files</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="r">R</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>prompt <span class="ot">&lt;-</span> <span class="fu">interpolate_file</span>(</span>
+<span id="cb3-2"><a aria-label="2"></a>  <span class="st">"prompt.md"</span></span>
+<span id="cb3-3"><a aria-label="3"></a>)</span>
+<span id="cb3-4"><a aria-label="4"></a></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="fu">chat_posit</span>(</span>
+<span id="cb3-6"><a aria-label="6"></a>  <span class="at">system_prompt =</span> prompt</span>
+<span id="cb3-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<h3 id="python">Python</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb4-2"><a aria-label="2"></a></span>
+<span id="cb4-3"><a aria-label="3"></a>prompt <span class="op">=</span> Path(</span>
+<span id="cb4-4"><a aria-label="4"></a>    <span class="st">"prompt.md"</span></span>
+<span id="cb4-5"><a aria-label="5"></a>).read_text()</span>
+<span id="cb4-6"><a aria-label="6"></a></span>
+<span id="cb4-7"><a aria-label="7"></a>ChatPosit(</span>
+<span id="cb4-8"><a aria-label="8"></a>    system_prompt<span class="op">=</span>prompt</span>
+<span id="cb4-9"><a aria-label="9"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<p>Prompts in files are easier to read, review, and compare in version control.</p>
+<aside class="notes">
+<p>In R, <code>interpolate_file()</code> reads the file and replaces any <code>{ }</code> expressions.</p>
+<p>In Python, <code>Path.read_text()</code> reads the prompt before passing it to <code>ChatPosit()</code>.</p>
+<p>The quiz-game exercises use this pattern.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="more-tips-2" class="slide level2">
 <h2>More tips</h2>
-<p><strong>Get large prompts out of the code and into separate files.</strong></p>
-<ul>
-<li><p>Easier to read (both locally and on GitHub)</p></li>
-<li><p>Easier to read diffs in version control</p></li>
-<li><p>We will do this in one of our exercises later</p></li>
-</ul>
+<p><strong>(Advanced) Ask the model to track limits out loud.</strong></p>
+<p>E.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside <code>&lt;memo&gt;&lt;/memo&gt;</code> tags. If you have made three, stop and answer.”</p>
 </section>
 <section id="more-tips-3" class="slide level2">
 <h2>More tips</h2>
-<p><strong>(Advanced) Force the model to say things out loud.</strong></p>
-<p>E.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside <memo></memo> tags. If you have made three, stop and answer.”</p>
-</section>
-<section id="more-tips-4" class="slide level2">
-<h2>More tips</h2>
-<p>See Anthropic’s <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"><em>Prompt Engineering Overview</em></a> and OpenAI’s <a href="https://cookbook.openai.com/"><em>OpenAI Cookbook</em></a> are excellent, and contain lots of tips and examples.</p>
+<p>Anthropic’s <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"><em>Prompt Engineering Overview</em></a> and OpenAI’s <a href="https://cookbook.openai.com/"><em>OpenAI Cookbook</em></a> are excellent, and contain lots of tips and examples.</p>
 <p>Google’s <a href="https://ai.google.dev/gemini-api/docs/prompting-strategies"><em>Prompt Design Strategies</em></a> may also be useful.</p>
+</section>
+<section id="interpolation-in-r" class="slide level2">
+<h2>Interpolation in R</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-code-line-numbers="3|5-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb5-2"><a aria-label="2"></a></span>
+<span id="cb5-3"><a aria-label="3"></a>words <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"elephant"</span>, <span class="st">"bicycle"</span>, <span class="st">"sandwich"</span>)</span>
+<span id="cb5-4"><a aria-label="4"></a></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="fu">interpolate</span>(</span>
+<span id="cb5-6"><a aria-label="6"></a>  <span class="st">"The secret word is {{ sample(words, 1) }}."</span></span>
+<span id="cb5-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ The secret word is elephant.</code></pre>
+</div>
+</div>
+</section>
+<section id="interpolation-in-r-1" class="slide level2">
+<h2>Interpolation in R</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-code-line-numbers="5-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb7-2"><a aria-label="2"></a></span>
+<span id="cb7-3"><a aria-label="3"></a>words <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"elephant"</span>, <span class="st">"bicycle"</span>, <span class="st">"sandwich"</span>)</span>
+<span id="cb7-4"><a aria-label="4"></a></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="fu">interpolate</span>(</span>
+<span id="cb7-6"><a aria-label="6"></a>  <span class="st">"The secret word is {{ words }}."</span></span>
+<span id="cb7-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ The secret word is elephant.
+[2] │ The secret word is bicycle.
+[3] │ The secret word is sandwich.</code></pre>
+</div>
+</div>
+</section>
+<section id="interpolation-in-python" class="slide level2">
+<h2>Interpolation in Python</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-code-line-numbers="3|5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a><span class="im">import</span> random</span>
+<span id="cb9-2"><a aria-label="2"></a></span>
+<span id="cb9-3"><a aria-label="3"></a>words <span class="op">=</span> [<span class="st">"elephant"</span>, <span class="st">"bicycle"</span>, <span class="st">"sandwich"</span>]</span>
+<span id="cb9-4"><a aria-label="4"></a></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="ss">f"The secret word is </span><span class="sc">{</span>random<span class="sc">.</span>choice(words)<span class="sc">}</span><span class="ss">."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>'The secret word is elephant.'</code></pre>
+</div>
+</div>
 </section></section>
+<section>
 <section id="your-turn-14_quiz-game-1" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>14_quiz-game-1</code></h1>
 <div style="width: 90%;">
@@ -419,7 +500,265 @@
 <li><p>After 5 questions, end the round and tell the user they won, regardless of their score. Then, start a new round.</p></li>
 </ol>
 </div>
-<countdown-timer id="timer_3170ea56a151f7483f01cb3d16b532656f0a7c71" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+<countdown-timer id="timer_c8f06799a721f652ca26fcd1cfdd550bd168c118" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+ </countdown-timer>
+</section>
+<section id="how-do-you-know" class="slide level2">
+<h2>How do you know…</h2>
+<style>
+#how-do-you-know h2 {
+  font-size: 1.8em;
+}
+
+#how-do-you-know .question-list {
+  font-size: 1.35em;
+  line-height: 1.5;
+  margin-top: 1.1em;
+}
+</style>
+<div class="question-list">
+<ul>
+<li class="fragment"><p>Which model should you use?</p></li>
+<li class="fragment"><p>Which prompt works best?</p></li>
+<li class="fragment"><p>If one agent is better than another?</p></li>
+</ul>
+</div>
+<aside class="notes">
+<p>Trying each option once and deciding based on vibes is probably not enough.</p>
+<p>An eval runs the same test cases for each model, prompt, or agent and scores the results.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="evals" class="slide level2">
+<h2>Evals</h2>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width: 50%; text-align: center;">
+<p><img data-src="../assets/logos/vitals.png" alt="The vitals package hex sticker shows a teddy bear dressed as a doctor." height="360"></p>
+<h3 id="vitals"><code>vitals</code></h3>
+</div><div class="column" style="width: 50%; text-align: center; padding-top: 2.2em; font-size: 2.4em; font-weight: 700;">
+<p>Inspect</p>
+</div></div>
+</div>
+<aside class="notes">
+<p>In R, we use vitals.</p>
+<p>In Python, we use Inspect. chatlas can turn a chat object into an Inspect solver. Both approaches use the same core ideas. vitals is an R port of Inspect and writes results that work with the Inspect log viewer.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="three-parts-to-an-eval" class="slide level2">
+<h2>Three parts to an eval</h2>
+<div class="columns" style="font-size: 0.86em;">
+<div class="column fragment" style="width:32%;">
+<h3 id="dataset">Dataset</h3>
+<p>A set of test cases.</p>
+<p>Each case contains:</p>
+<ul>
+<li>an <strong>input</strong>, such as a prompt and image</li>
+<li>a <strong>target</strong> answer or grading guide</li>
+</ul>
+</div><div class="column fragment" style="width:32%;">
+<h3 id="solver">Solver</h3>
+<p>The code that takes each input and produces an output.</p>
+<p>It may make one model call or run a multi-step agent with tools.</p>
+</div><div class="column fragment" style="width:32%;">
+<h3 id="scorer">Scorer</h3>
+<p>The grading rule for each output.</p>
+<p>It may compare the output with the target or use another grading method.</p>
+</div></div>
+<aside class="notes">
+<p>use realistic inputs The target is not always one correct answer. For open-ended tasks, it can describe what a good response must contain.</p>
+<p>The solver should reproduce the behavior you want to test. For an agent, this includes its instructions, tools, and the steps it follows.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="eval-task-code" class="slide level2">
+<h2></h2>
+<p><span style="font-size: 1.2em;"><code>Task</code> combines a dataset, solver, and scorer into an eval you can run.</span></p>
+<div class="columns" style="--code-font-size: 0.68em; margin-top: 1.2em;">
+<div class="column" style="width:50%;">
+<h3 id="r-vitals">R: vitals</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-code-line-numbers="|1-3|6|7|8|5-9|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>()</span>
+<span id="cb11-2"><a aria-label="2"></a></span>
+<span id="cb11-3"><a aria-label="3"></a>task <span class="ot">&lt;-</span> Task<span class="sc">$</span><span class="fu">new</span>(</span>
+<span id="cb11-4"><a aria-label="4"></a>  <span class="at">dataset =</span> cases,</span>
+<span id="cb11-5"><a aria-label="5"></a>  <span class="at">solver =</span> <span class="fu">generate</span>(chat),</span>
+<span id="cb11-6"><a aria-label="6"></a>  <span class="at">scorer =</span> <span class="fu">model_graded_qa</span>()</span>
+<span id="cb11-7"><a aria-label="7"></a>)</span>
+<span id="cb11-8"><a aria-label="8"></a></span>
+<span id="cb11-9"><a aria-label="9"></a>task<span class="sc">$</span><span class="fu">eval</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<h3 id="python-inspect">Python: Inspect</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-code-line-numbers="|1-3|6|7|8|5-9|11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a>chat <span class="op">=</span> ChatPosit()</span>
+<span id="cb12-2"><a aria-label="2"></a></span>
+<span id="cb12-3"><a aria-label="3"></a>task <span class="op">=</span> Task(</span>
+<span id="cb12-4"><a aria-label="4"></a>    dataset<span class="op">=</span>cases,</span>
+<span id="cb12-5"><a aria-label="5"></a>    solver<span class="op">=</span>chat.to_solver(),</span>
+<span id="cb12-6"><a aria-label="6"></a>    scorer<span class="op">=</span>model_graded_qa_posit(),</span>
+<span id="cb12-7"><a aria-label="7"></a>)</span>
+<span id="cb12-8"><a aria-label="8"></a></span>
+<span id="cb12-9"><a aria-label="9"></a><span class="bu">eval</span>(task)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div class="footer">
+<p><a href="https://vitals.tidyverse.org/">vitals</a> · <a href="https://posit-dev.github.io/chatlas/misc/evals.html">chatlas evals</a></p>
+</div>
+<aside class="notes">
+<p>A task is the complete eval specification. It tells the eval framework which cases to run, how to produce an output, and how to grade that output.</p>
+<p>The dataset contains the inputs and targets.</p>
+<p>In R, <code>generate()</code> turns an ellmer chat into a vitals solver. In Python, <code>chat.to_solver()</code> turns a chatlas chat into an Inspect solver.</p>
+<p>Another model grades the response against the target criteria.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="scorers" class="slide level2">
+<h2>Scorers</h2>
+<div class="smaller">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>How it works</th>
+<th>Tradeoff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Deterministic</strong></td>
+<td>Match text, check a number, run tests.</td>
+<td>Fast, deterministic, may be too narrow.</td>
+</tr>
+<tr class="even">
+<td><strong>Model-graded</strong></td>
+<td>Another LLM judges the output against grading criteria.</td>
+<td>Flexible, but the grader must be validated.</td>
+</tr>
+<tr class="odd">
+<td><strong>Human review</strong></td>
+<td>A person reads and grades the output.</td>
+<td>High control for you, but slow and expensive at scale.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="notes">
+<p>Human review is really useful when creating the dataset, checking the scorer, and investigating failures.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bluffbench" class="slide level2">
+<h2>bluffbench</h2>
+<div class="fragment">
+<blockquote>
+<p>plot mpg vs hp in <code>mtcars</code> and tell me what you see.</p>
+</blockquote>
+</div>
+<div class="fragment">
+<p><img data-src="assets/bluffbench-example.png" style="width:60.0%" alt="A scatter plot of miles per gallon against horsepower in a secretly altered mtcars dataset. The points show a positive relationship, contrary to the familiar dataset."></p>
+</div>
+<div class="footer">
+<p><a href="https://posit-dev.github.io/bluffbench/">bluffbench</a></p>
+</div>
+<aside class="notes">
+<p>bluffbench secretly changes a familiar dataset, then asks a model to plot and describe it. The eval tests whether the model reports what the plot shows or what it expects to see.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bluffbench-results" class="slide level2">
+<h2></h2>
+<div style="font-size: 0.7em; text-align: center; margin-bottom: -0.4em;">
+<p><span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #67a9cf;"></span> Correct &nbsp;&nbsp;&nbsp; <span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #ef8a62;"></span> Incorrect</p>
+</div>
+
+<img data-src="assets/bluffbench-results.png" style="width:76.0%" alt="A horizontal stacked bar chart comparing models on bluffbench. Blue shows correct plot interpretations and orange shows incorrect interpretations, with separate panels for thinking and non-thinking models." class="r-stretch"><div class="footer">
+<p><a href="https://posit-dev.github.io/bluffbench/">bluffbench</a></p>
+</div>
+</section>
+<section id="bluffbench-logs" class="slide level2">
+<h2></h2>
+<p><a href="https://posit-dev.github.io/bluffbench/logs/" target="_blank"><img data-src="assets/bluffbench-logs.png" style="width:100.0%" alt="The Inspect log viewer showing a Bluffbench evaluation of GPT-5.2. The table lists each sample's input, target, answer, and score."></a></p>
+<aside class="notes">
+<p>The aggregate result tells us how often the model passed. The log lets us inspect individual cases.</p>
+<p>For each case, we can compare the input, target, model answer, and score.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="your-turn-15_evals" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>15_evals</code></h1>
+<ol type="1">
+<li><p>Keep the seed prompt and write two prompt variants of your own.</p></li>
+<li><p>Run the eval to test each prompt on two plots.</p></li>
+<li><p>Open the viewer. Take a look at the responses and scores.</p></li>
+<li><p>What do these runs suggest? Which prompts pass both cases?</p></li>
+</ol>
+<countdown-timer id="timer_c8f06799a721f652ca26fcd1cfdd550bd168c118" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 
 
@@ -620,6 +959,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
