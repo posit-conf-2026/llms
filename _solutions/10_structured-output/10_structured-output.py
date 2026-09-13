@@ -5,10 +5,10 @@ import chatlas
 from pyhere import here
 
 recipe_txt = here("data/recipes/text/")
-txt_cheesecake = (recipe_txt / "PhillyCheesesteak.md").read_text()
+txt_cheesesteak = (recipe_txt / "PhillyCheesesteak.md").read_text()
 
 # %%
-print(txt_cheesecake)
+print(txt_cheesesteak)
 
 # %% [markdown]
 # Here's an example of the structured output we want to achieve for a single
@@ -68,7 +68,7 @@ class Recipe(BaseModel):
 
 # %%
 chat = chatlas.ChatPosit(model="claude-sonnet-5")
-recipe = chat.chat_structured(txt_cheesecake, data_model=Recipe)
+recipe = chat.chat_structured(txt_cheesesteak, data_model=Recipe)
 
 # %% [markdown]
 # `.chat_structured()` returns an instance of the provided Pydantic model, so
