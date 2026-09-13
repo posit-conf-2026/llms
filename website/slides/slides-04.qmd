@@ -428,6 +428,7 @@ or, for Claude Sonnet 5, [274 tokens]{.b .blue}.
 This 4:3 photo becomes 512 by 384 pixels.
 Claude Sonnet 5 currently reports 274 input tokens for an image-only request.
 The count depends on the model and image-processing settings.
+chatlas's `content_image_file()` also defaults to at most 512 by 512 (`resize="low"`), but prints a `MissingResizeWarning` unless you pass `resize` explicitly. use `resize="high"` for higher quality.
 :::
 
 ## 🌆 content_image_file {transition="fade"}
@@ -898,7 +899,7 @@ class Person(BaseModel):
     name: str
     age: int
 
-chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 chat.chat_structured(
     "I go by Alex. 42 years on this planet and counting.",
     data_model=Person
@@ -928,7 +929,7 @@ class Person(BaseModel):
     name: str = Field(description="The person's name")
     age: int = Field(description="The person's age in years")
 
-chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 chat.chat_structured(
     "I go by Alex. 42 years on this planet and counting.",
     data_model=Person
@@ -1048,6 +1049,11 @@ parallel_chat_structured(
   on_error = "stop"
 )
 ```
+
+::: notes
+We use claude-haiku-4-5 for these parallel examples.
+GLM-5.3-Flash sometimes returned incomplete structured extractions 
+:::
 
 ## Parallel chat calls {transition="fade"}
 
