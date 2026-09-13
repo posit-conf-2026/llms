@@ -23,7 +23,7 @@ ggplot() +
   theme_bw()
 
 # Step 2: Ask the model to interpret the plot. How does it do this time?
-chat <- chat_posit(model = "zai-org/GLM-5.3", echo = "output")
+chat <- chat_posit(model = "zai-org/GLM-5.3-Flash", echo = "output")
 chat$chat(
   "Interpret this plot.",
   content_image_plot()
