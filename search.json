@@ -1689,7 +1689,7 @@
     "href": "slides/slides-02.html#message-roles",
     "title": "Anatomy of a conversation",
     "section": "Message roles",
-    "text": "Message roles\n\n\n\n\n\n\n\nRole\nDescription\n\n\n\n\nsystem_prompt\nInstructions from the developer that set the behavior of the assistant\n\n\nuser\nMessages from the person interacting with the assistant\n\n\nassistant\nThe AI model’s responses to the user"
+    "text": "Message roles\n\n\n\n\n\n\n\nRole\nDescription\n\n\n\n\nsystem\nInstructions that set the behavior of the assistant\n\n\nuser\nMessages from the person interacting with the assistant\n\n\nassistant\nThe AI model’s responses to the user"
   },
   {
     "objectID": "slides/slides-02.html#system-prompts",
@@ -1731,7 +1731,7 @@
     "href": "slides/slides-02.html#llms-are-stateless",
     "title": "Anatomy of a conversation",
     "section": "LLMs are stateless",
-    "text": "LLMs are stateless\n\nThe LLM doesn’t remember anything between requests\nYou have to send the entire conversation history with every message\nThe LLM reconstructs the “conversation” from what you send\n\n\nThe LLM has amnesia - it forgets everything after each response. Each API request is completely independent.\nJust like if you were talking to someone with amnesia, you have to recap the entire conversation every time you want to continue. That’s what clearbot showed you - the full history being sent with each request.\nThis isn’t a limitation of transformers specifically - it’s how the HTTP API is designed. Though it aligns with how transformers work (each forward pass is independent)."
+    "text": "LLMs are stateless\n\nThe LLM doesn’t remember anything between requests\nFor each response, the LLM receives the conversation history again\nThe LLM reconstructs the “conversation” from that history\n\n\nThe LLM has amnesia - it forgets everything after each response. Each generation starts from the context that the LLM receives.\nTo continue the conversation, the chat system gives the LLM the conversation history again. That’s what clearbot showed you - the full history becomes context for each new response."
   },
   {
     "objectID": "slides/slides-02.html#chatgpt",
@@ -1745,14 +1745,14 @@
     "href": "slides/slides-02.html#how-to-make-an-llm",
     "title": "Anatomy of a conversation",
     "section": "How to make an LLM",
-    "text": "How to make an LLM\n\n\nIf you read everythingever written…\n\nBooks and stories\nWebsites and articles\nPoems and jokes\nQuestions and answers\n\n\n…then you could…\n\nAnswer questions\nWrite stories\nTell jokes\nExplain things\nTranslate into any language"
+    "text": "How to make an LLM\n\n\nIf you read everythingever written…\n\nBooks and stories\nWebsites and articles\nPoems and jokes\nQuestions and answers\n\n\n…then you could…\n\nAnswer questions\nWrite stories\nTell jokes\nExplain things\nTranslate between languages"
   },
   {
     "objectID": "slides/slides-02.html#the-cat-sat-in-the-____",
     "href": "slides/slides-02.html#the-cat-sat-in-the-____",
     "title": "Anatomy of a conversation",
     "section": "The cat sat in the ____",
-    "text": "The cat sat in the ____\n\n\n\n🎩\n🛌\n📦\n\n\n\n🪟\n🛒\n👠\n\n\n\nThe breakthrough insight is the attention mechanism in the Transformer architecture. Instead of processing text sequentially (word by word), GPT models can look at all words in a sequence simultaneously and understand how they relate to each other.\nThe attention mechanism allows the model to:\n\nWeigh the importance of every word in relation to every other word\nCapture long-range dependencies that traditional models missed\nProcess sequences in parallel rather than sequentially"
+    "text": "The cat sat in the ____\n\n\n\n🎩\n🛌\n📦\n\n\n\n🪟\n🛒\n👠\n\n\n\nThe breakthrough insight is the attention mechanism in the Transformer architecture. Instead of processing the input one token at a time, attention lets GPT models relate all input tokens in parallel.\nThe attention mechanism allows the model to:\n\nWeigh the importance of every word in relation to every other word\nCapture long-range dependencies that traditional models missed\nProcess input tokens in parallel\n\nThe model still generates new tokens one at a time."
   },
   {
     "objectID": "slides/slides-02.html#actually-tokens-not-words",

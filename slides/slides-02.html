@@ -623,8 +623,8 @@ through hands-on experience.</p></li>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code style="color: #868e96 !important">system_prompt</code></td>
-<td style="text-align: left;">Instructions from the developer that set the behavior of the assistant</td>
+<td style="text-align: left;"><code style="color: #868e96 !important">system</code></td>
+<td style="text-align: left;">Instructions that set the behavior of the assistant</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code style="color: #1971c2 !important">user</code></td>
@@ -734,7 +734,7 @@ through hands-on experience.</p></li>
 <blockquote>
 <p>Answer in as few words as possible.</p>
 </blockquote></li>
-<li><p><strong>Ask:</strong> <em>What ellmer and chatlas functions create an Anthropic chat?</em></p></li>
+<li><p><strong>Ask:</strong> <em>What creates an Anthropic chat in ellmer and chatlas?</em></p></li>
 <li><p><strong>Ask:</strong> <em>What about OpenAI?</em></p></li>
 <li><p>Then, create a new <code>chat</code> with no system prompt and ask only the second question: <em>What about OpenAI?</em></p></li>
 <li><p>How do the answers to 3 and 4 differ? Why?</p></li>
@@ -747,7 +747,7 @@ through hands-on experience.</p></li>
 <p><strong>System prompt:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>Answer in as few words as possible.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>First question:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a>What ellmer and chatlas functions create an Anthropic chat?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a>What creates an Anthropic chat in ellmer and chatlas?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Second question:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>What about OpenAI?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
@@ -801,13 +801,12 @@ through hands-on experience.</p></li>
 <h2>LLMs are stateless</h2>
 <ul>
 <li class="fragment"><p>The LLM doesn’t remember anything between requests</p></li>
-<li class="fragment"><p>You have to send the <strong>entire conversation history</strong> with every message</p></li>
-<li class="fragment"><p>The LLM reconstructs the “conversation” from what you send</p></li>
+<li class="fragment"><p>For each response, the LLM receives the <strong>conversation history</strong> again</p></li>
+<li class="fragment"><p>The LLM reconstructs the “conversation” from that history</p></li>
 </ul>
 <aside class="notes">
-<p>The LLM has amnesia - it forgets everything after each response. Each API request is completely independent.</p>
-<p>Just like if you were talking to someone with amnesia, you have to recap the entire conversation every time you want to continue. That’s what clearbot showed you - the full history being sent with each request.</p>
-<p>This isn’t a limitation of transformers specifically - it’s how the HTTP API is designed. Though it aligns with how transformers work (each forward pass is independent).</p>
+<p>The LLM has amnesia - it forgets everything after each response. Each generation starts from the context that the LLM receives.</p>
+<p>To continue the conversation, the chat system gives the LLM the conversation history again. That’s what clearbot showed you - the full history becomes context for each new response.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -862,7 +861,7 @@ through hands-on experience.</p></li>
 <li>Write stories</li>
 <li>Tell jokes</li>
 <li>Explain things</li>
-<li>Translate into any language</li>
+<li>Translate between languages</li>
 </ul>
 </div></div>
 </section>
@@ -883,13 +882,14 @@ through hands-on experience.</p></li>
 </ul>
 </div></div>
 <aside class="notes">
-<p>The breakthrough insight is the attention mechanism in the Transformer architecture. Instead of processing text sequentially (word by word), GPT models can look at all words in a sequence simultaneously and understand how they relate to each other.</p>
+<p>The breakthrough insight is the attention mechanism in the Transformer architecture. Instead of processing the input one token at a time, attention lets GPT models relate all input tokens in parallel.</p>
 <p>The attention mechanism allows the model to:</p>
 <ul>
 <li>Weigh the importance of every word in relation to every other word</li>
 <li>Capture long-range dependencies that traditional models missed</li>
-<li>Process sequences in parallel rather than sequentially</li>
+<li>Process input tokens in parallel</li>
 </ul>
+<p>The model still generates new tokens one at a time.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -990,7 +990,7 @@ through hands-on experience.</p></li>
 <li><p>Share your best with a neighbor.</p></li>
 </ol>
 </div>
-<countdown-timer id="timer_210e108f7ed65271aa884ae4f0c5e394b95dd417" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<countdown-timer id="timer_4ffc3e98620820876a086e6e800445cc55ab8f54" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
  </countdown-timer>
 </section>
 
@@ -1085,9 +1085,9 @@ through hands-on experience.</p></li>
 <ol type="1">
 <li><p>I’ve set up the basic Shiny app snippet and a system prompt.</p></li>
 <li><p>Your job: create a chatbot that plays a “20 questions” style word guessing game with you.</p></li>
-<li><p>The model comes up with a word, and it’s your job to guess the word.</p></li>
+<li><p>The model was given a secret word, and it’s your job to guess it.</p></li>
 </ol>
-<countdown-timer id="timer_210e108f7ed65271aa884ae4f0c5e394b95dd417" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<countdown-timer id="timer_4ffc3e98620820876a086e6e800445cc55ab8f54" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
  </countdown-timer>
 
 

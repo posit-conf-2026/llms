@@ -347,7 +347,7 @@ the model's response.
 
 | Role        | Description                                                       |
 |:-----------|:------------------------------------------------------------------|
-| <code style="color: #868e96 !important">system_prompt</code> | Instructions from the developer that set the behavior of the assistant |
+| <code style="color: #868e96 !important">system</code>    | Instructions that set the behavior of the assistant                  |
 | <code style="color: #1971c2 !important">user</code>       | Messages from the person interacting with the assistant          |
 | <code style="color: #f08c00 !important">assistant</code>  | The AI model's responses to the user                              |
 
@@ -473,7 +473,7 @@ Fear keeps them standing.
 
    > Answer in as few words as possible.
 
-1. **Ask:** _What ellmer and chatlas functions create an Anthropic chat?_
+1. **Ask:** _What creates an Anthropic chat in ellmer and chatlas?_
 
 1. **Ask:** _What about OpenAI?_
 
@@ -494,7 +494,7 @@ Answer in as few words as possible.
 **First question:**
 
 ```{.markdown code-line-numbers=false}
-What ellmer and chatlas functions create an Anthropic chat?
+What creates an Anthropic chat in ellmer and chatlas?
 ```
 
 **Second question:**
@@ -540,17 +540,17 @@ but something else is happening behind the scenes.
 ::: incremental
 - The LLM doesn't remember anything between requests
 
-- You have to send the **entire conversation history** with every message
+- For each response, the LLM receives the **conversation history** again
 
-- The LLM reconstructs the "conversation" from what you send
+- The LLM reconstructs the "conversation" from that history
 :::
 
 ::: notes
-The LLM has amnesia - it forgets everything after each response. Each API request is completely independent.
+The LLM has amnesia - it forgets everything after each response.
+Each generation starts from the context that the LLM receives.
 
-Just like if you were talking to someone with amnesia, you have to recap the entire conversation every time you want to continue. That's what clearbot showed you - the full history being sent with each request.
-
-This isn't a limitation of transformers specifically - it's how the HTTP API is designed. Though it aligns with how transformers work (each forward pass is independent).
+To continue the conversation, the chat system gives the LLM the conversation history again.
+That's what clearbot showed you - the full history becomes context for each new response.
 :::
 
 ## ChatGPT {.center}
@@ -593,7 +593,7 @@ From now on, we'll use **LLM** to refer to any large language model.
 - Write stories
 - Tell jokes
 - Explain things
-- Translate into any language
+- Translate between languages
 :::
 :::
 
@@ -617,15 +617,16 @@ From now on, we'll use **LLM** to refer to any large language model.
 
 ::: notes
 The breakthrough insight is the attention mechanism in the Transformer architecture.
-Instead of processing text sequentially (word by word),
-GPT models can look at all words in a sequence simultaneously
-and understand how they relate to each other.
+Instead of processing the input one token at a time,
+attention lets GPT models relate all input tokens in parallel.
 
 The attention mechanism allows the model to:
 
 * Weigh the importance of every word in relation to every other word
 * Capture long-range dependencies that traditional models missed
-* Process sequences in parallel rather than sequentially
+* Process input tokens in parallel
+
+The model still generates new tokens one at a time.
 :::
 
 ## Actually: tokens, not words {.center}
@@ -648,8 +649,8 @@ The attention mechanism allows the model to:
 :::
 
 ::: notes
-The newest and biggest models from OpenAI and Google
-can handle 1 million input tokens at once.
+Modern models have context windows that range from tens of thousands
+to around 1 million input tokens.
 
 Which is kind of like saying that you could paste
 
@@ -658,8 +659,6 @@ Which is kind of like saying that you could paste
 * 60,000 lines of code
 
 into the chat window and the model could "pay attention" to it all.
-
-1M is the upper limit currently, most models accept up to around 200k tokens.
 :::
 
 
@@ -778,6 +777,6 @@ Passing `client=` gives `Chat` the same batteries-included behavior as
 
 2. Your job: create a chatbot that plays a "20 questions" style word guessing game with you.
 
-3. The model comes up with a word, and it's your job to guess the word.
+3. The model was given a secret word, and it's your job to guess it.
 
 {{< countdown 7:00 top="-1em" >}}
