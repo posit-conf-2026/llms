@@ -27,20 +27,21 @@ editor:
 ```{.r .scrollable code-line-numbers="|3|5|8|13|8,13|15-17"}
 library(shiny)
 library(bslib)
+library(ellmer)
 library(querychat)
 
-mtcars_qc_config <- querychat_init(mtcars)
+mtcars_qc <- QueryChat$new(mtcars, client = chat_posit())
 
 ui <- page_sidebar(
-  sidebar = querychat_sidebar("mtcars"),
+  sidebar = mtcars_qc$sidebar(),
   # plots, tables, etc.
 )
 
 server <- function(input, output, session) {
-  mtcars_qc <- querychat_server("mtcars", mtcars_qc_config)
+  mtcars_qc_vals <- mtcars_qc$server()
 
   output$table <- renderTable({
-    mtcars_qc$df()
+    mtcars_qc_vals$df()
   })
 }
 
@@ -52,23 +53,24 @@ shinyApp(ui, server)
 ```{.python .scrollable code-line-numbers="|2|5-7|10|15|10,15|17-19"}
 import polars as pl
 import querychat
+from chatlas import ChatPosit
 from shiny import App, render, ui
 
 mtcars = pl.read_csv("data/mtcars.csv")
 
-mtcars_qc_config = querychat.init(mtcars, "mtcars")
+mtcars_qc = querychat.QueryChat(mtcars, "mtcars", client=ChatPosit())
 
 app_ui = ui.page_sidebar(
-    querychat.sidebar("mtcars"),
+    mtcars_qc.sidebar(),
     # plots, tables, etc.
 )
 
 def server(input, output, session):
-    mtcars_qc = querychat.server("mtcars", mtcars_qc_config)
+    mtcars_qc_vals = mtcars_qc.server()
 
     @render.data_frame
     def data_table():
-        return qc.df()
+        return mtcars_qc_vals.df()
 
 app = App(app_ui, server)
 ```
