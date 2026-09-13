@@ -42,12 +42,11 @@ Imports:
     rlang,
     scales,
     shiny (>= 1.11.1.9000),
-    shinychat (>= 0.4.0.9000),
+    shinychat (>= 0.5.0),
     weathR
 Remotes:
     posit-dev/btw,
-    posit-dev/querychat/pkg-r,
-    posit-dev/shinychat/pkg-r
+    posit-dev/querychat/pkg-r
 Config/Needs/bonus: btw, mcptools, ragnar
 Config/Needs/data: janitor
 Config/Needs/dev: lionel-/codegrip, gt, gtExtras
