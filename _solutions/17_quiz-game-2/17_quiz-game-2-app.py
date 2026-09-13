@@ -56,7 +56,7 @@ def server(input, output, session):
     # Set up the chat instance
     client = chatlas.ChatPosit(
         model="zai-org/GLM-5.3-Flash",
-        system_prompt=here("_solutions/14_quiz-game-1/prompt.md").read_text(),
+        system_prompt=here("_solutions/17_quiz-game-2/prompt.md").read_text(),
     )
     client.register_tool(play_sound)
 

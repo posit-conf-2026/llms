@@ -5,10 +5,10 @@ library(ellmer)
 library(shinychat)
 
 # Tools ------------------------------------------------------------------------
-  # Going further: tool results can carry a custom title and icon via
-  # ellmer::ContentToolResult, rendered by shinychat:
-  # https://ellmer.tidyverse.org/reference/Content.html
-  # https://shiny.posit.co/blog/posts/shinychat-tool-ui/
+# Going further: tool results can carry a custom title and icon via
+# ellmer::ContentToolResult, rendered by shinychat:
+# https://ellmer.tidyverse.org/reference/Content.html
+# https://shiny.posit.co/blog/posts/shinychat-tool-ui/
 
 #' Plays a sound effect.
 #'
@@ -67,8 +67,7 @@ server <- function(input, output, session) {
   client <- chat_posit(
     model = "zai-org/GLM-5.3-Flash",
     system_prompt = interpolate_file(
-      # Use your quiz game system prompt, or switch to `_solutions` to use ours
-      here::here("_exercises/14_quiz-game-1/prompt.md")
+      here::here("_exercises/18_quiz-game-3/prompt.md")
     )
   )
 
