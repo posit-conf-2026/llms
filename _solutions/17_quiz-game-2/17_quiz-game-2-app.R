@@ -47,15 +47,13 @@ tool_play_sound <- tool(
 
 # UI ---------------------------------------------------------------------------
 
-ui <- page_fillable(
-  chat_mod_ui("chat")
-)
+ui <- page_chat("Quiz Game", id = "chat")
 
 # Server -----------------------------------------------------------------------
 
 server <- function(input, output, session) {
   client <- chat_posit(
-    model = "zai-org/GLM-5.3-Flash",
+    model = "claude-haiku-4-5",
     system_prompt = interpolate_file(
       here::here("_solutions/17_quiz-game-2/prompt.md")
     )
@@ -64,15 +62,11 @@ server <- function(input, output, session) {
   # STEP 2: Register the tool with the chat client ----
   client$register_tool(tool_play_sound)
 
-  chat <- chat_mod_server("chat", client)
-
-  observe({
-    # Note: This block starts the game when the app launches
-    chat$update_user_input(
-      value = "Let's play the quiz game!",
-      submit = TRUE
-    )
-  })
+  chat_server(
+    "chat",
+    client,
+    greeting = "## Welcome to the Quiz Game!\n\nChoose a theme to begin."
+  )
 }
 
 shinyApp(ui, server)

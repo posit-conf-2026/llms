@@ -5,7 +5,8 @@ import chatlas
 import faicons
 from playsound3 import playsound
 from pyhere import here
-from shiny import App, reactive, ui
+from shiny import App
+from shinychat import Chat, page_chat
 
 # Tools ------------------------------------------------------------------------
 # Going further: tool results can carry a custom title and icon via
@@ -50,17 +51,14 @@ def play_sound(sound: SoundChoice = "correct") -> str:
 
 # UI ---------------------------------------------------------------------------
 
-app_ui = ui.page_fillable(
-    ui.chat_ui("chat"),
-)
+app_ui = page_chat("Quiz Game", id="chat")
 
 
 def server(input, output, session):
-    # Recall: We set up the Chat UI server logic and the chat client in the
-    # server function so that each user session gets its own chat history.
-    chat_ui = ui.Chat(id="chat")
+    # Recall: Create the chat client inside the server function so that each
+    # user session gets its own chat history.
     client = chatlas.ChatPosit(
-        model="zai-org/GLM-5.3-Flash",
+        model="claude-haiku-4-5",
         system_prompt=here("_exercises/18_quiz-game-3/prompt.md").read_text(),
     )
 
@@ -77,15 +75,11 @@ def server(input, output, session):
         },
     )
 
-    @chat_ui.on_user_submit
-    async def handle_user_input(user_input: str):
-        response = await client.stream_async(user_input, content="all")
-        await chat_ui.append_message_stream(response)
-
-    @reactive.effect
-    def _():
-        # Note: This block starts the game when the app launches
-        chat_ui.update_user_input(value="Let's play the quiz game!", submit=True)
+    _chat = Chat(
+        "chat",
+        client=client,
+        greeting="## Welcome to the Quiz Game!\n\nChoose a theme to begin.",
+    )
 
 
 app = App(app_ui, server)
