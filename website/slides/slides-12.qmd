@@ -10,6 +10,77 @@ editor:
 
 # [querychat]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-querychat.jpg" background-size="cover" background-position="center"}
 
+## Ask questions. Inspect the SQL. {.center}
+
+querychat turns a question about your data into a SQL query, runs the query, and shows the result.
+
+- Ask questions in natural language.
+- Inspect the generated SQL.
+- See the filtered data in the same app.
+
+The built-in app includes chat, a data table, and a SQL view.
+
+## Start with a data frame {.center}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### R
+
+```{.r code-line-numbers="|3|5|6-7|8|11" fragment-index="1"}
+
+library(ellmer)
+library(querychat)
+
+qc <- QueryChat$new(
+  airbnb_data,
+  "airbnb_data",
+  client = chat_posit()
+)
+
+qc$app()
+```
+
+:::
+
+::: {.column width="50%"}
+
+### Python
+
+```{.python}
+import pandas as pd
+from chatlas import ChatPosit
+from querychat import QueryChat
+
+qc = QueryChat(
+    airbnb_data,
+    "airbnb_data",
+    client=ChatPosit(),
+)
+
+app = qc.app()
+```
+
+:::
+
+::::
+
+::: notes
+When column names need explanation, pass a data dictionary with `data_dict`.
+:::
+
+# Your Turn `26_querychat` {.slide-your-turn}
+
+1. Chat with the app. Which neighborhood has the most private rooms?
+
+1. Open the data drawer and select **Show Query** to inspect the SQL.
+
+1. Restart the app with `data_dict` included. \
+   _Among private rooms, which property types are most common?_
+
+{{< countdown 8:00 left=0 bottom="-1.5em" >}}
+
 ## {.center .tc transition="fade"}
 
 ![](assets/querychat-standard-shiny.excalidraw.svg)
@@ -24,7 +95,7 @@ editor:
 
 ## querychat in R
 
-```{.r .scrollable code-line-numbers="|3|5|8|13|8,13|15-17"}
+```{.r .scrollable code-line-numbers="|4|6|9|14|9,14|16-18"}
 library(shiny)
 library(bslib)
 library(ellmer)
@@ -75,16 +146,14 @@ def server(input, output, session):
 app = App(app_ui, server)
 ```
 
-# Your Turn `26_querychat` {.slide-your-turn}
+## Demo: querychat dashboard {.slide-demo .center}
 
-1. I've made a Shiny dashboard to explore Airbnb listings in Austin, TX.
-   * Spend 1-2 min: which Neighborhood has most private rooms?
+👨‍💻 [_demos/27_querychat]{.code .b .purple}
 
-1. Work through the steps in the comments to use `querychat`.
+::: notes
+Which neighborhood has the most private rooms?
 
-1. Spend a few minutes exploring the data and chatting with the app. \
-   Which area has the most private rooms?
-
-{{< countdown 8:00 left=0 bottom="-1.5em" >}}
+Among private rooms, which property types are most common?
+:::
 
 <!-- TODO: New shinychat section (page_chat and v0.5.0 features) -->
