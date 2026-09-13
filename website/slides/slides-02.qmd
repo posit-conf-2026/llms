@@ -347,7 +347,7 @@ the model's response.
 
 | Role        | Description                                                       |
 |:-----------|:------------------------------------------------------------------|
-| <code style="color: #868e96 !important">system_prompt</code> | Instructions from the developer that set the behavior of the assistant |
+| <code style="color: #868e96 !important">system</code>    | Instructions that set the behavior of the assistant                  |
 | <code style="color: #1971c2 !important">user</code>       | Messages from the person interacting with the assistant          |
 | <code style="color: #f08c00 !important">assistant</code>  | The AI model's responses to the user                              |
 
