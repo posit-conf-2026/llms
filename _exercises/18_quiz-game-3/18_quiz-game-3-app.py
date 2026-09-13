@@ -8,6 +8,10 @@ from pyhere import here
 from shiny import App, reactive, ui
 
 # Tools ------------------------------------------------------------------------
+# Going further: tool results can carry a custom title and icon via
+# chatlas.ContentToolResult, rendered by shinychat:
+# https://posit-dev.github.io/chatlas/reference/types.ContentToolResult.html
+# https://shiny.posit.co/blog/posts/shinychat-tool-ui/
 SoundChoice = Literal["correct", "incorrect", "new-round", "you-win"]
 
 sound_map: dict[SoundChoice, Path] = {

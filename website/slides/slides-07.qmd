@@ -149,6 +149,10 @@ So how do we connect the LLM to the code that this data scientist has written (o
 
 👨‍💻 [_demos/16_demo_tools/16_weather-tool-01-start.py]{.code .b .purple}
 
+::: footer
+[ellmer: ContentToolResult](https://ellmer.tidyverse.org/reference/Content.html) · [chatlas: ContentToolResult](https://posit-dev.github.io/chatlas/reference/types.ContentToolResult.html) · [Tool calling UI in shinychat](https://shiny.posit.co/blog/posts/shinychat-tool-ui/)
+:::
+
 ## {.center style="text-align: center" transition="fade"}
 
 ![](assets/tools-how-it-works-01.excalidraw.svg)
@@ -360,111 +364,6 @@ chat.register_tool(
 1. Add tool annotations to our `play_sound` tools.
 
 2. Pick an icon from [FontAwesome free icons](https://fontawesome.com/search?q=speaker&ic=free&o=r)
-
-{{< countdown 8:00 left=0 bottom=0 >}}
-
-## What if we want to decide `title` and `icon` dynamically _in the tool_? {.center}
-
-## ellmer::ContentToolResult
-
-```{.r code-line-numbers="true"}
-get_weather <- function(lat, lon) {
-  weathR::point_forecast(lat, lon)
-}
-```
-
-::: footer
-[ellmer: ContentToolResult](https://ellmer.tidyverse.org/reference/Content.html){preview-link=true}
-:::
-
-## ellmer::ContentToolResult
-
-```{.r code-line-numbers="true"}
-get_weather <- function(lat, lon) {
-  forecast <- weathR::point_forecast(lat, lon)
-
-  ContentToolResult(
-    forecast
-  )
-}
-```
-
-::: footer
-[ellmer: ContentToolResult](https://ellmer.tidyverse.org/reference/Content.html){preview-link=true}
-:::
-
-## ellmer::ContentToolResult
-
-```{.r code-line-numbers="true"}
-get_weather <- function(lat, lon) {
-  forecast <- weathR::point_forecast(lat, lon)
-
-  ContentToolResult(
-    forecast,
-    extra = list(
-      display = list(
-        title = paste("Weather for", lat, lon),
-        icon = fontawesome::fa_i("cloud-sun")
-      )
-    )
-  )
-}
-```
-
-::: footer
-[ellmer: ContentToolResult](https://ellmer.tidyverse.org/reference/Content.html){preview-link=true}
-:::
-
-## ellmer::ContentToolResult
-
-```{.r code-line-numbers="true"}
-get_weather <- function(lat, lon, location_name) {
-  forecast <- weathR::point_forecast(lat, lon)
-
-  ContentToolResult(
-    forecast,
-    extra = list(
-      display = list(
-        title = paste("Weather for", location_name),
-        icon = fontawesome::fa_i("cloud-sun")
-      )
-    )
-  )
-}
-```
-
-::: footer
-[ellmer: ContentToolResult](https://ellmer.tidyverse.org/reference/Content.html){preview-link=true}
-:::
-
-## chatlas.ContentToolResult
-
-```{.python code-line-numbers="|2|4-5,12|6-11"}
-def get_weather(lat: float, lon: float, location_name: str):
-    forecast = NWS.GetCurrentForecast(lat, lon)
-
-    return ContentToolResult(
-        forecast,
-        extra={
-            "display": {
-                "title": f"Weather for {location_name}",
-                "icon": faicons.fa_i("cloud-sun"),
-            }
-        },
-    )
-```
-
-::: footer
-[chatlas: ContentToolResult](https://posit-dev.github.io/chatlas/reference/types.ContentToolResult.html){preview-link=true}
-:::
-
-## Your Turn `19_quiz-game-4` {.slide-your-turn}
-
-1. Pick an `icon` and a `title` for each action in the Quiz show app.
-
-1. Return a `ContentToolResult` from each tool that sets the `icon` and `title`.
-
-1. Play the game again to see the icons and titles in action.
 
 {{< countdown 8:00 left=0 bottom=0 >}}
 

@@ -33,6 +33,10 @@ r-setup:  ## [r] Setup R environment
 r-setup-dev: r-setup ## [r] Setup R environment for dev
 	Rscript -e "pak::local_install_dev_deps(dependencies = 'Config/Needs/dev')"
 
+.PHONY: prepare-workspaces
+prepare-workspaces: ## [data] Prepare exercise workspaces (blockbuster data, etc.)
+	Rscript data/blockbuster/_generate.R
+
 .PHONY: render
 render: ## [docs] Build the workshop website
 	cd website && ${QUARTO_PATH} render
@@ -86,6 +90,8 @@ help:  ## Show help messages for make targets
 			printf "   \033[31m[py]%s\033[0m\n", substr($$2, 5); \
 		} else if ($$2 ~ /^\[r\]/) { \
 			printf "    \033[34m[r]%s\033[0m\n", substr($$2, 4); \
+		} else if ($$2 ~ /^\[data\]/) { \
+			printf " \033[36m[data]%s\033[0m\n", substr($$2, 7); \
 		} else if ($$2 ~ /^\[js\]/) { \
 			printf "   \033[33m[js]\033[0m%s\n", substr($$2, 5); \
 		} else { \

@@ -1,0 +1,24 @@
+---
+title: Posit Assistant
+description: Putting it all together in the assistant you'll actually use, and keeping coding agents safe.
+description-short: Posit Assistant and agent safety
+duration: 15min
+---
+
+## Slides
+
+{{< revealjs "slides/slides-10.html" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- Demo `_demos/23_demo_assistant`: Posit Assistant as an agent — brings everything together; the instructor starts the conversation, then everyone explores the data on their own
+
+- Discussion: what if the assistant could run code? It can — what keeps that safe?
+  - Coding harnesses, safety, sandboxing, LLM-based safety checks
+  - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
+  - Free practice time in the tool attendees will actually use
+
+## Further reading
+
+- [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code) — sandboxing, permission prompts, and LLM-based safety checks.
+- [Auto mode knows it's dangerous (and does it anyway)](https://tidydesign.substack.com/p/auto-mode-knows-its-dangerous-and) — a cautionary experiment with `curl | sh` installers.

@@ -123,4 +123,4 @@ working link for every source you cite.
 # or documents are retrieved each time the model uses the tool.
 ragnar_register_tool_retrieve(chat, store, top_k = 10)
 
-live_browser(chat)
+live_console(chat)

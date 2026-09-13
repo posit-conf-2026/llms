@@ -247,11 +247,47 @@ RStudio and VS Code are great, too!
    Play and explore! But please be considerate :)
 :::
 
+## Turn on Posit Assistant {.center .tc}
+
+![](assets/posit-assistant-rstudio-step-01.png){style="height: 350px"}
+
+## Install Posit Assistant {.center .tc}
+
+![](assets/posit-assistant-rstudio-step-02.png)
+
+## Trust the workspace {.center .tc}
+
+![](assets/posit-assistant-rstudio-step-03.png)
+
+## Sign in to Posit AI {.center .tc}
+
+![](assets/posit-assistant-rstudio-step-04.png)
+
+## You're ready to chat {.center .tc}
+
+![](assets/posit-assistant-rstudio-step-05.png)
+
+## Ask Posit Assistant when you're stuck {.center .tc}
+
+::: incremental
+* Just ask it for help directly!
+
+* Use `/help` if you get stuck
+
+* Or `/explain` if you want an explanation for anything
+
+* Or `/check-my-work` if you want kudos or a second look
+:::
+
 ## Your Turn `01_hello-llm` {background-image="assets/your-turn.png" background-size="30%" background-position="bottom right"}
 
 ::: {style="--li-margin: 0.66em;"}
-1. 🔑 Log in at [posit.ai](https://posit.ai/) with the email you \
+1. 🔑 Log in to [Posit Assistant](https://assistant.posit.co/) or [posit.ai](https://posit.ai) \
+   with the email you
    used to sign up for the workshop
 
 2. 🤖 Run the code in [_exercises/01_hello-llm]{.b}
+
+3. 💬 Paste the result into **Posit Assistant** and ask it to \
+   critique your social media post
 :::

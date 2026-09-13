@@ -9,3 +9,6 @@
 people.json
 __pycache__/
 logs/
+_exercises/20_agent-2/blockbuster/rentals-old.csv
+_solutions/20_agent-2/blockbuster/rentals-old.csv
+.rtmp/
