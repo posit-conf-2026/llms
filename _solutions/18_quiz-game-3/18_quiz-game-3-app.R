@@ -45,8 +45,11 @@ tool_play_sound <- tool(
       )
     )
   ),
+  # STEP 1: Add nice title and icon for the tool button ----
   annotations = tool_annotations(
     title = "Play Sound Effect",
+    # Pick a Font Awesome icon from the "free" choices
+    # https://fontawesome.com/search?q=speaker&ic=free&o=r
     icon = fontawesome::fa_i("volume-high")
   )
 )
@@ -73,7 +76,7 @@ server <- function(input, output, session) {
   chat <- chat_mod_server("chat", client)
 
   observe({
-    # Start the game when the app launches
+    # Note: This block starts the game when the app launches
     chat$update_user_input(
       value = "Let's play the quiz game!",
       submit = TRUE

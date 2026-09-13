@@ -56,18 +56,21 @@ app_ui = ui.page_fillable(
 
 
 def server(input, output, session):
+    # Recall: We set up the Chat UI server logic and the chat client in the
+    # server function so that each user session gets its own chat history.
     chat_ui = ui.Chat(id="chat")
-
-    # Set up the chat instance
     client = chatlas.ChatPosit(
         model="zai-org/GLM-5.3-Flash",
         system_prompt=here("_solutions/18_quiz-game-3/prompt.md").read_text(),
     )
     client.register_tool(
         play_sound,
+        # STEP 1: Add nice title and icon for the tool button ----
         annotations={
             "title": "Play Sound Effect",
             "extra": {
+                # Pick a Font Awesome icon from the "free" choices
+                # https://fontawesome.com/search?q=speaker&ic=free&o=r
                 "icon": faicons.icon_svg("volume-high"),
             },
         },
@@ -81,7 +84,7 @@ def server(input, output, session):
 
     @reactive.effect
     def _():
-        # Start the game when the app launches
+        # Note: This block starts the game when the app launches
         chat_ui.update_user_input(value="Let's play the quiz game!", submit=True)
 
 

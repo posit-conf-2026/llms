@@ -78,9 +78,19 @@ When a task needs code, write a Python script for the user to run.
 """,
 )
 
+# %% [markdown]
+# **Step 3:** Register both tools with the chat client.
+
 # %%
 chat.register_tool(read_file)
 chat.register_tool(write_file)
+
+# %% [markdown]
+# **Step 4:** Put your agent to work.
+#
+# Ask the agent to build the win-back list as `win-back.csv`.
+# It cannot run code, so it must write `find_lapsed.py` for you to run from
+# inside `blockbuster/`.
 
 # %%
 chat.chat(
