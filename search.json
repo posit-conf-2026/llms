@@ -326,7 +326,7 @@
     "href": "slides/slides-07.html#wait-i-can-write-code",
     "title": "Tool Calling",
     "section": "Wait… I can write code!",
-    "text": "Wait… I can write code!\n👨‍💻 _demos/16_demo_tools/16_weather-tool-app.R\n👨‍💻 _demos/16_demo_tools/16_weather-tool-01-start.py\n\nellmer: ContentToolResult · chatlas: ContentToolResult · Tool calling UI in shinychat"
+    "text": "Wait… I can write code!\n👨‍💻 Work through the script to register the tool, then run the app to see it in action\n👨‍💻 _demos/16_demo_tools/16_weather-tool-01-start.R → _demos/16_demo_tools/16_weather-tool-app.R\n👨‍💻 _demos/16_demo_tools/16_weather-tool-01-start.py → _demos/16_demo_tools/16_weather-tool-app.py\n\nLive-code the demo script from -start to -end to register the tool with ellmer or chatlas, then just run the Shiny app (R or Python) so everyone sees the tool calls happening in the chat UI.\n\n\nellmer: ContentToolResult · chatlas: ContentToolResult · Tool calling UI in shinychat"
   },
   {
     "objectID": "slides/slides-07.html#section-9",
@@ -1913,7 +1913,7 @@
     "href": "slides/slides-05.html#interpolation-in-r",
     "title": "Prompt Engineering",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is elephant."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is sandwich."
   },
   {
     "objectID": "slides/slides-05.html#interpolation-in-r-1",
