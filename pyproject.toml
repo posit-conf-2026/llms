@@ -5,7 +5,7 @@ description = "Programming with LLMs in R and Python at posit::conf(2026)"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "chatlas[posit]==0.23.0",
+    "chatlas[eval,posit]==0.23.0",
     "duckduckgo-search>=8.1.1",
     "faicons>=0.2.2",
     "htmltools>=0.7.0",
@@ -24,6 +24,7 @@ dependencies = [
     "shinywidgets>=0.8.1",
     "tqdm>=4.70.0",
     "python-frontmatter>=1.3.0",
+    "pyarrow>=25.0.1",
 ]
 
 [dependency-groups]
@@ -31,6 +32,7 @@ bonus = [
     "raghilda>=0.2.1",
 ]
 dev = [
+    "ipykernel>=6.30.0",
     "jupytext>=1.19.5",
     "nbconvert>=7.17.1",
 ]
