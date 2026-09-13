@@ -21,7 +21,7 @@ prompts = {
 cases = make_plot_cases(prompts)
 
 # Create the task
-chat = chatlas.ChatPosit(model="zai-org/GLM-5.3")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 
 tsk = Task(
     dataset=cases,
