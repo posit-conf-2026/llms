@@ -14,7 +14,7 @@ editor:
 Posit Assistant
 :::
 
-## Should your agent run code for you? {.center}
+## Should your agent run code for you?
 
 ::: incremental
 * Agent writes, you run
@@ -24,7 +24,8 @@ Posit Assistant
 * Agent writes, agent runs, you [________]{contenteditable="true"}
 :::
 
-## What could go wrong?
+
+## Your agent can run code.<br>What could go wrong?
 
 ::: {contenteditable="true"}
 * ________
@@ -46,22 +47,86 @@ In the demo, running a script touched only a disposable, local fixture.
 Sending an email or spending money leaves the sandbox and reaches the real world.
 :::
 
+## [Dangerous]{.red} means hard to undo {.center .tc}
+
+expensive, time-consuming or irreversible
+
+## Your agent can run code.<br>How can we keep it safe?
+
+::: {contenteditable="true"}
+* ________
+
+* ________
+:::
+
+::: notes
+
+:::
 
 
+## Three ways to keep an agent in check
+
+::: {.incremental style="font-size: 1.33em"}
+1. **Ask for permission**
+
+1. **Sandbox**
+
+1. **Ask an LLM** (auto mode)
+:::
+
+::: footer
+[Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code){preview-link=true}
+:::
+
+::: notes
+- but 99% of approvals are safe, so people click yes without reading
+- the OS constrains the process, but temp folders, package libraries, and network access all leak in
+- run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation
+
+The three approaches, in the order real tools adopted them.
+
+Permission prompts become security theatre. Prefix allowlists fail: `git push` is safe, `git push --force` often isn't.
+
+Sandboxing works but is fiddly: R needs a writable temp dir and a readable library path.
+
+The state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly.
+:::
 
 
+## Spectrum of agent harnesses
 
+::: {style="margin-block: 2em"}
+![](assets/agent-spectrum-01.excalidraw.svg){width="100%"}
+:::
 
+## Spectrum of agent harnesses
 
+::: {style="margin-block: 2em"}
+![](assets/agent-spectrum-02.excalidraw.svg){width="100%"}
+:::
 
+## Spectrum of agent harnesses
 
+::: {style="margin-block: 2em"}
+![](assets/agent-spectrum-03.excalidraw.svg){width="100%"}
+:::
 
+## Let's start an Airbnb in Austin, TX {.center .tc}
 
-## Demo: Posit Assistant {.slide-demo}
+![](assets/inside-airbnb.png)
 
-👨‍💻 [_demos/23_demo_assistant/README.md]{.code .b .purple}
+## Using Posit Assistant {.slide-your-turn style="font-size: 1.25em"}
 
-> Let's look at `data/airbnb-austin.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.
+👨‍💻 [data/airbnb-austin.csv]{.code .b .purple}
+
+> I want to buy a house to start an Airbnb in Austin, TX.
+> Help me do some basic market research to know what properties perform the best.
+
+::: mt5
+Start in `/restricted` mode
+:::
+
+{{< countdown 2:00 left="300px" bottom="-0.25em" >}}
 
 ::: notes
 Brings the day together: an agent with read, write, and skills — the same one attendees just built.
@@ -71,44 +136,61 @@ Instructor sets up the conversation, then everyone explores on their own. The RE
 Watch for: the loop (each step chosen from the last result), read and write actions, permission prompts, and skills firing when relevant.
 :::
 
-## Should your assistant run code? {.center}
+## Using Posit Assistant {.slide-your-turn style="font-size: 1.25em"}
 
-In the demo, Posit Assistant read the data, wrote scripts, and ran them.
+👨‍💻 [data/airbnb-austin.csv]{.code .b .purple}
 
-What keeps that from going wrong?
+> I want to buy a house to start an Airbnb in Austin, TX.
+> Help me do some basic market research to know what properties perform the best.
 
-::: notes
-The upside is a closed loop and self-repair: the assistant sees its own errors and fixes them.
-
-The risk is code with side effects against your real data and machine.
-
-Ask the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts.
+::: mt5
+Exit `/restricted` mode and switch to [Ask mode]{.b .orange}
 :::
 
+{{< countdown 2:00 left="300px" bottom="-0.25em" >}}
 
+## Using Posit Assistant {.slide-your-turn style="font-size: 1.25em"}
 
-## Three ways to keep an agent in check
+👨‍💻 [data/airbnb-austin.csv]{.code .b .purple}
 
-::: incremental
-1. **Ask for permission** — but 99% of approvals are safe, so people click yes without reading
+> I want to buy a house to start an Airbnb in Austin, TX.
+> Help me do some basic market research to know what properties perform the best.
 
-1. **Sandbox** — the OS constrains the process, but temp folders, package libraries, and network access all leak in
-
-1. **Ask an LLM** — run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation
+::: mt5
+Switch from **Ask mode** to [Auto mode]{.orange .b}
 :::
 
-::: footer
-[Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code){preview-link=true}
+{{< countdown 2:00 left="300px" bottom="-0.25em" >}}
+
+
+## Spectrum of Posit Assistant
+
+::: {style="margin-block: 2em"}
+![](assets/agent-spectrum-04.excalidraw.svg){width="100%"}
 :::
 
-::: notes
-The three approaches, in the order real tools adopted them.
+## Spectrum of Posit Assistant
 
-Permission prompts become security theatre. Prefix allowlists fail: `git push` is safe, `git push --force` often isn't.
+::: {style="margin-block: 2em"}
+![](assets/agent-spectrum-05.excalidraw.svg){width="100%"}
+:::
 
-Sandboxing works but is fiddly: R needs a writable temp dir and a readable library path.
+## Spectrum of Posit Assistant
 
-The state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly.
+::: {style="margin-block: 2em"}
+![](assets/agent-spectrum-06.excalidraw.svg){width="100%"}
+:::
+
+## Spectrum of Posit Assistant
+
+::: {style="margin-block: 2em"}
+![](assets/agent-spectrum-07.excalidraw.svg){width="100%"}
+:::
+
+## Spectrum of Posit Assistant
+
+::: {style="margin-block: 2em"}
+![](assets/agent-spectrum-08.excalidraw.svg){width="100%"}
 :::
 
 ## Auto mode knows it's dangerous {.center}
