@@ -2,7 +2,7 @@
 title: Programming with LLMs
 description: A deeper dive into the things you can do with LLMs when you're programming with them that are harder to do in a chat interface.
 description-short: Advanced LLM programming techniques
-duration: 50min
+duration: 55min
 ---
 
 ## Slides
