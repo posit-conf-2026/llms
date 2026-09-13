@@ -37,6 +37,6 @@ plt.figure(p.draw())
 
 chat = chatlas.ChatPosit(model="zai-org/GLM-5.3")
 chat.chat(
-    "Interpret this plot of mtcars.",
+    "Interpret this plot.",
     chatlas.content_image_plot(),
 )

@@ -22,6 +22,6 @@ ggplot() +
 
 chat <- chat_posit(model = "zai-org/GLM-5.3", echo = "output")
 chat$chat(
-  "Interpret this plot of mtcars.",
+  "Interpret this plot.",
   content_image_plot()
 )
