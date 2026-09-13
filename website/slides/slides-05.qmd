@@ -213,7 +213,7 @@ E.g., "Use no more than three rounds of tool calls" => "Before answering, note h
 
 ## More tips
 
-See Anthropic's [_Prompt Engineering Overview_](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) and OpenAI's [_OpenAI Cookbook_](https://cookbook.openai.com/) are excellent, and contain lots of tips and examples.
+Anthropic's [_Prompt Engineering Overview_](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) and OpenAI's [_OpenAI Cookbook_](https://cookbook.openai.com/) are excellent, and contain lots of tips and examples.
 
 Google's [_Prompt Design Strategies_](https://ai.google.dev/gemini-api/docs/prompting-strategies) may also be useful.
 
@@ -383,20 +383,18 @@ For an agent, this includes its instructions, tools, and the steps it follows.
 
 [`Task` combines a dataset, solver, and scorer into an eval you can run.]{style="font-size: 1.2em;"}
 
-:::: {.columns style="--code-font-size: 0.72em; margin-top: 1.2em;"}
+:::: {.columns style="--code-font-size: 0.68em; margin-top: 1.2em;"}
 
 ::: {.column width="50%"}
 ### R: vitals
 
-```{.r code-line-numbers="|2|3|4-6|1-7|9"}
+```{.r code-line-numbers="|1-3|6|7|8|5-9|11"}
+chat <- chat_posit()
+
 task <- Task$new(
   dataset = cases,
-  solver = plot_solver,
-  scorer = model_graded_qa(
-    scorer_chat = chat_posit(
-      model = "moonshotai/Kimi-K3"
-    )
-  )
+  solver = generate(chat),
+  scorer = model_graded_qa()
 )
 
 task$eval()
@@ -406,7 +404,9 @@ task$eval()
 ::: {.column width="50%"}
 ### Python: Inspect
 
-```{.python code-line-numbers="|2|3|4|1-5|7"}
+```{.python code-line-numbers="|1-3|6|7|8|5-9|11"}
+chat = ChatPosit()
+
 task = Task(
     dataset=cases,
     solver=chat.to_solver(),
@@ -429,7 +429,8 @@ It tells the eval framework which cases to run, how to produce an output, and ho
 
 The dataset contains the inputs and targets.
 
-The solver receives each input and produces the model output.
+In R, `generate()` turns an ellmer chat into a vitals solver.
+In Python, `chat.to_solver()` turns a chatlas chat into an Inspect solver.
 
 Another model grades the response against the target criteria.
 :::
