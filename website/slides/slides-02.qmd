@@ -617,15 +617,16 @@ From now on, we'll use **LLM** to refer to any large language model.
 
 ::: notes
 The breakthrough insight is the attention mechanism in the Transformer architecture.
-Instead of processing text sequentially (word by word),
-GPT models can look at all words in a sequence simultaneously
-and understand how they relate to each other.
+Instead of processing the input one token at a time,
+attention lets GPT models relate all input tokens in parallel.
 
 The attention mechanism allows the model to:
 
 * Weigh the importance of every word in relation to every other word
 * Capture long-range dependencies that traditional models missed
-* Process sequences in parallel rather than sequentially
+* Process input tokens in parallel
+
+The model still generates new tokens one at a time.
 :::
 
 ## Actually: tokens, not words {.center}
