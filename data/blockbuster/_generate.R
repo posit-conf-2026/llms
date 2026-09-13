@@ -1,4 +1,4 @@
-# Generates the blockbuster/ workspaces for Exercises 22-25.
+# Generates the blockbuster/ workspaces for Exercises 19-25.
 # Seeded, so re-running reproduces the CSVs exactly: Rscript data/blockbuster/_generate.R
 
 library(dplyr, warn.conflicts = FALSE)
@@ -9,6 +9,9 @@ library(cli)
 
 args <- commandArgs(trailingOnly = FALSE)
 script_path <- sub("^--file=", "", grep("^--file=", args, value = TRUE))
+if (length(script_path) == 0) {
+  script_path <- "data/blockbuster/_generate.R"
+}
 source_dir <- path_dir(path_real(script_path))
 root <- path_dir(path_dir(source_dir))
 
@@ -235,11 +238,13 @@ write_workspace <- function(
 }
 
 workspace_specs <- tribble(
-  ~exercise     , ~include_old , ~include_lapsed , ~include_drafts ,
-  "19_agent-1"  , FALSE        , FALSE           , FALSE           ,
-  "20_agent-2"  , TRUE         , FALSE           , FALSE           ,
-  "21_skills-1" , TRUE         , TRUE            , TRUE            ,
-  "22_skills-2" , TRUE         , TRUE            , TRUE
+  ~exercise        , ~include_old , ~include_lapsed , ~include_drafts ,
+  "19_agent-1"     , FALSE        , FALSE           , FALSE           ,
+  "20_agent-2"     , TRUE         , FALSE           , FALSE           ,
+  "21_skills-1"    , TRUE         , TRUE            , TRUE            ,
+  "22_skills-2"    , TRUE         , TRUE            , TRUE            ,
+  "24_shinychat-1" , TRUE         , TRUE            , TRUE            ,
+  "25_shinychat-2" , TRUE         , TRUE            , TRUE
 )
 
 write_exercise_workspaces <- function(
@@ -261,14 +266,15 @@ write_exercise_workspaces <- function(
 pwalk(workspace_specs, write_exercise_workspaces)
 
 # Skills are fixtures too: exercises get the bad first draft, solutions the
-# fixed skill, and 22_skills-2 gets three rivals its description must compete
-# with.
+# fixed skill, and later activities get the repaired skill plus its rivals.
 skills_source <- path(source_dir, "skills")
 
 skill_sets <- tribble(
-  ~exercise     , ~exercise_skill       , ~solution_skill   , ~rivals ,
-  "21_skills-1" , "renewal-letters"     , "renewal-letters" , FALSE   ,
-  "22_skills-2" , "renewal-letters-bad" , "renewal-letters" , TRUE
+  ~exercise        , ~exercise_skill       , ~solution_skill   , ~rivals ,
+  "21_skills-1"    , "renewal-letters"     , "renewal-letters" , FALSE   ,
+  "22_skills-2"    , "renewal-letters-bad" , "renewal-letters" , TRUE    ,
+  "24_shinychat-1" , "renewal-letters"     , "renewal-letters" , TRUE    ,
+  "25_shinychat-2" , "renewal-letters"     , "renewal-letters" , TRUE
 )
 
 sync_skills <- function(exercise, exercise_skill, solution_skill, rivals) {
@@ -329,6 +335,26 @@ expected_files <- list(
     "notes.md",
     "rentals-old.csv",
     "rentals.csv"
+  ),
+  "24_shinychat-1" = c(
+    "README.md",
+    "dues.csv",
+    "lapsed.csv",
+    "letters/drafts/.gitkeep",
+    "members.csv",
+    "notes.md",
+    "rentals-old.csv",
+    "rentals.csv"
+  ),
+  "25_shinychat-2" = c(
+    "README.md",
+    "dues.csv",
+    "lapsed.csv",
+    "letters/drafts/.gitkeep",
+    "members.csv",
+    "notes.md",
+    "rentals-old.csv",
+    "rentals.csv"
   )
 )
 
@@ -355,6 +381,18 @@ expected_skills <- list(
     "renewal-letters/SKILL.md",
     "social-media-voice/SKILL.md",
     "tape-tracking/SKILL.md"
+  ),
+  "24_shinychat-1" = c(
+    "lapsed-audit/SKILL.md",
+    "renewal-letters/SKILL.md",
+    "social-media-voice/SKILL.md",
+    "tape-tracking/SKILL.md"
+  ),
+  "25_shinychat-2" = c(
+    "lapsed-audit/SKILL.md",
+    "renewal-letters/SKILL.md",
+    "social-media-voice/SKILL.md",
+    "tape-tracking/SKILL.md"
   )
 )
 
@@ -368,7 +406,5 @@ verify_exercise_skills <- function(expected, exercise) {
 iwalk(expected_skills, verify_exercise_skills)
 
 cli_alert_success(
-  "Wrote {nrow(rentals)} current rentals, {nrow(rentals_old)} old rentals, \\
-  {nrow(lapsed_current)} lapsed members for Exercise 22, and \\
-  {nrow(lapsed_with_old)} lapsed members for Exercises 23 through 25."
+  "Wrote Blockbuster workspaces for Exercises 19 through 25."
 )
