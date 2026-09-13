@@ -165,7 +165,7 @@ Which neighborhood has the most private rooms?
 Among private rooms, which property types are most common?
 :::
 
-# [shinychat]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-querychat.jpg" background-size="cover" background-position="center"}
+# [shinychat]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-aol-chat.png" background-size="cover" background-position="center"}
 
 ## [shinychat]{.hidden} {.center .tc}
 
