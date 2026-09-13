@@ -29,5 +29,6 @@ ChatPosit(model="zai-org/GLM-5.3").chat(prompt)
 # %%
 # If you have local models installed, try them out with LM Studio.
 # (Local models only work on your own computer -- you can't use them on
-# Posit Cloud.)
-ChatLMStudio(model="prism-ml/bonsai-27b").chat(prompt)
+# Posit Cloud. This line errors if LM Studio isn't running, so we've
+# commented it out -- uncomment it to try it.)
+# ChatLMStudio(model="prism-ml/bonsai-27b").chat(prompt)
