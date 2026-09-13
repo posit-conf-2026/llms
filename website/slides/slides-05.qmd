@@ -43,11 +43,12 @@ editor:
 :::
 
 ::: notes
-> There's going to be 3 questions we're usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1
->
-> so number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?
->
->  And then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see.
+Start by trying a stronger model.
+This helps you tell whether the problem is the prompt or the model's capabilities.
+
+Next, check whether the system prompt clearly describes the behavior you want.
+
+If the model still struggles, add examples of good responses.
 :::
 
 ## System prompt vs. user prompt
@@ -207,9 +208,9 @@ The quiz-game exercises use this pattern.
 
 ## More tips
 
-**(Advanced) Force the model to say things out loud.**
+**(Advanced) Ask the model to track limits out loud.**
 
-E.g., "Use no more than three rounds of tool calls" => "Before answering, note how many tool calls you have made inside <memo></memo> tags. If you have made three, stop and answer."
+E.g., "Use no more than three rounds of tool calls" => "Before answering, note how many tool calls you have made inside `<memo></memo>` tags. If you have made three, stop and answer."
 
 ## More tips
 
@@ -442,7 +443,7 @@ Another model grades the response against the target criteria.
 |---|---|---|
 | **Deterministic** | Match text, check a number, run tests. | Fast, deterministic, may be too narrow. |
 | **Model-graded** | Another LLM judges the output against grading criteria. | Flexible, but the grader must be validated. |
-| **Human review** | A person reads and grades the output. | High control for the user, but slow, expensive, and largely impractical. |
+| **Human review** | A person reads and grades the output. | High control for you, but slow and expensive at scale. |
 :::
 
 ::: notes
@@ -456,7 +457,7 @@ Human review is really useful when creating the dataset, checking the scorer, an
 :::
 
 ::: {.fragment}
-![](assets/bluffbench-example.png){fig-alt="A scatter plot of miles per gallon against horsepower in a secretly altered mtcars dataset. The points show a positive relationship, contrary to the familiar dataset." width="67%"}
+![](assets/bluffbench-example.png){fig-alt="A scatter plot of miles per gallon against horsepower in a secretly altered mtcars dataset. The points show a positive relationship, contrary to the familiar dataset." width="60%"}
 :::
 
 ::: footer
@@ -470,7 +471,13 @@ The eval tests whether the model reports what the plot shows or what it expects 
 
 ## {#bluffbench-results}
 
-![](assets/bluffbench-results.png){fig-alt="A horizontal stacked bar chart comparing models on bluffbench. Blue shows correct plot interpretations and orange shows incorrect interpretations, with separate panels for thinking and non-thinking models." width="82%"}
+::: {style="font-size: 0.7em; text-align: center; margin-bottom: -0.4em;"}
+<span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #67a9cf;"></span> Correct
+&nbsp;&nbsp;&nbsp;
+<span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #ef8a62;"></span> Incorrect
+:::
+
+![](assets/bluffbench-results.png){fig-alt="A horizontal stacked bar chart comparing models on bluffbench. Blue shows correct plot interpretations and orange shows incorrect interpretations, with separate panels for thinking and non-thinking models." width="76%"}
 
 ::: footer
 [bluffbench](https://posit-dev.github.io/bluffbench/)
