@@ -52,3 +52,58 @@ Try these examples to explore how LLMs navigate between certainty and ambiguity 
 - "Strong tea and..." (likely food-related completions)
 - "The heavy..." (weight? rain? traffic? burden?)
 - "She couldn't bear the heavy..." (psychological interpretation more likely)
+
+***
+
+# Where does the answer get decided?
+
+The examples above look at one token at a time.
+But whole *answers* can also be uncertain — and research on LLM uncertainty
+([Forking Fast, Bigelow et al. 2026](https://arxiv.org/abs/2608.19611)) finds
+that a response is usually decided at a few sharp **forking points**, not
+gradually across the whole reply.
+
+Before a forking point the final answer is genuinely undecided.
+After it, the outcome is largely locked in — even if the rest of the response
+reads long, fluent, and confident.
+
+## Forking questions to try
+
+These questions have two defensible readings, so different generations can
+land on different answers.
+Submit the same prompt a few times and watch the token probabilities for the
+committing words.
+
+- "A wooden fence has posts every 2 meters along a 30-meter stretch. How many posts are needed?" (15 vs. 16)
+- "A conference runs from the 14th to the 17th. How many days is the conference?" (4 vs. 3)
+- "Is a hot dog a sandwich? Your first word must be YES or NO, then justify in one sentence."
+- "Is a tomato a fruit or a vegetable?" (botanical vs. culinary)
+
+Then remove the fork and submit again.
+Watch the answer distribution collapse to a single confident response —
+the fork lives in the prompt, not in the model.
+
+- "...with a post at each end."
+- "A conference runs from the 14th (check-in) through the 17th (check-out). How many nights is the stay?"
+
+## One wrong, not two defensible
+
+Not every spread of answers is ambiguity.
+In these questions one answer is simply wrong — the distribution reflects the
+model's miss rate, not two valid readings.
+
+- "How many animals of each kind did Moses take on the ark?" (It was Noah.)
+- "How many R's are in 'strawberry'?"
+
+That distinction matters in practice:
+for an interpretive fork, disambiguate the prompt.
+For a detection fork, verify the answer — no rewording saves you.
+
+## A single response is one sample
+
+Re-rolling a prompt and getting a different answer doesn't mean the model is
+erratic.
+Each response is a sample from a stable underlying distribution, and the
+jaggedness across a few samples is ordinary sampling noise.
+Ask several times and the real picture emerges — which is also why
+"ask it three times and take the majority" works as more than a hack.
