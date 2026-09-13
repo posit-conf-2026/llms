@@ -69,16 +69,23 @@ tool_write_file <- tool(
 
 chat <- chat_posit(
   model = "zai-org/GLM-5.3-Flash",
-  system_prompt = r"(You are a coding agent for the Last Blockbuster in Bend, Oregon.
+  system_prompt = r"(
+You are a coding agent for the Last Blockbuster in Bend, Oregon.
 Work in the current directory.
 When a task needs code, write an R script for the user to run.)"
 )
 
+# STEP 3: Register both tools with the chat client ----
 chat$register_tool(tool_read_file)
 chat$register_tool(tool_write_file)
 
+# STEP 4: Put your agent to work ----
+# Ask the agent to build the win-back list as `win-back.csv`.
+# It cannot run code, so it must write `find_lapsed.R` for you to run from
+# inside `blockbuster/`.
 chat$chat(
-  r"(It is time for the renewal drive. Which members have gone quiet?
+  r"(
+It is time for the renewal drive. Which members have gone quiet?
 Build the win-back list as `win-back.csv` by writing `find_lapsed.R`
 for me to run from inside the blockbuster folder.)"
 )

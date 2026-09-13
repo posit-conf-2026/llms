@@ -5,7 +5,8 @@ import chatlas
 import faicons
 from playsound3 import playsound
 from pyhere import here
-from shiny import App, reactive, ui
+from shiny import App
+from shinychat import Chat, page_chat
 
 # Tools ------------------------------------------------------------------------
 # Going further: tool results can carry a custom title and icon via
@@ -50,39 +51,34 @@ def play_sound(sound: SoundChoice = "correct") -> str:
 
 # UI ---------------------------------------------------------------------------
 
-app_ui = ui.page_fillable(
-    ui.chat_ui("chat"),
-)
+app_ui = page_chat("Quiz Game", id="chat")
 
 
 def server(input, output, session):
-    chat_ui = ui.Chat(id="chat")
-
-    # Set up the chat instance
+    # Recall: Create the chat client inside the server function so that each
+    # user session gets its own chat history.
     client = chatlas.ChatPosit(
-        model="zai-org/GLM-5.3-Flash",
-        system_prompt=here("_solutions/14_quiz-game-1/prompt.md").read_text(),
+        model="claude-haiku-4-5",
+        system_prompt=here("_solutions/18_quiz-game-3/prompt.md").read_text(),
     )
     client.register_tool(
         play_sound,
+        # STEP 1: Add nice title and icon for the tool button ----
         annotations={
             "title": "Play Sound Effect",
             "extra": {
+                # Pick a Font Awesome icon from the "free" choices
+                # https://fontawesome.com/search?q=speaker&ic=free&o=r
                 "icon": faicons.icon_svg("volume-high"),
             },
         },
     )
 
-    @chat_ui.on_user_submit
-    async def handle_user_input(user_input: str):
-        # Use `content="all"` to include tool calls in the response stream
-        response = await client.stream_async(user_input, content="all")
-        await chat_ui.append_message_stream(response)
-
-    @reactive.effect
-    def _():
-        # Start the game when the app launches
-        chat_ui.update_user_input(value="Let's play the quiz game!", submit=True)
+    _chat = Chat(
+        "chat",
+        client=client,
+        greeting="## 🎉 Welcome to the Quiz Game!\n\nChoose a theme:\n\n- 🔬 Science\n- 🏛️ History\n- 🎬 Movies\n- 🏆 Sports\n- 🎵 Music",
+    )
 
 
 app = App(app_ui, server)

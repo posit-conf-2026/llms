@@ -5,10 +5,10 @@ library(ellmer)
 library(shinychat)
 
 # Tools ------------------------------------------------------------------------
-  # Going further: tool results can carry a custom title and icon via
-  # ellmer::ContentToolResult, rendered by shinychat:
-  # https://ellmer.tidyverse.org/reference/Content.html
-  # https://shiny.posit.co/blog/posts/shinychat-tool-ui/
+# Going further: tool results can carry a custom title and icon via
+# ellmer::ContentToolResult, rendered by shinychat:
+# https://ellmer.tidyverse.org/reference/Content.html
+# https://shiny.posit.co/blog/posts/shinychat-tool-ui/
 
 #' Plays a sound effect.
 #'
@@ -45,8 +45,11 @@ tool_play_sound <- tool(
       )
     )
   ),
+  # STEP 1: Add nice title and icon for the tool button ----
   annotations = tool_annotations(
     title = "Play Sound Effect",
+    # Pick a Font Awesome icon from the "free" choices
+    # https://fontawesome.com/search?q=speaker&ic=free&o=r
     icon = fontawesome::fa_i("volume-high")
   )
 )
@@ -54,32 +57,25 @@ tool_play_sound <- tool(
 
 # UI ---------------------------------------------------------------------------
 
-ui <- page_fillable(
-  chat_mod_ui("chat")
-)
+ui <- page_chat("Quiz Game", id = "chat")
 
 # Server -----------------------------------------------------------------------
 
 server <- function(input, output, session) {
   client <- chat_posit(
-    model = "zai-org/GLM-5.3-Flash",
+    model = "claude-haiku-4-5",
     system_prompt = interpolate_file(
-      # Replace `_solutions` with `_exercises` to get your own prompt from before
-      here::here("_solutions/14_quiz-game-1/prompt.md")
+      here::here("_solutions/18_quiz-game-3/prompt.md")
     )
   )
 
   client$register_tool(tool_play_sound)
 
-  chat <- chat_mod_server("chat", client)
-
-  observe({
-    # Start the game when the app launches
-    chat$update_user_input(
-      value = "Let's play the quiz game!",
-      submit = TRUE
-    )
-  })
+  chat_server(
+    "chat",
+    client,
+    greeting = "## 🎉 Welcome to the Quiz Game!\n\nChoose a theme:\n\n- 🔬 Science\n- 🏛️ History\n- 🎬 Movies\n- 🏆 Sports\n- 🎵 Music"
+  )
 }
 
 shinyApp(ui, server)
