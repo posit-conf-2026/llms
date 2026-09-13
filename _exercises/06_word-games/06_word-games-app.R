@@ -2,14 +2,17 @@ library(shiny)
 library(ellmer)
 library(shinychat)
 
-system_prompt <- r"--(
-We are playing a word guessing game. You are going to think of a random word.
-When you do, write it in an HTML comment so that you can remember it, but the
-user can't see it.
+# Picks a random word for the model to keep secret from a list.
+word <- sample(readLines(here::here("data/words.txt")), 1)
 
-Give the user an initial clue and then only answer their questions with yes or
-no. When they win, use lots of emojis.
+system_prompt <- interpolate(
+  r"--(
+We are playing a word guessing game. The secret word is "{{ word }}".
+
+Never say the secret word out loud. Give the user an initial clue and then
+only answer their questions with yes or no. When they win, use lots of emojis.
 )--"
+)
 
 
 # Step 1: Create the chat page UI

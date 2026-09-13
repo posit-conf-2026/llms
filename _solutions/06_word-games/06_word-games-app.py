@@ -1,16 +1,18 @@
+import random
+
 import chatlas
+from pyhere import here
 from shiny import App, ui
 from shinychat import Chat, chat_ui
 
-system_prompt = """
-We are playing a word guessing game. You are going to think of a random word.
-When you do, write it in an HTML comment so that you can remember it, but the
-user can't see it.
+# Picks a random word for the model to keep secret from a list.
+word = random.choice(here("data/words.txt").read_text().splitlines())
 
-Do not accidentally reveal the word early by including it in your responses.
+system_prompt = f"""
+We are playing a word guessing game. The secret word is "{word}".
 
-Give the user an initial clue and then only answer their questions with yes or
-no. When they win, use lots of emojis.
+Never say the secret word out loud. Give the user an initial clue and then
+only answer their questions with yes or no. When they win, use lots of emojis.
 """
 
 app_ui = ui.page_fillable(
