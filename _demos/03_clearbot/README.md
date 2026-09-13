@@ -26,13 +26,16 @@ Web search is an optional feature that allows the chatbot to use Google to perfo
 
 ## Usage
 
-Using uv:
+Using uv, from the repository root:
 
 ```python
-uv run shiny run app.py
+uv sync --group demos
+uv run shiny run _demos/03_clearbot/app.py
 ```
 
-Alternatively, use `uv sync` to install the app's dependencies in a virtual environment, and then run the app with `shiny run app.py` (or using VS Code or Positron with the Shiny VS Code extension).
+The `demos` group provides the `openai` and `anthropic` SDKs; you only need the SDK matching the API key you'll set.
+
+Alternatively, use `uv sync` inside `_demos/03_clearbot/` to install the app's dependencies in a virtual environment, and then run the app with `shiny run app.py` (or using VS Code or Positron with the Shiny VS Code extension).
 
 ## License
 

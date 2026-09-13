@@ -20,14 +20,14 @@ get_weather <- tool(
 )
 
 ui <- page_fillable(
-  chat_mod_ui("chat")
+  chat_ui("chat")
 )
 
 server <- function(input, output, session) {
   client <- ellmer::chat_posit(model = "zai-org/GLM-5.3-Flash")
   client$register_tool(get_weather)
 
-  chat_mod_server("chat", client)
+  chat_server("chat", client)
 }
 
 shinyApp(ui, server)

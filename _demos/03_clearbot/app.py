@@ -1,10 +1,11 @@
+from __future__ import annotations
+
 import json
 import os
 from pathlib import Path
 from typing import Iterable, TypeAlias
 
 import chatlas
-import openai
 from dotenv import load_dotenv
 from offcanvas import offcanvas_ui
 from pydantic import BaseModel
@@ -12,7 +13,7 @@ from shiny import App, Inputs, Outputs, Session, bookmark, reactive, render, req
 from starlette.requests import Request
 from tools import all_tools
 
-MyTurn: TypeAlias = chatlas.Turn[openai.types.chat.ChatCompletion]
+MyTurn: TypeAlias = chatlas.Turn
 
 load_dotenv()
 
@@ -29,9 +30,8 @@ if "OPENAI_API_KEY" in os.environ:
     }
 if "ANTHROPIC_API_KEY" in os.environ:
     model_options["Anthropic"] = {
-        "claude-3-7-sonnet-latest": "Claude 3.7 Sonnet",
-        "claude-3-5-sonnet-latest": "Claude 3.5 Sonnet",
-        "claude-3-5-haiku-latest": "Claude 3.5 Haiku",
+        "claude-sonnet-4-5": "Claude Sonnet 4.5",
+        "claude-haiku-4-5": "Claude Haiku 4.5",
     }
 
 if len(model_options) == 0:
@@ -140,10 +140,9 @@ def server(input: Inputs, output: Outputs, session: Session):
         #     turns=these_turns,
         # )
         if params.model.startswith("claude"):
-            chat_client = chatlas.ChatOpenAI(
-                base_url="https://api.anthropic.com/v1/",
-                api_key=os.environ["ANTHROPIC_API_KEY"],
+            chat_client = chatlas.ChatAnthropic(
                 model=params.model,
+                api_key=os.environ["ANTHROPIC_API_KEY"],
                 system_prompt=params.system_prompt,
             )
         elif params.model.startswith("gpt"):

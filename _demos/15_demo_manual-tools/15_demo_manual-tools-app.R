@@ -35,7 +35,7 @@ ui <- page_navbar(
   nav_panel(
     "Chat",
     icon = icon("robot"),
-    chat_mod_ui("chat")
+    chat_ui("chat")
   ),
   nav_panel(
     "Weather",
@@ -56,7 +56,7 @@ server <- function(input, output, session) {
     model = "zai-org/GLM-5.3-Flash"
   )
 
-  chat <- chat_mod_server("chat", client)
+  chat <- chat_server("chat", client, history = FALSE)
   observe({
     chat$update_user_input(
       "What should I wear to posit::conf(2026) in Houston?"

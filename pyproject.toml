@@ -29,6 +29,10 @@ dependencies = [
 ]
 
 [dependency-groups]
+demos = [
+    "anthropic>=1.0.0",
+    "openai>=2.50.0",
+]
 bonus = [
     "raghilda>=0.2.1",
 ]

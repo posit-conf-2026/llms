@@ -25,7 +25,7 @@ chat_with_completion_log_probs <- function(
 
   chat$chat(input, echo = "none")
 
-  chat$last_turn()@json$choices[[1]]$logprobs$content |>
+  chat$last_turn()@json$output[[1]]$content[[1]]$logprobs |>
     purrr::map_dfr(
       function(x) {
         res <- purrr::map_dfr(x$top_logprobs, \(x) x[c("token", "logprob")])
@@ -197,7 +197,7 @@ token_tooltip_component <- function(tokens_data, delay = NULL) {
     HTML(sprintf(
       "revealSequentially('#%s .token', {%s});",
       id,
-      if (is.null(options)) "" else sprintf("delay: %d", delay)
+      if (is.null(delay)) "" else sprintf("delay: %d", delay)
     ))
   )
 
@@ -217,18 +217,37 @@ ui <- page_navbar(
   sidebar = sidebar(
     width = "33%",
     style = css(height = "100%"),
-    textAreaInput(
+    input_submit_textarea(
       "prompt",
-      tagList(icon("pencil"), "Prompt"),
+      label = tagList(icon("pencil"), "Prompt"),
       value = "Write a funny limerick about a cat.",
       rows = 4,
-      autoresize = TRUE,
-    ),
-    input_task_button(
-      "submit",
-      "Submit",
-      icon = icon("paper-plane"),
-      class = "btn-primary"
+      button = input_task_button(
+        "submit",
+        "Submit",
+        icon = icon("paper-plane"),
+        class = "btn-primary btn-sm"
+      ),
+      toolbar = toolbar(
+        toolbar_input_button(
+          "example_cat",
+          label = "Cat prompt",
+          tooltip = "Write a funny limerick about a cat.",
+          icon = icon("cat")
+        ),
+        toolbar_input_button(
+          "example_fence",
+          label = "Fence prompt",
+          tooltip = "A wooden fence has posts every 2 meters along a 30-meter stretch. How many posts are needed?",
+          icon = bsicons::bs_icon("signpost-2")
+        ),
+        toolbar_input_button(
+          "example_conference",
+          label = "Conference prompt",
+          tooltip = "A conference runs from the 14th to the 17th. How many days is the conference?",
+          icon = bsicons::bs_icon("calendar3")
+        )
+      )
     ),
     accordion(
       open = FALSE,
@@ -284,7 +303,7 @@ ui <- page_navbar(
     icon = icon("lightbulb", class = "me-1"),
     shinychat::output_markdown_stream(
       id = "ideas-markdown",
-      content = readLines("ideas.md")
+      content = paste(readLines("ideas.md"), collapse = "\n")
     )
   ),
   footer = tags$head(
@@ -315,7 +334,33 @@ function revealSequentially(selector, options = {}) {
 )
 
 server <- function(input, output, session) {
+  observeEvent(input$example_cat, {
+    update_submit_textarea(
+      "prompt",
+      value = "Write a funny limerick about a cat.",
+      focus = TRUE
+    )
+  })
+
+  observeEvent(input$example_fence, {
+    update_submit_textarea(
+      "prompt",
+      value = "A wooden fence has posts every 2 meters along a 30-meter stretch. How many posts are needed?",
+      focus = TRUE
+    )
+  })
+
+  observeEvent(input$example_conference, {
+    update_submit_textarea(
+      "prompt",
+      value = "A conference runs from the 14th to the 17th. How many days is the conference?",
+      focus = TRUE
+    )
+  })
+
   completion <- eventReactive(input$submit, {
+    # Keep the submitted text in the textarea
+    update_submit_textarea("prompt", value = input$prompt)
     updateTabsetPanel(session, "tab", selected = "response")
     chat_with_completion_log_probs(
       input$prompt,

@@ -1,7 +1,8 @@
 # Demo: weather tool
 
 A minimal app where the LLM can call a `get_weather()` tool.
-The R demo is a Shiny app (`16_weather-tool-app.R`); the Python demo is a script that starts from `16_weather-tool-01-start.py` and ends at `16_weather-tool-02-end.py`.
+The R demo is a script that starts from `16_weather-tool-01-start.R` and ends at `16_weather-tool-02-end.R`, then comes together in a Shiny app (`16_weather-tool-app.R`).
+The Python demo starts from `16_weather-tool-01-start.py` and ends at `16_weather-tool-02-end.py`, then comes together in a Shiny app (`16_weather-tool-app.py`).
 
 ## Going further
 
