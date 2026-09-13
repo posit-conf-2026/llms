@@ -33,7 +33,7 @@ tsk = Task(
 
 # %%
 # Run the eval
-logs = eval(tsk, model=None, display="plain")
+logs = eval(tsk, model=None, epochs=3, display="plain")
 
 # %%
 # Prepare the results

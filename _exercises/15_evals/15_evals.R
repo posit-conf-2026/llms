@@ -29,6 +29,7 @@ tsk <- Task$new(
 # Run the eval
 tsk$eval(
   solver_chat = chat_posit(model = "zai-org/GLM-5.3"),
+  epochs = 3,
   view = FALSE
 )
 
