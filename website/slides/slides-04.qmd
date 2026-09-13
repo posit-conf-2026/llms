@@ -834,11 +834,7 @@ chat$chat_structured(age_free_text[[1]])
 ## Structured chat output {transition="fade"}
 
 ::: notes
-
 Define the structure with type_object(). Specify each field and its type. Then pass it to chat_structured().
-
-`type_object()` defines an object with named fields.
-Specify the type of each field, then pass the completed type to `chat_structured()`.
 :::
 
 ```{.r code-line-numbers="1-4|6"}
