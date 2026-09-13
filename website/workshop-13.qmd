@@ -11,13 +11,12 @@ duration: 35min
 
 ## Outline
 
-- (30m) The Future of AI
-  - Joe Cheng drops in again for this conversation
+- (30m) The future of AI
+  - Joe Cheng joins for a closing conversation
   - Where do we go from here? Let's talk fears and hopes.
 
 - (5m) Wrap-up
-  - Feedback survey
-  - Goodbye and enjoy the conference!
+  - Feedback survey and goodbye
 
 ## Workshop Survey
 

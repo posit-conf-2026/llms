@@ -1,21 +1,23 @@
 ---
 title: shinychat and querychat
 description: |
-  New shinychat features, including `page_chat()`, plus a simple querychat variant for exploring data.
+  Use querychat to explore data in natural language, then new shinychat features, including `page_chat()`.
 description-short: shinychat and querychat
 duration: 60min
 ---
 
 ## Slides
 
-{{< revealjs "slides/slides-11.html" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-12.html" class="ratio ratio-16x9" >}}
 
 ## Outline
 
-- (40m) shinychat
-  - New shinychat features, including `page_chat()`
-  - See the shinychat v0.5.0 preview blog post: <https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/>
-
 - (20m) querychat
-  - Simple variant: use querychat to explore some data
-  - Minimal coding required by this point
+  - Ask questions about your data in natural language, then inspect the SQL that querychat writes
+  - Your Turn [`_exercises/26_querychat`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/26_querychat): explore the airbnb data in the built-in querychat app, inspect the SQL, and restart the app with a data dictionary
+  - Demo [`_demos/27_querychat`](https://github.com/posit-conf-2026/llms/tree/main/_demos/27_querychat): a Shiny dashboard built around querychat
+
+- (40m) shinychat
+  - Your Turn [`_exercises/24_shinychat-1`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/24_shinychat-1): put the Blockbuster renewal agent in a `page_chat()` app and add a greeting with suggestion cards
+  - Your Turn [`_exercises/25_shinychat-2`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/25_shinychat-2): connect the agent to a drafts drawer with `show_letter()`, then edit a saved draft
+  - Discussion: did the agent read the current draft before editing your saved change?

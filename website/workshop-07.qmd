@@ -12,15 +12,10 @@ duration: 30min
 ## Outline
 
 - (30m) Tool calling
-  - Explain how tool calling pattern, mostly following <https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny>
-  - Activity: quiz show
-    - We provide an R/Python function that plays a sound
-      - R: `beepr`, Python: [playsound](https://pypi.org/project/playsound3/)
-    - They document the function and register it as a tool in the Quiz Show app
-  - Activity: Add tool annotations to give the tool an icon and title
-  - Activity: Use `ContentToolResult` to return custom title and icon
-  - Activity: Track answers and score in the app (add/update value boxes)
-  - (Considering) Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.
+  - Demo [`_demos/15_demo_manual-tools`](https://github.com/posit-conf-2026/llms/tree/main/_demos/15_demo_manual-tools): a human relays tool calls between the LLM and the functions
+  - Demo [`_demos/16_demo_tools`](https://github.com/posit-conf-2026/llms/tree/main/_demos/16_demo_tools): the same tools, registered with ellmer or chatlas
+  - Your Turn [`_exercises/17_quiz-game-2`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/17_quiz-game-2): register a `play_sound` tool (`beepr` in R, [playsound](https://pypi.org/project/playsound3/) in Python) in the Quiz Show app
+  - Your Turn [`_exercises/18_quiz-game-3`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/18_quiz-game-3): add tool annotations to give the tool a title and an icon. The exercise points to `ContentToolResult` if you want richer tool displays.
 
 ## Further reading
 

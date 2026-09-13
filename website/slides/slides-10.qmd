@@ -10,9 +10,52 @@ editor:
 
 # [Posit Assistant]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-hologram.jpg" background-size="cover" background-position="center"}
 
-::: {.tc .white .pa1 .br3 .w-50 .absolute bottom="-5em" left=0 style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);"}
+::: {.tl .white .ph4 .br3 .w-40 .absolute bottom="-5em" left=0 style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);"}
 Posit Assistant
 :::
+
+## Should your agent run code for you? {.center}
+
+::: incremental
+* Agent writes, you run
+
+* Agent writes, you verify, agent runs
+
+* Agent writes, agent runs, you [________]{contenteditable="true"}
+:::
+
+## What could go wrong?
+
+::: {contenteditable="true"}
+* ________
+
+* ________
+:::
+
+::: notes
+Hadley's framing from "Help! My coding agent can run code": dangerous means hard to undo.
+Danger = expensive, time-consuming, or impossible to **undo**
+
+* delete a file
+* drop your production database
+* spend money
+* send an email
+* Leak a secret or personal data
+
+In the demo, running a script touched only a disposable, local fixture.
+Sending an email or spending money leaves the sandbox and reaches the real world.
+:::
+
+
+
+
+
+
+
+
+
+
+
 
 ## Demo: Posit Assistant {.slide-demo}
 
@@ -42,31 +85,7 @@ The risk is code with side effects against your real data and machine.
 Ask the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts.
 :::
 
-## What counts as dangerous?
 
-Danger = expensive, time-consuming, or impossible to **undo**
-
-::: incremental
-* Delete a file outside git
-
-* Drop a database table
-
-* Spend money
-
-* Send an email
-
-* Leak a secret or personal data
-:::
-
-::: notes
-Hadley's framing from "Help! My coding agent can run code": dangerous means hard to undo.
-
-In the demo, running a script touched only a disposable, local fixture.
-
-Sending an email or spending money leaves the sandbox and reaches the real world.
-
-Careless promises have consequences — think of the Blockbuster no-late-fees settlement.
-:::
 
 ## Three ways to keep an agent in check
 

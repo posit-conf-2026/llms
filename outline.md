@@ -175,21 +175,23 @@ Unit 07: Tool Calling (30m) · Unit 08: Agents (20m) · Unit 09: Agent Skills (2
     - Reference: [Help! My coding agent can run code](https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code)
   - Leaves room for discussion and free practice time in the tool attendees will actually use
 
-## Afternoon 2: shinychat, querychat, and the future (90m)
+## Afternoon 2: querychat, shinychat, and the future (90m)
 
-Unit 12: shinychat and querychat (60m) · Unit 13: Wrap-up (35m)
+Unit 12: querychat and shinychat (60m) · Unit 13: Wrap-up (35m)
 
-> New shinychat features, a little querychat, and a closing conversation. Coding intensity is medium here and minimal by the end: the day tapers off as attendees get tired.
+> Querychat first, then new shinychat features and a closing conversation. Coding intensity is medium here and minimal by the end: the day tapers off as attendees get tired.
 
-- (60m) shinychat + querychat
-  - (40m) shinychat
-    - New shinychat features, including `page_chat()`
-    - See the shinychat v0.5.0 preview blog post: <https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/>
+- (60m) querychat + shinychat
   - (20m) querychat
-    - Activity `24_shinychat-1` and Activity `25_shinychat-2`: new shinychat exercises using v0.5.0 features like `page_chat()`
     - Simple variant: use querychat to explore some data
     - Activity `26_querychat`
     - Minimal coding required by this point
+  - (40m) shinychat
+    - New shinychat features, including `page_chat()`
+    - See the shinychat v0.5.0 preview blog post: <https://6aa318ede78a9bc9db955cff--posit-open-source.netlify.app/blog/2026-09-15_shinychat-v0.5.0/>
+    - Activity `24_shinychat-1`: put the Blockbuster renewal agent and its full skills infrastructure in a `page_chat()` app, then add a greeting and suggestion cards
+    - Activity `25_shinychat-2`: connect the agent to a drafts drawer with `show_letter()`, a poll-backed picker, and an editable `input_code_editor()`
+    - Discussion: inspect whether the agent read the current draft before editing a person’s saved change
 
 - (30m) The Future of AI
   - Joe Cheng drops in again for this conversation
