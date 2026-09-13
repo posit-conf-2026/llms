@@ -540,17 +540,17 @@ but something else is happening behind the scenes.
 ::: incremental
 - The LLM doesn't remember anything between requests
 
-- You have to send the **entire conversation history** with every message
+- For each response, the LLM receives the **conversation history** again
 
-- The LLM reconstructs the "conversation" from what you send
+- The LLM reconstructs the "conversation" from that history
 :::
 
 ::: notes
-The LLM has amnesia - it forgets everything after each response. Each API request is completely independent.
+The LLM has amnesia - it forgets everything after each response.
+Each generation starts from the context that the LLM receives.
 
-Just like if you were talking to someone with amnesia, you have to recap the entire conversation every time you want to continue. That's what clearbot showed you - the full history being sent with each request.
-
-This isn't a limitation of transformers specifically - it's how the HTTP API is designed. Though it aligns with how transformers work (each forward pass is independent).
+To continue the conversation, the chat system gives the LLM the conversation history again.
+That's what clearbot showed you - the full history becomes context for each new response.
 :::
 
 ## ChatGPT {.center}
