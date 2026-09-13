@@ -33,9 +33,6 @@ class Ingredient(BaseModel):
 class Recipe(BaseModel):
     title: str
     description: str
-    image_url: str | None = Field(
-        description="URL of an image of the dish, if present in the source",
-    )
     ingredients: list[Ingredient]
     instructions: list[str] = Field(description="Step-by-step instructions")
 
@@ -44,7 +41,7 @@ class Recipe(BaseModel):
 # Extract all eight recipes with up to four requests active at once.
 
 # %%
-chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 results = await chatlas.parallel_chat_structured(
     chat=chat,
     prompts=recipes,

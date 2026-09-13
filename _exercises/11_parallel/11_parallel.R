@@ -21,7 +21,7 @@ type_recipe <- type_object(
 
 # Extract all eight recipes with up to four requests active at once.
 recipes_data <- ____(
-  chat_posit(model = "zai-org/GLM-5.3-Flash"),
+  chat_posit(model = "claude-haiku-4-5"),
   prompts = ____,
   type = ____,
   max_active = 4,
