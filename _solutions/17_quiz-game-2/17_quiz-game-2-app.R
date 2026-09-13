@@ -65,7 +65,7 @@ server <- function(input, output, session) {
   chat_server(
     "chat",
     client,
-    greeting = "## Welcome to the Quiz Game!\n\nChoose a theme:\n\n- Science\n- History\n- Movies\n- Sports\n- Music"
+    greeting = "## 🎉 Welcome to the Quiz Game!\n\nChoose a theme:\n\n- Science\n- History\n- Movies\n- Sports\n- Music"
   )
 }
 
