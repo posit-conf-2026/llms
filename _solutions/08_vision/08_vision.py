@@ -5,7 +5,7 @@ from pyhere import here
 # %%
 recipe_images = here("data/recipes/images/")
 img_ziti = recipe_images / "ClassicBakedZiti.jpg"
-img_mac_cheese = recipe_images / "CreamyCrockpotMacAndCheese.jpg"
+img_mac_cheese = recipe_images / "CreamyCrockpotMacandCheese.jpg"
 
 # %%
 chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")

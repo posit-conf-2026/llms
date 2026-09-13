@@ -11,7 +11,7 @@ pdf_cheesesteak = recipe_pdfs / "PhillyCheesesteak.pdf"
 # recipe into a clean list of ingredients and steps to follow.
 
 # %%
-chat = chatlas.____
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 chat.chat(
     "____",
     chatlas.____(pdf_cheesesteak),

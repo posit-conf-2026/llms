@@ -7,7 +7,7 @@ recipe_pdfs = here("data/recipes/pdf/")
 pdf_cheesesteak = recipe_pdfs / "PhillyCheesesteak.pdf"
 
 # %%
-chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 chat.chat(
     "Summarize the recipe in this PDF into a list of ingredients "
     "and the steps to follow to make the recipe.",

@@ -55,6 +55,6 @@ type_recipe <- type_____(
   instructions = type_array(____())
 )
 
-chat <- chat_posit(model = "zai-org/GLM-5.3-Flash")
+chat <- chat_posit(model = "claude-sonnet-5")
 
 chat$chat_structured(txt_waffles, type = type_recipe)

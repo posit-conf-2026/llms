@@ -12,5 +12,6 @@ chat_posit(model = "zai-org/GLM-5.3")$chat(prompt)
 
 # If you have local models installed, you can use them too.
 # (Local models only work on your own computer -- you can't use them on
-# Posit Cloud.)
-chat_lmstudio(model = "prism-ml/bonsai-27b")$chat(prompt)
+# Posit Cloud. This line errors if LM Studio isn't running, so we've
+# commented it out -- uncomment it to try it.)
+# chat_lmstudio(model = "prism-ml/bonsai-27b")$chat(prompt)

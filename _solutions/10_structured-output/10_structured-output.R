@@ -4,7 +4,7 @@ library(ellmer)
 recipe_txt <- here::here("data/recipes/text")
 txt_waffles <- recipe_txt |>
   file.path("CinnamonPeachOatWaffles.md") |>
-  readLines()
+  brio::read_file() # Like readLines() but all in one string
 
 # Show the first 500 characters of the first recipe
 txt_waffles |> substring(1, 500) |> cat()
@@ -44,7 +44,7 @@ type_recipe <- type_object(
   ingredients = type_array(
     type_object(
       name = type_string(),
-      quantity = type_number(),
+      quantity = type_string(required = FALSE),
       unit = type_string(required = FALSE),
       notes = type_string(required = FALSE)
     ),
@@ -52,6 +52,6 @@ type_recipe <- type_object(
   instructions = type_array(type_string())
 )
 
-chat <- chat_posit(model = "zai-org/GLM-5.3-Flash")
+chat <- chat_posit(model = "claude-sonnet-5")
 
 chat$chat_structured(txt_waffles, type = type_recipe)

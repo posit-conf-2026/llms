@@ -5,10 +5,10 @@ import chatlas
 from pyhere import here
 
 recipe_txt = here("data/recipes/text/")
-txt_cheesecake = recipe_txt / "PhillyCheesesteak.md"
+txt_cheesesteak = (recipe_txt / "PhillyCheesesteak.md").read_text()
 
 # %%
-print(txt_cheesecake)
+print(txt_cheesesteak)
 
 # %% [markdown]
 # Here's an example of the structured output we want to achieve for a single
@@ -43,23 +43,18 @@ print(txt_cheesecake)
 # ```
 
 # %%
-from typing import List, Optional
-
 from pydantic import BaseModel, Field
 
 
 class Ingredient(BaseModel):
-    name: str = Field(..., description="Name of the ingredient")
-    quantity: float = Field(
-        ...,
-        description="Quantity as provided (kept as string to allow ranges or fractions)",
+    name: str = Field(description="Name of the ingredient")
+    quantity: str | None = Field(
+        description="Quantity as written, including ranges or fractions",
     )
-    unit: Optional[str] = Field(
-        None,
+    unit: str | None = Field(
         description="Unit of measure, if applicable",
     )
-    notes: Optional[str] = Field(
-        None,
+    notes: str | None = Field(
         description="Additional notes or preparation details",
     )
 
@@ -67,13 +62,13 @@ class Ingredient(BaseModel):
 class Recipe(BaseModel):
     title: str
     description: str
-    ingredients: List[Ingredient]
-    instructions: List[str] = Field(..., description="Step-by-step instructions")
+    ingredients: list[Ingredient]
+    instructions: list[str] = Field(description="Step-by-step instructions")
 
 
 # %%
-chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
-recipe = chat.chat_structured(txt_cheesecake, data_model=Recipe)
+chat = chatlas.ChatPosit(model="claude-sonnet-5")
+recipe = chat.chat_structured(txt_cheesesteak, data_model=Recipe)
 
 # %% [markdown]
 # `.chat_structured()` returns an instance of the provided Pydantic model, so

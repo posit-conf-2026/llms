@@ -14,7 +14,7 @@ ggplot(mtcars) +
   ) +
   theme_bw()
 
-chat <- chat_posit(model = "zai-org/GLM-5.3", echo = "output")
+chat <- chat_posit(model = "zai-org/GLM-5.3-Flash", echo = "output")
 chat$chat(
   "Interpret this plot.",
   content_image_plot()

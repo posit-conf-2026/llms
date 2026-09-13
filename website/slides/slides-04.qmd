@@ -73,8 +73,8 @@ dd:before {
 ![](assets/providers-models-08.excalidraw.svg)
 
 ::: notes
-Posit AI Pass is the provider we will use today. It hosts models from several
-companies, including Anthropic's Claude models.
+Posit AI Pass is the provider we will use today.
+It hosts models from several companies, including Anthropic's Claude models.
 :::
 
 ## How are models different?
@@ -88,9 +88,12 @@ companies, including Anthropic's Claude models.
 :::
 
 ::: notes
-1. Context: 1M tokens is common among the newest models here. Smaller models can still have shorter windows like 200k for Claude Haiku 4.5.
-1. Speed: In the table, output speed ranges from about 38 tokens/sec (Claude Opus 4.6) to 85 (Gemma 4 26B). These are Artificial Analysis measurements.
-1. Cost: Relative Posit AI Pass costs range from 0.1x for Gemma 4 26B to 1.67x for the Claude Opus models. Output tokens usually cost more than input tokens.
+1. Context: 1M tokens is common among the newest models here.
+   Smaller models can still have shorter windows like 200k for Claude Haiku 4.5.
+1. Speed: In the table, output speed ranges from about 38 tokens/sec (Claude Opus 4.6) to 85 (Gemma 4 26B).
+   These are Artificial Analysis measurements.
+1. Cost: Relative Posit AI Pass costs range from 0.1x for Gemma 4 26B to 1.67x for the Claude Opus models.
+   Output tokens usually cost more than input tokens.
 :::
 
 ## {transition="fade"}
@@ -98,8 +101,8 @@ companies, including Anthropic's Claude models.
 ![](assets/model-comparison-anthropic-01.excalidraw.svg){style="display: block; margin: auto;"}
 
 ::: notes
-Anthropic builds a family of models called Claude. Within that family, model
-tiers trade speed/cost for intelligence.
+Anthropic builds a family of models called Claude.
+Within that family, model tiers trade speed and cost for intelligence.
 :::
 
 ## {transition="fade"}
@@ -107,12 +110,12 @@ tiers trade speed/cost for intelligence.
 ![](assets/model-comparison-anthropic-02.excalidraw.svg){style="display: block; margin: auto;"}
 
 ::: notes
-* Haiku is small, fast, and cheap
-* Sonnet balances speed and intelligence
-* Opus is the largest and most intelligent
+* Haiku is small, fast, and cheap.
+* Sonnet balances speed and intelligence.
+* Opus is the largest and most intelligent.
 
-The positions are conceptual, not benchmark results. Version numbers identify
-newer generations within each tier.
+The positions are conceptual, not benchmark results.
+Version numbers identify newer generations within each tier.
 :::
 
 ## {transition="fade"}
@@ -120,8 +123,8 @@ newer generations within each tier.
 ![](assets/model-comparison-openai.excalidraw.svg){style="display: block; margin: auto;"}
 
 ::: notes
-OpenAI follows a similar pattern. Models with "mini" or "nano" in the name are
-usually faster and cheaper than the full-size model.
+OpenAI now uses space-themed names such as Luna, Terra, Sol, and Astra.
+Earlier model families used labels such as mini, nano, and pro.
 :::
 
 ## Open-weight and local models
@@ -135,11 +138,11 @@ usually faster and cheaper than the full-size model.
 :::
 
 ::: notes
-Open-weight does not necessarily mean open-source or unrestricted. The model's
-license determines how you can use, modify, and redistribute it.
+Open-weight does not necessarily mean open-source or unrestricted.
+The model's license determines how you can use, modify, and redistribute it.
 
-A model running on your computer is local. A model running on infrastructure
-managed by your organization is self-hosted.
+A model running on your computer is local.
+A model running on infrastructure managed by your organization is self-hosted.
 
 Open-weight models aren't necessarily local.
 :::
@@ -151,13 +154,18 @@ Open-weight models aren't necessarily local.
 {{< include ../partials/posit-model-comparison.qmd >}}
 :::
 
-## Artificial Analysis ([artificialanalysis.ai](https://artificialanalysis.ai/leaderboards/models))
+## Artificial Analysis ([artificialanalysis.ai](https://artificialanalysis.ai/leaderboards/models)) {.center}
 
-![](assets/artificial-analysis.png){alt="Screenshot of the Artificial Analysis website home page, showing independent rankings of AI models by intelligence, speed, and cost per task." style="max-width: 90%; max-height: 72vh; display: block; margin: 0 auto;"}
+[![](assets/artificial-analysis-intelligence-vs-cost-2026-09-11.png.png){width="111%" style="max-width: none; transform: translateX(-5%);" fig-alt="Scatter plot of Artificial Analysis Intelligence Index against cost per task for 16 models available through Posit AI. The upper-left green quadrant marks models with higher intelligence and lower cost."}][artificial-analysis-intelligence-cost]
 
 ::: notes
-Ranking of models.
+Up and to the left is better.
+That means higher intelligence at a lower cost per task.
+
+The green area marks the most attractive quadrant, and the dotted curve marks the Pareto line.
 :::
+
+[artificial-analysis-intelligence-cost]: https://artificialanalysis.ai/models?cost=intelligence-vs-cost-per-task&models=deepseek-v4-flash,claude-4-5-haiku-reasoning,claude-sonnet-4-6-adaptive,claude-sonnet-5,claude-sonnet-5-medium,claude-sonnet-5-low,claude-opus-4-6-adaptive,claude-opus-4-8,claude-opus-5,claude-opus-5-medium,claude-opus-5-low,glm-5-3-flash,glm-5-3,glm-5-2,kimi-k3,kimi-k3-low#intelligence-comparison-tabs
 
 ## Start capable, then test smaller
 
@@ -246,12 +254,12 @@ and more!
 :::
 
 ::: notes
-The constructor determines which provider receives the request. Direct access
-to Anthropic, OpenAI, or Google requires credentials for that provider.
+The constructor determines which provider receives the request.
+Direct access to Anthropic, OpenAI, or Google requires credentials for that provider.
 
-Posit AI Pass is also a provider. It hosts models created by several companies.
-For example, `ChatPosit(model="moonshotai/Kimi-K3")` sends the request through
-Posit AI Pass, not directly to Moonshot AI.
+Posit AI Pass is also a provider.
+It hosts models created by several companies.
+For example, `ChatPosit(model="moonshotai/Kimi-K3")` sends the request through Posit AI Pass, not directly to Moonshot AI.
 :::
 
 ## Switch models with `model=`
@@ -295,8 +303,9 @@ chat = chatlas.ChatAnthropic(
 :::
 
 ::: notes
-Both calls use Anthropic as the provider. Only the model changes. Direct
-Anthropic access requires Anthropic credentials.
+Both calls use Anthropic as the provider.
+Only the model changes.
+Direct Anthropic access requires Anthropic credentials.
 :::
 
 ## Shortcut: `chat()` and `ChatAuto()` {transition="fade"}
@@ -324,9 +333,9 @@ chat = chatlas.ChatAuto("posit")
 :::
 
 ::: notes
-`chat()` and `ChatAuto()` provide a common interface across providers. Give
-them a provider name to use that provider's default model. Posit AI Pass
-currently selects Claude Sonnet 5 by default.
+`chat()` and `ChatAuto()` provide a common interface across providers.
+Give them a provider name to use that provider's default model.
+Posit AI Pass currently selects Claude Sonnet 5 by default.
 :::
 
 ## Shortcut: `chat()` and `ChatAuto()` {transition="fade"}
@@ -358,8 +367,8 @@ chat = chatlas.ChatAuto(
 :::
 
 ::: notes
-Use `"provider/model"` to select both at once. This example still uses
-Posit AI Pass as the provider and selects Kimi K3 as the model.
+Use `"provider/model"` to select both at once.
+This example still uses Posit AI Pass as the provider and selects Kimi K3 as the model.
 :::
 
 ## List models available through Posit AI Pass
@@ -395,31 +404,50 @@ chatlas.ChatPosit().list_models()
 1. Compare the responses.
 
 
-# [Multi-modal input]{.hidden} {background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" background-size="cover" background-position="center"}
+# [Multimodal input]{.hidden} {background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" background-size="cover" background-position="center"}
 
-[Multi-modal input]{.white .b .absolute top="-400px" right=0 style="font-size: 3em;"}
+::: notes
+Modern LLMs can handle images and PDFs in addition to text.
+This is called multimodal input.
+:::
+
+[Multimodal input]{.white .b .absolute top="-400px" right=0 style="font-size: 3em;"}
 
 ## A picture is worth a thousand words {.center}
 
-::: fragment
-Or for an LLM, a picture is roughly 227 words, or [170 tokens]{.b .blue}.
-:::
+::: {.fragment .text-center}
+![](assets/cat.png){fig-alt="A tortoiseshell cat sleeping on a gray blanket." height="400"}
 
 ::: fragment
-🖼️ 🔍 [Open Images Dataset](https://storage.googleapis.com/openimages/web/visualizer/index.html?type=localized%20narratives&set=train&c=/m/06_fw&id=025d772e7181ca1f){preview-link=true}
+or, for Claude Sonnet 5, [274 tokens]{.b .blue}.
+:::
+:::
+
+::: notes
+`content_image_file()` resizes images to fit within 512 by 512 pixels by default.
+This 4:3 photo becomes 512 by 384 pixels.
+Claude Sonnet 5 currently reports 274 input tokens for an image-only request.
+The count depends on the model and image-processing settings.
+chatlas's `content_image_file()` also defaults to at most 512 by 512 (`resize="low"`), but prints a `MissingResizeWarning` unless you pass `resize` explicitly. use `resize="high"` for higher quality.
 :::
 
 ## 🌆 content_image_file {transition="fade"}
 
-::: {style="--code-font-size: 0.66em"}
+::: notes
+Use `content_image_file()` to pass an image from your local filesystem.
+Provide the path to the image.
+:::
+
+::: {style="--code-font-size: 0.58em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
-```{.r code-line-numbers="4-7"}
+```{.r code-line-numbers="4|5-8"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat("posit")
+image <- content_image_file("assets/cat.png")
 chat$chat(
-  content_image_file("cute-cats.jpg"),
+  image,
   "What do you see in this image?"
 )
 ```
@@ -427,12 +455,13 @@ chat$chat(
 
 [![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
 
-```{.python code-line-numbers="4-7"}
+```{.python code-line-numbers="4|5-8"}
 import chatlas
 
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat = chatlas.ChatAuto("posit")
+image = chatlas.content_image_file("assets/cat.png")
 chat.chat(
-    chatlas.content_image_file("cute-cats.jpg"),
+    image,
     "What do you see in this image?"
 )
 ```
@@ -440,13 +469,18 @@ chat.chat(
 
 ## [🐈](https://placecats.com/bella/400/400){target="_blank" rel="noopener noreferrer"} content_image_url {transition="fade"}
 
+::: notes
+Use `content_image_url()` to pass an image from a URL.
+The rest of the call stays the same.
+:::
+
 ::: {style="--code-font-size: 0.66em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="5"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat("posit")
 chat$chat(
   content_image_url("https://placecats.com/bella/400/400"),
   "What do you see in this image?"
@@ -459,7 +493,7 @@ chat$chat(
 ```{.python code-line-numbers="5"}
 import chatlas
 
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat = chatlas.ChatAuto("posit")
 chat.chat(
     chatlas.content_image_url("https://placecats.com/bella/400/400"),
     "What do you see in this image?"
@@ -477,13 +511,18 @@ chat.chat(
 
 ## 📑 content_pdf_file
 
+::: notes
+LLMs can also read PDFs.
+Use `content_pdf_file()` to pass a PDF from your filesystem.
+:::
+
 ::: {style="--code-font-size: 0.66em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="5"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat_posit(model = "claude-haiku-4-5")
 chat$chat(
   content_pdf_file("financial-report.pdf"),
   "What's my tax liability for 2024?"
@@ -496,9 +535,9 @@ chat$chat(
 ```{.python code-line-numbers="5"}
 import chatlas
 
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 chat.chat(
-    content_pdf_file("financial-report.pdf"),
+    chatlas.content_pdf_file("financial-report.pdf"),
     "What's my tax liability for 2024?"
 )
 ```
@@ -506,16 +545,21 @@ chat.chat(
 
 ## 📑 content_pdf_url
 
+::: notes
+Use `content_pdf_url()` to pass a PDF from a URL.
+The rest of the call stays the same.
+:::
+
 ::: {style="--code-font-size: 0.66em"}
 [![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
 
 ```{.r code-line-numbers="5"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat_posit(model = "claude-haiku-4-5")
 chat$chat(
   content_pdf_url("http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"),
-  "Describe Tesla’s executive compensation and stock award programs."
+  "Describe Tesla's executive compensation and stock award programs."
 )
 ```
 
@@ -525,10 +569,12 @@ chat$chat(
 ```{.python code-line-numbers="5"}
 import chatlas
 
-chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 chat.chat(
-    content_pdf_url("http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"),
-    "Describe Tesla’s executive compensation and stock award programs."
+    chatlas.content_pdf_url(
+        "http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"
+    ),
+    "Describe Tesla's executive compensation and stock award programs."
 )
 ```
 :::
@@ -543,7 +589,15 @@ chat.chat(
 
 # Structured output {background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" background-size="cover" background-position="center top"}
 
+::: notes
+Structured output asks an LLM to return data in a predictable format instead of free text.
+:::
+
 ## How would you extract name and age? {style="--code-font-size: 0.66em"}
+
+::: notes
+Here's a common problem. You have messy text data and need to extract specific field like name and age.
+:::
 
 ```{r}
 #| echo: true
@@ -559,6 +613,10 @@ age_free_text <- list(
 ```
 
 ## If you wrote R code, it might look like this... {.scrollable style="--code-font-size: 0.66em"}
+
+::: notes
+If you tried to solve this with traditional R code, you'd need complex regex patterns and string parsing. This is painful.
+:::
 
 ```{r}
 #| echo: true
@@ -683,6 +741,11 @@ extract_age <- function(s) {
 
 ## If you wrote R code, it might look like this... {.scrollable}
 
+::: notes
+Here's what running that code looks like.
+The missing values and incorrect age for Kwame show how brittle handwritten parsing can be.
+:::
+
 ::: {.easy-columns .gap-2}
 ```{r}
 #| echo: true
@@ -700,17 +763,16 @@ age_free_text
 ```
 :::
 
-::: footer
-😬 not great, `gpt-5`.
-:::
-
 ## But if you ask an LLM... {transition="fade"}
+
+::: notes
+But with an LLM, you can just ask it to extract the name and age. Much simpler!
+:::
 
 ```{.r code-line-numbers="4-5|8,11"}
 library(ellmer)
 
-chat <- chat(
-  "openai/gpt-5-nano",
+chat <- chat_posit(
   system_prompt = "Extract the name and age."
 )
 
@@ -723,11 +785,14 @@ chat$chat(age_free_text[[2]])
 
 ## But if you ask an LLM... {transition="fade"}
 
+::: notes
+And it works! The LLM correctly extracts names and ages. But the output is still free text - wouldn't it be nice to get proper R objects?
+:::
+
 ```{.r code-line-numbers="8-12"}
 library(ellmer)
 
-chat <- chat(
-  "openai/gpt-5-nano",
+chat <- chat_posit(
   system_prompt = "Extract the name and age."
 )
 
@@ -740,6 +805,10 @@ chat$chat(age_free_text[[2]])
 
 ## Wouldn't this be nice? {transition="fade"}
 
+::: notes
+What we really want is a proper R list with named fields. That's what structured output gives us.
+:::
+
 ```{.r}
 chat$chat(age_free_text[[1]])
 #> list(
@@ -750,6 +819,11 @@ chat$chat(age_free_text[[1]])
 
 ## Structured chat output {transition="fade"}
 
+::: notes
+this is a job for chat_structured(), which will return structured data instead of text. But we need to tell it what structure we want.
+`chat_structured()` requires a type
+:::
+
 ```{.r code-line-numbers="1"}
 chat$chat_structured(age_free_text[[1]])
 #> list(
@@ -759,6 +833,10 @@ chat$chat_structured(age_free_text[[1]])
 ```
 
 ## Structured chat output {transition="fade"}
+
+::: notes
+Define the structure with type_object(). Specify each field and its type. Then pass it to chat_structured().
+:::
 
 ```{.r code-line-numbers="1-4|6"}
 type_person <- type_object(
@@ -775,6 +853,10 @@ chat$chat_structured(age_free_text[[1]], type = type_person)
 
 ## Structured chat output {transition="fade"}
 
+::: notes
+And you get back proper R objects: a character vector for name, an integer for age. 
+:::
+
 ```{.r code-line-numbers="7-11"}
 type_person <- type_object(
   name = type_string(),
@@ -790,6 +872,11 @@ chat$chat_structured(age_free_text[[1]], type = type_person)
 ```
 
 ## ellmer's type functions
+
+::: notes
+Here are the type functions available in ellmer.
+You can add descriptions to explain what each field means.
+:::
 
 ![](assets/ellmer-type-functions.png)
 
@@ -812,13 +899,21 @@ class Person(BaseModel):
     name: str
     age: int
 
-chat = chatlas.ChatAuto("openai/gpt-5-nano")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 chat.chat_structured(
     "I go by Alex. 42 years on this planet and counting.",
     data_model=Person
 )
 #> Person(name='Alex', age=42)
 ```
+
+::: notes
+Pydantic defines the expected fields and types for one structured result.
+chatlas converts the Pydantic model into a schema for the provider.
+After the provider responds, chatlas uses Pydantic to validate the response and return a `Person`.
+The same Pydantic model works for single, parallel, and batch requests.
+chatlas, rather than Pydantic, controls how the requests are submitted.
+:::
 
 ::: footer
 [chatlas: Structured Data](https://posit-dev.github.io/chatlas/get-started/structured-data.html)
@@ -831,16 +926,22 @@ import chatlas
 from pydantic import BaseModel, Field
 
 class Person(BaseModel):
-    name: str = Field(..., description="The person's name")
-    age: int = Field(..., description="The person's age in years")
+    name: str = Field(description="The person's name")
+    age: int = Field(description="The person's age in years")
 
-chat = chatlas.ChatAuto("openai/gpt-5-nano")
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
 chat.chat_structured(
     "I go by Alex. 42 years on this planet and counting.",
     data_model=Person
 )
 #> Person(name='Alex', age=42)
 ```
+
+::: notes
+Field descriptions give the model context about what to extract.
+When the input might omit a value, allow `None` in the field's type.
+This helps the model return a missing value instead of inventing one.
+:::
 
 ## In Python, use Pydantic {transition="fade"}
 
@@ -857,13 +958,18 @@ class Person(BaseModel):
     """The person's age in years"""
 ```
 
+::: notes
+Attribute docstrings require the class source code to be available at runtime.
+They do not work in an interactive interpreter, where `Field(description=...)` is more reliable.
+:::
+
 ::: footer
 [pydantic: use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
 :::
 
 # Your Turn `10_structured-output` {.slide-your-turn}
 
-1. We also have text versions of the recipes in `data/recipes/txt`.
+1. We also have text versions of the recipes in `data/recipes/text`.
 
 1. Use `ellmer::type_*()` or a Pydantic model to extract structured data from the recipe you used in **activity 09**.
 
@@ -871,7 +977,7 @@ class Person(BaseModel):
 
 {{< countdown 7:00 left=0 bottom="-1em" >}}
 
-# Parallel and batch calls {background-image="assets/barna-bartis-1DLPzq1kL3M-unsplash.jpg" background-size="cover" background-position="center"}
+# Parallel calls {background-image="assets/barna-bartis-1DLPzq1kL3M-unsplash.jpg" background-size="cover" background-position="center"}
 
 ## Structured chat output {transition="fade"}
 
@@ -889,6 +995,11 @@ chat$chat_structured(age_free_text[[1]], type = type_person)
 #> [1] 42
 ```
 
+::: notes
+One prompt produces one structured result.
+So far, every example processes one string at a time.
+:::
+
 ## Structured chat output {transition="fade"}
 
 ```{.r code-line-numbers="6-7"}
@@ -900,6 +1011,11 @@ type_person <- type_object(
 chat$chat_structured(age_free_text, type = type_person)
 #> ???
 ```
+
+::: notes
+Pose the question: what happens if we pass the whole list of prompts instead of just one?
+Take guesses from the room before advancing to the next slide.
+:::
 
 ## Structured chat output {transition="fade"}
 
@@ -914,23 +1030,42 @@ chat$chat_structured(age_free_text, type = type_person)
 #> ! `...` must be made up strings or <content> objects, not a list.
 ```
 
+::: notes
+It fails: `chat_structured()` takes individual prompts via `...`, not a collection.
+The takeaway is that you can't vectorize structured output by passing a list.
+This is the motivation for `parallel_chat_structured()`, which we see next.
+:::
+
 ## Parallel chat calls {transition="fade"}
 
 ```{.r}
+chat <- chat_posit(model = "claude-haiku-4-5")
+
 parallel_chat_structured(
   chat,
   age_free_text,
-  type = type_person
+  type = type_person,
+  max_active = 4,
+  on_error = "stop"
 )
 ```
 
+::: notes
+We use claude-haiku-4-5 for these parallel examples.
+GLM-5.3-Flash sometimes returned incomplete structured extractions 
+:::
+
 ## Parallel chat calls {transition="fade"}
 
 ```{.r}
+chat <- chat_posit(model = "claude-haiku-4-5")
+
 parallel_chat_structured(
   chat,
   age_free_text,
-  type = type_person
+  type = type_person,
+  max_active = 4,
+  on_error = "stop"
 )
 #> [working] (0 + 0) -> 2 -> 4 | ■■■■■■■■■■■■■■■■■■■■■             67%
 ```
@@ -938,10 +1073,14 @@ parallel_chat_structured(
 ## Parallel chat calls {transition="fade"}
 
 ```{.r}
+chat <- chat_posit(model = "claude-haiku-4-5")
+
 parallel_chat_structured(
   chat,
   age_free_text,
-  type = type_person
+  type = type_person,
+  max_active = 4,
+  on_error = "stop"
 )
 #>     name age
 #> 1   Alex  42
@@ -958,9 +1097,16 @@ parallel_chat_structured(
 batch_chat_structured(
   chat,
   age_free_text,
-  type = type_person
+  type = type_person,
+  path = "people.json"
 )
 ```
+
+::: notes
+This introduces the batch helper.
+The current `chat` uses Posit AI, so this call is not runnable yet.
+The next slide switches to a direct provider that supports batching.
+:::
 
 ## Batch chat calls {transition="fade"}
 
@@ -973,10 +1119,15 @@ batch_chat_structured(
 )
 ```
 
+::: notes
+The path stores the batch job state and completed responses.
+You can stop waiting and later call the same function with the same path to resume.
+:::
+
 ## Batch chat calls {transition="fade"}
 
 ```{.r code-line-numbers="1"}
-chat <- chat("anthropic/claude-3-5-haiku-20241022")
+chat <- chat("anthropic/claude-haiku-4-5")
 batch_chat_structured(
   chat,
   age_free_text,
@@ -985,62 +1136,107 @@ batch_chat_structured(
 )
 ```
 
+::: notes
+This final call is runnable with direct Anthropic credentials.
+Posit AI does not expose the Anthropic batch API.
+:::
+
+## Parallel chat calls in Python
+
+```{.python code-line-numbers="6|8-14|16"}
+prompts = [
+    "I go by Alex. 42 years on this planet and counting.",
+    "Pleased to meet you! I'm Jamal, age 27.",
+]
+
+chat = chatlas.ChatPosit(model="claude-haiku-4-5")
+
+results = await chatlas.parallel_chat_structured(
+    chat,
+    prompts,
+    Person,
+    max_active=4,
+    on_error="stop",
+)
+
+people = [result.data for result in results]
+```
+
+::: notes
+`Person` still defines and validates one structured result.
+It does not control parallel processing.
+`parallel_chat_structured()` is asynchronous in Python, so call it with `await`.
+chatlas submits ordinary requests concurrently and keeps at most `max_active` requests active.
+Each result contains the extracted Pydantic object in its `data` attribute.
+:::
+
 ## Batch vs. parallel
 
 ::: easy-columns
 ::: col
 ### Parallel
 
-* 🌲 Works for any provider/model<br>&nbsp;
+* Sends ordinary requests at the same time
 
-* ⚡ Much faster for small jobs
+* Returns results during the current session
 
-* 💸 More expensive
+* Uses ordinary per-request pricing
 
-* 😓 Not easy to stop/resume
-
-* [🔜 Coming soon to chatlas]{.fragment fragment-index=1}
+* Works through Posit AI
 :::
 
 ::: col
-### Batch
+### Provider batch API
 
-* 🌱 Only works for some providers (OpenAI, Anthropic)
+* Uploads requests to a provider-managed queue
 
-* ⏲️ Finishes... eventually
+* May take up to 24 hours
 
-* 🏦 Much cheaper per prompt
+* Often has lower per-token pricing
 
-* 😎 Easy to stop/resume
-
-* [🧑‍🚀 Works in chatlas]{.fragment fragment-index=1}
+* Is not available through Posit AI
 :::
+:::
+
+::: notes
+Parallel processing does not combine the prompts into one request.
+It sends one normal request for each prompt and limits how many requests are active.
+
+A provider batch API is a separate service.
+The provider stores the requests, schedules them, and makes the results available later.
+That scheduling flexibility is why providers can offer lower batch prices.
+
+Posit AI supports parallel ordinary requests but does not expose provider batch APIs.
 :::
 
 ## chatlas.batch_chat_structured {transition="fade"}
 
 ```{.python}
-from chatlas import ChatAuto, batch_chat_structured
-
-chat = chatlas.ChatAuto("anthropic/claude-3-haiku-20240307")
-res = batch_chat_structured(
+chat = chatlas.ChatAuto("anthropic/claude-haiku-4-5")
+results = chatlas.batch_chat_structured(
     chat=chat,
-    prompts=age_free_text,
+    prompts=prompts,
     data_model=Person,
     path="people.json",
 )
 ```
 
-# Your Turn `11_batch` {.slide-your-turn}
+::: notes
+`Person` still defines and validates each structured result in the batch.
+chatlas submits the prompts through the provider's batch API and retrieves the results.
+This example also requires direct Anthropic credentials.
+:::
+
+# Your Turn `11_parallel` {.slide-your-turn}
 
 1. Take your `type_recipe` or `Recipe` model from **activity 10**...
 
-2. And apply it to _all the text recipes_ in `data/recipes/txt`.
+2. And apply it to _all the text recipes_ in `data/recipes/text`.
 
-3. Use parallel processing with `gpt-4.1-nano` from OpenAI.
+3. Use `parallel_chat_structured()` with Posit AI.
 
-4. Use the Batch API with Claude 3.5 Haiku from Anthropic.
+4. Allow no more than four active requests at once.
 
-5. Save the results to `data/recipes/recipes.json` and try out the Shiny recipe cookbook app!
+5. Save the results to `data/recipes/recipes.json` and try the Shiny recipe cookbook app.
 
 {{< countdown 7:00 left=0 bottom="-1em" >}}

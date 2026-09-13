@@ -5,7 +5,7 @@ from pyhere import here
 # %%
 recipe_images = here("data/recipes/images/")
 img_ziti = recipe_images / "ClassicBakedZiti.jpg"
-img_mac_cheese = recipe_images / "CreamyCrockpotMacAndCheese.jpg"
+img_mac_cheese = recipe_images / "CreamyCrockpotMacandCheese.jpg"
 
 # %% [markdown]
 # Ask the model to give a creative recipe title and description for the ziti

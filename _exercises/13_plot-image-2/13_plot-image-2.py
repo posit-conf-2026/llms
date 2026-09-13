@@ -42,7 +42,7 @@ p.show()
 # Register the plot with matplotlib's current figure
 plt.figure(p.draw())
 
-chat = chatlas.ChatPosit(model="zai-org/GLM-5.3")
+chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
 chat.chat(
     "Interpret this plot.",
     chatlas.content_image_plot(),

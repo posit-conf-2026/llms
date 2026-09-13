@@ -5,10 +5,10 @@ import chatlas
 from pyhere import here
 
 recipe_txt = here("data/recipes/text/")
-txt_cheesecake = (recipe_txt / "PhillyCheesesteak.md").read_text()
+txt_cheesesteak = (recipe_txt / "PhillyCheesesteak.md").read_text()
 
 # %%
-print(txt_cheesecake)
+print(txt_cheesesteak)
 
 # %% [markdown]
 # Here's an example of the structured output we want to achieve for a single
@@ -42,32 +42,29 @@ print(txt_cheesecake)
 # }
 # ```
 #
-# Hint: you can use `Optional` from the `typing` module to indicate that a field
-# is not always required.
+# Hint: include `None` in the type when the input might omit a value.
 
 # %%
-from typing import List, Optional
-
 from pydantic import BaseModel, Field
 
 
 class Ingredient(BaseModel):
     name: ____
-    quantity: ____
-    unit: Optional[____] = Field(None, description="____")
-    notes: Optional[____] = ____
+    quantity: ____ | None = Field(description="____")
+    unit: ____ | None = Field(description="____")
+    notes: ____ | None = Field(description="____")
 
 
 class Recipe(BaseModel):
     title: ____
     description: ____
-    ingredients: List[_____]
-    instructions: List[____] = Field(..., description="____")
+    ingredients: list[_____]
+    instructions: list[____] = Field(description="____")
 
 
 # %%
-chat = chatlas.ChatPosit(model="zai-org/GLM-5.3-Flash")
-recipe = chat.chat_structured(txt_cheesecake, data_model=Recipe)
+chat = chatlas.ChatPosit(model="claude-sonnet-5")
+recipe = chat.chat_structured(txt_cheesesteak, data_model=Recipe)
 
 # %% [markdown]
 # `.chat_structured()` returns an instance of the provided Pydantic model, so
