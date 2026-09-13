@@ -8,7 +8,7 @@ airbnb_data <- read.csv(here::here("data/airbnb-austin.csv"))
 qc <- QueryChat$new(
   airbnb_data,
   "airbnb_data",
-  client = chat_posit(model = "zai-org/GLM-5.3-Flash"),
+  client = chat_posit(),
   greeting = "Ask me about Austin Airbnb listings.",
   # data_dict = here::here("data/airbnb-austin_data-dict.yaml")
 )
