@@ -67,11 +67,11 @@ expensive, time-consuming or irreversible
 ## Three ways to keep an agent in check
 
 ::: {.incremental style="font-size: 1.33em"}
-1. **Ask for permission**
+1. Ask for permission
 
-1. **Sandbox**
+1. Sandbox
 
-1. **Ask an LLM** (auto mode)
+1. Ask an LLM (auto mode)
 :::
 
 ::: footer
@@ -211,16 +211,8 @@ Best practice would be: download, read the script, then run. Neither agent read 
 Auto mode is less protective than it looks. Keep your own eyes on destructive steps.
 :::
 
-## Posit Assistant, recap
+## Next up: build your own chat apps {.center .tc}
 
-::: incremental
-* Everything you built today — tools, agents, skills — lives inside the assistant you'll actually use
+[Coffee Break!](../workshop-11-break.qmd)
 
-* Read and write tools are powerful, and safety is the price
-
-* Dangerous means hard to undo: sandboxes and LLM review keep the loop in check
-:::
-
-::: notes
-Next: shinychat and querychat — new ways to put chat inside your own apps.
-:::
+[querychat + shinychat](slides-12.qmd)
