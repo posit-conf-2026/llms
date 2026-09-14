@@ -1,5 +1,5 @@
 ---
-title: Prompt Engineering
+title: Evals and Prompt Engineering
 description: Getting LLMs to do what you want through effective prompting.
 description-short: Getting LLMs to do what you want
 duration: 50min
