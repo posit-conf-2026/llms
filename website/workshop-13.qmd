@@ -22,4 +22,4 @@ duration: 35min
 
 Please take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!
 
-[pos.it/conf-workshop-survey](https://pos.it/conf-workshop-survey)
+[pos.it/conf26-workshop-survey](https://pos.it/conf26-workshop-survey)

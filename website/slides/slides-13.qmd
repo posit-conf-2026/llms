@@ -16,7 +16,7 @@ editor:
 Please take 5-10 minutes to fill out the workshop survey.\
 Your feedback is important to us!
 
-[[pos.it/conf-workshop-survey]{.yellow .code}](https://pos.it/conf-workshop-survey)
+[[pos.it/conf26-workshop-survey]{.yellow .code}](http://pos.it/conf26-workshop-survey)
 :::
 
 ## {background-image="assets/thank-you.png" background-size="cover" background-position="center"}
