@@ -1990,14 +1990,21 @@
     "href": "slides/slides-08.html#whats-an-agent",
     "title": "Agents",
     "section": "What’s an agent?",
-    "text": "What’s an agent?\n\nAn LLM, in a harness, that calls tools repeatedly in a loop — deciding each next step from the last result\nMost agents have two kinds of tools: read tools to observe the world, and write tools to change it\n\n\nThis is Hadley Wickham’s definition, from his “What is an agent?” post on Substack.\nSimon Willison’s shorter version: an LLM with a read tool and a write tool.\nThe “you know it when you see it” version: an autonomous system that needs minimal intervention to finish a task.\nAll three describe the same thing. The loop is what makes it an agent."
+    "text": "What’s an agent?\n\nAn LLM, in a harness, that calls tools repeatedly in a loop\nDeciding each next step from the last result\n\n\nWhat is an agent? by Hadley Wickham"
   },
   {
-    "objectID": "slides/slides-08.html#one-tool-call-is-not-an-agent",
-    "href": "slides/slides-08.html#one-tool-call-is-not-an-agent",
+    "objectID": "slides/slides-08.html#how-many-tools-does-it-take-to-make-an-agent",
+    "href": "slides/slides-08.html#how-many-tools-does-it-take-to-make-an-agent",
     "title": "Agents",
-    "section": "One tool call is not an agent",
-    "text": "One tool call is not an agent\nThe quiz show called a tool. So why wasn’t it an agent?\n\nNo loop, no decisions: the model called the sound tool and answered.\n\n\nRecall the quiz show app: we registered one tool, and the model called it to play sounds during the game.\nEach user message produced at most one tool call before the final answer.\nAn agent keeps calling tools in a loop, deciding each next step from the result of the last one."
+    "section": "How many tools does it taketo make an agent?",
+    "text": "How many tools does it taketo make an agent?\nDid we just make a quiz show agent?\n\nRecall the quiz show app: we registered one tool, and the model called it to play sounds during the game.\nEach user message produced at most one tool call before the final answer.\nAn agent keeps calling tools in a loop, deciding each next step from the result of the last one."
+  },
+  {
+    "objectID": "slides/slides-08.html#what-kind-of-tools",
+    "href": "slides/slides-08.html#what-kind-of-tools",
+    "title": "Agents",
+    "section": "What kind of tools?",
+    "text": "What kind of tools?\n\nread tools to observe the world\nwrite tools to change it\n\n\nThis is Hadley Wickham’s definition, from his “What is an agent?” post on Substack.\nSimon Willison’s shorter version: an LLM with a read tool and a write tool.\nThe “you know it when you see it” version: an autonomous system that needs minimal intervention to finish a task.\nAll three describe the same thing. The loop is what makes it an agent."
   },
   {
     "objectID": "slides/slides-08.html#the-agent-loop",
@@ -2007,11 +2014,18 @@
     "text": "The agent loop\n\nExplore: the agent reads to understand the world\nAct: the agent writes to change it\nObserve: the agent reads again to see what changed\n…and repeat until the task is done\n\n\nTODO: replace with an excalidraw diagram, in the style of the tools-how-it-works sequence in slides-07.\nThe loop is why agents feel different from a chat: the model, not the user, chooses the next step.\nThe harness (ellmer or chatlas) does the busy work: it runs each tool, sends the result back, and lets the model continue."
   },
   {
-    "objectID": "slides/slides-08.html#read-tools-and-write-tools",
-    "href": "slides/slides-08.html#read-tools-and-write-tools",
+    "objectID": "slides/slides-08.html#brainstorm-tools-for-agents",
+    "href": "slides/slides-08.html#brainstorm-tools-for-agents",
     "title": "Agents",
-    "section": "Read tools and write tools",
-    "text": "Read tools and write tools\n\n\n\nRead tools observe\nWrite tools change\n\n\n\n\nRead a file\nWrite a file\n\n\nList files\nEdit a file\n\n\nSearch the codebase\nRun a command\n\n\nLook at data\nRun code\n\n\n\n\nRead and write is the smallest split that still makes an agent useful.\nA coding agent is just an agent whose tools mirror how a human works on a codebase.\nHadley: “A coding agent is six functions in a trenchcoat” — read file, write file, edit file, list files, search, run command, plus a big system prompt of advice."
+    "section": "Brainstorm: tools for agents",
+    "text": "Brainstorm: tools for agents\n\n\nRead tools\n\n\nRead a file\n\n\n\n\n\nWrite tools\n\n\nWrite a file\n\n\n\n\n\n\nRead and write is the smallest split that still makes an agent useful.\nA coding agent is just an agent whose tools mirror how a human works on a codebase.\nHadley: “A coding agent is six functions in a trenchcoat” — read file, write file, edit file, list files, search, run command, plus a big system prompt of advice."
+  },
+  {
+    "objectID": "slides/slides-08.html#oh-and-prompting",
+    "href": "slides/slides-08.html#oh-and-prompting",
+    "title": "Agents",
+    "section": "Oh, and prompting!",
+    "text": "Oh, and prompting!"
   },
   {
     "objectID": "slides/slides-08.html#welcome-to-the-last-blockbuster",

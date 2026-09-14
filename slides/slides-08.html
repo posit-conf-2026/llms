@@ -171,11 +171,40 @@
 <p>Agents</p>
 </div>
 </section>
-<section id="whats-an-agent" class="slide level2">
+<section id="whats-an-agent" class="slide level2 center" style="font-size: 1.5em">
 <h2>What’s an agent?</h2>
 <ul>
-<li class="fragment"><p>An LLM, in a harness, that calls tools repeatedly in a loop — deciding each next step from the last result</p></li>
-<li class="fragment"><p>Most agents have two kinds of tools: <strong>read</strong> tools to observe the world, and <strong>write</strong> tools to change it</p></li>
+<li class="fragment"><p>An LLM, in a <strong>harness</strong>, that calls tools repeatedly in a loop</p></li>
+<li class="fragment"><p>Deciding each next step from the last result</p></li>
+</ul>
+<div class="footer">
+<p><a href="https://tidydesign.substack.com/p/what-is-an-agent" data-preview-link="true">What is an agent?</a> by Hadley Wickham</p>
+</div>
+</section>
+<section id="how-many-tools-does-it-take-to-make-an-agent" class="slide level2 center tc" style="font-size: 1.5em">
+<h2>How many tools does it take<br>to make an agent?</h2>
+<p><em>Did we just make a quiz show agent?</em></p>
+<aside class="notes">
+<p>Recall the quiz show app: we registered one tool, and the model called it to play sounds during the game.</p>
+<p>Each user message produced at most one tool call before the final answer.</p>
+<p>An agent keeps calling tools in a loop, deciding each next step from the result of the last one.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-kind-of-tools" class="slide level2 center" style="font-size: 1.5em">
+<h2>What kind of tools?</h2>
+<ul>
+<li class="fragment"><p><strong>read</strong> tools to observe the world</p></li>
+<li class="fragment"><p><strong>write</strong> tools to change it</p></li>
 </ul>
 <aside class="notes">
 <p>This is Hadley Wickham’s definition, from his “What is an agent?” post on Substack.</p>
@@ -194,29 +223,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="one-tool-call-is-not-an-agent" class="slide level2 center">
-<h2>One tool call is not an agent</h2>
-<p>The quiz show called a tool. So why wasn’t it an agent?</p>
-<div class="fragment">
-<p>No loop, no decisions: the model called the sound tool and answered.</p>
-</div>
-<aside class="notes">
-<p>Recall the quiz show app: we registered one tool, and the model called it to play sounds during the game.</p>
-<p>Each user message produced at most one tool call before the final answer.</p>
-<p>An agent keeps calling tools in a loop, deciding each next step from the result of the last one.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="the-agent-loop" class="slide level2 center">
+<section id="the-agent-loop" class="slide level2 center" style="font-size: 1.33em">
 <h2>The agent loop</h2>
 <ul>
 <li class="fragment"><p><strong>Explore</strong>: the agent reads to understand the world</p></li>
@@ -240,34 +247,28 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="read-tools-and-write-tools" class="slide level2">
-<h2>Read tools and write tools</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Read tools observe</th>
-<th style="text-align: left;">Write tools change</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Read a file</td>
-<td style="text-align: left;">Write a file</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">List files</td>
-<td style="text-align: left;">Edit a file</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Search the codebase</td>
-<td style="text-align: left;">Run a command</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Look at data</td>
-<td style="text-align: left;">Run code</td>
-</tr>
-</tbody>
-</table>
+<section id="brainstorm-tools-for-agents" class="slide level2">
+<h2>Brainstorm: tools for agents</h2>
+<div class="easy-columns">
+<div>
+<p><strong>Read tools</strong></p>
+<div contenteditable="true">
+<ul>
+<li>Read a file</li>
+<li></li>
+</ul>
+</div>
+</div>
+<div>
+<p><strong>Write tools</strong></p>
+<div contenteditable="true">
+<ul>
+<li>Write a file</li>
+<li></li>
+</ul>
+</div>
+</div>
+</div>
 <aside class="notes">
 <p>Read and write is the smallest split that still makes an agent useful.</p>
 <p>A coding agent is just an agent whose tools mirror how a human works on a codebase.</p>
@@ -283,6 +284,9 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="oh-and-prompting" class="slide level2 center tc" style="font-size: 1.6em">
+<h2>Oh, and prompting!</h2>
 </section></section>
 <section>
 <section id="blockbuster-agent" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-blockbuster.png" data-background-size="cover">
@@ -320,7 +324,7 @@
 <li><p><strong>Wrap up</strong> a read tool and a <strong>write</strong> tool for it to use, then ask it to build the win-back list.</p></li>
 <li><p>Run the script it writes, then inspect the trace. Did it read the store rules before it wrote code?</p></li>
 </ol>
-<countdown-timer id="timer_013a755b849454381b99c02ec9616f5461a1938f" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_280c3e5c9a558e14c3ac7444edb85b8d0e2a6d68" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The coding-agent system prompt is given. Attendees wrap the file operations into functions (inputs, work, outputs), document the tools, register them, and ask the agent to write <code>find_lapsed.R</code> or <code>find_lapsed.py</code>.</p>
@@ -373,7 +377,7 @@
 <li><p>Your manager found <strong>an old paper register</strong>!</p></li>
 <li><p>Without naming the file, ask the agent to bring the list up to date.</p></li>
 </ol>
-<countdown-timer id="timer_013a755b849454381b99c02ec9616f5461a1938f" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_280c3e5c9a558e14c3ac7444edb85b8d0e2a6d68" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p><code>list_files</code> surfaces <code>rentals-old.csv</code> without the prompt naming it.</p>
