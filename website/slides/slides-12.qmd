@@ -84,6 +84,8 @@ When column names need explanation, pass a data dictionary with `data_dict`.
 1. Restart the app with `data_dict` included. \
    _Among private rooms, which property types are most common?_
 
+3. Hints: `data_dict` is already in the file — uncomment it and restart the app.
+
 {{< countdown 5:00 left=0 bottom="-1.5em" >}}
 
 ::: notes
@@ -345,6 +347,8 @@ The greeting disappears after the first user message by default.
 1. Add a greeting with three suggestion cards for common renewal tasks.
 
 1. Use a suggestion to draft letters for the top three lapsed members.
+
+4. Hints: `chat_greeting()` is wired up — write the greeting with `<span class="suggestion">` cards.
 
 {{< countdown 7:00 left=0 bottom="-1.5em" >}}
 
