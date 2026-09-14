@@ -14,12 +14,14 @@ editor:
 Agent Skills
 :::
 
-## You've been using skills all day {.center}
-
-When you asked Posit Assistant for help today, it loaded `.agents/skills/help/SKILL.md`.
+## Have you used a skill today? {.center style="font-size: 1.4em"}
 
 ::: fragment
-A skill is a folder with a `SKILL.md` file: a description of when to use it, plus instructions for how to do the job.
+If you asked Posit Assistant for `/help` today, you have!
+:::
+
+::: fragment
+Let's look at it in `.agents/skills/help/SKILL.md`
 :::
 
 ::: notes
@@ -30,20 +32,9 @@ The same format works across agents: Posit Assistant, Claude Code, and many othe
 Skills are plain markdown, checked into your project — no packaging, no build step.
 :::
 
-## Anatomy of a skill
-
-```
-skills/
-└── renewal-letters/
-    ├── SKILL.md      # Required: metadata + instructions
-    ├── scripts/      # Optional: executable code
-    ├── references/   # Optional: documentation
-    └── assets/       # Optional: templates, data files
-```
-
 ## SKILL.md
 
-````markdown
+````{.markdown code-line-numbers="|2|3|6-10"}
 ---
 name: renewal-letters
 description: Draft a renewal letter for a lapsed Last Blockbuster member.
@@ -57,7 +48,7 @@ Offer Founders members a commemorative card.
 ````
 
 ::: footer
-[Agent Skills specification](https://agentskills.io/specification){preview-link=true}
+[Agent Skills specification](https://agentskills.io/specification){preview-link=true} &middot; agentskills.io
 :::
 
 ::: notes
@@ -71,14 +62,28 @@ The description is the only thing the agent sees at startup, so it decides wheth
 The body is free markdown: steps, rules, gotchas, a template.
 :::
 
-## Progressive disclosure {.center}
+## Anatomy of a skill
+
+```{.plain code-line-numbers="|1|2|3|4|5-6"}
+.agents/skills/
+└── renewal-letters/
+    ├── SKILL.md      # Required: metadata + instructions
+    ├── references/   # Optional: documentation
+    ├── scripts/      # Optional: executable code
+    └── assets/       # Optional: templates, data files
+```
+
+## Progressive disclosure {.center style="font-size: 1.33em"}
 
 ::: incremental
-1. **Discovery** — the agent loads only each skill's `name` and `description` (~100 tokens each)
+1. **Discovery** \
+   the agent starts with `name` and `description`
 
-1. **Activation** — when a task matches, the agent reads the full `SKILL.md`
+1. **Activation** \
+   when it decides to, the agent reads the full `SKILL.md`
 
-1. **Execution** — instructions run; extra files load only when the skill asks for them
+1. **Execution** \
+   after that, it's in the agent's robot hands
 :::
 
 ::: notes
@@ -91,17 +96,30 @@ Same idea you'll implement by hand in the exercise: the system prompt lists the 
 TODO: excalidraw diagram in the style of the tools sequence in slides-07.
 :::
 
-## Why not just use the system prompt?
+## Why not just use the system prompt? {.tc .center style="font-size: 1.25em"}
 
-::: incremental
+::: {.easy-columns .mt5}
+::: fragment
+**System prompt**
+
+instructions for every session
+:::
+
+::: fragment
+**Skills**
+
+on-demand instructions
+:::
+:::
+
+
+::: notes
 * The system prompt is **always** in context — every token, every request
 
 * Skills load **on demand** — only when a task matches
 
 * So skills let you give an agent deep expertise without paying for it up front
-:::
 
-::: notes
 You wrote a system prompt for the Blockbuster agent. That works for one small set of rules.
 
 Now imagine 50 jobs: renewal letters, store opening procedures, staff notes, rental policies, and social media voice.
@@ -109,32 +127,6 @@ Now imagine 50 jobs: renewal letters, store opening procedures, staff notes, ren
 Stuffed into the system prompt, they crowd out the conversation and cost tokens on every request.
 
 As skills, they cost about 100 tokens each until the moment one is needed.
-:::
-
-## Writing a skill that works
-
-::: incremental
-* **Add what the agent lacks; omit what it knows** — no "write clear descriptions"
-
-* **Description says what and when** — it's the trigger
-
-* **Concrete beats generic** — a template, a rule, a gotcha
-
-* **Keep it short** — under 500 lines; push detail to `references/`
-:::
-
-::: footer
-[Best practices for skill creators](https://agentskills.io/skill-creation/best-practices){preview-link=true}
-:::
-
-::: notes
-The test for every line: would the agent get this wrong without it?
-
-If the agent already writes clean markdown, don't tell it to write clean markdown.
-
-Give a default, not a menu: one way to do it, with an escape hatch.
-
-Gotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions.
 :::
 
 ## The scene: win-back letters {.center}
@@ -204,6 +196,33 @@ The good news: in all five runs the data files were left untouched, tool calls w
 Close on the failure modes: skills load reliably, but grounding — who are the top three, what tier are they — still depends on the agent checking its sources.
 :::
 
+
+## Writing a skill that works {.center style="font-size: 1.33em"}
+
+::: incremental
+* Add what the agent lacks; omit what it knows
+
+* The **description is the trigger**
+
+* Concrete beats generic
+
+* Keep it short
+:::
+
+::: footer
+[Best practices for skill creators](https://agentskills.io/skill-creation/best-practices){preview-link=true}
+:::
+
+::: notes
+The test for every line: would the agent get this wrong without it?
+
+If the agent already writes clean markdown, don't tell it to write clean markdown.
+
+Give a default, not a menu: one way to do it, with an escape hatch.
+
+Gotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions.
+:::
+
 # Your Turn `22_skills-2` {.slide-your-turn}
 
 1. The skill has been swapped for a **first draft** with common problems.
@@ -248,14 +267,14 @@ What stayed right the whole time: correct members, correct Founders perk, correc
 Close on the before/after: same agent, same tools, same task — the only change was the skill, and the letters changed with it.
 :::
 
-## Skills in Posit Assistant
+## Skills in Posit Assistant {.center style="font-size: 1.33em"}
 
 ::: incremental
 * Built-ins: `create-skill`, `r-package-development`, `quarto-authoring`, ...
 
 * Yours: `~/.posit/assistant/skills/` (all projects) or `.agents/skills/` (this project)
 
-* Most skills also run as slash commands: `/renewal-letters`
+* Most skills also run as slash commands: `/check-my-work`
 :::
 
 ::: footer
@@ -270,17 +289,26 @@ The built-in create-skill skill walks you through making a new one interactively
 Skills double as commands when you want to trigger a workflow deliberately instead of hoping the model picks it.
 :::
 
-## Skills in the ecosystem
+## Skills in the ecosystem {.center .tc style="font-size: 2em"}
 
-| Layer | What it carries | When it loads |
-|:----------|:----------------|:--------------|
-| System prompt | Core behavior | Always |
-| **Skills** | Procedures, house rules, expertise | On demand |
-| MCP servers | Connections to external tools | Registered per tool call |
+::: fragment
+[skill.sh](https://skill.sh)
+:::
+
+::: fragment
+[posit-dev/skills](https://github.com/posit-dev/skills)
+:::
+
+::: fragment
+`npx skills add`
+:::
+
+::: fragment
+_Can you install the skill from..._
+:::
+
 
 ::: notes
-Rough map, from the Posit open-source AI newsletter.
-
 AGENTS.md and the system prompt shape everything the agent does.
 
 Skills carry the long tail of knowledge: too specific to always pay for, too valuable to leave out.
@@ -288,16 +316,14 @@ Skills carry the long tail of knowledge: too specific to always pay for, too val
 MCP servers are about tools — connections to databases, APIs, other software. Bonus material covers MCP.
 :::
 
-## Skills, recap
+## Skills, recap {style="font-size: 1.2em"}
 
 ::: incremental
-* A skill is a folder with `SKILL.md`: metadata plus instructions
+* A skill is 📂 with `SKILL.md`: metadata plus instructions
 
-* Progressive disclosure: descriptions at startup, body on demand
+* Progressive disclosure: descriptions init, body on demand
 
-* Write what the agent doesn't know — and say when to use it
-
-* Same format in Posit Assistant, Claude Code, and any spec-following agent
+* Same format in Posit Assistant, Claude Code, Codex
 :::
 
 ::: notes
