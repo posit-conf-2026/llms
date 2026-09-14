@@ -13,7 +13,6 @@ duration: 50min
 
 - (35m) Prompt engineering
   - Activity (`12_plot-image-1`): ask an LLM to interpret a scatter plot
-  - Activity (`13_plot-image-2`): replace the plot with random noise and improve the prompt
   - System and user prompts, examples, prompt structure, and interpolation
   - Activity (`14_quiz-game-1`): write the system prompt for a quiz game
 
