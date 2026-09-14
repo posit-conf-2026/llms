@@ -800,13 +800,3 @@ one or the other would start to feel unnatural to use.
 :::
 
 {{< countdown 3:00 top="-1em" >}}
-
-# Your Turn `06_word-games` {.slide-your-turn}
-
-1. I've set up the basic Shiny app snippet and a system prompt.
-
-2. Your job: create a chatbot that plays a "20 questions" style word guessing game with you.
-
-3. The model was given a secret word, and it's your job to guess it.
-
-{{< countdown 7:00 top="-1em" >}}
