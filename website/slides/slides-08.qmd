@@ -14,12 +14,36 @@ editor:
 Agents
 :::
 
-## What's an agent?
+## What's an agent? {.center style="font-size: 1.5em"}
 
 ::: incremental
-* An LLM, in a harness, that calls tools repeatedly in a loop — deciding each next step from the last result
+* An LLM, in a **harness**, that calls tools repeatedly in a loop
 
-* Most agents have two kinds of tools: **read** tools to observe the world, and **write** tools to change it
+* Deciding each next step from the last result
+:::
+
+::: {.footer}
+[What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent){preview-link=true} by Hadley Wickham
+:::
+
+## How many tools does it take<br>to make an agent? {.center .tc style="font-size: 1.5em"}
+
+_Did we just make a quiz show agent?_
+
+::: notes
+Recall the quiz show app: we registered one tool, and the model called it to play sounds during the game.
+
+Each user message produced at most one tool call before the final answer.
+
+An agent keeps calling tools in a loop, deciding each next step from the result of the last one.
+:::
+
+## What kind of tools? {.center style="font-size: 1.5em"}
+
+::: incremental
+* **read** tools to observe the world
+
+* **write** tools to change it
 :::
 
 ::: notes
@@ -32,23 +56,7 @@ The "you know it when you see it" version: an autonomous system that needs minim
 All three describe the same thing. The loop is what makes it an agent.
 :::
 
-## One tool call is not an agent {.center}
-
-The quiz show called a tool. So why wasn't it an agent?
-
-::: fragment
-No loop, no decisions: the model called the sound tool and answered.
-:::
-
-::: notes
-Recall the quiz show app: we registered one tool, and the model called it to play sounds during the game.
-
-Each user message produced at most one tool call before the final answer.
-
-An agent keeps calling tools in a loop, deciding each next step from the result of the last one.
-:::
-
-## The agent loop {.center}
+## The agent loop {.center style="font-size: 1.33em"}
 
 ::: incremental
 * **Explore**: the agent reads to understand the world
@@ -68,14 +76,27 @@ The loop is why agents feel different from a chat: the model, not the user, choo
 The harness (ellmer or chatlas) does the busy work: it runs each tool, sends the result back, and lets the model continue.
 :::
 
-## Read tools and write tools
+## Brainstorm: tools for agents
 
-| Read tools observe | Write tools change |
-|:--------------------|:---------------------|
-| Read a file | Write a file |
-| List files | Edit a file |
-| Search the codebase | Run a command |
-| Look at data | Run code |
+::: {.easy-columns}
+::: {}
+**Read tools**
+
+::: {contenteditable="true"}
+* Read a file
+*
+:::
+:::
+
+::: {}
+**Write tools**
+
+::: {contenteditable="true"}
+* Write a file
+*
+:::
+:::
+:::
 
 ::: notes
 Read and write is the smallest split that still makes an agent useful.
@@ -84,6 +105,8 @@ A coding agent is just an agent whose tools mirror how a human works on a codeba
 
 Hadley: "A coding agent is six functions in a trenchcoat" — read file, write file, edit file, list files, search, run command, plus a big system prompt of advice.
 :::
+
+## Oh, and prompting! {.center .tc style="font-size: 1.6em"}
 
 # [Blockbuster Agent]{.hidden} {.no-invert-dark-mode background-image="assets/robot-blockbuster.png" background-size="cover"}
 
