@@ -378,9 +378,9 @@ Ask whether the prefilled prompt needed editing before it was sent.
 
 ## Artifacts stay beside the conversation {.center}
 
-A drawer can hold the drafts an agent creates.
+A drawer — `chat_drawer()` — can hold the drafts an agent creates.
 
-The user can select a letter, edit it in a code editor, and save it to the workspace.
+The user selects a letter, edits it, and saves it to the workspace.
 
 ::: notes
 The code editor is an input.
@@ -394,10 +394,12 @@ The save button writes that value to the selected draft.
 
 When the agent writes or edits a letter, it calls `show_letter()`.
 
-`show_letter()` selects that file in the drawer and opens it for the person to review.
+`show_letter()` uses `updateSelectInput()` to select the file, then opens the drawer for review.
 
 ::: notes
 This is a normal model tool, but its side effect is in the Shiny interface.
+
+In Python, the equivalent is `ui.update_select()`.
 
 The model still uses `write_file()` and `edit_file()` from the earlier agent exercises.
 
@@ -411,6 +413,8 @@ New drafts use names such as `elaine-wu-v1.md` and `elaine-wu-v2.md`.
 1. Ask the agent to draft a renewal letter for Elaine Wu.
 
 1. Edit the letter in the drawer, save it, then ask the agent to revise that draft.
+
+4. Hints: Use `updateSelectInput()` (or `ui.update_select()`) and `chat_drawer_show()`
 
 {{< countdown 8:00 left=0 bottom="-1.5em" >}}
 
