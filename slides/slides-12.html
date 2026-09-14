@@ -302,8 +302,9 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <li><p>Open the data drawer and select <strong>Show Query</strong> to inspect the SQL.</p></li>
 <li><p>Restart the app with <code>data_dict</code> included.<br>
 <em>Among private rooms, which property types are most common?</em></p></li>
+<li><p>Hints: <code>data_dict</code> is already in the file — uncomment it and restart the app.</p></li>
 </ol>
-<countdown-timer id="timer_b450a330335a9d6fc2c78f8895fec7c93108a52f" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
+<countdown-timer id="timer_643632bb5922e52fea289fea6c3c11d5d88c28b3" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Students have already explored this dataset with Posit Assistant. Ask them to use QueryChat to reach a conclusion from that conversation.</p>
@@ -462,18 +463,16 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <section id="a-chat-app-in-python" class="slide level2" style="--code-font-size: 0.56em">
 <h2>A chat app in Python</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a><span class="im">import</span> chatlas</span>
-<span id="cb7-2"><a aria-label="2"></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
-<span id="cb7-3"><a aria-label="3"></a><span class="im">from</span> shinychat <span class="im">import</span> Chat, chat_ui</span>
+<span id="cb7-2"><a aria-label="2"></a><span class="im">from</span> shiny <span class="im">import</span> App</span>
+<span id="cb7-3"><a aria-label="3"></a><span class="im">from</span> shinychat <span class="im">import</span> Chat, page_chat</span>
 <span id="cb7-4"><a aria-label="4"></a></span>
-<span id="cb7-5"><a aria-label="5"></a>app_ui <span class="op">=</span> ui.page_fillable(</span>
-<span id="cb7-6"><a aria-label="6"></a>    chat_ui(<span class="st">"chat"</span>)</span>
-<span id="cb7-7"><a aria-label="7"></a>)</span>
-<span id="cb7-8"><a aria-label="8"></a></span>
-<span id="cb7-9"><a aria-label="9"></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb7-10"><a aria-label="10"></a>    client <span class="op">=</span> chatlas.ChatPosit()</span>
-<span id="cb7-11"><a aria-label="11"></a>    chat <span class="op">=</span> Chat(<span class="st">"chat"</span>, client<span class="op">=</span>client)</span>
-<span id="cb7-12"><a aria-label="12"></a></span>
-<span id="cb7-13"><a aria-label="13"></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-5"><a aria-label="5"></a>app_ui <span class="op">=</span> page_chat(<span class="st">"My chat"</span>, <span class="bu">id</span><span class="op">=</span><span class="st">"chat"</span>)</span>
+<span id="cb7-6"><a aria-label="6"></a></span>
+<span id="cb7-7"><a aria-label="7"></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb7-8"><a aria-label="8"></a>    client <span class="op">=</span> chatlas.ChatPosit()</span>
+<span id="cb7-9"><a aria-label="9"></a>    Chat(<span class="st">"chat"</span>, client<span class="op">=</span>client)</span>
+<span id="cb7-10"><a aria-label="10"></a></span>
+<span id="cb7-11"><a aria-label="11"></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>Passing <code>client=</code> gives <code>Chat</code> the same batteries-included behavior as <code>chat_server()</code> in R, including the submit handler and streaming response.</p>
 <style type="text/css">
@@ -495,8 +494,12 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <li><p>I’ve set up the basic Shiny app snippet and a system prompt.</p></li>
 <li><p>Your job: create a chatbot that plays a “20 questions” style word guessing game with you.</p></li>
 <li><p>The model was given a secret word, and it’s your job to guess it.</p></li>
+<li><p>Hints: Use <code>page_chat()</code>, <code>chat_posit()</code>, and <code>chat_server()</code></p></li>
 </ol>
-<countdown-timer id="timer_b450a330335a9d6fc2c78f8895fec7c93108a52f" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<div class="footer">
+<p><code>page_chat()</code> is a new addition! You can also use <code>chat_ui()</code>.</p>
+</div>
+<countdown-timer id="timer_643632bb5922e52fea289fea6c3c11d5d88c28b3" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
  </countdown-timer>
 </section>
 <section id="chat-can-be-the-application" class="slide level2 center">
@@ -594,8 +597,9 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <li><p>Open the Blockbuster renewal assistant.</p></li>
 <li><p>Add a greeting with three suggestion cards for common renewal tasks.</p></li>
 <li><p>Use a suggestion to draft letters for the top three lapsed members.</p></li>
+<li><p>Hints: <code>chat_greeting()</code> is wired up — write the greeting with <code>&lt;span class="suggestion"&gt;</code> cards.</p></li>
 </ol>
-<countdown-timer id="timer_b450a330335a9d6fc2c78f8895fec7c93108a52f" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
+<countdown-timer id="timer_643632bb5922e52fea289fea6c3c11d5d88c28b3" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The agent, its file tools, and the complete skills system are already in <code>_agent.R</code> or <code>_agent.py</code>.</p>
@@ -639,8 +643,8 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 </section>
 <section id="artifacts-stay-beside-the-conversation" class="slide level2 center">
 <h2>Artifacts stay beside the conversation</h2>
-<p>A drawer can hold the drafts an agent creates.</p>
-<p>The user can select a letter, edit it in a code editor, and save it to the workspace.</p>
+<p>A drawer — <code>chat_drawer()</code> — can hold the drafts an agent creates.</p>
+<p>The user selects a letter, edits it, and saves it to the workspace.</p>
 <aside class="notes">
 <p>The code editor is an input.</p>
 <p>Its value reaches the server when the user leaves the editor or presses Ctrl/Cmd+Enter.</p>
@@ -660,9 +664,10 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <section id="tools-can-control-the-app" class="slide level2 center">
 <h2>Tools can control the app</h2>
 <p>When the agent writes or edits a letter, it calls <code>show_letter()</code>.</p>
-<p><code>show_letter()</code> selects that file in the drawer and opens it for the person to review.</p>
+<p><code>show_letter()</code> uses <code>updateSelectInput()</code> to select the file, then opens the drawer for review.</p>
 <aside class="notes">
 <p>This is a normal model tool, but its side effect is in the Shiny interface.</p>
+<p>In Python, the equivalent is <code>ui.update_select()</code>.</p>
 <p>The model still uses <code>write_file()</code> and <code>edit_file()</code> from the earlier agent exercises.</p>
 <p>New drafts use names such as <code>elaine-wu-v1.md</code> and <code>elaine-wu-v2.md</code>.</p>
 <style type="text/css">
@@ -684,8 +689,9 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <li><p>Complete <code>show_letter()</code> so it selects a draft and opens the letter drawer.</p></li>
 <li><p>Ask the agent to draft a renewal letter for Elaine Wu.</p></li>
 <li><p>Edit the letter in the drawer, save it, then ask the agent to revise that draft.</p></li>
+<li><p>Hints: Use <code>updateSelectInput()</code> (or <code>ui.update_select()</code>) and <code>chat_drawer_show()</code></p></li>
 </ol>
-<countdown-timer id="timer_b450a330335a9d6fc2c78f8895fec7c93108a52f" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
+<countdown-timer id="timer_643632bb5922e52fea289fea6c3c11d5d88c28b3" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The supplied reactive timer keeps the draft picker current.</p>

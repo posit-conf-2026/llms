@@ -129,6 +129,18 @@ Stuffed into the system prompt, they crowd out the conversation and cost tokens 
 As skills, they cost about 100 tokens each until the moment one is needed.
 :::
 
+## System prompt vs. user prompt
+
+Short answer: Put instructions and background knowledge in the system prompt.
+
+Put the current task in the user prompt.
+
+::: notes
+Anthropic's [_Prompt Engineering Overview_](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) and OpenAI's [_OpenAI Cookbook_](https://cookbook.openai.com/) are excellent, and contain lots of tips and examples.
+
+Google's [_Prompt Design Strategies_](https://ai.google.dev/gemini-api/docs/prompting-strategies) may also be useful.
+:::
+
 ## The scene: win-back letters {.center}
 
 Your win-back work paid off and found three Founders members we really want to keep.

@@ -265,7 +265,7 @@ The log lets us inspect individual cases.
 For each case, we can compare the input, target, model answer, and score.
 :::
 
-## 
+##
 
 :::: {.columns}
 
@@ -325,11 +325,11 @@ This eval uses a model grader with criteria that spell out what counts as flaggi
 ## Three best practices
 
 ::: incremental
-1. Put prompts in markdown files. 
+1. Put prompts in markdown files.
 
-1. Clearly explain what you want the model to do in the system prompt. 
+1. Clearly explain what you want the model to do in the system prompt.
 
-1. Provide examples of what you want. 
+1. Provide examples of what you want.
 :::
 
 ::: notes
@@ -387,14 +387,3 @@ In Python, `Path.read_text()` reads the prompt before passing it to `ChatPosit()
 The quiz-game exercises use this pattern.
 :::
 
-## System prompt vs. user prompt
-
-Short answer: Put instructions and background knowledge in the system prompt.
-
-Put the current task in the user prompt.
-
-::: notes
-Anthropic's [_Prompt Engineering Overview_](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) and OpenAI's [_OpenAI Cookbook_](https://cookbook.openai.com/) are excellent, and contain lots of tips and examples.
-
-Google's [_Prompt Design Strategies_](https://ai.google.dev/gemini-api/docs/prompting-strategies) may also be useful.
-:::

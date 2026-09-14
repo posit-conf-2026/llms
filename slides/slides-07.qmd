@@ -291,9 +291,9 @@ def get_weather(lat: float, lon: float):
 
 # Your Turn `17_quiz-game-2` {.slide-your-turn}
 
-1. I've given you a function that plays a sound when called.
+1. I've set up a Quiz Game app with a function that plays a sound when called.
 
-1. Your job: teach the model to play sounds in the Quiz Show game we made earlier today.
+1. Your job: teach the model to play sounds at the right moments in the game.
 
 1. _You can use your prompt or switch `_exercises` &rarr; `_solutions` to use ours._
 

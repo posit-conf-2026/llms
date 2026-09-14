@@ -28,10 +28,10 @@ Agents
 
 ## How many tools does it take<br>to make an agent? {.center .tc style="font-size: 1.5em"}
 
-_Did we just make a quiz show agent?_
+_Did we just make a quiz game agent?_
 
 ::: notes
-Recall the quiz show app: we registered one tool, and the model called it to play sounds during the game.
+Recall the Quiz Game app: we registered one tool, and the model called it to play sounds during the game.
 
 Each user message produced at most one tool call before the final answer.
 

@@ -165,7 +165,7 @@
     "href": "slides/slides-12.html#a-chat-app-in-python",
     "title": "shinychat and querychat",
     "section": "A chat app in Python",
-    "text": "A chat app in Python\nimport chatlas\nfrom shiny import App, ui\nfrom shinychat import Chat, chat_ui\n\napp_ui = ui.page_fillable(\n    chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatPosit()\n    chat = Chat(\"chat\", client=client)\n\napp = App(app_ui, server)\n\nPassing client= gives Chat the same batteries-included behavior as chat_server() in R, including the submit handler and streaming response."
+    "text": "A chat app in Python\nimport chatlas\nfrom shiny import App\nfrom shinychat import Chat, page_chat\n\napp_ui = page_chat(\"My chat\", id=\"chat\")\n\ndef server(input, output, session):\n    client = chatlas.ChatPosit()\n    Chat(\"chat\", client=client)\n\napp = App(app_ui, server)\n\nPassing client= gives Chat the same batteries-included behavior as chat_server() in R, including the submit handler and streaming response."
   },
   {
     "objectID": "slides/slides-12.html#chat-can-be-the-application",
@@ -200,14 +200,14 @@
     "href": "slides/slides-12.html#artifacts-stay-beside-the-conversation",
     "title": "shinychat and querychat",
     "section": "Artifacts stay beside the conversation",
-    "text": "Artifacts stay beside the conversation\nA drawer can hold the drafts an agent creates.\nThe user can select a letter, edit it in a code editor, and save it to the workspace.\n\nThe code editor is an input.\nIts value reaches the server when the user leaves the editor or presses Ctrl/Cmd+Enter.\nThe save button writes that value to the selected draft."
+    "text": "Artifacts stay beside the conversation\nA drawer — chat_drawer() — can hold the drafts an agent creates.\nThe user selects a letter, edits it, and saves it to the workspace.\n\nThe code editor is an input.\nIts value reaches the server when the user leaves the editor or presses Ctrl/Cmd+Enter.\nThe save button writes that value to the selected draft."
   },
   {
     "objectID": "slides/slides-12.html#tools-can-control-the-app",
     "href": "slides/slides-12.html#tools-can-control-the-app",
     "title": "shinychat and querychat",
     "section": "Tools can control the app",
-    "text": "Tools can control the app\nWhen the agent writes or edits a letter, it calls show_letter().\nshow_letter() selects that file in the drawer and opens it for the person to review.\n\nThis is a normal model tool, but its side effect is in the Shiny interface.\nThe model still uses write_file() and edit_file() from the earlier agent exercises.\nNew drafts use names such as elaine-wu-v1.md and elaine-wu-v2.md."
+    "text": "Tools can control the app\nWhen the agent writes or edits a letter, it calls show_letter().\nshow_letter() uses updateSelectInput() to select the file, then opens the drawer for review.\n\nThis is a normal model tool, but its side effect is in the Shiny interface.\nIn Python, the equivalent is ui.update_select().\nThe model still uses write_file() and edit_file() from the earlier agent exercises.\nNew drafts use names such as elaine-wu-v1.md and elaine-wu-v2.md."
   },
   {
     "objectID": "slides/slides-12.html#discussion-did-your-agent",
@@ -250,6 +250,13 @@
     "title": "Agent Skills",
     "section": "Why not just use the system prompt?",
     "text": "Why not just use the system prompt?\n\n\nSystem prompt\ninstructions for every session\n\n\nSkills\non-demand instructions\n\n\n\n\nThe system prompt is always in context — every token, every request\nSkills load on demand — only when a task matches\nSo skills let you give an agent deep expertise without paying for it up front\n\nYou wrote a system prompt for the Blockbuster agent. That works for one small set of rules.\nNow imagine 50 jobs: renewal letters, store opening procedures, staff notes, rental policies, and social media voice.\nStuffed into the system prompt, they crowd out the conversation and cost tokens on every request.\nAs skills, they cost about 100 tokens each until the moment one is needed."
+  },
+  {
+    "objectID": "slides/slides-09.html#system-prompt-vs.-user-prompt",
+    "href": "slides/slides-09.html#system-prompt-vs.-user-prompt",
+    "title": "Agent Skills",
+    "section": "System prompt vs. user prompt",
+    "text": "System prompt vs. user prompt\nShort answer: Put instructions and background knowledge in the system prompt.\nPut the current task in the user prompt.\n\nAnthropic’s Prompt Engineering Overview and OpenAI’s OpenAI Cookbook are excellent, and contain lots of tips and examples.\nGoogle’s Prompt Design Strategies may also be useful."
   },
   {
     "objectID": "slides/slides-09.html#the-scene-win-back-letters",
@@ -1986,13 +1993,6 @@
     "text": "Keep large prompts in separate files\n\n\nR\nprompt &lt;- interpolate_file(\n  \"prompt.md\"\n)\n\nchat_posit(\n  system_prompt = prompt\n)\n\nPython\nfrom pathlib import Path\n\nprompt = Path(\n    \"prompt.md\"\n).read_text()\n\nChatPosit(\n    system_prompt=prompt\n)\n\nPrompts in files are easier to read, review, and compare in version control.\n\nIn R, interpolate_file() reads the file and replaces any { } expressions.\nIn Python, Path.read_text() reads the prompt before passing it to ChatPosit().\nThe quiz-game exercises use this pattern."
   },
   {
-    "objectID": "slides/slides-05.html#system-prompt-vs.-user-prompt",
-    "href": "slides/slides-05.html#system-prompt-vs.-user-prompt",
-    "title": "Evals and Prompt Engineering",
-    "section": "System prompt vs. user prompt",
-    "text": "System prompt vs. user prompt\nShort answer: Put instructions and background knowledge in the system prompt.\nPut the current task in the user prompt.\n\nAnthropic’s Prompt Engineering Overview and OpenAI’s OpenAI Cookbook are excellent, and contain lots of tips and examples.\nGoogle’s Prompt Design Strategies may also be useful."
-  },
-  {
     "objectID": "slides/slides-08.html#whats-an-agent",
     "href": "slides/slides-08.html#whats-an-agent",
     "title": "Agents",
@@ -2004,7 +2004,7 @@
     "href": "slides/slides-08.html#how-many-tools-does-it-take-to-make-an-agent",
     "title": "Agents",
     "section": "How many tools does it taketo make an agent?",
-    "text": "How many tools does it taketo make an agent?\nDid we just make a quiz show agent?\n\nRecall the quiz show app: we registered one tool, and the model called it to play sounds during the game.\nEach user message produced at most one tool call before the final answer.\nAn agent keeps calling tools in a loop, deciding each next step from the result of the last one."
+    "text": "How many tools does it taketo make an agent?\nDid we just make a quiz game agent?\n\nRecall the Quiz Game app: we registered one tool, and the model called it to play sounds during the game.\nEach user message produced at most one tool call before the final answer.\nAn agent keeps calling tools in a loop, deciding each next step from the result of the last one."
   },
   {
     "objectID": "slides/slides-08.html#what-kind-of-tools",

@@ -366,6 +366,25 @@ after that, it’s in the agent’s robot hands</p></li>
           display:block!important;
       }</style></aside>
 </section>
+<section id="system-prompt-vs.-user-prompt" class="slide level2">
+<h2>System prompt vs.&nbsp;user prompt</h2>
+<p>Short answer: Put instructions and background knowledge in the system prompt.</p>
+<p>Put the current task in the user prompt.</p>
+<aside class="notes">
+<p>Anthropic’s <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"><em>Prompt Engineering Overview</em></a> and OpenAI’s <a href="https://cookbook.openai.com/"><em>OpenAI Cookbook</em></a> are excellent, and contain lots of tips and examples.</p>
+<p>Google’s <a href="https://ai.google.dev/gemini-api/docs/prompting-strategies"><em>Prompt Design Strategies</em></a> may also be useful.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="the-scene-win-back-letters" class="slide level2 center">
 <h2>The scene: win-back letters</h2>
 <p>Your win-back work paid off and found three Founders members we really want to keep. Your job is to write those letters.</p>
@@ -420,7 +439,7 @@ after that, it’s in the agent’s robot hands</p></li>
 <li><p>List the skill in the system prompt, and give the agent a tool to read it.</p></li>
 <li><p>Draft letters for the top three lapsed members. Watch the agent read the skill <strong>before</strong> it starts drafting — and check them against the scene we just saw.</p></li>
 </ol>
-<countdown-timer id="timer_a78591e545f663acf1d1883f7699de2c5e4e6985" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_f917ad3e83a68e1ea17cad0b302f943ea4b527ee" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The read_skill tool is like the read_file tool, pointed at the skills folder.</p>
@@ -502,7 +521,7 @@ after that, it’s in the agent’s robot hands</p></li>
 <li><p>Use the diagnostic questions to fix <code>SKILL.md</code>, then re-run the letter task.</p></li>
 <li><p>Compare: same agent, same tools, different skill, different letters and token spend.</p></li>
 </ol>
-<countdown-timer id="timer_a78591e545f663acf1d1883f7699de2c5e4e6985" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_f917ad3e83a68e1ea17cad0b302f943ea4b527ee" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The planted problems: the description is background about the manager’s notes, while the actual trigger sits in the body. The body also repeats policies, generic advice, and conflicting process instructions.</p>
