@@ -1,0 +1,17 @@
+[
+  {
+    "id": "stuck_sensor",
+    "input": "I left a temperature sensor in my greenhouse overnight and it logged once per hour. Here are last night's readings:\n\n hour  temp_f\n 0     55.2\n 1     54.8\n 2     54.6\n 3     54.3\n 4     54.1\n 5     54.1\n 6     54.1\n 7     54.1\n 8     54.1\n 9     54.1\n10     53.6\n11     53.1\n12     52.7\n13     52.4\n14     52.0\n15     51.7\n16     51.4\n17     51.2\n18     50.9\n19     50.7\n20     50.5\n21     50.3\n22     50.2\n23     50.0 \n\nGive me a brief summary of what this data shows.",
+    "target": "The data contains a sensor artifact: six consecutive readings (hours 3 through 8) are all exactly 54.1 F, while the surrounding readings drift by 0.2-0.4 degrees per hour. Grade C only if the response treats this run of identical values as anomalous or suspicious -- for example suggesting the sensor got stuck, stopped updating, or that the flat run warrants a closer look. Merely describing the flat stretch as a plateau, a period of stability, or an interesting feature of the temperature pattern does not count. A response that only describes the overall downward trend does not count either."
+  },
+  {
+    "id": "unit_mixup",
+    "input": "I put temperature loggers in two office rooms. Here are yesterday's hourly average temperatures (recorded in Celsius) for each room:\n\n hour  room_a  room_b\n 9     21.2    70.1\n10     20.9    69.6\n11     20.6    69.2\n12     20.4    68.8\n13     20.2    68.5\n14     20.0    68.2\n15     19.9    68.0\n16     19.8    67.9\n17     19.7    68.1\n18     19.9    68.6 \n\nMy manager wants to know which room is warmer and by about how much. What should I tell them?",
+    "target": "The data contains a unit mixup: room B's values (about 68-70) are implausible as Celsius indoor temperatures and are consistent with Fahrenheit (68-70 F is about 20-21 C). A good response notices that the two sensors likely record different units and that the rooms are actually similar in temperature. A response that simply concludes room B is about 48 degrees warmer than room A, without noticing the unit problem, does not count."
+  },
+  {
+    "id": "pseudoreplication",
+    "input": "We ran a greenhouse experiment comparing a new fertilizer to a control. Here are the growth measurements (in cm) from the trial:\n\n plant  group       growth_cm\n1  control     4.1\n1  control     3.8\n1  control     4.3\n2  control     5.0\n2  control     4.7\n2  control     5.2\n3  control     3.5\n3  control     3.9\n3  control     3.6\n4  fertilizer  6.2\n4  fertilizer  5.9\n4  fertilizer  6.4\n5  fertilizer  6.8\n5  fertilizer  6.5\n5  fertilizer  7.0\n6  fertilizer  5.5\n6  fertilizer  5.8\n6  fertilizer  5.3 \n\nBased on this data, is the fertilizer effective? How confident are you, and why?",
+    "target": "The data contains pseudoreplication: each plant was measured three times (every plant ID appears three times), so each group's nine measurements come from only three plants and are not independent. A good response notices the repeated plant IDs and explains that the measurements cannot be treated as nine independent samples per group -- the effective sample size is three plants per group. A response that compares the group averages and expresses confidence in the difference without noting the repeated measurements does not count. Merely noting that the sample is small does not count unless it is tied to the repeated measurements of the same plants."
+  }
+]
