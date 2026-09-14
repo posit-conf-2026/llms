@@ -217,16 +217,14 @@ visitor gets their own conversation.
 
 ```{.python}
 import chatlas
-from shiny import App, ui
-from shinychat import Chat, chat_ui
+from shiny import App
+from shinychat import Chat, page_chat
 
-app_ui = ui.page_fillable(
-    chat_ui("chat")
-)
+app_ui = page_chat("My chat", id="chat")
 
 def server(input, output, session):
     client = chatlas.ChatPosit()
-    chat = Chat("chat", client=client)
+    Chat("chat", client=client)
 
 app = App(app_ui, server)
 ```
@@ -244,7 +242,14 @@ Passing `client=` gives `Chat` the same batteries-included behavior as
 
 3. The model was given a secret word, and it's your job to guess it.
 
-{{< countdown 7:00 top="-1em" >}}
+4. Hints: Use `page_chat()`, `chat_posit()`, and `chat_server()`
+
+::: footer
+`page_chat()` is a new addition! You can also use `chat_ui()`.
+:::
+
+
+{{< countdown 5:00 top="-1em" >}}
 
 ## Chat can be the application {.center}
 
