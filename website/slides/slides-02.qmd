@@ -15,7 +15,7 @@ source("_incremental_slides.R")
 ```
 
 ::: notes
-Some motivational words by Joe urging everyone to approach LLMs with curiosity and experimentation rather than preconceived notions about limitations, while building understanding from the ground up through practical experience.
+Let's talk a bit about how to think at a high level about LLMs before we dive into some code 
 :::
 
 ## Think Empirically, Not Theoretically {.center .text-center}
@@ -35,15 +35,14 @@ Some motivational words by Joe urging everyone to approach LLMs with curiosity a
   that it turns out they're _terrible_ at
 
 ::: notes
-- Understanding the technical details can lead to **bad intuition** about capabilities
-- You might think "they could not possibly do things that they clearly can do today"
-- Empirical testing reveals actual capabilities vs. theoretical limitations
+Think empirically, not theoretically. 
+There are some things LLMs can clearly do today that you would have thought possible, and things That they can't do that you would have thought they would have been able to. 
 :::
 
 ## {.center}
 
 ::: notes
-Don't expect smooth, predictable performance across tasks. LLMs can surprise you - excelling at some complex tasks while struggling with seemingly simple ones.
+You might expect a performance to look something like this. 
 :::
 
 ![](assets/task-llm-smooth.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
@@ -52,6 +51,10 @@ Don't expect smooth, predictable performance across tasks. LLMs can surprise you
 
 ![](assets/task-llm-jagged.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
 
+::: notes
+It really looks something more like this. 
+:::
+
 ## [Embrace the Experimental Process]{.dib .bg-black .ph4 .white} {.center .text-center background-image="assets/national-cancer-institute-Okk-eID2Z9k-unsplash.jpg" background-size="cover" background-position="center"}
 
 ::: {.footer style="color: rgba(255,255,255,0.5);"}
@@ -59,7 +62,7 @@ Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&utm_medium=refer
 :::
 
 ::: notes
-We will talk about ways to formally run experiments in the next section.
+Embrace the experimental process. 
 :::
 
 ## Start Simple, Build Understanding {.center .text-center}
@@ -71,14 +74,8 @@ We will talk about ways to formally run experiments in the next section.
 - All the incredible things you see AI do \
   **decompose to just a few key ingredients**.
 
-- Our goal is to **have fun and build intuition** \
-  through hands-on experience.
-
 ::: notes
-- Think **very generally** about what tools can do - they're as powerful as any software you can write
-- Remember: **"Everything decomposes"** to the basic components once you understand the underlying APIs
-- Build intuition through hands-on experience rather than theoretical study
-- We want to have fun in this course! It's worth saying up front that our examples are not necessarily practical, but they're full of practical lessons.
+We're gonna focus on the core building blocks. The goal for today is to really for you to sense those building blocks, feel like you're exploring, have some fun, build intuition. 
 :::
 
 
@@ -86,6 +83,10 @@ We will talk about ways to formally run experiments in the next section.
 
 ::: {.footer style="color: rgba(255,255,255,0.5);"}
 Photo by <a href="https://unsplash.com/@jglogowski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Jaroslaw Glogowski</a> on <a href="https://unsplash.com/photos/oAYKzeP0qF4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a>
+:::
+
+::: notes
+First, let's talk about what happens when we talk to an LLM.
 :::
 
 ## {.center}
@@ -117,6 +118,11 @@ We can do the same thing from R and Python.
 
 **Python**
 :::
+:::
+
+::: notes
+We can build the same back-and-forth interaction in code. We'll use ellmer in R
+and chatlas in Python.
 :::
 
 ## A complete example
@@ -190,6 +196,7 @@ is fundamentally the same thing.
 ##
 
 ::: notes
+so how does this work?
 Talking to an LLM like ChatGPT happens through HTTP requests and responses.
 When you send a message, the chat client sends a POST request. The server runs
 the model, then returns the response.
@@ -227,6 +234,10 @@ import chatlas
 :::
 :::
 
+::: notes
+First, load the package for your language, just as you would any other package.
+:::
+
 ## {transition="fade"}
 
 ::: {.easy-columns .smaller style="--code-font-size: 0.66em"}
@@ -249,6 +260,11 @@ import chatlas
 chat = chatlas.ChatPosit()
 ```
 :::
+:::
+
+::: notes
+Next, create a chat client. This is the object we'll use to send messages and
+receive responses.
 :::
 
 ## {transition="fade"}
@@ -277,6 +293,10 @@ chat = chatlas.ChatPosit()
 chat.chat("Tell me a fact about cats.")
 ```
 :::
+:::
+
+::: notes
+Finally, call the chat method and pass the message as a string.
 :::
 
 ##
@@ -331,17 +351,38 @@ the model's response.
 
 ![](assets/intro-conversation-roles-01.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
 
+::: notes
+When you send a message to an LLM, you send both the text and a role.
+
+The user role marks a message from the person using the application.
+:::
+
 ## Messages have roles
 
 ![](assets/intro-conversation-roles-02.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+
+::: notes
+The assistant role marks the model's response.
+:::
 
 ## Messages have roles
 
 ![](assets/intro-conversation-roles-03.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
 
+::: notes
+A conversation alternates between user and assistant messages. The role tells
+the model who contributed each part of the history.
+:::
+
 ## Messages have roles
 
 ![](assets/intro-conversation-roles-04.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+
+::: notes
+The system role contains instructions from the developer. It can set behavior,
+style, and constraints for the whole conversation. The person using a chat
+interface usually does not see it.
+:::
 
 ## Message roles
 
@@ -350,6 +391,11 @@ the model's response.
 | <code style="color: #868e96 !important">system</code>    | Instructions that set the behavior of the assistant                  |
 | <code style="color: #1971c2 !important">user</code>       | Messages from the person interacting with the assistant          |
 | <code style="color: #f08c00 !important">assistant</code>  | The AI model's responses to the user                              |
+
+::: notes
+To recap, user and assistant roles identify the two sides of the exchange. The
+system role gives the model instructions that persist across the conversation.
+:::
 
 ## System prompts {transition="fade"}
 
@@ -381,6 +427,11 @@ chat = chatlas.ChatPosit(
 chat.chat("Tell me a fact about sheep.")
 ```
 :::
+:::
+
+::: notes
+Both packages accept a `system_prompt` argument when you create the chat
+client. Here we're using a silly instruction so its effect will be obvious.
 :::
 
 ## System prompts {transition="fade"}
@@ -421,6 +472,11 @@ chat.chat("Tell me a fact about sheep.")
 #> Fear keeps them standing.
 ```
 :::
+:::
+
+::: notes
+The model follows the instruction and answers in a haiku. The system prompt
+shapes every response produced by this chat client.
 :::
 
 ## The chat object {transition="fade"}
@@ -466,6 +522,11 @@ Fear keeps them standing.
 :::
 :::
 
+::: notes
+When we inspect the chat object again, we can see all three roles. The system
+prompt is part of the history that guides the assistant's response.
+:::
+
 
 # Your Turn `02_conversation` {.slide-your-turn}
 
@@ -480,6 +541,13 @@ Fear keeps them standing.
 5. Then, create a new `chat` with no system prompt and ask only the second question: _What about OpenAI?_
 
 5. How do the answers to 3 and 4 differ? Why?
+
+::: notes
+There are two takeaways to discuss afterward. The system prompt persists across
+calls on the first chat, so its answers stay brief. A new chat has no memory of
+the first question and no system prompt, so "What about OpenAI?" has less
+context and may produce a longer or less relevant answer.
+:::
 
 # Demo: `clearbot` {.slide-demo style="--code-font-size: 0.66em"}
 
@@ -502,6 +570,12 @@ What creates an Anthropic chat in ellmer and chatlas?
 ```{.markdown code-line-numbers=false}
 What about OpenAI?
 ```
+
+::: notes
+Use clearbot to show the full conversation history sent with each request. The
+demo makes the next point visible: the model itself does not retain the earlier
+exchange.
+:::
 
 # [How to talk to robots]{.dib .bg-black .ph4 .white style="position: relative; top: -3em;"} {.no-invert-dark-mode background-image="assets/andy-kelly-0E_vhMVqL9g-unsplash.jpg" background-size="cover" background-position="center"}
 
@@ -529,10 +603,8 @@ Photo by <a href="https://unsplash.com/@simplicity?utm_source=unsplash&utm_mediu
 :::
 
 ::: notes
-But this is not a conversation.
-
-It certainly _feels_ like a conversation,
-but something else is happening behind the scenes.
+It feels like a conversation, but it works differently from a conversation
+between people. Clearbot showed what happens behind the scenes.
 :::
 
 ## LLMs are stateless {.center}
@@ -573,6 +645,11 @@ From now on, we'll use **LLM** to refer to any large language model.
 :::
 
 ## How to make an LLM {.center}
+
+::: notes
+LLMs learn patterns from huge amounts of text. That training lets them use
+context and generate language that resembles the material they learned from.
+:::
 
 ::: {.columns}
 ::: {.column}
@@ -616,6 +693,9 @@ From now on, we'll use **LLM** to refer to any large language model.
 :::
 
 ::: notes
+The model builds a response one token at a time, choosing a likely next token
+from the context it has received.
+
 The breakthrough insight is the attention mechanism in the Transformer architecture.
 Instead of processing the input one token at a time,
 attention lets GPT models relate all input tokens in parallel.
@@ -642,6 +722,12 @@ The model still generates new tokens one at a time.
 - Not just words, but images can be tokenized too
 :::
 
+::: notes
+Tokens are the units the model reads and generates. A token may be a whole word,
+part of a word, or a character. Token counts matter because models limit how
+many they can process, and APIs commonly use them to measure usage.
+:::
+
 ## {background-image="assets/token-approximations.png" background-size="contain" visibility="hidden"}
 
 ::: footer
@@ -666,7 +752,18 @@ into the chat window and the model could "pay attention" to it all.
 
 👨‍💻 [_demos/04_token-possibilities/app.R]{.code .b .purple}
 
+::: notes
+This demo shows a response being built token by token. Pause to look at the
+possible next tokens and their probabilities. The model repeats this choice
+until the response is complete.
+:::
+
 # [Programming is fun, but I kind of like ChatGPT...]{.bg-white .f1 .normal .relative style="top: -14px"} {background-image="assets/shinychat-input-empty.png" background-size="contain" background-position="center"}
+
+::: notes
+Transition from calling the model in code to using the same chat client through
+an interactive interface.
+:::
 
 # [ellmer and chatlas can do that, too!]{.bg-white .f1 .normal .relative style="top: -14px"} {background-image="assets/shinychat-input-focused.png" background-size="contain" background-position="center"}
 
