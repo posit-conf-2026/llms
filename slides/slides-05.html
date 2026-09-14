@@ -235,6 +235,7 @@
 
 </section>
 
+<section>
 <section id="your-turn-12_plot-image-1" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>12_plot-image-1</code></h1>
 <ol type="1">
@@ -242,181 +243,22 @@
 <li><p>Create a basic <code>mtcars</code> scatter plot and ask GLM 5.3 Flash to interpret it.</p></li>
 <li><p>How does it do?</p></li>
 </ol>
-<countdown-timer id="timer_6c8ab34952fc149cc7a720605b8e0c5e7a65d06c" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_f43cce1fa2923df86e680088a0a6bea13ab761ee" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 </section>
-
-<section id="your-turn-13_plot-image-2" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>13_plot-image-2</code></h1>
-<ol type="1">
-<li><p>Replace the scatter plot with random noise.</p></li>
-<li><p>Show this new plot to GLM 5.3 Flash and ask it to interpret it. How does it do this time?</p></li>
-<li><p>Work with your neighbor to see if you can improve the prompt to get a better answer.</p></li>
-</ol>
-<countdown-timer id="timer_6c8ab34952fc149cc7a720605b8e0c5e7a65d06c" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
- </countdown-timer>
-</section>
-
-<section>
-<section id="prompt-engineering-1" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
-<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt engineering</span></h1>
-
-</section>
-<section id="three-questions-to-ask-yourself" class="slide level2">
-<h2>Three questions to ask yourself</h2>
-<ol type="1">
-<li class="fragment"><p>Did you use the best models?</p></li>
-<li class="fragment"><p>Did you clearly explain what you want the model to do in the system prompt?</p></li>
-<li class="fragment"><p>Did you provide examples of what you want?</p></li>
-</ol>
-<aside class="notes">
-<p>Start by trying a stronger model. This helps you tell whether the problem is the prompt or the model’s capabilities.</p>
-<p>Next, check whether the system prompt clearly describes the behavior you want.</p>
-<p>If the model still struggles, add examples of good responses.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="system-prompt-vs.-user-prompt" class="slide level2">
-<h2>System prompt vs.&nbsp;user prompt</h2>
-<p>Short answer: Put instructions and background knowledge in the system prompt.</p>
-<p>Put the current task in the user prompt.</p>
-</section>
-<section id="more-tips" class="slide level2 scrollable">
-<h2>More tips</h2>
-<p><strong>Use LLMs to help draft or improve your prompts.</strong></p>
-<p>E.g., this input to Claude’s prompt generator:</p>
-<blockquote>
-<p>Make a data science agent that can run Python data analysis code via a tool. Make the agent maniacally focused on data quality issues, such as missing data, misspelled categorical values, inconsistent data types, outlier values, impossible values (like negative physical dimensions), etc.</p>
-</blockquote>
-<p>Generates this prompt:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-overflow-wrap code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>You are a data science agent with an obsessive focus on data quality. You have been given access to a dataset and a Python code execution tool. Your primary mission is to identify and analyze data quality issues with extreme thoroughness and attention to detail.</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>Here is the dataset description:</span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">dataset_description</span><span class="dt">&gt;</span></span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>{{DATASET_DESCRIPTION}}</span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">dataset_description</span><span class="dt">&gt;</span></span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a>You have access to the following Python code execution tool:</span>
-<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">python_tool</span><span class="dt">&gt;</span></span>
-<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a>{{PYTHON_CODE_TOOL}}</span>
-<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">python_tool</span><span class="dt">&gt;</span></span>
-<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a>Your role is to act as a maniacally thorough data quality inspector. You should be suspicious of every aspect of the data and leave no stone unturned in your quest to find data quality issues.</span>
-<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a>Focus intensively on these categories of data quality problems:</span>
-<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Missing data (nulls, empty strings, placeholder values like "N/A", "Unknown", etc.)</span>
-<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inconsistent data types (mixed types in columns, incorrect data types)</span>
-<span id="cb1-18"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Misspelled or inconsistent categorical values (typos, case inconsistencies, extra spaces)</span>
-<span id="cb1-19"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Outlier values (statistical outliers, values that seem unreasonable)</span>
-<span id="cb1-20"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Impossible or illogical values (negative ages, future birth dates, negative physical dimensions)</span>
-<span id="cb1-21"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Duplicate records or near-duplicates</span>
-<span id="cb1-22"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inconsistent formatting (date formats, phone numbers, addresses)</span>
-<span id="cb1-23"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data entry errors (obvious typos, transposed digits)</span>
-<span id="cb1-24"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Referential integrity issues (if applicable)</span>
-<span id="cb1-25"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Range violations (values outside expected bounds)</span>
-<span id="cb1-26"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a aria-hidden="true" tabindex="-1"></a>Your analysis process should be systematic and comprehensive:</span>
-<span id="cb1-28"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Start by loading and examining the basic structure of the dataset</span>
-<span id="cb1-30"><a aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Check data types and identify any type inconsistencies</span>
-<span id="cb1-31"><a aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Examine missing data patterns thoroughly</span>
-<span id="cb1-32"><a aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Analyze each column individually for quality issues specific to its data type</span>
-<span id="cb1-33"><a aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Look for statistical outliers and impossible values</span>
-<span id="cb1-34"><a aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Check for duplicates and near-duplicates</span>
-<span id="cb1-35"><a aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Examine categorical variables for inconsistencies</span>
-<span id="cb1-36"><a aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Validate logical relationships between columns</span>
-<span id="cb1-37"><a aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Look for formatting inconsistencies</span>
-<span id="cb1-38"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a aria-hidden="true" tabindex="-1"></a>Use the Python tool to write and execute code that will help you uncover these issues. Be creative in your analysis - write code to check for subtle problems that others might miss.</span>
-<span id="cb1-40"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a aria-hidden="true" tabindex="-1"></a>Before providing your final analysis, use the scratchpad to plan your investigation strategy:</span>
-<span id="cb1-42"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">scratchpad</span><span class="dt">&gt;</span></span>
-<span id="cb1-44"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Plan your systematic approach to analyzing the data quality, thinking through what specific checks you want to perform and in what order</span><span class="co">]</span></span>
-<span id="cb1-45"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">scratchpad</span><span class="dt">&gt;</span></span>
-<span id="cb1-46"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a aria-hidden="true" tabindex="-1"></a>Then execute your analysis using the Python tool. After completing your investigation, provide your findings in this format:</span>
-<span id="cb1-48"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">data_quality_report</span><span class="dt">&gt;</span></span>
-<span id="cb1-50"><a aria-hidden="true" tabindex="-1"></a>**CRITICAL ISSUES FOUND:**</span>
-<span id="cb1-51"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">List the most severe data quality problems</span><span class="co">]</span></span>
-<span id="cb1-52"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a aria-hidden="true" tabindex="-1"></a>**MODERATE ISSUES FOUND:**</span>
-<span id="cb1-54"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">List issues that should be addressed but aren't critical</span><span class="co">]</span></span>
-<span id="cb1-55"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a aria-hidden="true" tabindex="-1"></a>**MINOR ISSUES FOUND:**</span>
-<span id="cb1-57"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">List smaller issues that could be improved</span><span class="co">]</span></span>
-<span id="cb1-58"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a aria-hidden="true" tabindex="-1"></a>**DETAILED ANALYSIS:**</span>
-<span id="cb1-60"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide detailed explanations of each issue found, including specific examples and the potential impact</span><span class="co">]</span></span>
-<span id="cb1-61"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a aria-hidden="true" tabindex="-1"></a>**RECOMMENDATIONS:**</span>
-<span id="cb1-63"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide specific, actionable recommendations for fixing each category of issues</span><span class="co">]</span></span>
-<span id="cb1-64"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a aria-hidden="true" tabindex="-1"></a>**DATA QUALITY SCORE:**</span>
-<span id="cb1-66"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide an overall data quality score from 1-10, where 10 is perfect quality</span><span class="co">]</span></span>
-<span id="cb1-67"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">data_quality_report</span><span class="dt">&gt;</span></span>
-<span id="cb1-68"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a aria-hidden="true" tabindex="-1"></a>Remember: Be obsessively thorough. Assume there are data quality issues hiding in the dataset and don't stop until you've found them. Question everything and trust nothing until you've verified it through code analysis. Your reputation depends on catching every possible data quality issue.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="more-tips-1" class="slide level2 scrollable">
-<h2>More tips</h2>
-<ul>
-<li><strong>Use Markdown headings and XML tags to give structure to your prompts.</strong></li>
-<li><strong>Use variables to insert dynamic content into your prompts–BUT be aware of prompt injection!</strong></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a>Your task is to provide feedback on a research paper summary.</span>
-<span id="cb2-2"><a aria-label="2"></a>Here is a summary of a medical research paper:</span>
-<span id="cb2-3"><a aria-label="3"></a><span class="dt">&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
-<span id="cb2-4"><a aria-label="4"></a>{{SUMMARY}}</span>
-<span id="cb2-5"><a aria-label="5"></a><span class="dt">&lt;/</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
-<span id="cb2-6"><a aria-label="6"></a></span>
-<span id="cb2-7"><a aria-label="7"></a>Here is the research paper:</span>
-<span id="cb2-8"><a aria-label="8"></a><span class="dt">&lt;</span><span class="kw">paper</span><span class="dt">&gt;</span></span>
-<span id="cb2-9"><a aria-label="9"></a>{{RESEARCH_PAPER}}</span>
-<span id="cb2-10"><a aria-label="10"></a><span class="dt">&lt;/</span><span class="kw">paper</span><span class="dt">&gt;</span></span>
-<span id="cb2-11"><a aria-label="11"></a></span>
-<span id="cb2-12"><a aria-label="12"></a>Review this summary for accuracy, clarity, and completeness on</span>
-<span id="cb2-13"><a aria-label="13"></a>a graded A-F scale.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="keep-large-prompts-in-separate-files" class="slide level2" style="--code-font-size: 0.72em">
-<h2>Keep large prompts in separate files</h2>
+<section id="section" class="slide level2 center">
+<h2></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<h3 id="r">R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>prompt <span class="ot">&lt;-</span> <span class="fu">interpolate_file</span>(</span>
-<span id="cb3-2"><a aria-label="2"></a>  <span class="st">"prompt.md"</span></span>
-<span id="cb3-3"><a aria-label="3"></a>)</span>
-<span id="cb3-4"><a aria-label="4"></a></span>
-<span id="cb3-5"><a aria-label="5"></a><span class="fu">chat_posit</span>(</span>
-<span id="cb3-6"><a aria-label="6"></a>  <span class="at">system_prompt =</span> prompt</span>
-<span id="cb3-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column" style="width:50%;">
-<h3 id="python">Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb4-2"><a aria-label="2"></a></span>
-<span id="cb4-3"><a aria-label="3"></a>prompt <span class="op">=</span> Path(</span>
-<span id="cb4-4"><a aria-label="4"></a>    <span class="st">"prompt.md"</span></span>
-<span id="cb4-5"><a aria-label="5"></a>).read_text()</span>
-<span id="cb4-6"><a aria-label="6"></a></span>
-<span id="cb4-7"><a aria-label="7"></a>ChatPosit(</span>
-<span id="cb4-8"><a aria-label="8"></a>    system_prompt<span class="op">=</span>prompt</span>
-<span id="cb4-9"><a aria-label="9"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><img data-src="assets/plot-mtcars-real.png" alt="A scatter plot of miles per gallon against weight for the real mtcars dataset, showing a negative relationship."></p>
+</div><div class="column fragment" style="width:50%;">
+<p><img data-src="assets/plot-no-pattern.png" alt="A scatter plot titled MPG vs Weight in which the points form an even, jittered grid, so there is no relationship between weight and miles per gallon."></p>
 </div></div>
-<p>Prompts in files are easier to read, review, and compare in version control.</p>
 <aside class="notes">
-<p>In R, <code>interpolate_file()</code> reads the file and replaces any <code>{ }</code> expressions.</p>
-<p>In Python, <code>Path.read_text()</code> reads the prompt before passing it to <code>ChatPosit()</code>.</p>
-<p>The quiz-game exercises use this pattern.</p>
+<p>The left plot is a jittered grid wearing the same title and labels.</p>
+<p>Ask the model to interpret both.</p>
+<p>If it sees a relationship in the left plot, it is describing what it expects, not what it sees.</p>
+<p>This is the failure mode bluffbench tests for, coming up next.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -429,79 +271,42 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="more-tips-2" class="slide level2">
-<h2>More tips</h2>
-<p><strong>(Advanced) Ask the model to track limits out loud.</strong></p>
-<p>E.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside <code>&lt;memo&gt;&lt;/memo&gt;</code> tags. If you have made three, stop and answer.”</p>
+<section id="bluffbench" class="slide level2">
+<h2>bluffbench</h2>
+<div class="fragment">
+<blockquote>
+<p>plot mpg vs hp in <code>mtcars</code> and tell me what you see.</p>
+</blockquote>
+</div>
+<div class="fragment">
+<p><img data-src="assets/bluffbench-example.png" style="width:60.0%" alt="A scatter plot of miles per gallon against horsepower in a secretly altered mtcars dataset. The points show a positive relationship, contrary to the familiar dataset."></p>
+</div>
+<div class="footer">
+<p><a href="https://posit-dev.github.io/bluffbench/">bluffbench</a></p>
+</div>
+<aside class="notes">
+<p>bluffbench secretly changes a familiar dataset, then asks a model to plot and describe it. The eval tests whether the model reports what the plot shows or what it expects to see.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="more-tips-3" class="slide level2">
-<h2>More tips</h2>
-<p>Anthropic’s <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"><em>Prompt Engineering Overview</em></a> and OpenAI’s <a href="https://cookbook.openai.com/"><em>OpenAI Cookbook</em></a> are excellent, and contain lots of tips and examples.</p>
-<p>Google’s <a href="https://ai.google.dev/gemini-api/docs/prompting-strategies"><em>Prompt Design Strategies</em></a> may also be useful.</p>
-</section>
-<section id="interpolation-in-r" class="slide level2">
-<h2>Interpolation in R</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-code-line-numbers="3|5-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
-<span id="cb5-2"><a aria-label="2"></a></span>
-<span id="cb5-3"><a aria-label="3"></a>words <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"elephant"</span>, <span class="st">"bicycle"</span>, <span class="st">"sandwich"</span>)</span>
-<span id="cb5-4"><a aria-label="4"></a></span>
-<span id="cb5-5"><a aria-label="5"></a><span class="fu">interpolate</span>(</span>
-<span id="cb5-6"><a aria-label="6"></a>  <span class="st">"The secret word is {{ sample(words, 1) }}."</span></span>
-<span id="cb5-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="bluffbench-results" class="slide level2">
+<h2></h2>
+<div style="font-size: 0.7em; text-align: center; margin-bottom: -0.4em;">
+<p><span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #67a9cf;"></span> Correct &nbsp;&nbsp;&nbsp; <span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #ef8a62;"></span> Incorrect</p>
 </div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] │ The secret word is sandwich.</code></pre>
+
+<img data-src="assets/bluffbench-results.png" style="width:76.0%" alt="A horizontal stacked bar chart comparing models on bluffbench. Blue shows correct plot interpretations and orange shows incorrect interpretations, with separate panels for thinking and non-thinking models." class="r-stretch"><div class="footer">
+<p><a href="https://posit-dev.github.io/bluffbench/">bluffbench</a></p>
 </div>
-</div>
-</section>
-<section id="interpolation-in-r-1" class="slide level2">
-<h2>Interpolation in R</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-code-line-numbers="5-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
-<span id="cb7-2"><a aria-label="2"></a></span>
-<span id="cb7-3"><a aria-label="3"></a>words <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"elephant"</span>, <span class="st">"bicycle"</span>, <span class="st">"sandwich"</span>)</span>
-<span id="cb7-4"><a aria-label="4"></a></span>
-<span id="cb7-5"><a aria-label="5"></a><span class="fu">interpolate</span>(</span>
-<span id="cb7-6"><a aria-label="6"></a>  <span class="st">"The secret word is {{ words }}."</span></span>
-<span id="cb7-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] │ The secret word is elephant.
-[2] │ The secret word is bicycle.
-[3] │ The secret word is sandwich.</code></pre>
-</div>
-</div>
-</section>
-<section id="interpolation-in-python" class="slide level2">
-<h2>Interpolation in Python</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-code-line-numbers="3|5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a><span class="im">import</span> random</span>
-<span id="cb9-2"><a aria-label="2"></a></span>
-<span id="cb9-3"><a aria-label="3"></a>words <span class="op">=</span> [<span class="st">"elephant"</span>, <span class="st">"bicycle"</span>, <span class="st">"sandwich"</span>]</span>
-<span id="cb9-4"><a aria-label="4"></a></span>
-<span id="cb9-5"><a aria-label="5"></a><span class="ss">f"The secret word is </span><span class="sc">{</span>random<span class="sc">.</span>choice(words)<span class="sc">}</span><span class="ss">."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>'The secret word is elephant.'</code></pre>
-</div>
-</div>
-</section></section>
-<section>
-<section id="your-turn-14_quiz-game-1" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>14_quiz-game-1</code></h1>
-<div style="width: 90%;">
-<ol type="1">
-<li><p>Your job: teach the model to play a quiz game with you:</p></li>
-<li><p>The user picks a theme from a short list provided by the model.</p></li>
-<li><p>They then answer multiple choice questions on that theme.</p></li>
-<li><p>After each question, tell the user if they were right or wrong and why. Then go to the next question.</p></li>
-<li><p>After 5 questions, end the round and tell the user they won, regardless of their score. Then, start a new round.</p></li>
-</ol>
-</div>
-<countdown-timer id="timer_6c8ab34952fc149cc7a720605b8e0c5e7a65d06c" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
- </countdown-timer>
 </section>
 <section id="how-do-you-know" class="slide level2">
 <h2>How do you know…</h2>
@@ -605,26 +410,26 @@
 <div class="columns" style="--code-font-size: 0.68em; margin-top: 1.2em;">
 <div class="column" style="width:50%;">
 <h3 id="r-vitals">R: vitals</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-code-line-numbers="|1-3|6|7|8|5-9|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>()</span>
-<span id="cb11-2"><a aria-label="2"></a></span>
-<span id="cb11-3"><a aria-label="3"></a>task <span class="ot">&lt;-</span> Task<span class="sc">$</span><span class="fu">new</span>(</span>
-<span id="cb11-4"><a aria-label="4"></a>  <span class="at">dataset =</span> cases,</span>
-<span id="cb11-5"><a aria-label="5"></a>  <span class="at">solver =</span> <span class="fu">generate</span>(chat),</span>
-<span id="cb11-6"><a aria-label="6"></a>  <span class="at">scorer =</span> <span class="fu">model_graded_qa</span>()</span>
-<span id="cb11-7"><a aria-label="7"></a>)</span>
-<span id="cb11-8"><a aria-label="8"></a></span>
-<span id="cb11-9"><a aria-label="9"></a>task<span class="sc">$</span><span class="fu">eval</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="|1-3|6|7|8|5-9|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>()</span>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a>task <span class="ot">&lt;-</span> Task<span class="sc">$</span><span class="fu">new</span>(</span>
+<span id="cb1-4"><a aria-label="4"></a>  <span class="at">dataset =</span> cases,</span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="at">solver =</span> <span class="fu">generate</span>(chat),</span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="at">scorer =</span> <span class="fu">model_graded_qa</span>()</span>
+<span id="cb1-7"><a aria-label="7"></a>)</span>
+<span id="cb1-8"><a aria-label="8"></a></span>
+<span id="cb1-9"><a aria-label="9"></a>task<span class="sc">$</span><span class="fu">eval</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:50%;">
 <h3 id="python-inspect">Python: Inspect</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-code-line-numbers="|1-3|6|7|8|5-9|11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a>chat <span class="op">=</span> ChatPosit()</span>
-<span id="cb12-2"><a aria-label="2"></a></span>
-<span id="cb12-3"><a aria-label="3"></a>task <span class="op">=</span> Task(</span>
-<span id="cb12-4"><a aria-label="4"></a>    dataset<span class="op">=</span>cases,</span>
-<span id="cb12-5"><a aria-label="5"></a>    solver<span class="op">=</span>chat.to_solver(),</span>
-<span id="cb12-6"><a aria-label="6"></a>    scorer<span class="op">=</span>model_graded_qa_posit(),</span>
-<span id="cb12-7"><a aria-label="7"></a>)</span>
-<span id="cb12-8"><a aria-label="8"></a></span>
-<span id="cb12-9"><a aria-label="9"></a><span class="bu">eval</span>(task)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="|1-3|6|7|8|5-9|11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a>chat <span class="op">=</span> ChatPosit()</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a>task <span class="op">=</span> Task(</span>
+<span id="cb2-4"><a aria-label="4"></a>    dataset<span class="op">=</span>cases,</span>
+<span id="cb2-5"><a aria-label="5"></a>    solver<span class="op">=</span>chat.to_solver(),</span>
+<span id="cb2-6"><a aria-label="6"></a>    scorer<span class="op">=</span>model_graded_qa_posit(),</span>
+<span id="cb2-7"><a aria-label="7"></a>)</span>
+<span id="cb2-8"><a aria-label="8"></a></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="bu">eval</span>(task)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <div class="footer">
 <p><a href="https://vitals.tidyverse.org/">vitals</a> · <a href="https://posit-dev.github.io/chatlas/misc/evals.html">chatlas evals</a></p>
@@ -695,43 +500,6 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="bluffbench" class="slide level2">
-<h2>bluffbench</h2>
-<div class="fragment">
-<blockquote>
-<p>plot mpg vs hp in <code>mtcars</code> and tell me what you see.</p>
-</blockquote>
-</div>
-<div class="fragment">
-<p><img data-src="assets/bluffbench-example.png" style="width:60.0%" alt="A scatter plot of miles per gallon against horsepower in a secretly altered mtcars dataset. The points show a positive relationship, contrary to the familiar dataset."></p>
-</div>
-<div class="footer">
-<p><a href="https://posit-dev.github.io/bluffbench/">bluffbench</a></p>
-</div>
-<aside class="notes">
-<p>bluffbench secretly changes a familiar dataset, then asks a model to plot and describe it. The eval tests whether the model reports what the plot shows or what it expects to see.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="bluffbench-results" class="slide level2">
-<h2></h2>
-<div style="font-size: 0.7em; text-align: center; margin-bottom: -0.4em;">
-<p><span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #67a9cf;"></span> Correct &nbsp;&nbsp;&nbsp; <span style="display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.2em; border-radius: 50%; background: #ef8a62;"></span> Incorrect</p>
-</div>
-
-<img data-src="assets/bluffbench-results.png" style="width:76.0%" alt="A horizontal stacked bar chart comparing models on bluffbench. Blue shows correct plot interpretations and orange shows incorrect interpretations, with separate panels for thinking and non-thinking models." class="r-stretch"><div class="footer">
-<p><a href="https://posit-dev.github.io/bluffbench/">bluffbench</a></p>
-</div>
-</section>
 <section id="bluffbench-logs" class="slide level2">
 <h2></h2>
 <p><a href="https://posit-dev.github.io/bluffbench/logs/" target="_blank"><img data-src="assets/bluffbench-logs.png" style="width:100.0%" alt="The Inspect log viewer showing a Bluffbench evaluation of GPT-5.2. The table lists each sample's input, target, answer, and score."></a></p>
@@ -753,16 +521,122 @@
 <section id="your-turn-15_evals" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>15_evals</code></h1>
 <ol type="1">
-<li><p>Keep the seed prompt and write two prompt variants of your own.</p></li>
-<li><p>Run the eval to test each prompt on two plots.</p></li>
-<li><p>Open the viewer. Take a look at the responses and scores.</p></li>
-<li><p>What do these runs suggest? Which prompts pass both cases?</p></li>
+<li><p>Run the eval. It grades Gemma 4 26B and Claude Haiku 4.5 on the same explanation rubric.</p></li>
+<li><p>Open the viewer. Compare the responses and the grader’s explanations.</p></li>
+<li><p>Which model followed the rubric better?</p></li>
 </ol>
-<countdown-timer id="timer_6c8ab34952fc149cc7a720605b8e0c5e7a65d06c" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_f43cce1fa2923df86e680088a0a6bea13ab761ee" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
+<aside class="notes">
+<p>This is where evals and prompt engineering meet.</p>
+<p>There are two main reasons to run evals.</p>
+<p>First, you want to get better at a task, and an eval tells you whether a new prompt actually improved things.</p>
+<p>Second, you have a setup that is working, and then a new model comes out, and you need to know whether it does good enough, or how it does at all.</p>
+<p>Without an eval, both questions come down to vibes.</p>
+<p>A deterministic scorer could count sentences. This eval uses a model grader because the rubric also asks whether each response is accurate, clear, and concrete.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 
+<section>
+<section id="prompt-engineering-1" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
+<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt engineering</span></h1>
 
 </section>
+<section id="three-best-practices" class="slide level2">
+<h2>Three best practices</h2>
+<ol type="1">
+<li class="fragment"><p>Put prompts in markdown files.</p></li>
+<li class="fragment"><p>Clearly explain what you want the model to do in the system prompt.</p></li>
+<li class="fragment"><p>Provide examples of what you want.</p></li>
+</ol>
+<aside class="notes">
+<p>Start by trying a stronger model. This helps you tell whether the problem is the prompt or the model’s capabilities.</p>
+<p>Next, check whether the system prompt clearly describes the behavior you want.</p>
+<p>If the model still struggles, add examples of good responses.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="keep-large-prompts-in-separate-files" class="slide level2" style="--code-font-size: 0.72em">
+<h2>Keep large prompts in separate files</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="r">R</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>prompt <span class="ot">&lt;-</span> <span class="fu">interpolate_file</span>(</span>
+<span id="cb3-2"><a aria-label="2"></a>  <span class="st">"prompt.md"</span></span>
+<span id="cb3-3"><a aria-label="3"></a>)</span>
+<span id="cb3-4"><a aria-label="4"></a></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="fu">chat_posit</span>(</span>
+<span id="cb3-6"><a aria-label="6"></a>  <span class="at">system_prompt =</span> prompt</span>
+<span id="cb3-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<h3 id="python">Python</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb4-2"><a aria-label="2"></a></span>
+<span id="cb4-3"><a aria-label="3"></a>prompt <span class="op">=</span> Path(</span>
+<span id="cb4-4"><a aria-label="4"></a>    <span class="st">"prompt.md"</span></span>
+<span id="cb4-5"><a aria-label="5"></a>).read_text()</span>
+<span id="cb4-6"><a aria-label="6"></a></span>
+<span id="cb4-7"><a aria-label="7"></a>ChatPosit(</span>
+<span id="cb4-8"><a aria-label="8"></a>    system_prompt<span class="op">=</span>prompt</span>
+<span id="cb4-9"><a aria-label="9"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<p>Prompts in files are easier to read, review, and compare in version control.</p>
+<aside class="notes">
+<p>In R, <code>interpolate_file()</code> reads the file and replaces any <code>{ }</code> expressions.</p>
+<p>In Python, <code>Path.read_text()</code> reads the prompt before passing it to <code>ChatPosit()</code>.</p>
+<p>The quiz-game exercises use this pattern.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="system-prompt-vs.-user-prompt" class="slide level2">
+<h2>System prompt vs.&nbsp;user prompt</h2>
+<p>Short answer: Put instructions and background knowledge in the system prompt.</p>
+<p>Put the current task in the user prompt.</p>
+<aside class="notes">
+<p>Anthropic’s <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"><em>Prompt Engineering Overview</em></a> and OpenAI’s <a href="https://cookbook.openai.com/"><em>OpenAI Cookbook</em></a> are excellent, and contain lots of tips and examples.</p>
+<p>Google’s <a href="https://ai.google.dev/gemini-api/docs/prompting-strategies"><em>Prompt Design Strategies</em></a> may also be useful.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -959,44 +833,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -1441,7 +1441,7 @@
     "href": "workshop-05.html#outline",
     "title": "Prompt Engineering",
     "section": "Outline",
-    "text": "Outline\n\n(35m) Prompt engineering\n\nActivity (12_plot-image-1): ask an LLM to interpret a scatter plot\nActivity (13_plot-image-2): replace the plot with random noise and improve the prompt\nSystem and user prompts, examples, prompt structure, and interpolation\nActivity (14_quiz-game-1): write the system prompt for a quiz game\n\n(15m) Evals\n\nDatasets, solvers, and scorers\nEvals with vitals in R and Inspect with chatlas in Python\nScorer options and the bluffbench example\nActivity (15_evals): compare three prompts on two plots",
+    "text": "Outline\n\n(35m) Prompt engineering\n\nActivity (12_plot-image-1): ask an LLM to interpret a scatter plot\nSystem and user prompts, examples, prompt structure, and interpolation\nActivity (14_quiz-game-1): write the system prompt for a quiz game\n\n(15m) Evals\n\nDatasets, solvers, and scorers\nEvals with vitals in R and Inspect with chatlas in Python\nScorer options and the bluffbench example\nActivity (15_evals): compare two models and inspect the grader’s decisions",
     "crumbs": [
       "Workshop",
       "Prompt Engineering"
@@ -1860,74 +1860,25 @@
     "text": "A chat app in Python\nimport chatlas\nfrom shiny import App, ui\nfrom shinychat import Chat, chat_ui\n\napp_ui = ui.page_fillable(\n    chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatPosit()\n    chat = Chat(\"chat\", client=client)\n\napp = App(app_ui, server)\n\nPassing client= gives Chat the same batteries-included behavior as chat_server() in R, including the submit handler and streaming response."
   },
   {
-    "objectID": "slides/slides-05.html#three-questions-to-ask-yourself",
-    "href": "slides/slides-05.html#three-questions-to-ask-yourself",
+    "objectID": "slides/slides-05.html#section",
+    "href": "slides/slides-05.html#section",
     "title": "Prompt Engineering",
-    "section": "Three questions to ask yourself",
-    "text": "Three questions to ask yourself\n\nDid you use the best models?\nDid you clearly explain what you want the model to do in the system prompt?\nDid you provide examples of what you want?\n\n\nStart by trying a stronger model. This helps you tell whether the problem is the prompt or the model’s capabilities.\nNext, check whether the system prompt clearly describes the behavior you want.\nIf the model still struggles, add examples of good responses."
+    "section": "",
+    "text": "The left plot is a jittered grid wearing the same title and labels.\nAsk the model to interpret both.\nIf it sees a relationship in the left plot, it is describing what it expects, not what it sees.\nThis is the failure mode bluffbench tests for, coming up next."
   },
   {
-    "objectID": "slides/slides-05.html#system-prompt-vs.-user-prompt",
-    "href": "slides/slides-05.html#system-prompt-vs.-user-prompt",
+    "objectID": "slides/slides-05.html#bluffbench",
+    "href": "slides/slides-05.html#bluffbench",
     "title": "Prompt Engineering",
-    "section": "System prompt vs. user prompt",
-    "text": "System prompt vs. user prompt\nShort answer: Put instructions and background knowledge in the system prompt.\nPut the current task in the user prompt."
+    "section": "bluffbench",
+    "text": "bluffbench\n\n\nplot mpg vs hp in mtcars and tell me what you see.\n\n\n\n\n\n\nbluffbench\n\n\nbluffbench secretly changes a familiar dataset, then asks a model to plot and describe it. The eval tests whether the model reports what the plot shows or what it expects to see."
   },
   {
-    "objectID": "slides/slides-05.html#more-tips",
-    "href": "slides/slides-05.html#more-tips",
+    "objectID": "slides/slides-05.html#bluffbench-results",
+    "href": "slides/slides-05.html#bluffbench-results",
     "title": "Prompt Engineering",
-    "section": "More tips",
-    "text": "More tips\nUse LLMs to help draft or improve your prompts.\nE.g., this input to Claude’s prompt generator:\n\nMake a data science agent that can run Python data analysis code via a tool. Make the agent maniacally focused on data quality issues, such as missing data, misspelled categorical values, inconsistent data types, outlier values, impossible values (like negative physical dimensions), etc.\n\nGenerates this prompt:\nYou are a data science agent with an obsessive focus on data quality. You have been given access to a dataset and a Python code execution tool. Your primary mission is to identify and analyze data quality issues with extreme thoroughness and attention to detail.\n\nHere is the dataset description:\n&lt;dataset_description&gt;\n{{DATASET_DESCRIPTION}}\n&lt;/dataset_description&gt;\n\nYou have access to the following Python code execution tool:\n&lt;python_tool&gt;\n{{PYTHON_CODE_TOOL}}\n&lt;/python_tool&gt;\n\nYour role is to act as a maniacally thorough data quality inspector. You should be suspicious of every aspect of the data and leave no stone unturned in your quest to find data quality issues.\n\nFocus intensively on these categories of data quality problems:\n- Missing data (nulls, empty strings, placeholder values like \"N/A\", \"Unknown\", etc.)\n- Inconsistent data types (mixed types in columns, incorrect data types)\n- Misspelled or inconsistent categorical values (typos, case inconsistencies, extra spaces)\n- Outlier values (statistical outliers, values that seem unreasonable)\n- Impossible or illogical values (negative ages, future birth dates, negative physical dimensions)\n- Duplicate records or near-duplicates\n- Inconsistent formatting (date formats, phone numbers, addresses)\n- Data entry errors (obvious typos, transposed digits)\n- Referential integrity issues (if applicable)\n- Range violations (values outside expected bounds)\n\nYour analysis process should be systematic and comprehensive:\n\n1. Start by loading and examining the basic structure of the dataset\n2. Check data types and identify any type inconsistencies\n3. Examine missing data patterns thoroughly\n4. Analyze each column individually for quality issues specific to its data type\n5. Look for statistical outliers and impossible values\n6. Check for duplicates and near-duplicates\n7. Examine categorical variables for inconsistencies\n8. Validate logical relationships between columns\n9. Look for formatting inconsistencies\n\nUse the Python tool to write and execute code that will help you uncover these issues. Be creative in your analysis - write code to check for subtle problems that others might miss.\n\nBefore providing your final analysis, use the scratchpad to plan your investigation strategy:\n\n&lt;scratchpad&gt;\n[Plan your systematic approach to analyzing the data quality, thinking through what specific checks you want to perform and in what order]\n&lt;/scratchpad&gt;\n\nThen execute your analysis using the Python tool. After completing your investigation, provide your findings in this format:\n\n&lt;data_quality_report&gt;\n**CRITICAL ISSUES FOUND:**\n[List the most severe data quality problems]\n\n**MODERATE ISSUES FOUND:**\n[List issues that should be addressed but aren't critical]\n\n**MINOR ISSUES FOUND:**\n[List smaller issues that could be improved]\n\n**DETAILED ANALYSIS:**\n[Provide detailed explanations of each issue found, including specific examples and the potential impact]\n\n**RECOMMENDATIONS:**\n[Provide specific, actionable recommendations for fixing each category of issues]\n\n**DATA QUALITY SCORE:**\n[Provide an overall data quality score from 1-10, where 10 is perfect quality]\n&lt;/data_quality_report&gt;\n\nRemember: Be obsessively thorough. Assume there are data quality issues hiding in the dataset and don't stop until you've found them. Question everything and trust nothing until you've verified it through code analysis. Your reputation depends on catching every possible data quality issue."
-  },
-  {
-    "objectID": "slides/slides-05.html#more-tips-1",
-    "href": "slides/slides-05.html#more-tips-1",
-    "title": "Prompt Engineering",
-    "section": "More tips",
-    "text": "More tips\n\nUse Markdown headings and XML tags to give structure to your prompts.\nUse variables to insert dynamic content into your prompts–BUT be aware of prompt injection!\n\nYour task is to provide feedback on a research paper summary.\nHere is a summary of a medical research paper:\n&lt;summary&gt;\n{{SUMMARY}}\n&lt;/summary&gt;\n\nHere is the research paper:\n&lt;paper&gt;\n{{RESEARCH_PAPER}}\n&lt;/paper&gt;\n\nReview this summary for accuracy, clarity, and completeness on\na graded A-F scale."
-  },
-  {
-    "objectID": "slides/slides-05.html#keep-large-prompts-in-separate-files",
-    "href": "slides/slides-05.html#keep-large-prompts-in-separate-files",
-    "title": "Prompt Engineering",
-    "section": "Keep large prompts in separate files",
-    "text": "Keep large prompts in separate files\n\n\nR\nprompt &lt;- interpolate_file(\n  \"prompt.md\"\n)\n\nchat_posit(\n  system_prompt = prompt\n)\n\nPython\nfrom pathlib import Path\n\nprompt = Path(\n    \"prompt.md\"\n).read_text()\n\nChatPosit(\n    system_prompt=prompt\n)\n\nPrompts in files are easier to read, review, and compare in version control.\n\nIn R, interpolate_file() reads the file and replaces any { } expressions.\nIn Python, Path.read_text() reads the prompt before passing it to ChatPosit().\nThe quiz-game exercises use this pattern."
-  },
-  {
-    "objectID": "slides/slides-05.html#more-tips-2",
-    "href": "slides/slides-05.html#more-tips-2",
-    "title": "Prompt Engineering",
-    "section": "More tips",
-    "text": "More tips\n(Advanced) Ask the model to track limits out loud.\nE.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside &lt;memo&gt;&lt;/memo&gt; tags. If you have made three, stop and answer.”"
-  },
-  {
-    "objectID": "slides/slides-05.html#more-tips-3",
-    "href": "slides/slides-05.html#more-tips-3",
-    "title": "Prompt Engineering",
-    "section": "More tips",
-    "text": "More tips\nAnthropic’s Prompt Engineering Overview and OpenAI’s OpenAI Cookbook are excellent, and contain lots of tips and examples.\nGoogle’s Prompt Design Strategies may also be useful."
-  },
-  {
-    "objectID": "slides/slides-05.html#interpolation-in-r",
-    "href": "slides/slides-05.html#interpolation-in-r",
-    "title": "Prompt Engineering",
-    "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is sandwich."
-  },
-  {
-    "objectID": "slides/slides-05.html#interpolation-in-r-1",
-    "href": "slides/slides-05.html#interpolation-in-r-1",
-    "title": "Prompt Engineering",
-    "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ words }}.\"\n)\n\n[1] │ The secret word is elephant.\n[2] │ The secret word is bicycle.\n[3] │ The secret word is sandwich."
-  },
-  {
-    "objectID": "slides/slides-05.html#interpolation-in-python",
-    "href": "slides/slides-05.html#interpolation-in-python",
-    "title": "Prompt Engineering",
-    "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
+    "section": "",
+    "text": "Correct      Incorrect\n\n\n\nbluffbench"
   },
   {
     "objectID": "slides/slides-05.html#how-do-you-know",
@@ -1965,25 +1916,32 @@
     "text": "Scorers\n\n\n\n\n\n\n\n\n\nMethod\nHow it works\nTradeoff\n\n\n\n\nDeterministic\nMatch text, check a number, run tests.\nFast, deterministic, may be too narrow.\n\n\nModel-graded\nAnother LLM judges the output against grading criteria.\nFlexible, but the grader must be validated.\n\n\nHuman review\nA person reads and grades the output.\nHigh control for you, but slow and expensive at scale.\n\n\n\n\n\nHuman review is really useful when creating the dataset, checking the scorer, and investigating failures."
   },
   {
-    "objectID": "slides/slides-05.html#bluffbench",
-    "href": "slides/slides-05.html#bluffbench",
-    "title": "Prompt Engineering",
-    "section": "bluffbench",
-    "text": "bluffbench\n\n\nplot mpg vs hp in mtcars and tell me what you see.\n\n\n\n\n\n\nbluffbench\n\n\nbluffbench secretly changes a familiar dataset, then asks a model to plot and describe it. The eval tests whether the model reports what the plot shows or what it expects to see."
-  },
-  {
-    "objectID": "slides/slides-05.html#bluffbench-results",
-    "href": "slides/slides-05.html#bluffbench-results",
-    "title": "Prompt Engineering",
-    "section": "",
-    "text": "Correct      Incorrect\n\n\n\nbluffbench"
-  },
-  {
     "objectID": "slides/slides-05.html#bluffbench-logs",
     "href": "slides/slides-05.html#bluffbench-logs",
     "title": "Prompt Engineering",
     "section": "",
     "text": "The aggregate result tells us how often the model passed. The log lets us inspect individual cases.\nFor each case, we can compare the input, target, model answer, and score."
+  },
+  {
+    "objectID": "slides/slides-05.html#three-best-practices",
+    "href": "slides/slides-05.html#three-best-practices",
+    "title": "Prompt Engineering",
+    "section": "Three best practices",
+    "text": "Three best practices\n\nPut prompts in markdown files.\nClearly explain what you want the model to do in the system prompt.\nProvide examples of what you want.\n\n\nStart by trying a stronger model. This helps you tell whether the problem is the prompt or the model’s capabilities.\nNext, check whether the system prompt clearly describes the behavior you want.\nIf the model still struggles, add examples of good responses."
+  },
+  {
+    "objectID": "slides/slides-05.html#keep-large-prompts-in-separate-files",
+    "href": "slides/slides-05.html#keep-large-prompts-in-separate-files",
+    "title": "Prompt Engineering",
+    "section": "Keep large prompts in separate files",
+    "text": "Keep large prompts in separate files\n\n\nR\nprompt &lt;- interpolate_file(\n  \"prompt.md\"\n)\n\nchat_posit(\n  system_prompt = prompt\n)\n\nPython\nfrom pathlib import Path\n\nprompt = Path(\n    \"prompt.md\"\n).read_text()\n\nChatPosit(\n    system_prompt=prompt\n)\n\nPrompts in files are easier to read, review, and compare in version control.\n\nIn R, interpolate_file() reads the file and replaces any { } expressions.\nIn Python, Path.read_text() reads the prompt before passing it to ChatPosit().\nThe quiz-game exercises use this pattern."
+  },
+  {
+    "objectID": "slides/slides-05.html#system-prompt-vs.-user-prompt",
+    "href": "slides/slides-05.html#system-prompt-vs.-user-prompt",
+    "title": "Prompt Engineering",
+    "section": "System prompt vs. user prompt",
+    "text": "System prompt vs. user prompt\nShort answer: Put instructions and background knowledge in the system prompt.\nPut the current task in the user prompt.\n\nAnthropic’s Prompt Engineering Overview and OpenAI’s OpenAI Cookbook are excellent, and contain lots of tips and examples.\nGoogle’s Prompt Design Strategies may also be useful."
   },
   {
     "objectID": "slides/slides-08.html#whats-an-agent",
