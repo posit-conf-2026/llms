@@ -171,6 +171,71 @@ Among private rooms, which property types are most common?
 
 ![](../assets/logos/shinychat.png){style="max-width: 100%; max-height: 500px"}
 
+## A quick chat app in R {style="--code-font-size: 0.8em"}
+
+```{.r}
+library(ellmer)
+library(shinychat)
+
+client <- chat_posit()
+chat_app(client)
+```
+
+::: notes
+`chat_app()` gives you an immediately usable chat application around an
+`ellmer` chat client. It is meant for a single person using it interactively.
+:::
+
+## A chat app in R {style="--code-font-size: 0.6em"}
+
+For an app other people can use, create one client per session.
+
+```{.r}
+library(shiny)
+library(ellmer)
+library(shinychat)
+
+ui <- page_chat(
+  "My chat"
+)
+
+server <- function(input, output, session) {
+  client <- chat_posit()
+  chat_server("chat", client)
+}
+
+shinyApp(ui, server)
+```
+
+::: notes
+`chat_server()` handles user input, streaming, cancellation, attachments, and
+conversation history. The client must be created inside `server()` so each
+visitor gets their own conversation.
+:::
+
+## A chat app in Python {style="--code-font-size: 0.56em"}
+
+```{.python}
+import chatlas
+from shiny import App, ui
+from shinychat import Chat, chat_ui
+
+app_ui = ui.page_fillable(
+    chat_ui("chat")
+)
+
+def server(input, output, session):
+    client = chatlas.ChatPosit()
+    chat = Chat("chat", client=client)
+
+app = App(app_ui, server)
+```
+
+::: notes
+Passing `client=` gives `Chat` the same batteries-included behavior as
+`chat_server()` in R, including the submit handler and streaming response.
+:::
+
 ## Chat can be the application {.center}
 
 `page_chat()` gives a conversation its own page.

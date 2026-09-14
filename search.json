@@ -147,6 +147,27 @@
     "text": "shinychat"
   },
   {
+    "objectID": "slides/slides-12.html#a-quick-chat-app-in-r",
+    "href": "slides/slides-12.html#a-quick-chat-app-in-r",
+    "title": "shinychat and querychat",
+    "section": "A quick chat app in R",
+    "text": "A quick chat app in R\nlibrary(ellmer)\nlibrary(shinychat)\n\nclient &lt;- chat_posit()\nchat_app(client)\n\nchat_app() gives you an immediately usable chat application around an ellmer chat client. It is meant for a single person using it interactively."
+  },
+  {
+    "objectID": "slides/slides-12.html#a-chat-app-in-r",
+    "href": "slides/slides-12.html#a-chat-app-in-r",
+    "title": "shinychat and querychat",
+    "section": "A chat app in R",
+    "text": "A chat app in R\nFor an app other people can use, create one client per session.\nlibrary(shiny)\nlibrary(ellmer)\nlibrary(shinychat)\n\nui &lt;- page_chat(\n  \"My chat\"\n)\n\nserver &lt;- function(input, output, session) {\n  client &lt;- chat_posit()\n  chat_server(\"chat\", client)\n}\n\nshinyApp(ui, server)\n\nchat_server() handles user input, streaming, cancellation, attachments, and conversation history. The client must be created inside server() so each visitor gets their own conversation."
+  },
+  {
+    "objectID": "slides/slides-12.html#a-chat-app-in-python",
+    "href": "slides/slides-12.html#a-chat-app-in-python",
+    "title": "shinychat and querychat",
+    "section": "A chat app in Python",
+    "text": "A chat app in Python\nimport chatlas\nfrom shiny import App, ui\nfrom shinychat import Chat, chat_ui\n\napp_ui = ui.page_fillable(\n    chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatPosit()\n    chat = Chat(\"chat\", client=client)\n\napp = App(app_ui, server)\n\nPassing client= gives Chat the same batteries-included behavior as chat_server() in R, including the submit handler and streaming response."
+  },
+  {
     "objectID": "slides/slides-12.html#chat-can-be-the-application",
     "href": "slides/slides-12.html#chat-can-be-the-application",
     "title": "shinychat and querychat",
@@ -1872,27 +1893,6 @@
     "title": "Anatomy of a conversation",
     "section": "",
     "text": "Console\nBrowser\n\n\n\n\n\nlive_console(chat)\nlive_browser(chat)\n\n\n\nchat.console()\nchat.app()\n\n\n\n\n\nAs we’ll see, everything we’re going to do today can be done in either R or Python and ellmer and chatlas are designed to be similar.\nBut they’re in different languages and those languages have different conventions and idioms, so they’re not completely identical. If they were, one or the other would start to feel unnatural to use."
-  },
-  {
-    "objectID": "slides/slides-02.html#a-quick-chat-app-in-r",
-    "href": "slides/slides-02.html#a-quick-chat-app-in-r",
-    "title": "Anatomy of a conversation",
-    "section": "A quick chat app in R",
-    "text": "A quick chat app in R\nlibrary(ellmer)\nlibrary(shinychat)\n\nclient &lt;- chat_posit()\nchat_app(client)\n\nchat_app() gives you an immediately usable chat application around an ellmer chat client. It is meant for a single person using it interactively."
-  },
-  {
-    "objectID": "slides/slides-02.html#a-chat-app-in-r",
-    "href": "slides/slides-02.html#a-chat-app-in-r",
-    "title": "Anatomy of a conversation",
-    "section": "A chat app in R",
-    "text": "A chat app in R\nFor an app other people can use, create one client per session.\nlibrary(shiny)\nlibrary(ellmer)\nlibrary(shinychat)\n\nui &lt;- page_chat(\n  \"My chat\"\n)\n\nserver &lt;- function(input, output, session) {\n  client &lt;- chat_posit()\n  chat_server(\"chat\", client)\n}\n\nshinyApp(ui, server)\n\nchat_server() handles user input, streaming, cancellation, attachments, and conversation history. The client must be created inside server() so each visitor gets their own conversation."
-  },
-  {
-    "objectID": "slides/slides-02.html#a-chat-app-in-python",
-    "href": "slides/slides-02.html#a-chat-app-in-python",
-    "title": "Anatomy of a conversation",
-    "section": "A chat app in Python",
-    "text": "A chat app in Python\nimport chatlas\nfrom shiny import App, ui\nfrom shinychat import Chat, chat_ui\n\napp_ui = ui.page_fillable(\n    chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatPosit()\n    chat = Chat(\"chat\", client=client)\n\napp = App(app_ui, server)\n\nPassing client= gives Chat the same batteries-included behavior as chat_server() in R, including the submit handler and streaming response."
   },
   {
     "objectID": "slides/slides-05.html#section",

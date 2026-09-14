@@ -15,7 +15,7 @@ source("_incremental_slides.R")
 ```
 
 ::: notes
-Let's talk a bit about how to think at a high level about LLMs before we dive into some code 
+Let's talk a bit about how to think at a high level about LLMs before we dive into some code
 :::
 
 ## Think Empirically, Not Theoretically {.center .text-center}
@@ -35,14 +35,14 @@ Let's talk a bit about how to think at a high level about LLMs before we dive in
   that it turns out they're _terrible_ at
 
 ::: notes
-Think empirically, not theoretically. 
-There are some things LLMs can clearly do today that you would have thought possible, and things That they can't do that you would have thought they would have been able to. 
+Think empirically, not theoretically.
+There are some things LLMs can clearly do today that you would have thought possible, and things That they can't do that you would have thought they would have been able to.
 :::
 
 ## {.center}
 
 ::: notes
-You might expect a performance to look something like this. 
+You might expect a performance to look something like this.
 :::
 
 ![](assets/task-llm-smooth.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
@@ -52,7 +52,7 @@ You might expect a performance to look something like this.
 ![](assets/task-llm-jagged.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
 
 ::: notes
-It really looks something more like this. 
+It really looks something more like this.
 :::
 
 ## [Embrace the Experimental Process]{.dib .bg-black .ph4 .white} {.center .text-center background-image="assets/national-cancer-institute-Okk-eID2Z9k-unsplash.jpg" background-size="cover" background-position="center"}
@@ -62,7 +62,7 @@ Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&utm_medium=refer
 :::
 
 ::: notes
-Embrace the experimental process. 
+Embrace the experimental process.
 :::
 
 ## Start Simple, Build Understanding {.center .text-center}
@@ -75,7 +75,7 @@ Embrace the experimental process.
   **decompose to just a few key ingredients**.
 
 ::: notes
-We're gonna focus on the core building blocks. The goal for today is to really for you to sense those building blocks, feel like you're exploring, have some fun, build intuition. 
+We're gonna focus on the core building blocks. The goal for today is to really for you to sense those building blocks, feel like you're exploring, have some fun, build intuition.
 :::
 
 
@@ -800,73 +800,6 @@ one or the other would start to feel unnatural to use.
 :::
 
 {{< countdown 3:00 top="-1em" >}}
-
-# [shinychat]{.hidden} {.no-invert-dark-mode background-image="assets/shinychat-robot2.png" background-size="cover" background-position="center"}
-
-## A quick chat app in R {style="--code-font-size: 0.8em"}
-
-```{.r}
-library(ellmer)
-library(shinychat)
-
-client <- chat_posit()
-chat_app(client)
-```
-
-::: notes
-`chat_app()` gives you an immediately usable chat application around an
-`ellmer` chat client. It is meant for a single person using it interactively.
-:::
-
-## A chat app in R {style="--code-font-size: 0.6em"}
-
-For an app other people can use, create one client per session.
-
-```{.r}
-library(shiny)
-library(ellmer)
-library(shinychat)
-
-ui <- page_chat(
-  "My chat"
-)
-
-server <- function(input, output, session) {
-  client <- chat_posit()
-  chat_server("chat", client)
-}
-
-shinyApp(ui, server)
-```
-
-::: notes
-`chat_server()` handles user input, streaming, cancellation, attachments, and
-conversation history. The client must be created inside `server()` so each
-visitor gets their own conversation.
-:::
-
-## A chat app in Python {style="--code-font-size: 0.56em"}
-
-```{.python}
-import chatlas
-from shiny import App, ui
-from shinychat import Chat, chat_ui
-
-app_ui = ui.page_fillable(
-    chat_ui("chat")
-)
-
-def server(input, output, session):
-    client = chatlas.ChatPosit()
-    chat = Chat("chat", client=client)
-
-app = App(app_ui, server)
-```
-
-::: notes
-Passing `client=` gives `Chat` the same batteries-included behavior as
-`chat_server()` in R, including the submit handler and streaming response.
-:::
 
 # Your Turn `06_word-games` {.slide-your-turn}
 

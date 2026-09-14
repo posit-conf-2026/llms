@@ -1239,96 +1239,10 @@ that it turns out they’re <em>terrible</em> at</p></li>
 <li><p>Share your best with a neighbor.</p></li>
 </ol>
 </div>
-<countdown-timer id="timer_b7e9f14e31f0539154e3a084ced8d543b9d67b26" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<countdown-timer id="timer_ec3473addd5dcb5c8b5f1f5f282eede979bb728f" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
  </countdown-timer>
 </section>
 
-<section>
-<section id="shinychat" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/shinychat-robot2.png" data-background-size="cover" data-background-position="center">
-<h1><span class="hidden">shinychat</span></h1>
-
-</section>
-<section id="a-quick-chat-app-in-r" class="slide level2" style="--code-font-size: 0.8em">
-<h2>A quick chat app in R</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
-<span id="cb26-2"><a aria-label="2"></a><span class="fu">library</span>(shinychat)</span>
-<span id="cb26-3"><a aria-label="3"></a></span>
-<span id="cb26-4"><a aria-label="4"></a>client <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>()</span>
-<span id="cb26-5"><a aria-label="5"></a><span class="fu">chat_app</span>(client)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p><code>chat_app()</code> gives you an immediately usable chat application around an <code>ellmer</code> chat client. It is meant for a single person using it interactively.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="a-chat-app-in-r" class="slide level2" style="--code-font-size: 0.6em">
-<h2>A chat app in R</h2>
-<p>For an app other people can use, create one client per session.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb27-2"><a aria-label="2"></a><span class="fu">library</span>(ellmer)</span>
-<span id="cb27-3"><a aria-label="3"></a><span class="fu">library</span>(shinychat)</span>
-<span id="cb27-4"><a aria-label="4"></a></span>
-<span id="cb27-5"><a aria-label="5"></a>ui <span class="ot">&lt;-</span> <span class="fu">page_chat</span>(</span>
-<span id="cb27-6"><a aria-label="6"></a>  <span class="st">"My chat"</span></span>
-<span id="cb27-7"><a aria-label="7"></a>)</span>
-<span id="cb27-8"><a aria-label="8"></a></span>
-<span id="cb27-9"><a aria-label="9"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb27-10"><a aria-label="10"></a>  client <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>()</span>
-<span id="cb27-11"><a aria-label="11"></a>  <span class="fu">chat_server</span>(<span class="st">"chat"</span>, client)</span>
-<span id="cb27-12"><a aria-label="12"></a>}</span>
-<span id="cb27-13"><a aria-label="13"></a></span>
-<span id="cb27-14"><a aria-label="14"></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p><code>chat_server()</code> handles user input, streaming, cancellation, attachments, and conversation history. The client must be created inside <code>server()</code> so each visitor gets their own conversation.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="a-chat-app-in-python" class="slide level2" style="--code-font-size: 0.56em">
-<h2>A chat app in Python</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-label="1"></a><span class="im">import</span> chatlas</span>
-<span id="cb28-2"><a aria-label="2"></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
-<span id="cb28-3"><a aria-label="3"></a><span class="im">from</span> shinychat <span class="im">import</span> Chat, chat_ui</span>
-<span id="cb28-4"><a aria-label="4"></a></span>
-<span id="cb28-5"><a aria-label="5"></a>app_ui <span class="op">=</span> ui.page_fillable(</span>
-<span id="cb28-6"><a aria-label="6"></a>    chat_ui(<span class="st">"chat"</span>)</span>
-<span id="cb28-7"><a aria-label="7"></a>)</span>
-<span id="cb28-8"><a aria-label="8"></a></span>
-<span id="cb28-9"><a aria-label="9"></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb28-10"><a aria-label="10"></a>    client <span class="op">=</span> chatlas.ChatPosit()</span>
-<span id="cb28-11"><a aria-label="11"></a>    chat <span class="op">=</span> Chat(<span class="st">"chat"</span>, client<span class="op">=</span>client)</span>
-<span id="cb28-12"><a aria-label="12"></a></span>
-<span id="cb28-13"><a aria-label="13"></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>Passing <code>client=</code> gives <code>Chat</code> the same batteries-included behavior as <code>chat_server()</code> in R, including the submit handler and streaming response.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
 <section id="your-turn-06_word-games" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>06_word-games</code></h1>
 <ol type="1">
@@ -1336,7 +1250,7 @@ that it turns out they’re <em>terrible</em> at</p></li>
 <li><p>Your job: create a chatbot that plays a “20 questions” style word guessing game with you.</p></li>
 <li><p>The model was given a secret word, and it’s your job to guess it.</p></li>
 </ol>
-<countdown-timer id="timer_b7e9f14e31f0539154e3a084ced8d543b9d67b26" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<countdown-timer id="timer_ec3473addd5dcb5c8b5f1f5f282eede979bb728f" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
  </countdown-timer>
 
 

@@ -303,7 +303,7 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <li><p>Restart the app with <code>data_dict</code> included.<br>
 <em>Among private rooms, which property types are most common?</em></p></li>
 </ol>
-<countdown-timer id="timer_e147ed7b0e7367cb5722c40c002ff82fb91ff437" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
+<countdown-timer id="timer_d83c4b1d3d2d4ea746ff399a83ca3a9d8ec989bd" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Students have already explored this dataset with Posit Assistant. Ask them to use QueryChat to reach a conclusion from that conversation.</p>
@@ -407,6 +407,87 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <h2><span class="hidden">shinychat</span></h2>
 <p><img data-src="../assets/logos/shinychat.png" style="max-width: 100%; max-height: 500px"></p>
 </section>
+<section id="a-quick-chat-app-in-r" class="slide level2" style="--code-font-size: 0.8em">
+<h2>A quick chat app in R</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">library</span>(shinychat)</span>
+<span id="cb5-3"><a aria-label="3"></a></span>
+<span id="cb5-4"><a aria-label="4"></a>client <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>()</span>
+<span id="cb5-5"><a aria-label="5"></a><span class="fu">chat_app</span>(client)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p><code>chat_app()</code> gives you an immediately usable chat application around an <code>ellmer</code> chat client. It is meant for a single person using it interactively.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-chat-app-in-r" class="slide level2" style="--code-font-size: 0.6em">
+<h2>A chat app in R</h2>
+<p>For an app other people can use, create one client per session.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb6-2"><a aria-label="2"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb6-3"><a aria-label="3"></a><span class="fu">library</span>(shinychat)</span>
+<span id="cb6-4"><a aria-label="4"></a></span>
+<span id="cb6-5"><a aria-label="5"></a>ui <span class="ot">&lt;-</span> <span class="fu">page_chat</span>(</span>
+<span id="cb6-6"><a aria-label="6"></a>  <span class="st">"My chat"</span></span>
+<span id="cb6-7"><a aria-label="7"></a>)</span>
+<span id="cb6-8"><a aria-label="8"></a></span>
+<span id="cb6-9"><a aria-label="9"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb6-10"><a aria-label="10"></a>  client <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>()</span>
+<span id="cb6-11"><a aria-label="11"></a>  <span class="fu">chat_server</span>(<span class="st">"chat"</span>, client)</span>
+<span id="cb6-12"><a aria-label="12"></a>}</span>
+<span id="cb6-13"><a aria-label="13"></a></span>
+<span id="cb6-14"><a aria-label="14"></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p><code>chat_server()</code> handles user input, streaming, cancellation, attachments, and conversation history. The client must be created inside <code>server()</code> so each visitor gets their own conversation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-chat-app-in-python" class="slide level2" style="--code-font-size: 0.56em">
+<h2>A chat app in Python</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a><span class="im">import</span> chatlas</span>
+<span id="cb7-2"><a aria-label="2"></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
+<span id="cb7-3"><a aria-label="3"></a><span class="im">from</span> shinychat <span class="im">import</span> Chat, chat_ui</span>
+<span id="cb7-4"><a aria-label="4"></a></span>
+<span id="cb7-5"><a aria-label="5"></a>app_ui <span class="op">=</span> ui.page_fillable(</span>
+<span id="cb7-6"><a aria-label="6"></a>    chat_ui(<span class="st">"chat"</span>)</span>
+<span id="cb7-7"><a aria-label="7"></a>)</span>
+<span id="cb7-8"><a aria-label="8"></a></span>
+<span id="cb7-9"><a aria-label="9"></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb7-10"><a aria-label="10"></a>    client <span class="op">=</span> chatlas.ChatPosit()</span>
+<span id="cb7-11"><a aria-label="11"></a>    chat <span class="op">=</span> Chat(<span class="st">"chat"</span>, client<span class="op">=</span>client)</span>
+<span id="cb7-12"><a aria-label="12"></a></span>
+<span id="cb7-13"><a aria-label="13"></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Passing <code>client=</code> gives <code>Chat</code> the same batteries-included behavior as <code>chat_server()</code> in R, including the submit handler and streaming response.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="chat-can-be-the-application" class="slide level2 center">
 <h2>Chat can be the application</h2>
 <p><code>page_chat()</code> gives a conversation its own page.</p>
@@ -433,27 +514,27 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="r-1">R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>ui <span class="ot">&lt;-</span> <span class="fu">page_chat</span>(</span>
-<span id="cb5-2"><a aria-label="2"></a>  <span class="st">"Blockbuster renewal assistant"</span>,</span>
-<span id="cb5-3"><a aria-label="3"></a>  <span class="at">id =</span> <span class="st">"chat"</span></span>
-<span id="cb5-4"><a aria-label="4"></a>)</span>
-<span id="cb5-5"><a aria-label="5"></a></span>
-<span id="cb5-6"><a aria-label="6"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb5-7"><a aria-label="7"></a>  client <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>()</span>
-<span id="cb5-8"><a aria-label="8"></a>  <span class="fu">prep_blockbuster_agent</span>(client, ...)</span>
-<span id="cb5-9"><a aria-label="9"></a>  <span class="fu">chat_server</span>(<span class="st">"chat"</span>, client)</span>
-<span id="cb5-10"><a aria-label="10"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>ui <span class="ot">&lt;-</span> <span class="fu">page_chat</span>(</span>
+<span id="cb8-2"><a aria-label="2"></a>  <span class="st">"Blockbuster renewal assistant"</span>,</span>
+<span id="cb8-3"><a aria-label="3"></a>  <span class="at">id =</span> <span class="st">"chat"</span></span>
+<span id="cb8-4"><a aria-label="4"></a>)</span>
+<span id="cb8-5"><a aria-label="5"></a></span>
+<span id="cb8-6"><a aria-label="6"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb8-7"><a aria-label="7"></a>  client <span class="ot">&lt;-</span> <span class="fu">chat_posit</span>()</span>
+<span id="cb8-8"><a aria-label="8"></a>  <span class="fu">prep_blockbuster_agent</span>(client, ...)</span>
+<span id="cb8-9"><a aria-label="9"></a>  <span class="fu">chat_server</span>(<span class="st">"chat"</span>, client)</span>
+<span id="cb8-10"><a aria-label="10"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:50%;">
 <h3 id="python-1">Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-label="1"></a>app_ui <span class="op">=</span> page_chat(</span>
-<span id="cb6-2"><a aria-label="2"></a>    <span class="st">"Blockbuster renewal assistant"</span>,</span>
-<span id="cb6-3"><a aria-label="3"></a>    <span class="bu">id</span><span class="op">=</span><span class="st">"chat"</span>,</span>
-<span id="cb6-4"><a aria-label="4"></a>)</span>
-<span id="cb6-5"><a aria-label="5"></a></span>
-<span id="cb6-6"><a aria-label="6"></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb6-7"><a aria-label="7"></a>    client <span class="op">=</span> ChatPosit()</span>
-<span id="cb6-8"><a aria-label="8"></a>    prep_blockbuster_agent(client, ...)</span>
-<span id="cb6-9"><a aria-label="9"></a>    Chat(<span class="st">"chat"</span>, client<span class="op">=</span>client)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a>app_ui <span class="op">=</span> page_chat(</span>
+<span id="cb9-2"><a aria-label="2"></a>    <span class="st">"Blockbuster renewal assistant"</span>,</span>
+<span id="cb9-3"><a aria-label="3"></a>    <span class="bu">id</span><span class="op">=</span><span class="st">"chat"</span>,</span>
+<span id="cb9-4"><a aria-label="4"></a>)</span>
+<span id="cb9-5"><a aria-label="5"></a></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb9-7"><a aria-label="7"></a>    client <span class="op">=</span> ChatPosit()</span>
+<span id="cb9-8"><a aria-label="8"></a>    prep_blockbuster_agent(client, ...)</span>
+<span id="cb9-9"><a aria-label="9"></a>    Chat(<span class="st">"chat"</span>, client<span class="op">=</span>client)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <aside class="notes">
 <p><code>chat_server()</code> and <code>Chat(client=...)</code> provide the chat behavior, including history, streaming, and cancellation.</p>
@@ -474,11 +555,11 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <section id="give-people-a-useful-start" class="slide level2 center">
 <h2>Give people a useful start</h2>
 <p>A greeting explains the app and can offer prompts they can use or edit.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a aria-label="1"></a><span class="fu">## Welcome to the renewal desk</span></span>
-<span id="cb7-2"><a aria-label="2"></a></span>
-<span id="cb7-3"><a aria-label="3"></a><span class="ss">* </span><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"suggestion submit"</span><span class="dt">&gt;</span>Draft renewal letters for the top three lapsed members.<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb7-4"><a aria-label="4"></a><span class="ss">* </span><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"suggestion submit"</span><span class="dt">&gt;</span>List the draft letters already in the workspace.<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb7-5"><a aria-label="5"></a><span class="ss">* </span><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"suggestion submit"</span><span class="dt">&gt;</span>Explain the renewal-letter skill.<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a aria-label="1"></a><span class="fu">## Welcome to the renewal desk</span></span>
+<span id="cb10-2"><a aria-label="2"></a></span>
+<span id="cb10-3"><a aria-label="3"></a><span class="ss">* </span><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"suggestion submit"</span><span class="dt">&gt;</span>Draft renewal letters for the top three lapsed members.<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="ss">* </span><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"suggestion submit"</span><span class="dt">&gt;</span>List the draft letters already in the workspace.<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb10-5"><a aria-label="5"></a><span class="ss">* </span><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"suggestion submit"</span><span class="dt">&gt;</span>Explain the renewal-letter skill.<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>A <code>suggestion</code> fills the chat input.</p>
 <p>Add <code>submit</code> to send it immediately.</p>
@@ -503,7 +584,7 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <li><p>Add a greeting with three suggestion cards for common renewal tasks.</p></li>
 <li><p>Use a suggestion to draft letters for the top three lapsed members.</p></li>
 </ol>
-<countdown-timer id="timer_e147ed7b0e7367cb5722c40c002ff82fb91ff437" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
+<countdown-timer id="timer_d83c4b1d3d2d4ea746ff399a83ca3a9d8ec989bd" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The agent, its file tools, and the complete skills system are already in <code>_agent.R</code> or <code>_agent.py</code>.</p>
@@ -593,7 +674,7 @@ Ex: <em>Which neighborhood has the most private rooms?</em></p></li>
 <li><p>Ask the agent to draft a renewal letter for Elaine Wu.</p></li>
 <li><p>Edit the letter in the drawer, save it, then ask the agent to revise that draft.</p></li>
 </ol>
-<countdown-timer id="timer_e147ed7b0e7367cb5722c40c002ff82fb91ff437" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
+<countdown-timer id="timer_d83c4b1d3d2d4ea746ff399a83ca3a9d8ec989bd" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The supplied reactive timer keeps the draft picker current.</p>
