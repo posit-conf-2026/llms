@@ -1211,7 +1211,7 @@
     "href": "setup.html#use-posit-cloud-recommended",
     "title": "Getting set up",
     "section": "Use Posit Cloud (recommended)",
-    "text": "Use Posit Cloud (recommended)\nThe easiest way to follow along is our Posit Cloud workspace. It comes with R, Python, and every package and file used in the workshop, already installed. You work in your browser, so there’s nothing to install on your laptop.\n\n\n\n\n\n\nWarningWorkspace link coming soon\n\n\n\nThe link to join the Posit Cloud workspace will be posted here shortly before the workshop starts.\n\n\nIf you don’t have a Posit Cloud account, sign up for a free one. You can sign up with your email, Google, GitHub, or Clever. When the workspace link is available, join the space and launch the workshop project.\nWhen the project opens, pick your editor: Positron or RStudio. Both work for every activity in the workshop."
+    "text": "Use Posit Cloud (recommended)\nThe easiest way to follow along is our Posit Cloud workspace. It comes with R, Python, and every package and file used in the workshop, already installed. You work in your browser, so there’s nothing to install on your laptop.\n\n\n\n\n\n\nWarningWorkspace link coming soon\n\n\n\nThe link to join the Posit Cloud workspace will be emailed to you shortly before the workshop starts.\n\n\nIf you don’t have a Posit Cloud account, sign up for a free one. You can sign up with your email, Google, GitHub, or Clever. When the workspace link is available, join the space and launch the workshop project.\nWhen the project opens, pick the project that corresponds with the editor of your choice: Positron or RStudio."
   },
   {
     "objectID": "setup.html#choose-your-ide",
@@ -1585,6 +1585,13 @@
     "title": "Welcome!",
     "section": "Welcome to Programming with LLM APIs !",
     "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nGet set up for the workshop:\nposit-conf-2026.github.io/llms\nJoin the Discord: pos.it/joinconf26\nwifi: TODO pwd: TODO\nConference details: conf.posit.co/2026"
+  },
+  {
+    "objectID": "slides/slides-00.html#set-up-your-posit-cloud-space",
+    "href": "slides/slides-00.html#set-up-your-posit-cloud-space",
+    "title": "Welcome!",
+    "section": "Set up your Posit Cloud space",
+    "text": "Set up your Posit Cloud space\nJoin us at https://bit.ly/conf26-llms\n\nPick: Positron or RStudio?"
   },
   {
     "objectID": "slides/slides-00.html#positron-get-the-latest-updates",
