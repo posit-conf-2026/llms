@@ -9,7 +9,7 @@ by Garrick Aden-Buie and Sara Altman
 
 :spiral_calendar: September 14, 2026 \
 :alarm_clock:     09:00 - 17:00 \
-:hotel:           Hilton Americas-Houston, room TBD \
+:hotel:           Hilton Americas-Houston, Lanier I \
 :writing_hand:    <https://posit-conf-2026.github.io/llms/>
 
 -----
