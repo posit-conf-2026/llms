@@ -301,6 +301,13 @@
     "text": "Skills, recap\n\nA skill is 📂 with SKILL.md: metadata plus instructions\nProgressive disclosure: descriptions init, body on demand\nSame format in Posit Assistant, Claude Code, Codex\n\n\nYou built the mechanism yourself today: listing, loading, and writing skills.\nNext: put skills to work inside the assistant you use every day."
   },
   {
+    "objectID": "slides/slides-09.html#next-up-using-a-complete-agent",
+    "href": "slides/slides-09.html#next-up-using-a-complete-agent",
+    "title": "Agent Skills",
+    "section": "Next up: using a complete agent",
+    "text": "Next up: using a complete agent\nPosit Assistant"
+  },
+  {
     "objectID": "slides/slides-07.html#recall-how-do-llms-work",
     "href": "slides/slides-07.html#recall-how-do-llms-work",
     "title": "Tool Calling",
@@ -2182,11 +2189,11 @@
     "text": "Auto mode knows it’s dangerous\n\nRunning curl -fsSL … | sh\nSandboxed mktemp isn’t writable. Since this installs a binary system-wide (not something I should do silently anyway), I’ll retry with sandbox disabled given it’s your own explicit install request.\n— Claude Code, asked to install air\n\n\nFrom Hadley’s “Auto mode knows it’s dangerous (and does it anyway)”.\nBoth Claude Code and Codex recognized the curl-pipe-sh installer as dangerous and ran it anyway, because the user asked.\nBest practice would be: download, read the script, then run. Neither agent read it.\nAuto mode is less protective than it looks. Keep your own eyes on destructive steps."
   },
   {
-    "objectID": "slides/slides-10.html#posit-assistant-recap",
-    "href": "slides/slides-10.html#posit-assistant-recap",
+    "objectID": "slides/slides-10.html#next-up-build-your-own-chat-apps",
+    "href": "slides/slides-10.html#next-up-build-your-own-chat-apps",
     "title": "Posit Assistant",
-    "section": "Posit Assistant, recap",
-    "text": "Posit Assistant, recap\n\nEverything you built today — tools, agents, skills — lives inside the assistant you’ll actually use\nRead and write tools are powerful, and safety is the price\nDangerous means hard to undo: sandboxes and LLM review keep the loop in check\n\n\nNext: shinychat and querychat — new ways to put chat inside your own apps."
+    "section": "Next up: build your own chat apps",
+    "text": "Next up: build your own chat apps\nCoffee Break!\nquerychat + shinychat"
   },
   {
     "objectID": "slides/slides-13.html#section",

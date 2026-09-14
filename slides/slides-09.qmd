@@ -331,3 +331,7 @@ You built the mechanism yourself today: listing, loading, and writing skills.
 
 Next: put skills to work inside the assistant you use every day.
 :::
+
+## Next up: using a complete agent {.center .tc}
+
+[Posit Assistant](slides-10.qmd)
