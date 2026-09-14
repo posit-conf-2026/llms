@@ -236,6 +236,16 @@ Passing `client=` gives `Chat` the same batteries-included behavior as
 `chat_server()` in R, including the submit handler and streaming response.
 :::
 
+# Your Turn `06_word-games` {.slide-your-turn}
+
+1. I've set up the basic Shiny app snippet and a system prompt.
+
+2. Your job: create a chatbot that plays a "20 questions" style word guessing game with you.
+
+3. The model was given a secret word, and it's your job to guess it.
+
+{{< countdown 7:00 top="-1em" >}}
+
 ## Chat can be the application {.center}
 
 `page_chat()` gives a conversation its own page.
