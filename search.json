@@ -217,46 +217,39 @@
     "text": "Discussion: Did your agent…?\n\nList the drafts before it created a new version?\nWrite a draft named elaine-wu-v1.md or the next available version?\nOpen the letter it wrote in the drawer?\nPreserve your edit when you saved it?\nRead the current letter before it tried to edit it?\n\n\nThe final question is deliberately not a requirement in the system prompt.\nAsk people to inspect the trace and consider what happens when a person and an agent edit the same file.\nThe app has separate state in the conversation, the selected draft, the editor, and the workspace.\nThis is a small example of a much larger application-design problem."
   },
   {
-    "objectID": "slides/slides-09.html#youve-been-using-skills-all-day",
-    "href": "slides/slides-09.html#youve-been-using-skills-all-day",
+    "objectID": "slides/slides-09.html#have-you-used-a-skill-today",
+    "href": "slides/slides-09.html#have-you-used-a-skill-today",
     "title": "Agent Skills",
-    "section": "You’ve been using skills all day",
-    "text": "You’ve been using skills all day\nWhen you asked Posit Assistant for help today, it loaded .agents/skills/help/SKILL.md.\n\nA skill is a folder with a SKILL.md file: a description of when to use it, plus instructions for how to do the job.\n\n\nOpen .agents/skills/help/SKILL.md live and scroll through it. Attendees have been on the receiving end of this skill all morning.\nThe same format works across agents: Posit Assistant, Claude Code, and many others follow the Agent Skills spec.\nSkills are plain markdown, checked into your project — no packaging, no build step."
-  },
-  {
-    "objectID": "slides/slides-09.html#anatomy-of-a-skill",
-    "href": "slides/slides-09.html#anatomy-of-a-skill",
-    "title": "Agent Skills",
-    "section": "Anatomy of a skill",
-    "text": "Anatomy of a skill\nskills/\n└── renewal-letters/\n    ├── SKILL.md      # Required: metadata + instructions\n    ├── scripts/      # Optional: executable code\n    ├── references/   # Optional: documentation\n    └── assets/       # Optional: templates, data files"
+    "section": "Have you used a skill today?",
+    "text": "Have you used a skill today?\n\nIf you asked Posit Assistant for /help today, you have!\n\n\nLet’s look at it in .agents/skills/help/SKILL.md\n\n\nOpen .agents/skills/help/SKILL.md live and scroll through it. Attendees have been on the receiving end of this skill all morning.\nThe same format works across agents: Posit Assistant, Claude Code, and many others follow the Agent Skills spec.\nSkills are plain markdown, checked into your project — no packaging, no build step."
   },
   {
     "objectID": "slides/slides-09.html#skill.md",
     "href": "slides/slides-09.html#skill.md",
     "title": "Agent Skills",
     "section": "SKILL.md",
-    "text": "SKILL.md\n---\nname: renewal-letters\ndescription: Draft a renewal letter for a lapsed Last Blockbuster member.\n---\n\n# Renewal letters\n\nOffer Basic members a free-rental code.\nOffer Family members a family-night bundle.\nOffer Founders members a commemorative card.\n\nAgent Skills specification\n\n\nTwo required frontmatter fields:\n\nname: lowercase, hyphens, max 64 characters, must match the folder name.\ndescription: max 1024 characters, and it must say what the skill does AND when to use it.\n\nThe description is the only thing the agent sees at startup, so it decides whether your skill ever gets used.\nThe body is free markdown: steps, rules, gotchas, a template."
+    "text": "SKILL.md\n---\nname: renewal-letters\ndescription: Draft a renewal letter for a lapsed Last Blockbuster member.\n---\n\n# Renewal letters\n\nOffer Basic members a free-rental code.\nOffer Family members a family-night bundle.\nOffer Founders members a commemorative card.\n\nAgent Skills specification · agentskills.io\n\n\nTwo required frontmatter fields:\n\nname: lowercase, hyphens, max 64 characters, must match the folder name.\ndescription: max 1024 characters, and it must say what the skill does AND when to use it.\n\nThe description is the only thing the agent sees at startup, so it decides whether your skill ever gets used.\nThe body is free markdown: steps, rules, gotchas, a template."
+  },
+  {
+    "objectID": "slides/slides-09.html#anatomy-of-a-skill",
+    "href": "slides/slides-09.html#anatomy-of-a-skill",
+    "title": "Agent Skills",
+    "section": "Anatomy of a skill",
+    "text": "Anatomy of a skill\n.agents/skills/\n└── renewal-letters/\n    ├── SKILL.md      # Required: metadata + instructions\n    ├── references/   # Optional: documentation\n    ├── scripts/      # Optional: executable code\n    └── assets/       # Optional: templates, data files"
   },
   {
     "objectID": "slides/slides-09.html#progressive-disclosure",
     "href": "slides/slides-09.html#progressive-disclosure",
     "title": "Agent Skills",
     "section": "Progressive disclosure",
-    "text": "Progressive disclosure\n\nDiscovery — the agent loads only each skill’s name and description (~100 tokens each)\nActivation — when a task matches, the agent reads the full SKILL.md\nExecution — instructions run; extra files load only when the skill asks for them\n\n\nThis is why skills scale: you can keep 100 skills on hand for the cost of their descriptions.\nThe full instructions load only when a task calls for them.\nSame idea you’ll implement by hand in the exercise: the system prompt lists the skill, a tool loads the body.\nTODO: excalidraw diagram in the style of the tools sequence in slides-07."
+    "text": "Progressive disclosure\n\nDiscovery\nthe agent starts with name and description\nActivation\nwhen it decides to, the agent reads the full SKILL.md\nExecution\nafter that, it’s in the agent’s robot hands\n\n\nThis is why skills scale: you can keep 100 skills on hand for the cost of their descriptions.\nThe full instructions load only when a task calls for them.\nSame idea you’ll implement by hand in the exercise: the system prompt lists the skill, a tool loads the body.\nTODO: excalidraw diagram in the style of the tools sequence in slides-07."
   },
   {
     "objectID": "slides/slides-09.html#why-not-just-use-the-system-prompt",
     "href": "slides/slides-09.html#why-not-just-use-the-system-prompt",
     "title": "Agent Skills",
     "section": "Why not just use the system prompt?",
-    "text": "Why not just use the system prompt?\n\nThe system prompt is always in context — every token, every request\nSkills load on demand — only when a task matches\nSo skills let you give an agent deep expertise without paying for it up front\n\n\nYou wrote a system prompt for the Blockbuster agent. That works for one small set of rules.\nNow imagine 50 jobs: renewal letters, store opening procedures, staff notes, rental policies, and social media voice.\nStuffed into the system prompt, they crowd out the conversation and cost tokens on every request.\nAs skills, they cost about 100 tokens each until the moment one is needed."
-  },
-  {
-    "objectID": "slides/slides-09.html#writing-a-skill-that-works",
-    "href": "slides/slides-09.html#writing-a-skill-that-works",
-    "title": "Agent Skills",
-    "section": "Writing a skill that works",
-    "text": "Writing a skill that works\n\nAdd what the agent lacks; omit what it knows — no “write clear descriptions”\nDescription says what and when — it’s the trigger\nConcrete beats generic — a template, a rule, a gotcha\nKeep it short — under 500 lines; push detail to references/\n\n\nBest practices for skill creators\n\n\nThe test for every line: would the agent get this wrong without it?\nIf the agent already writes clean markdown, don’t tell it to write clean markdown.\nGive a default, not a menu: one way to do it, with an escape hatch.\nGotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions."
+    "text": "Why not just use the system prompt?\n\n\nSystem prompt\ninstructions for every session\n\n\nSkills\non-demand instructions\n\n\n\n\nThe system prompt is always in context — every token, every request\nSkills load on demand — only when a task matches\nSo skills let you give an agent deep expertise without paying for it up front\n\nYou wrote a system prompt for the Blockbuster agent. That works for one small set of rules.\nNow imagine 50 jobs: renewal letters, store opening procedures, staff notes, rental policies, and social media voice.\nStuffed into the system prompt, they crowd out the conversation and cost tokens on every request.\nAs skills, they cost about 100 tokens each until the moment one is needed."
   },
   {
     "objectID": "slides/slides-09.html#the-scene-win-back-letters",
@@ -273,6 +266,13 @@
     "text": "Discussion: Did your agent…?\n\nRead the skill before it drafted a single letter?\nPick the right top three members from lapsed.csv?\nInvent tier facts — a Founders perk for someone who isn’t one?\nMention overdue fees, even though the skill forbids it?\nLeave the data files untouched?\n\n\nStress-test evidence, five runs: the mechanism you built works — read_skill fired first in every single run, before any drafting.\nBut the agent picked the wrong “top three” in one of five runs, drafting for Malik Johnson instead of Elaine Wu — reading the file isn’t the same as reading it carefully.\nThat same run compounded the error: it called a Basic-tier member “one of our Founders members” and gave him a commemorative card. Wrong pick, wrong perk.\nAnother run wrote “late fees we won’t dwell on” in a letter — a direct brush with the skill’s no-fees rule.\nThe good news: in all five runs the data files were left untouched, tool calls were clean, and four of five letter sets were correct.\nClose on the failure modes: skills load reliably, but grounding — who are the top three, what tier are they — still depends on the agent checking its sources."
   },
   {
+    "objectID": "slides/slides-09.html#writing-a-skill-that-works",
+    "href": "slides/slides-09.html#writing-a-skill-that-works",
+    "title": "Agent Skills",
+    "section": "Writing a skill that works",
+    "text": "Writing a skill that works\n\nAdd what the agent lacks; omit what it knows\nThe description is the trigger\nConcrete beats generic\nKeep it short\n\n\nBest practices for skill creators\n\n\nThe test for every line: would the agent get this wrong without it?\nIf the agent already writes clean markdown, don’t tell it to write clean markdown.\nGive a default, not a menu: one way to do it, with an escape hatch.\nGotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions."
+  },
+  {
     "objectID": "slides/slides-09.html#discussion-did-your-agent-1",
     "href": "slides/slides-09.html#discussion-did-your-agent-1",
     "title": "Agent Skills",
@@ -284,21 +284,21 @@
     "href": "slides/slides-09.html#skills-in-posit-assistant",
     "title": "Agent Skills",
     "section": "Skills in Posit Assistant",
-    "text": "Skills in Posit Assistant\n\nBuilt-ins: create-skill, r-package-development, quarto-authoring, …\nYours: ~/.posit/assistant/skills/ (all projects) or .agents/skills/ (this project)\nMost skills also run as slash commands: /renewal-letters\n\n\nSkills — Posit Assistant docs\n\n\n.agents/skills/ is the portable location: any spec-following agent can read it.\nThe built-in create-skill skill walks you through making a new one interactively.\nSkills double as commands when you want to trigger a workflow deliberately instead of hoping the model picks it."
+    "text": "Skills in Posit Assistant\n\nBuilt-ins: create-skill, r-package-development, quarto-authoring, …\nYours: ~/.posit/assistant/skills/ (all projects) or .agents/skills/ (this project)\nMost skills also run as slash commands: /check-my-work\n\n\nSkills — Posit Assistant docs\n\n\n.agents/skills/ is the portable location: any spec-following agent can read it.\nThe built-in create-skill skill walks you through making a new one interactively.\nSkills double as commands when you want to trigger a workflow deliberately instead of hoping the model picks it."
   },
   {
     "objectID": "slides/slides-09.html#skills-in-the-ecosystem",
     "href": "slides/slides-09.html#skills-in-the-ecosystem",
     "title": "Agent Skills",
     "section": "Skills in the ecosystem",
-    "text": "Skills in the ecosystem\n\n\n\n\n\n\n\n\nLayer\nWhat it carries\nWhen it loads\n\n\n\n\nSystem prompt\nCore behavior\nAlways\n\n\nSkills\nProcedures, house rules, expertise\nOn demand\n\n\nMCP servers\nConnections to external tools\nRegistered per tool call\n\n\n\n\nRough map, from the Posit open-source AI newsletter.\nAGENTS.md and the system prompt shape everything the agent does.\nSkills carry the long tail of knowledge: too specific to always pay for, too valuable to leave out.\nMCP servers are about tools — connections to databases, APIs, other software. Bonus material covers MCP."
+    "text": "Skills in the ecosystem\n\nskill.sh\n\n\nposit-dev/skills\n\n\nnpx skills add\n\n\nCan you install the skill from…\n\n\nAGENTS.md and the system prompt shape everything the agent does.\nSkills carry the long tail of knowledge: too specific to always pay for, too valuable to leave out.\nMCP servers are about tools — connections to databases, APIs, other software. Bonus material covers MCP."
   },
   {
     "objectID": "slides/slides-09.html#skills-recap",
     "href": "slides/slides-09.html#skills-recap",
     "title": "Agent Skills",
     "section": "Skills, recap",
-    "text": "Skills, recap\n\nA skill is a folder with SKILL.md: metadata plus instructions\nProgressive disclosure: descriptions at startup, body on demand\nWrite what the agent doesn’t know — and say when to use it\nSame format in Posit Assistant, Claude Code, and any spec-following agent\n\n\nYou built the mechanism yourself today: listing, loading, and writing skills.\nNext: put skills to work inside the assistant you use every day."
+    "text": "Skills, recap\n\nA skill is 📂 with SKILL.md: metadata plus instructions\nProgressive disclosure: descriptions init, body on demand\nSame format in Posit Assistant, Claude Code, Codex\n\n\nYou built the mechanism yourself today: listing, loading, and writing skills.\nNext: put skills to work inside the assistant you use every day."
   },
   {
     "objectID": "slides/slides-07.html#recall-how-do-llms-work",

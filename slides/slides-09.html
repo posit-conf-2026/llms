@@ -237,11 +237,13 @@
 <p>Agent Skills</p>
 </div>
 </section>
-<section id="youve-been-using-skills-all-day" class="slide level2 center">
-<h2>You’ve been using skills all day</h2>
-<p>When you asked Posit Assistant for help today, it loaded <code>.agents/skills/help/SKILL.md</code>.</p>
+<section id="have-you-used-a-skill-today" class="slide level2 center" style="font-size: 1.4em">
+<h2>Have you used a skill today?</h2>
 <div class="fragment">
-<p>A skill is a folder with a <code>SKILL.md</code> file: a description of when to use it, plus instructions for how to do the job.</p>
+<p>If you asked Posit Assistant for <code>/help</code> today, you have!</p>
+</div>
+<div class="fragment">
+<p>Let’s look at it in <code>.agents/skills/help/SKILL.md</code></p>
 </div>
 <aside class="notes">
 <p>Open <code>.agents/skills/help/SKILL.md</code> live and scroll through it. Attendees have been on the receiving end of this skill all morning.</p>
@@ -259,29 +261,20 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="anatomy-of-a-skill" class="slide level2">
-<h2>Anatomy of a skill</h2>
-<pre><code>skills/
-└── renewal-letters/
-    ├── SKILL.md      # Required: metadata + instructions
-    ├── scripts/      # Optional: executable code
-    ├── references/   # Optional: documentation
-    └── assets/       # Optional: templates, data files</code></pre>
-</section>
 <section id="skill.md" class="slide level2">
 <h2>SKILL.md</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a aria-label="2"></a><span class="an">name:</span><span class="co"> renewal-letters</span></span>
-<span id="cb2-3"><a aria-label="3"></a><span class="an">description:</span><span class="co"> Draft a renewal letter for a lapsed Last Blockbuster member.</span></span>
-<span id="cb2-4"><a aria-label="4"></a><span class="co">---</span></span>
-<span id="cb2-5"><a aria-label="5"></a></span>
-<span id="cb2-6"><a aria-label="6"></a><span class="fu"># Renewal letters</span></span>
-<span id="cb2-7"><a aria-label="7"></a></span>
-<span id="cb2-8"><a aria-label="8"></a>Offer Basic members a free-rental code.</span>
-<span id="cb2-9"><a aria-label="9"></a>Offer Family members a family-night bundle.</span>
-<span id="cb2-10"><a aria-label="10"></a>Offer Founders members a commemorative card.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="|2|3|6-10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-label="1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="an">name:</span><span class="co"> renewal-letters</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="an">description:</span><span class="co"> Draft a renewal letter for a lapsed Last Blockbuster member.</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="co">---</span></span>
+<span id="cb1-5"><a aria-label="5"></a></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="fu"># Renewal letters</span></span>
+<span id="cb1-7"><a aria-label="7"></a></span>
+<span id="cb1-8"><a aria-label="8"></a>Offer Basic members a free-rental code.</span>
+<span id="cb1-9"><a aria-label="9"></a>Offer Family members a family-night bundle.</span>
+<span id="cb1-10"><a aria-label="10"></a>Offer Founders members a commemorative card.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="footer">
-<p><a href="https://agentskills.io/specification" data-preview-link="true">Agent Skills specification</a></p>
+<p><a href="https://agentskills.io/specification" data-preview-link="true">Agent Skills specification</a> · agentskills.io</p>
 </div>
 <aside class="notes">
 <p>Two required frontmatter fields:</p>
@@ -303,12 +296,24 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="progressive-disclosure" class="slide level2 center">
+<section id="anatomy-of-a-skill" class="slide level2">
+<h2>Anatomy of a skill</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="|1|2|3|4|5-6"><pre class="sourceCode numberSource plain number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>.agents/skills/</span>
+<span id="cb2-2"><a aria-label="2"></a>└── renewal-letters/</span>
+<span id="cb2-3"><a aria-label="3"></a>    ├── SKILL.md      # Required: metadata + instructions</span>
+<span id="cb2-4"><a aria-label="4"></a>    ├── references/   # Optional: documentation</span>
+<span id="cb2-5"><a aria-label="5"></a>    ├── scripts/      # Optional: executable code</span>
+<span id="cb2-6"><a aria-label="6"></a>    └── assets/       # Optional: templates, data files</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="progressive-disclosure" class="slide level2 center" style="font-size: 1.33em">
 <h2>Progressive disclosure</h2>
 <ol type="1">
-<li class="fragment"><p><strong>Discovery</strong> — the agent loads only each skill’s <code>name</code> and <code>description</code> (~100 tokens each)</p></li>
-<li class="fragment"><p><strong>Activation</strong> — when a task matches, the agent reads the full <code>SKILL.md</code></p></li>
-<li class="fragment"><p><strong>Execution</strong> — instructions run; extra files load only when the skill asks for them</p></li>
+<li class="fragment"><p><strong>Discovery</strong><br>
+the agent starts with <code>name</code> and <code>description</code></p></li>
+<li class="fragment"><p><strong>Activation</strong><br>
+when it decides to, the agent reads the full <code>SKILL.md</code></p></li>
+<li class="fragment"><p><strong>Execution</strong><br>
+after that, it’s in the agent’s robot hands</p></li>
 </ol>
 <aside class="notes">
 <p>This is why skills scale: you can keep 100 skills on hand for the cost of their descriptions.</p>
@@ -327,46 +332,28 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="why-not-just-use-the-system-prompt" class="slide level2">
+<section id="why-not-just-use-the-system-prompt" class="slide level2 tc center" style="font-size: 1.25em">
 <h2>Why not just use the system prompt?</h2>
-<ul>
-<li class="fragment"><p>The system prompt is <strong>always</strong> in context — every token, every request</p></li>
-<li class="fragment"><p>Skills load <strong>on demand</strong> — only when a task matches</p></li>
-<li class="fragment"><p>So skills let you give an agent deep expertise without paying for it up front</p></li>
-</ul>
+<div class="easy-columns mt5">
+<div class="fragment">
+<p><strong>System prompt</strong></p>
+<p>instructions for every session</p>
+</div>
+<div class="fragment">
+<p><strong>Skills</strong></p>
+<p>on-demand instructions</p>
+</div>
+</div>
 <aside class="notes">
+<ul>
+<li><p>The system prompt is <strong>always</strong> in context — every token, every request</p></li>
+<li><p>Skills load <strong>on demand</strong> — only when a task matches</p></li>
+<li><p>So skills let you give an agent deep expertise without paying for it up front</p></li>
+</ul>
 <p>You wrote a system prompt for the Blockbuster agent. That works for one small set of rules.</p>
 <p>Now imagine 50 jobs: renewal letters, store opening procedures, staff notes, rental policies, and social media voice.</p>
 <p>Stuffed into the system prompt, they crowd out the conversation and cost tokens on every request.</p>
 <p>As skills, they cost about 100 tokens each until the moment one is needed.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="writing-a-skill-that-works" class="slide level2">
-<h2>Writing a skill that works</h2>
-<ul>
-<li class="fragment"><p><strong>Add what the agent lacks; omit what it knows</strong> — no “write clear descriptions”</p></li>
-<li class="fragment"><p><strong>Description says what and when</strong> — it’s the trigger</p></li>
-<li class="fragment"><p><strong>Concrete beats generic</strong> — a template, a rule, a gotcha</p></li>
-<li class="fragment"><p><strong>Keep it short</strong> — under 500 lines; push detail to <code>references/</code></p></li>
-</ul>
-<div class="footer">
-<p><a href="https://agentskills.io/skill-creation/best-practices" data-preview-link="true">Best practices for skill creators</a></p>
-</div>
-<aside class="notes">
-<p>The test for every line: would the agent get this wrong without it?</p>
-<p>If the agent already writes clean markdown, don’t tell it to write clean markdown.</p>
-<p>Give a default, not a menu: one way to do it, with an escape hatch.</p>
-<p>Gotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -433,7 +420,7 @@
 <li><p>List the skill in the system prompt, and give the agent a tool to read it.</p></li>
 <li><p>Draft letters for the top three lapsed members. Watch the agent read the skill <strong>before</strong> it starts drafting — and check them against the scene we just saw.</p></li>
 </ol>
-<countdown-timer id="timer_1f6f31afc0908510da7d8871b4edf7eb87416d3b" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_3421ecf414705a3e1dfbaefc35a26aee8d7f2835" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The read_skill tool is like the read_file tool, pointed at the skills folder.</p>
@@ -478,6 +465,34 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="writing-a-skill-that-works" class="slide level2 center" style="font-size: 1.33em">
+<h2>Writing a skill that works</h2>
+<ul>
+<li class="fragment"><p>Add what the agent lacks; omit what it knows</p></li>
+<li class="fragment"><p>The <strong>description is the trigger</strong></p></li>
+<li class="fragment"><p>Concrete beats generic</p></li>
+<li class="fragment"><p>Keep it short</p></li>
+</ul>
+<div class="footer">
+<p><a href="https://agentskills.io/skill-creation/best-practices" data-preview-link="true">Best practices for skill creators</a></p>
+</div>
+<aside class="notes">
+<p>The test for every line: would the agent get this wrong without it?</p>
+<p>If the agent already writes clean markdown, don’t tell it to write clean markdown.</p>
+<p>Give a default, not a menu: one way to do it, with an escape hatch.</p>
+<p>Gotchas are the highest-value content: the environment-specific facts that defy reasonable assumptions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="your-turn-22_skills-2" class="title-slide slide level1 slide-your-turn center">
@@ -487,7 +502,7 @@
 <li><p>Use the diagnostic questions to fix <code>SKILL.md</code>, then re-run the letter task.</p></li>
 <li><p>Compare: same agent, same tools, different skill, different letters and token spend.</p></li>
 </ol>
-<countdown-timer id="timer_1f6f31afc0908510da7d8871b4edf7eb87416d3b" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_3421ecf414705a3e1dfbaefc35a26aee8d7f2835" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The planted problems: the description is background about the manager’s notes, while the actual trigger sits in the body. The body also repeats policies, generic advice, and conflicting process instructions.</p>
@@ -532,12 +547,12 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="skills-in-posit-assistant" class="slide level2">
+<section id="skills-in-posit-assistant" class="slide level2 center" style="font-size: 1.33em">
 <h2>Skills in Posit Assistant</h2>
 <ul>
 <li class="fragment"><p>Built-ins: <code>create-skill</code>, <code>r-package-development</code>, <code>quarto-authoring</code>, …</p></li>
 <li class="fragment"><p>Yours: <code>~/.posit/assistant/skills/</code> (all projects) or <code>.agents/skills/</code> (this project)</p></li>
-<li class="fragment"><p>Most skills also run as slash commands: <code>/renewal-letters</code></p></li>
+<li class="fragment"><p>Most skills also run as slash commands: <code>/check-my-work</code></p></li>
 </ul>
 <div class="footer">
 <p><a href="https://assistant.posit.co/docs/features/skills/" data-preview-link="true">Skills — Posit Assistant docs</a></p>
@@ -558,41 +573,21 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="skills-in-the-ecosystem" class="slide level2">
+<section id="skills-in-the-ecosystem" class="slide level2 center tc" style="font-size: 2em">
 <h2>Skills in the ecosystem</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 39%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Layer</th>
-<th style="text-align: left;">What it carries</th>
-<th style="text-align: left;">When it loads</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">System prompt</td>
-<td style="text-align: left;">Core behavior</td>
-<td style="text-align: left;">Always</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Skills</strong></td>
-<td style="text-align: left;">Procedures, house rules, expertise</td>
-<td style="text-align: left;">On demand</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MCP servers</td>
-<td style="text-align: left;">Connections to external tools</td>
-<td style="text-align: left;">Registered per tool call</td>
-</tr>
-</tbody>
-</table>
+<div class="fragment">
+<p><a href="https://skill.sh">skill.sh</a></p>
+</div>
+<div class="fragment">
+<p><a href="https://github.com/posit-dev/skills">posit-dev/skills</a></p>
+</div>
+<div class="fragment">
+<p><code>npx skills add</code></p>
+</div>
+<div class="fragment">
+<p><em>Can you install the skill from…</em></p>
+</div>
 <aside class="notes">
-<p>Rough map, from the Posit open-source AI newsletter.</p>
 <p>AGENTS.md and the system prompt shape everything the agent does.</p>
 <p>Skills carry the long tail of knowledge: too specific to always pay for, too valuable to leave out.</p>
 <p>MCP servers are about tools — connections to databases, APIs, other software. Bonus material covers MCP.</p>
@@ -608,13 +603,12 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="skills-recap" class="slide level2">
+<section id="skills-recap" class="slide level2" style="font-size: 1.2em">
 <h2>Skills, recap</h2>
 <ul>
-<li class="fragment"><p>A skill is a folder with <code>SKILL.md</code>: metadata plus instructions</p></li>
-<li class="fragment"><p>Progressive disclosure: descriptions at startup, body on demand</p></li>
-<li class="fragment"><p>Write what the agent doesn’t know — and say when to use it</p></li>
-<li class="fragment"><p>Same format in Posit Assistant, Claude Code, and any spec-following agent</p></li>
+<li class="fragment"><p>A skill is 📂 with <code>SKILL.md</code>: metadata plus instructions</p></li>
+<li class="fragment"><p>Progressive disclosure: descriptions init, body on demand</p></li>
+<li class="fragment"><p>Same format in Posit Assistant, Claude Code, Codex</p></li>
 </ul>
 <aside class="notes">
 <p>You built the mechanism yourself today: listing, loading, and writing skills.</p>
