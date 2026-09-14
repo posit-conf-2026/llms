@@ -70,15 +70,25 @@ Pick: Positron or RStudio?
 
 ![](../assets/posit-cloud-space.png){width="100%"}
 
-## Positron: Get the latest updates {.no-invert-dark-mode background-image="assets/git-pull-positron.png" background-size="100%" background-position="center 200px"}
+## Positron: Open the project
+
+::: tc
+![](../assets/positron-open-project.png){style="max-height: 80%"}
+:::
+
+## Positron: Get the latest updates
 
 * Open git panel, git fetch, then sync changes
 * Or **Git: Pull** in Command Palette
 
-## Rstudio: Get the latest updates {.no-invert-dark-mode background-image="assets/git-pull-rstudio.png" background-size="100%" background-position="center 200px"}
+![](assets/git-pull-positron.png){style="width: 100%; max-height: unset"}
+
+## Rstudio: Get the latest updates
 
 * Open Git panel
 * Click **⬇ Pull**
+
+![](assets/git-pull-rstudio.png){style="width: 100%; max-height: unset"}
 
 ## Install All The Things {.center}
 

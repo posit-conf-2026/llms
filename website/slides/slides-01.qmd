@@ -170,7 +170,7 @@ Need time or help
 ## We're using Positron
 
 ::: text-center
-![](../assets/positron-astropy.png){style="max-height: min(650px, 80vh)"}
+![](../assets/positron-astropy.png){style="max-height: 600px"}
 :::
 
 ::: footer
@@ -178,7 +178,21 @@ RStudio and VS Code are great, too!
 :::
 
 
-<!-- TODO: Cloud project instructions here -->
+## Set up your Posit Cloud space
+
+Join us at [https://bit.ly/conf26-llms]{.orange .b}
+
+::: tr
+Pick: Positron or RStudio?
+:::
+
+![](../assets/posit-cloud-space.png){width="100%"}
+
+## Positron: Open the project
+
+::: tc
+![](../assets/positron-open-project.png){style="max-height: 80%"}
+:::
 
 ## File organization
 
@@ -212,10 +226,10 @@ RStudio and VS Code are great, too!
 ..to our first activity!
 :::
 
-## To use an AI API... {.center}
+## To use an AI API you need... {.center}
 
 ::: {.fragment style="font-size: 2em;"}
-...you need an account with a provider!
+an account with a provider!
 :::
 
 ## How to use an AI provider, the usual way {.center}
