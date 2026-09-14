@@ -261,16 +261,43 @@ The log lets us inspect individual cases.
 For each case, we can compare the input, target, model answer, and score.
 :::
 
+## 
+
+:::: {.columns}
+
+::: {.column width="33%"}
+![](assets/evals-case-sensor.png){fig-alt="A line plot of 24 hourly greenhouse temperature readings in Fahrenheit, gently falling from 55 to 50 degrees, with six identical readings of 54.1 in the middle."}
+:::
+
+::: {.column width="33%"}
+![](assets/evals-case-units.png){fig-alt="A line plot of hourly temperature for two office rooms. Room A sits near 20 degrees Celsius while room B sits near 70, far above any plausible indoor Celsius temperature."}
+:::
+
+::: {.column width="33%"}
+![](assets/evals-case-plants.png){fig-alt="A dot plot of growth measurements for six plants, three marked control and three marked fertilizer, with three tightly clustered measurements per plant."}
+:::
+
+::::
+
+::: notes
+Each case plants one subtle data-quality artifact, described to the models only in the grading criteria.
+
+- Sensor log: six consecutive identical readings of 54.1 °F in an otherwise smooth cooling curve -- a stuck sensor.
+- Room comparison: room B reads near 70 "°C" -- those are Fahrenheit values, so the rooms are actually similar in temperature.
+- Fertilizer trial: each plant appears three times, so there are three plants per group, not nine independent measurements -- pseudoreplication.
+
+Most models summarize the data nicely and flag none of these.
+:::
 
 # Your Turn `15_evals` {.slide-your-turn}
 
 1. Run the eval.
-   It grades Gemma 4 26B and Claude Haiku 4.5 on the same explanation rubric.
+   It grades Gemma 4 26B and Claude Haiku 4.5 on the same three cases.
 
 1. Open the viewer.
    Compare the responses and the grader's explanations.
 
-1. Which model followed the rubric better?
+1. Which artifacts did each model flag?
 
 {{< countdown 7:00 left=0 bottom="-2em" >}}
 
@@ -285,8 +312,8 @@ Second, you have a setup that is working, and then a new model comes out, and yo
 
 Without an eval, both questions come down to vibes.
 
-A deterministic scorer could count sentences.
-This eval uses a model grader because the rubric also asks whether each response is accurate, clear, and concrete.
+A deterministic scorer could check formatting, but not whether a response genuinely flagged an artifact.
+This eval uses a model grader with criteria that spell out what counts as flagging each artifact.
 :::
 
 # [Prompt engineering]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}

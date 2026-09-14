@@ -1930,6 +1930,13 @@
     "text": "The aggregate result tells us how often the model passed. The log lets us inspect individual cases.\nFor each case, we can compare the input, target, model answer, and score."
   },
   {
+    "objectID": "slides/slides-05.html#section-1",
+    "href": "slides/slides-05.html#section-1",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "Each case plants one subtle data-quality artifact, described to the models only in the grading criteria.\n\nSensor log: six consecutive identical readings of 54.1 °F in an otherwise smooth cooling curve – a stuck sensor.\nRoom comparison: room B reads near 70 “°C” – those are Fahrenheit values, so the rooms are actually similar in temperature.\nFertilizer trial: each plant appears three times, so there are three plants per group, not nine independent measurements – pseudoreplication.\n\nMost models summarize the data nicely and flag none of these."
+  },
+  {
     "objectID": "slides/slides-05.html#three-best-practices",
     "href": "slides/slides-05.html#three-best-practices",
     "title": "Prompt Engineering",

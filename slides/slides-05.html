@@ -243,7 +243,7 @@
 <li><p>Create a basic <code>mtcars</code> scatter plot and ask GLM 5.3 Flash to interpret it.</p></li>
 <li><p>How does it do?</p></li>
 </ol>
-<countdown-timer id="timer_349bf98280e3539908e66c840fc64170a12c5b20" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_642fc4dee1e402b2b9272ff30054c4c49b0f661b" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 </section>
 <section id="section" class="slide level2 center">
@@ -517,15 +517,45 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="assets/evals-case-sensor.png" alt="A line plot of 24 hourly greenhouse temperature readings in Fahrenheit, gently falling from 55 to 50 degrees, with six identical readings of 54.1 in the middle."></p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="assets/evals-case-units.png" alt="A line plot of hourly temperature for two office rooms. Room A sits near 20 degrees Celsius while room B sits near 70, far above any plausible indoor Celsius temperature."></p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="assets/evals-case-plants.png" alt="A dot plot of growth measurements for six plants, three marked control and three marked fertilizer, with three tightly clustered measurements per plant."></p>
+</div></div>
+<aside class="notes">
+<p>Each case plants one subtle data-quality artifact, described to the models only in the grading criteria.</p>
+<ul>
+<li>Sensor log: six consecutive identical readings of 54.1 °F in an otherwise smooth cooling curve – a stuck sensor.</li>
+<li>Room comparison: room B reads near 70 “°C” – those are Fahrenheit values, so the rooms are actually similar in temperature.</li>
+<li>Fertilizer trial: each plant appears three times, so there are three plants per group, not nine independent measurements – pseudoreplication.</li>
+</ul>
+<p>Most models summarize the data nicely and flag none of these.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="your-turn-15_evals" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>15_evals</code></h1>
 <ol type="1">
-<li><p>Run the eval. It grades Gemma 4 26B and Claude Haiku 4.5 on the same explanation rubric.</p></li>
+<li><p>Run the eval. It grades Gemma 4 26B and Claude Haiku 4.5 on the same three cases.</p></li>
 <li><p>Open the viewer. Compare the responses and the grader’s explanations.</p></li>
-<li><p>Which model followed the rubric better?</p></li>
+<li><p>Which artifacts did each model flag?</p></li>
 </ol>
-<countdown-timer id="timer_349bf98280e3539908e66c840fc64170a12c5b20" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_642fc4dee1e402b2b9272ff30054c4c49b0f661b" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>This is where evals and prompt engineering meet.</p>
@@ -533,7 +563,7 @@
 <p>First, you want to get better at a task, and an eval tells you whether a new prompt actually improved things.</p>
 <p>Second, you have a setup that is working, and then a new model comes out, and you need to know whether it does good enough, or how it does at all.</p>
 <p>Without an eval, both questions come down to vibes.</p>
-<p>A deterministic scorer could count sentences. This eval uses a model grader because the rubric also asks whether each response is accurate, clear, and concrete.</p>
+<p>A deterministic scorer could check formatting, but not whether a response genuinely flagged an artifact. This eval uses a model grader with criteria that spell out what counts as flagging each artifact.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
