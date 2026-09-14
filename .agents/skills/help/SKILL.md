@@ -27,7 +27,7 @@ Then route:
   For file-level problems: restore a broken or spoiled exercise file with `git checkout -- <path>`, refresh stale materials with `git pull` (attendees were told to do this the night before), and remember that `data/` sits at the repo root — a "no such file" error usually means the code is running from the wrong working directory.
 - **Which exercise.** Infer the current session from the schedule or just ask.
   Exercises are numbered in workshop order; the file matches the directory (`_exercises/NN_name/NN_name.R`, with `.py` / `.ipynb` equivalents).
-  Offer to open it for them.
+  To help them find and open a file, write it as a markdown link (e.g. `[_exercises/17_quiz-game-2/17_quiz-game-2-app.R](_exercises/17_quiz-game-2/17_quiz-game-2-app.R)`) — links open the file in their editor when clicked, and they render the path visibly so they learn where things live.
 - **Catching up.** They just arrived or fell behind the room.
   Get them current fast: figure out the current session from the schedule, jump them to the current exercise using the solution as the starting state (copying is fine here), and offer a quick summary of what they missed via the `explain` skill.
   Don't make them redo skipped exercises.
