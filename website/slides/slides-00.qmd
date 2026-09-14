@@ -58,14 +58,24 @@ editor:
 </style>
 ```
 
-## {.no-invert-dark-mode background-image="assets/space-git-pull.png" background-size="contain" background-position="bottom right"}
+## {.no-invert-dark-mode background-image="assets/space-git-pull.png" background-size="cover" background-position="bottom right"}
 
-## Positron: Get the latest updates {.no-invert-dark-mode background-image="assets/git-pull-positron.png" background-size="100%" background-position="center 300px"}
+## Set up your Posit Cloud space
+
+Join us at [https://bit.ly/conf26-llms]{.orange .b}
+
+::: tr
+Pick: Positron or RStudio?
+:::
+
+![](../assets/posit-cloud-space.png){width="100%"}
+
+## Positron: Get the latest updates {.no-invert-dark-mode background-image="assets/git-pull-positron.png" background-size="100%" background-position="center 200px"}
 
 * Open git panel, git fetch, then sync changes
 * Or **Git: Pull** in Command Palette
 
-## Rstudio: Get the latest updates {.no-invert-dark-mode background-image="assets/git-pull-rstudio.png" background-size="100%" background-position="center 300px"}
+## Rstudio: Get the latest updates {.no-invert-dark-mode background-image="assets/git-pull-rstudio.png" background-size="100%" background-position="center 200px"}
 
 * Open Git panel
 * Click **⬇ Pull**

@@ -88,7 +88,7 @@ Once you're part of the [{{< meta workshop.links.cloud_short.text >}} space]({{<
 
 ::: {.shadow-lg .p-2 .border .border-1 .rounded-2 .text-center}
 TODO: Update posit cloud workspace screenshot
-![](assets/posit-cloud-project.png){.img-fluid alt=""}
+![](assets/posit-cloud-space.png){.img-fluid alt=""}
 :::
 -->
 ```
@@ -100,15 +100,18 @@ It comes with R, Python, and every package and file used in the workshop, alread
 You work in your browser, so there's nothing to install on your laptop.
 
 ::: {.callout-warning title="Workspace link coming soon"}
-The link to join the Posit Cloud workspace will be posted here shortly before the workshop starts.
+The link to join the Posit Cloud workspace will be emailed to you shortly before the workshop starts.
 :::
 
 If you don't have a Posit Cloud account, [sign up for a free one](https://posit.cloud/plans).
 You can sign up with your email, Google, GitHub, or Clever.
 When the workspace link is available, join the space and launch the workshop project.
 
-When the project opens, pick your editor: **Positron** or **RStudio**.
-Both work for every activity in the workshop.
+When the project opens, pick the project that corresponds with the editor of your choice: **Positron** or **RStudio**.
+
+::: {.shadow-lg .p-2 .border .border-1 .rounded-2 .text-center}
+![](assets/posit-cloud-space.png){.img-fluid alt=""}
+:::
 
 
 ## Choose your IDE
