@@ -32,15 +32,15 @@ See the [workshop setup instructions](https://posit-conf-2026.github.io/llms/set
 
 ## Schedule
 
-| Time          | Activity                      |
-| ------------- | ----------------------------- |
-| 09:00 - 10:30 | 💬 Talking with LLMs via Code |
-| 10:30 - 11:00 | ☕ *Coffee break*              |
-| 11:00 - 12:30 | 💻 Programming with LLMs      |
-| 12:30 - 13:30 | 🍽️ *Lunch break*              |
-| 13:30 - 15:00 | 🔍 Augmented Generation       |
-| 15:00 - 15:30 | ☕ *Coffee break*              |
-| 15:30 - 17:00 | 🚀 Beyond Tools               |
+| Time          | Activity                                    |
+| ------------- | ------------------------------------------- |
+| 09:00 - 10:30 | 💬 Anatomy of a Conversation                |
+| 10:30 - 11:00 | ☕ *Coffee break*                            |
+| 11:00 - 12:30 | 💻 Programming with LLMs                    |
+| 12:30 - 13:30 | 🍽️ *Lunch break*                            |
+| 13:30 - 15:00 | 🔍 Agents                                   |
+| 15:00 - 15:30 | ☕ *Coffee break*                            |
+| 15:30 - 17:00 | 🚀 querychat, shinychat, and the Future     |
 
 ## Instructor(s)
 
