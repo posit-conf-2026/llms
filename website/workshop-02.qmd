@@ -21,16 +21,16 @@ editor: { render-on-save: true }
 - (20m) Anatomy of a conversation
   - The same conversation from R and Python with ellmer and chatlas
   - Message roles: system, user, assistant
-  - Activity (`02_conversation`): Same question with and without a system prompt
-  - How does the LLM remember the conversation? `_demos/03_clearbot`
+  - Your Turn [`_exercises/02_conversation`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/02_conversation): same question with and without a system prompt
+  - How does the LLM remember the conversation? [`_demos/03_clearbot`](https://github.com/posit-conf-2026/llms/tree/main/_demos/03_clearbot)
 
 - (20m) How do LLMs work?
   - _How to Talk to Robots_ slides
   - Tokens as the fundamental unit
-  - Example: `_demos/04_token-possibilities`
+  - Example: [`_demos/04_token-possibilities`](https://github.com/posit-conf-2026/llms/tree/main/_demos/04_token-possibilities)
 
 - (20m) Shinychat basics
   - `live_console()` and `live_browser()` (or `chat.console()` and `chat.app()`)
-  - Activity (`05_live`): Write a roast of Hadley Wickham with `live_console()`
+  - Your Turn [`_exercises/05_live`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/05_live): write a roast of Hadley Wickham with `live_console()`
   - Making your own shinychat app: `chat_app()` for a quick app, `page_chat()` + `chat_server()` in R or `Chat(client=)` in Python for an app others can use
-  - Activity (`06_word-games`): 20-questions-style game — the model picks a word, you guess
+  - Your Turn [`_exercises/06_word-games`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/06_word-games): 20-questions-style game — the model picks a word, you guess

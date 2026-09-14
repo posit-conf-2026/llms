@@ -14,17 +14,17 @@ duration: 55min
 - (15m) Providers and models
   - Overview of providers and models
   - Tradeoffs: context, speed, cost, intelligence, and capabilities
-  - Activity (`07_models`): compare responses from two models
+  - Your Turn [`_exercises/07_models`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/07_models): compare responses from two models
 
 - (15m) Multimodal input
   - Images and PDFs from local files and URLs
-  - Activity (`08_vision`): show images of food to an LLM
-  - Activity (`09_pdf`): convert a recipe PDF to Markdown
+  - Your Turn [`_exercises/08_vision`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/08_vision): show images of food to an LLM
+  - Your Turn [`_exercises/09_pdf`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/09_pdf): convert a recipe PDF to Markdown
 
 - (15m) Structured output
   - `ellmer::type_*()` and [Pydantic models in chatlas](https://posit-dev.github.io/chatlas/get-started/structured-data.html)
-  - Activity (`10_structured-output`): extract structured recipe data
+  - Your Turn [`_exercises/10_structured-output`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/10_structured-output): extract structured recipe data
 
 - (10m) Parallel and batch calls
   - Differences between parallel requests and provider batch APIs
-  - Activity (`11_parallel`): extract all recipes in parallel and open them in the recipe app
+  - Your Turn [`_exercises/11_parallel`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/11_parallel): extract all recipes in parallel and open them in the recipe app

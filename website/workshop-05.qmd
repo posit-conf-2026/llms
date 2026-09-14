@@ -11,13 +11,11 @@ duration: 50min
 
 ## Outline
 
-- (35m) Prompt engineering
-  - Activity (`12_plot-image-1`): ask an LLM to interpret a scatter plot
-  - System and user prompts, examples, prompt structure, and interpolation
-  - Activity (`14_quiz-game-1`): write the system prompt for a quiz game
-
 - (15m) Evals
   - Datasets, solvers, and scorers
   - Evals with vitals in R and Inspect with chatlas in Python
   - Scorer options and the bluffbench example
-  - Activity (`15_evals`): compare two models and inspect the grader's decisions
+  - Your Turn [`_exercises/15_evals`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/15_evals): compare model behavior
+
+- (35m) Prompt engineering
+  - Your Turn [`_exercises/12_plot-image-1`](https://github.com/posit-conf-2026/llms/tree/main/_exercises/12_plot-image-1): ask an LLM to interpret a scatter plot
