@@ -1,45 +1,35 @@
-# Programming with LLMs in R and Python
+# AGENTS.md — workshop attendee guide
 
-This file orients agents developing the workshop materials.
-For agents helping attendees during the workshop, see [AGENTS-attendees.md](AGENTS-attendees.md).
+This file orients AI assistants (and attendees) helping during the workshop itself.
+For developing the workshop materials, see [AGENTS-dev.md](AGENTS-dev.md).
 
 ## What this repo is
 
 Materials for the workshop **"Programming with LLMs in R and Python"** at [posit::conf(2026)](https://conf.posit.co/2026/).
-Repo: <https://github.com/posit-conf-2026/llms>; website: <https://posit-conf-2026.github.io/llms>.
-Date, venue, links, and other workshop metadata live in [website/_metadata.yml](website/_metadata.yml) (referenced in pages as `{{< meta workshop.* >}}` shortcodes).
+Website (setup, schedule, links): <https://posit-conf-2026.github.io/llms>.
+Date, venue, and links live in [website/_metadata.yml](website/_metadata.yml).
 
 The workshop teaches LLM programming with **ellmer** (R) and **chatlas** (Python), Posit packages for LLM API integration.
-It's dual-language — attendees pick R or Python, and exercises and solutions exist in both.
-See [website/index.qmd](website/index.qmd) for the introduction and [website/about/index.qmd](website/about/index.qmd) for the team.
+It's dual-language — attendees pick R or Python, and every exercise exists in both.
 
-## Setup
+## LLM access
 
-Attendee-facing setup instructions are in [website/setup.qmd](website/setup.qmd) — defer to it for specifics.
-In short: LLM access via **Posit AI Pass** (no API keys; `chat_posit()` in ellmer, `ChatPosit()` in chatlas), a prepared Posit Cloud workspace as the recommended path, **pak** ([DESCRIPTION](DESCRIPTION)) for R deps, and **uv** ([pyproject.toml](pyproject.toml)) for Python deps.
+Attendees use **Posit AI Pass** for LLM access: a free [posit.ai](https://posit.ai) account with a workshop credit grant, no API keys.
+Use `chat_posit()` in ellmer (R) or `ChatPosit()` in chatlas (Python); the first call opens a browser login, then stays signed in for the day.
+See [website/setup.qmd](website/setup.qmd) for full setup instructions.
 
-## Repo layout
+## Working on exercises
 
-- [website/](website/) — Quarto website: pages (`index.qmd`, `setup.qmd`, `workshop.qmd`, `workshop-NN.qmd`), `slides/`, `about/`, `partials/`, `assets/`.
-- [_exercises/](_exercises/), [_solutions/](_solutions/), [_demos/](_demos/) — numbered activity directories with paired R and Python files.
-- [_setup.R](_setup.R) — direct-install fallback list of R packages.
-- [outline.md](outline.md), [_todo.md](_todo.md) — working notes.
+- Exercises live in [_exercises/](_exercises/), numbered in workshop order (e.g. `01_hello-llm/`).
+  Within each directory, the exercise file matches the directory name: `01_hello-llm/01_hello-llm.R`, with `.py` and `.ipynb` equivalents.
+- Solutions to every exercise are in [_solutions/](_solutions/) with the same structure — the `help` skill below covers how to use them.
+- [_demos/](_demos/) holds code the instructors demo; attendees don't need to edit it.
+- Files at the repo root (`website/`, config files, etc.) are workshop infrastructure — attendees generally shouldn't need to touch them.
 
-## Slides & workshop flow
+## Helping attendees
 
-Slides are Quarto revealjs decks in [website/slides/](website/slides/), rendered with the website.
-[slides-01.qmd](website/slides/slides-01.qmd) is the orientation deck and defines the attendee-facing vocabulary: **Your Turn** exercises in `_exercises/`, mirrored solutions in `_solutions/`, demos in `_demos/`.
-It also shows the exercise file naming pattern (e.g. `_exercises/NN_name/NN_name.R` with `.py` / `.ipynb` equivalents).
+When an attendee asks for help — or types `/help` — invoke the **`help` skill** ([.agents/skills/help/](.agents/skills/help/)).
+It carries the full strategy: orient first (setup, dependencies, finding things, exercise help), unblock one step at a time, use `_solutions/` as a reference rather than a handout, honor direct asks for answers, and hand "help me understand X" questions to the `explain` skill ([.agents/skills/explain/](.agents/skills/explain/)), which the workshop context switches to learning mode.
+When they've attempted an exercise and want it reviewed ("check my work"), route to the `check-my-work` skill ([.agents/skills/check-my-work/](.agents/skills/check-my-work/)) instead.
 
-## Common tasks
-
-The [Makefile](Makefile) has the build/setup tasks and is self-documenting via `make help`.
-Not every attendee has `make`, so each target is written such that the underlying commands can be copied and run directly.
-
-## Conventions
-
-- Keep R and Python versions of exercises in sync.
-- Numbered directory prefixes define activity order; `-break` pages mark schedule breaks.
-- Python scripts in exercises/solutions, except `*-app.py`, are jupytext-paired with notebooks — edit the `.py`, not the `.ipynb`; a pre-commit hook in `.githooks` regenerates notebooks from staged `.py` files. App scripts do not have notebooks.
-- Commit small, logically grouped commits using conventional commit messages.
-- Write prose markdown with one sentence per line.
+Human help during the workshop goes to the Discord channel (invite link on the setup page).
