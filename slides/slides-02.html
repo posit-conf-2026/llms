@@ -234,7 +234,7 @@
 <section id="how-to-think-about-llms" class="title-slide slide level1 dark-blue center" data-background-image="assets/retro-mac.jpg" data-background-size="cover" data-background-position="bottom left">
 <h1>How to think about LLMs</h1>
 <aside class="notes">
-<p>Some motivational words by Joe urging everyone to approach LLMs with curiosity and experimentation rather than preconceived notions about limitations, while building understanding from the ground up through practical experience.</p>
+<p>Let’s talk a bit about how to think at a high level about LLMs before we dive into some code</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -263,11 +263,7 @@ experiment rather than theorize</p></li>
 that it turns out they’re <em>terrible</em> at</p></li>
 </ul>
 <aside class="notes">
-<ul>
-<li>Understanding the technical details can lead to <strong>bad intuition</strong> about capabilities</li>
-<li>You might think “they could not possibly do things that they clearly can do today”</li>
-<li>Empirical testing reveals actual capabilities vs.&nbsp;theoretical limitations</li>
-</ul>
+<p>Think empirically, not theoretically. There are some things LLMs can clearly do today that you would have thought possible, and things That they can’t do that you would have thought they would have been able to.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -283,7 +279,7 @@ that it turns out they’re <em>terrible</em> at</p></li>
 <section id="section" class="slide level2 center">
 <h2></h2>
 <aside class="notes">
-<p>Don’t expect smooth, predictable performance across tasks. LLMs can surprise you - excelling at some complex tasks while struggling with seemingly simple ones.</p>
+<p>You might expect a performance to look something like this.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -300,6 +296,19 @@ that it turns out they’re <em>terrible</em> at</p></li>
 <section id="llms-are-jagged" class="slide level2 center">
 <h2>LLMs are jagged</h2>
 <p><img data-src="assets/task-llm-jagged.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
+<aside class="notes">
+<p>It really looks something more like this.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="embrace-the-experimental-process" class="slide level2 center text-center" data-background-image="assets/national-cancer-institute-Okk-eID2Z9k-unsplash.jpg" data-background-size="cover" data-background-position="center">
 <h2><span class="dib bg-black ph4 white">Embrace the Experimental Process</span></h2>
@@ -307,7 +316,7 @@ that it turns out they’re <em>terrible</em> at</p></li>
 <p>Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">National Cancer Institute</a> on <a href="https://unsplash.com/photos/Okk-eID2Z9k?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a></p>
 </div>
 <aside class="notes">
-<p>We will talk about ways to formally run experiments in the next section.</p>
+<p>Embrace the experimental process.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -329,16 +338,9 @@ that it turns out they’re <em>terrible</em> at</p></li>
 <li><p>We’re going to focus on the <strong>core building blocks</strong>.</p></li>
 <li><p>All the incredible things you see AI do<br>
 <strong>decompose to just a few key ingredients</strong>.</p></li>
-<li><p>Our goal is to <strong>have fun and build intuition</strong><br>
-through hands-on experience.</p></li>
 </ul>
 <aside class="notes">
-<ul>
-<li>Think <strong>very generally</strong> about what tools can do - they’re as powerful as any software you can write</li>
-<li>Remember: <strong>“Everything decomposes”</strong> to the basic components once you understand the underlying APIs</li>
-<li>Build intuition through hands-on experience rather than theoretical study</li>
-<li>We want to have fun in this course! It’s worth saying up front that our examples are not necessarily practical, but they’re full of practical lessons.</li>
-</ul>
+<p>We’re gonna focus on the core building blocks. The goal for today is to really for you to sense those building blocks, feel like you’re exploring, have some fun, build intuition.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -357,6 +359,19 @@ through hands-on experience.</p></li>
 <div class="footer" style="color: rgba(255,255,255,0.5);">
 <p>Photo by <a href="https://unsplash.com/@jglogowski?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Jaroslaw Glogowski</a> on <a href="https://unsplash.com/photos/oAYKzeP0qF4?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a></p>
 </div>
+<aside class="notes">
+<p>First, let’s talk about what happens when we talk to an LLM.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-1" class="slide level2 center">
 <h2></h2>
@@ -389,6 +404,19 @@ through hands-on experience.</p></li>
 <p><strong>Python</strong></p>
 </div>
 </div>
+<aside class="notes">
+<p>We can build the same back-and-forth interaction in code. We’ll use ellmer in R and chatlas in Python.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="a-complete-example" class="slide level2">
 <h2>A complete example</h2>
@@ -471,7 +499,7 @@ through hands-on experience.</p></li>
 <section id="section-2" class="slide level2">
 <h2></h2>
 <aside class="notes">
-<p>Talking to an LLM like ChatGPT happens through HTTP requests and responses. When you send a message, the chat client sends a POST request. The server runs the model, then returns the response.</p>
+<p>so how does this work? Talking to an LLM like ChatGPT happens through HTTP requests and responses. When you send a message, the chat client sends a POST request. The server runs the model, then returns the response.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -511,6 +539,19 @@ through hands-on experience.</p></li>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-code-line-numbers="1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-label="1"></a><span class="im">import</span> chatlas</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
+<aside class="notes">
+<p>First, load the package for your language, just as you would any other package.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-6" class="slide level2" data-transition="fade">
 <h2></h2>
@@ -528,6 +569,19 @@ through hands-on experience.</p></li>
 <span id="cb8-3"><a aria-label="3"></a>chat <span class="op">=</span> chatlas.ChatPosit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
+<aside class="notes">
+<p>Next, create a chat client. This is the object we’ll use to send messages and receive responses.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-7" class="slide level2" data-transition="fade">
 <h2></h2>
@@ -549,6 +603,19 @@ through hands-on experience.</p></li>
 <span id="cb10-5"><a aria-label="5"></a>chat.chat(<span class="st">"Tell me a fact about cats."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
+<aside class="notes">
+<p>Finally, call the chat method and pass the message as a string.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
@@ -595,18 +662,71 @@ through hands-on experience.</p></li>
 <section id="messages-have-roles" class="slide level2">
 <h2>Messages have roles</h2>
 <p><img data-src="assets/intro-conversation-roles-01.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
+<aside class="notes">
+<p>When you send a message to an LLM, you send both the text and a role.</p>
+<p>The user role marks a message from the person using the application.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="messages-have-roles-1" class="slide level2">
 <h2>Messages have roles</h2>
 <p><img data-src="assets/intro-conversation-roles-02.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
+<aside class="notes">
+<p>The assistant role marks the model’s response.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="messages-have-roles-2" class="slide level2">
 <h2>Messages have roles</h2>
 <p><img data-src="assets/intro-conversation-roles-03.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
+<aside class="notes">
+<p>A conversation alternates between user and assistant messages. The role tells the model who contributed each part of the history.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="messages-have-roles-3" class="slide level2">
 <h2>Messages have roles</h2>
 <p><img data-src="assets/intro-conversation-roles-04.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
+<aside class="notes">
+<p>The system role contains instructions from the developer. It can set behavior, style, and constraints for the whole conversation. The person using a chat interface usually does not see it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="message-roles" class="slide level2">
 <h2>Message roles</h2>
@@ -636,6 +756,19 @@ through hands-on experience.</p></li>
 </tr>
 </tbody>
 </table>
+<aside class="notes">
+<p>To recap, user and assistant roles identify the two sides of the exchange. The system role gives the model instructions that persist across the conversation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="system-prompts" class="slide level2" data-transition="fade">
 <h2>System prompts</h2>
@@ -661,6 +794,19 @@ through hands-on experience.</p></li>
 <span id="cb16-7"><a aria-label="7"></a>chat.chat(<span class="st">"Tell me a fact about sheep."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
+<aside class="notes">
+<p>Both packages accept a <code>system_prompt</code> argument when you create the chat client. Here we’re using a silly instruction so its effect will be obvious.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="system-prompts-1" class="slide level2" data-transition="fade">
 <h2>System prompts</h2>
@@ -694,6 +840,19 @@ through hands-on experience.</p></li>
 <span id="cb18-11"><a aria-label="11"></a><span class="co">#&gt; Fear keeps them standing.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
+<aside class="notes">
+<p>The model follows the instruction and answers in a haiku. The system prompt shapes every response produced by this chat client.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="the-chat-object" class="slide level2" data-transition="fade">
 <h2>The chat object</h2>
@@ -726,6 +885,19 @@ through hands-on experience.</p></li>
 <span id="cb22-10"><a aria-hidden="true" tabindex="-1"></a>Fear keeps them standing.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
+<aside class="notes">
+<p>When we inspect the chat object again, we can see all three roles. The system prompt is part of the history that guides the assistant’s response.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="your-turn-02_conversation" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>02_conversation</code></h1>
@@ -739,6 +911,19 @@ through hands-on experience.</p></li>
 <li><p>Then, create a new <code>chat</code> with no system prompt and ask only the second question: <em>What about OpenAI?</em></p></li>
 <li><p>How do the answers to 3 and 4 differ? Why?</p></li>
 </ol>
+<aside class="notes">
+<p>There are two takeaways to discuss afterward. The system prompt persists across calls on the first chat, so its answers stay brief. A new chat has no memory of the first question and no system prompt, so “What about OpenAI?” has less context and may produce a longer or less relevant answer.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section id="demo-clearbot" class="title-slide slide level1 slide-demo center" style="--code-font-size: 0.66em">
@@ -750,6 +935,19 @@ through hands-on experience.</p></li>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a>What creates an Anthropic chat in ellmer and chatlas?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Second question:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>What about OpenAI?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Use clearbot to show the full conversation history sent with each request. The demo makes the next point visible: the model itself does not retain the earlier exchange.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section>
@@ -783,8 +981,7 @@ through hands-on experience.</p></li>
 <p>Photo by <a href="https://unsplash.com/@simplicity?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Marija Zaric</a> on <a href="https://unsplash.com/photos/wFWXRDilwKo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a></p>
 </div>
 <aside class="notes">
-<p>But this is not a conversation.</p>
-<p>It certainly <em>feels</em> like a conversation, but something else is happening behind the scenes.</p>
+<p>It feels like a conversation, but it works differently from a conversation between people. Clearbot showed what happens behind the scenes.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -845,6 +1042,19 @@ through hands-on experience.</p></li>
 </section>
 <section id="how-to-make-an-llm" class="slide level2 center">
 <h2>How to make an LLM</h2>
+<aside class="notes">
+<p>LLMs learn patterns from huge amounts of text. That training lets them use context and generate language that resembles the material they learned from.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="columns">
 <div class="column">
 <p><strong>If you read everything<br>ever written…</strong></p>
@@ -882,6 +1092,7 @@ through hands-on experience.</p></li>
 </ul>
 </div></div>
 <aside class="notes">
+<p>The model builds a response one token at a time, choosing a likely next token from the context it has received.</p>
 <p>The breakthrough insight is the attention mechanism in the Transformer architecture. Instead of processing the input one token at a time, attention lets GPT models relate all input tokens in parallel.</p>
 <p>The attention mechanism allows the model to:</p>
 <ul>
@@ -918,16 +1129,54 @@ through hands-on experience.</p></li>
 </ul></li>
 <li class="fragment">Not just words, but images can be tokenized too</li>
 </ul>
+<aside class="notes">
+<p>Tokens are the units the model reads and generates. A token may be a whole word, part of a word, or a character. Token counts matter because models limit how many they can process, and APIs commonly use them to measure usage.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 </section>
 <section id="demo-token-possibilities" class="title-slide slide level1 slide-demo center" style="--code-font-size: 0.66em">
 <h1>Demo: <br> <code>token-possibilities</code></h1>
 <p>👨‍💻 <span class="code b purple">_demos/04_token-possibilities/app.R</span></p>
+<aside class="notes">
+<p>This demo shows a response being built token by token. Pause to look at the possible next tokens and their probabilities. The model repeats this choice until the response is complete.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section id="programming-is-fun-but-i-kind-of-like-chatgpt" class="title-slide slide level1 center" data-background-image="assets/shinychat-input-empty.png" data-background-size="contain" data-background-position="center">
 <h1><span class="bg-white f1 normal relative" style="top: -14px">Programming is fun, but I kind of like ChatGPT…</span></h1>
-
+<aside class="notes">
+<p>Transition from calling the model in code to using the same chat client through an interactive interface.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section>
@@ -990,7 +1239,7 @@ through hands-on experience.</p></li>
 <li><p>Share your best with a neighbor.</p></li>
 </ol>
 </div>
-<countdown-timer id="timer_3aaddb0f1ac34302c7c2ca40eb832116f5bb6717" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<countdown-timer id="timer_3b1f6788419e24f3db2cefbce0048ba81e182335" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
  </countdown-timer>
 </section>
 
@@ -1087,7 +1336,7 @@ through hands-on experience.</p></li>
 <li><p>Your job: create a chatbot that plays a “20 questions” style word guessing game with you.</p></li>
 <li><p>The model was given a secret word, and it’s your job to guess it.</p></li>
 </ol>
-<countdown-timer id="timer_3aaddb0f1ac34302c7c2ca40eb832116f5bb6717" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<countdown-timer id="timer_3b1f6788419e24f3db2cefbce0048ba81e182335" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
  </countdown-timer>
 
 

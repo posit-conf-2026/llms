@@ -1654,28 +1654,28 @@
     "href": "slides/slides-02.html#think-empirically-not-theoretically-1",
     "title": "Anatomy of a conversation",
     "section": "Think Empirically, Not Theoretically",
-    "text": "Think Empirically, Not Theoretically\n\nIt’s okay to (mostly) treat LLMs as black boxes.\nWe’re not going to focus on how they work internally\nJust try it! When wondering if an LLM can do something,\nexperiment rather than theorize\nYou might think they could not possibly do things\nthat they clearly can do today\nAnd you might think surely they can do something\nthat it turns out they’re terrible at\n\n\n\nUnderstanding the technical details can lead to bad intuition about capabilities\nYou might think “they could not possibly do things that they clearly can do today”\nEmpirical testing reveals actual capabilities vs. theoretical limitations"
+    "text": "Think Empirically, Not Theoretically\n\nIt’s okay to (mostly) treat LLMs as black boxes.\nWe’re not going to focus on how they work internally\nJust try it! When wondering if an LLM can do something,\nexperiment rather than theorize\nYou might think they could not possibly do things\nthat they clearly can do today\nAnd you might think surely they can do something\nthat it turns out they’re terrible at\n\n\nThink empirically, not theoretically. There are some things LLMs can clearly do today that you would have thought possible, and things That they can’t do that you would have thought they would have been able to."
   },
   {
     "objectID": "slides/slides-02.html#section",
     "href": "slides/slides-02.html#section",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "Don’t expect smooth, predictable performance across tasks. LLMs can surprise you - excelling at some complex tasks while struggling with seemingly simple ones."
+    "text": "You might expect a performance to look something like this."
   },
   {
     "objectID": "slides/slides-02.html#llms-are-jagged",
     "href": "slides/slides-02.html#llms-are-jagged",
     "title": "Anatomy of a conversation",
     "section": "LLMs are jagged",
-    "text": "LLMs are jagged"
+    "text": "LLMs are jagged\n\n\nIt really looks something more like this."
   },
   {
     "objectID": "slides/slides-02.html#embrace-the-experimental-process",
     "href": "slides/slides-02.html#embrace-the-experimental-process",
     "title": "Anatomy of a conversation",
     "section": "Embrace the Experimental Process",
-    "text": "Embrace the Experimental Process\n\nPhoto by National Cancer Institute on Unsplash\n\n\nWe will talk about ways to formally run experiments in the next section."
+    "text": "Embrace the Experimental Process\n\nPhoto by National Cancer Institute on Unsplash\n\n\nEmbrace the experimental process."
   },
   {
     "objectID": "slides/slides-02.html#start-simple-build-understanding",
@@ -1689,7 +1689,7 @@
     "href": "slides/slides-02.html#start-simple-build-understanding-1",
     "title": "Anatomy of a conversation",
     "section": "Start Simple, Build Understanding",
-    "text": "Start Simple, Build Understanding\n\nWe’re going to focus on the core building blocks.\nAll the incredible things you see AI do\ndecompose to just a few key ingredients.\nOur goal is to have fun and build intuition\nthrough hands-on experience.\n\n\n\nThink very generally about what tools can do - they’re as powerful as any software you can write\nRemember: “Everything decomposes” to the basic components once you understand the underlying APIs\nBuild intuition through hands-on experience rather than theoretical study\nWe want to have fun in this course! It’s worth saying up front that our examples are not necessarily practical, but they’re full of practical lessons."
+    "text": "Start Simple, Build Understanding\n\nWe’re going to focus on the core building blocks.\nAll the incredible things you see AI do\ndecompose to just a few key ingredients.\n\n\nWe’re gonna focus on the core building blocks. The goal for today is to really for you to sense those building blocks, feel like you’re exploring, have some fun, build intuition."
   },
   {
     "objectID": "slides/slides-02.html#section-1",
@@ -1703,7 +1703,7 @@
     "href": "slides/slides-02.html#we-can-do-this-from-r-and-python",
     "title": "Anatomy of a conversation",
     "section": "We can do this from R and Python!",
-    "text": "We can do this from R and Python!\n\n\n\nR\n\n\n\nPython"
+    "text": "We can do this from R and Python!\n\n\n\nR\n\n\n\nPython\n\n\n\nWe can build the same back-and-forth interaction in code. We’ll use ellmer in R and chatlas in Python."
   },
   {
     "objectID": "slides/slides-02.html#a-complete-example",
@@ -1731,28 +1731,28 @@
     "href": "slides/slides-02.html#section-2",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "Talking to an LLM like ChatGPT happens through HTTP requests and responses. When you send a message, the chat client sends a POST request. The server runs the model, then returns the response."
+    "text": "so how does this work? Talking to an LLM like ChatGPT happens through HTTP requests and responses. When you send a message, the chat client sends a POST request. The server runs the model, then returns the response."
   },
   {
     "objectID": "slides/slides-02.html#section-5",
     "href": "slides/slides-02.html#section-5",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "ellmer\nlibrary(ellmer)\n\n\n chatlas\nimport chatlas"
+    "text": "ellmer\nlibrary(ellmer)\n\n\n chatlas\nimport chatlas\n\n\n\nFirst, load the package for your language, just as you would any other package."
   },
   {
     "objectID": "slides/slides-02.html#section-6",
     "href": "slides/slides-02.html#section-6",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit()\n\n\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit()"
+    "text": "ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit()\n\n\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit()\n\n\n\nNext, create a chat client. This is the object we’ll use to send messages and receive responses."
   },
   {
     "objectID": "slides/slides-02.html#section-7",
     "href": "slides/slides-02.html#section-7",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit()\n\nchat$chat(\"Tell me a fact about cats.\")\n\n\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit()\n\nchat.chat(\"Tell me a fact about cats.\")"
+    "text": "ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit()\n\nchat$chat(\"Tell me a fact about cats.\")\n\n\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit()\n\nchat.chat(\"Tell me a fact about cats.\")\n\n\n\nFinally, call the chat method and pass the message as a string."
   },
   {
     "objectID": "slides/slides-02.html#section-8",
@@ -1766,56 +1766,56 @@
     "href": "slides/slides-02.html#messages-have-roles",
     "title": "Anatomy of a conversation",
     "section": "Messages have roles",
-    "text": "Messages have roles"
+    "text": "Messages have roles\n\n\nWhen you send a message to an LLM, you send both the text and a role.\nThe user role marks a message from the person using the application."
   },
   {
     "objectID": "slides/slides-02.html#messages-have-roles-1",
     "href": "slides/slides-02.html#messages-have-roles-1",
     "title": "Anatomy of a conversation",
     "section": "Messages have roles",
-    "text": "Messages have roles"
+    "text": "Messages have roles\n\n\nThe assistant role marks the model’s response."
   },
   {
     "objectID": "slides/slides-02.html#messages-have-roles-2",
     "href": "slides/slides-02.html#messages-have-roles-2",
     "title": "Anatomy of a conversation",
     "section": "Messages have roles",
-    "text": "Messages have roles"
+    "text": "Messages have roles\n\n\nA conversation alternates between user and assistant messages. The role tells the model who contributed each part of the history."
   },
   {
     "objectID": "slides/slides-02.html#messages-have-roles-3",
     "href": "slides/slides-02.html#messages-have-roles-3",
     "title": "Anatomy of a conversation",
     "section": "Messages have roles",
-    "text": "Messages have roles"
+    "text": "Messages have roles\n\n\nThe system role contains instructions from the developer. It can set behavior, style, and constraints for the whole conversation. The person using a chat interface usually does not see it."
   },
   {
     "objectID": "slides/slides-02.html#message-roles",
     "href": "slides/slides-02.html#message-roles",
     "title": "Anatomy of a conversation",
     "section": "Message roles",
-    "text": "Message roles\n\n\n\n\n\n\n\nRole\nDescription\n\n\n\n\nsystem\nInstructions that set the behavior of the assistant\n\n\nuser\nMessages from the person interacting with the assistant\n\n\nassistant\nThe AI model’s responses to the user"
+    "text": "Message roles\n\n\n\n\n\n\n\nRole\nDescription\n\n\n\n\nsystem\nInstructions that set the behavior of the assistant\n\n\nuser\nMessages from the person interacting with the assistant\n\n\nassistant\nThe AI model’s responses to the user\n\n\n\n\nTo recap, user and assistant roles identify the two sides of the exchange. The system role gives the model instructions that persist across the conversation."
   },
   {
     "objectID": "slides/slides-02.html#system-prompts",
     "href": "slides/slides-02.html#system-prompts",
     "title": "Anatomy of a conversation",
     "section": "System prompts",
-    "text": "System prompts\n\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit(\n  system_prompt = \"Answer in haikus.\"\n)\n\nchat$chat(\"Tell me a fact about sheep.\")\n\n\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit(\n    system_prompt=\"Answer in haikus.\"\n)\n\nchat.chat(\"Tell me a fact about sheep.\")"
+    "text": "System prompts\n\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit(\n  system_prompt = \"Answer in haikus.\"\n)\n\nchat$chat(\"Tell me a fact about sheep.\")\n\n\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit(\n    system_prompt=\"Answer in haikus.\"\n)\n\nchat.chat(\"Tell me a fact about sheep.\")\n\n\n\nBoth packages accept a system_prompt argument when you create the chat client. Here we’re using a silly instruction so its effect will be obvious."
   },
   {
     "objectID": "slides/slides-02.html#system-prompts-1",
     "href": "slides/slides-02.html#system-prompts-1",
     "title": "Anatomy of a conversation",
     "section": "System prompts",
-    "text": "System prompts\n\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit(\n  # Set the response style\n  system_prompt = \"Answer in haikus.\"\n)\n\nchat$chat(\"Tell me a fact about sheep.\")\n#&gt; Woolly white cloud grows\n#&gt; Sheep never sleep flat on ground\n#&gt; Fear keeps them standing.\n\n\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit(\n    # Set the response style\n    system_prompt=\"Answer in haikus.\"\n)\n\nchat.chat(\"Tell me a fact about sheep.\")\n#&gt; Woolly white cloud grows\n#&gt; Sheep never sleep flat on ground\n#&gt; Fear keeps them standing."
+    "text": "System prompts\n\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat_posit(\n  # Set the response style\n  system_prompt = \"Answer in haikus.\"\n)\n\nchat$chat(\"Tell me a fact about sheep.\")\n#&gt; Woolly white cloud grows\n#&gt; Sheep never sleep flat on ground\n#&gt; Fear keeps them standing.\n\n\n chatlas\nimport chatlas\n\nchat = chatlas.ChatPosit(\n    # Set the response style\n    system_prompt=\"Answer in haikus.\"\n)\n\nchat.chat(\"Tell me a fact about sheep.\")\n#&gt; Woolly white cloud grows\n#&gt; Sheep never sleep flat on ground\n#&gt; Fear keeps them standing.\n\n\n\nThe model follows the instruction and answers in a haiku. The system prompt shapes every response produced by this chat client."
   },
   {
     "objectID": "slides/slides-02.html#the-chat-object",
     "href": "slides/slides-02.html#the-chat-object",
     "title": "Anatomy of a conversation",
     "section": "The chat object",
-    "text": "The chat object\n\n\n ellmer\nchat\n&lt;Chat Posit turns=3&gt;\n── system ─────────────────────────\nAnswer in haikus.\n── user ───────────────────────────\nTell me a fact about sheep.\n── assistant ──────────────────────\nWoolly white cloud grows\nSheep never sleep flat on ground\nFear keeps them standing.\n\n\n chatlas\nprint(chat)\n## System turn:\nAnswer in haikus.\n\n## User turn:\nTell me a fact about sheep.\n\n## Assistant turn:\nWoolly white cloud grows\nSheep never sleep flat on ground\nFear keeps them standing."
+    "text": "The chat object\n\n\n ellmer\nchat\n&lt;Chat Posit turns=3&gt;\n── system ─────────────────────────\nAnswer in haikus.\n── user ───────────────────────────\nTell me a fact about sheep.\n── assistant ──────────────────────\nWoolly white cloud grows\nSheep never sleep flat on ground\nFear keeps them standing.\n\n\n chatlas\nprint(chat)\n## System turn:\nAnswer in haikus.\n\n## User turn:\nTell me a fact about sheep.\n\n## Assistant turn:\nWoolly white cloud grows\nSheep never sleep flat on ground\nFear keeps them standing.\n\n\n\nWhen we inspect the chat object again, we can see all three roles. The system prompt is part of the history that guides the assistant’s response."
   },
   {
     "objectID": "slides/slides-02.html#section-9",
@@ -1829,7 +1829,7 @@
     "href": "slides/slides-02.html#is-this-actually-a-conversation",
     "title": "Anatomy of a conversation",
     "section": "Is this actually a conversation?",
-    "text": "Is this actually a conversation?\n\nPhoto by Marija Zaric on Unsplash\n\n\nBut this is not a conversation.\nIt certainly feels like a conversation, but something else is happening behind the scenes."
+    "text": "Is this actually a conversation?\n\nPhoto by Marija Zaric on Unsplash\n\n\nIt feels like a conversation, but it works differently from a conversation between people. Clearbot showed what happens behind the scenes."
   },
   {
     "objectID": "slides/slides-02.html#llms-are-stateless",
@@ -1850,21 +1850,21 @@
     "href": "slides/slides-02.html#how-to-make-an-llm",
     "title": "Anatomy of a conversation",
     "section": "How to make an LLM",
-    "text": "How to make an LLM\n\n\nIf you read everythingever written…\n\nBooks and stories\nWebsites and articles\nPoems and jokes\nQuestions and answers\n\n\n…then you could…\n\nAnswer questions\nWrite stories\nTell jokes\nExplain things\nTranslate between languages"
+    "text": "How to make an LLM\n\nLLMs learn patterns from huge amounts of text. That training lets them use context and generate language that resembles the material they learned from.\n\n\n\nIf you read everythingever written…\n\nBooks and stories\nWebsites and articles\nPoems and jokes\nQuestions and answers\n\n\n…then you could…\n\nAnswer questions\nWrite stories\nTell jokes\nExplain things\nTranslate between languages"
   },
   {
     "objectID": "slides/slides-02.html#the-cat-sat-in-the-____",
     "href": "slides/slides-02.html#the-cat-sat-in-the-____",
     "title": "Anatomy of a conversation",
     "section": "The cat sat in the ____",
-    "text": "The cat sat in the ____\n\n\n\n🎩\n🛌\n📦\n\n\n\n🪟\n🛒\n👠\n\n\n\nThe breakthrough insight is the attention mechanism in the Transformer architecture. Instead of processing the input one token at a time, attention lets GPT models relate all input tokens in parallel.\nThe attention mechanism allows the model to:\n\nWeigh the importance of every word in relation to every other word\nCapture long-range dependencies that traditional models missed\nProcess input tokens in parallel\n\nThe model still generates new tokens one at a time."
+    "text": "The cat sat in the ____\n\n\n\n🎩\n🛌\n📦\n\n\n\n🪟\n🛒\n👠\n\n\n\nThe model builds a response one token at a time, choosing a likely next token from the context it has received.\nThe breakthrough insight is the attention mechanism in the Transformer architecture. Instead of processing the input one token at a time, attention lets GPT models relate all input tokens in parallel.\nThe attention mechanism allows the model to:\n\nWeigh the importance of every word in relation to every other word\nCapture long-range dependencies that traditional models missed\nProcess input tokens in parallel\n\nThe model still generates new tokens one at a time."
   },
   {
     "objectID": "slides/slides-02.html#actually-tokens-not-words",
     "href": "slides/slides-02.html#actually-tokens-not-words",
     "title": "Anatomy of a conversation",
     "section": "Actually: tokens, not words",
-    "text": "Actually: tokens, not words\n\nFundamental units of information for LLMs\nWords, parts of words, or individual characters\n\n“hello” → 1 token\n“unconventional” → 3 tokens: un|con|ventional\n\nImportant for:\n\nModel input/output limits\nAPI pricing is usually by token\n\nNot just words, but images can be tokenized too"
+    "text": "Actually: tokens, not words\n\nFundamental units of information for LLMs\nWords, parts of words, or individual characters\n\n“hello” → 1 token\n“unconventional” → 3 tokens: un|con|ventional\n\nImportant for:\n\nModel input/output limits\nAPI pricing is usually by token\n\nNot just words, but images can be tokenized too\n\n\nTokens are the units the model reads and generates. A token may be a whole word, part of a word, or a character. Token counts matter because models limit how many they can process, and APIs commonly use them to measure usage."
   },
   {
     "objectID": "slides/slides-02.html#section-11",
