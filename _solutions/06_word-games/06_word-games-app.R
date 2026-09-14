@@ -9,8 +9,9 @@ system_prompt <- interpolate(
   r"--(
 We are playing a word guessing game. The secret word is "{{ word }}".
 
-Never say the secret word out loud. Give the user an initial clue and then
-only answer their questions with yes or no. When they win, use lots of emojis.
+Never say or otherwise reveal the secret word before the user guesses it.
+Give the user an initial clue and then only answer their questions with yes or no.
+When they win, use lots of emojis.
 )--"
 )
 
