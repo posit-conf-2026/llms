@@ -781,7 +781,7 @@
     "href": "slides/slides-01.html#welcome-to-programming-with-llm-apis",
     "title": "Welcome!",
     "section": "Welcome to Programming with LLM APIs !",
-    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2026.github.io/llms/setup.html\nJoin the Discord: pos.it/joinconf26\nwifi(  network=“TODO”,  password=“TODO”)\nConference details: conf.posit.co/2026"
+    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2026.github.io/llms/setup.html\nJoin the Discord: pos.it/joinconf26\nwifi(  network=“Posit Conf 2026”,  password=“conf26”)\nConference details: conf.posit.co/2026"
   },
   {
     "objectID": "slides/slides-01.html#meet-us",
@@ -809,7 +809,7 @@
     "href": "slides/slides-01.html#wi-fi",
     "title": "Welcome!",
     "section": "Wi-Fi",
-    "text": "Wi-Fi\nwifi(“TODO”, password=“TODO”)"
+    "text": "Wi-Fi\nwifi(“Posit Conf 2026”, password=“conf26”)"
   },
   {
     "objectID": "slides/slides-01.html#positconf2026-things-to-know",
@@ -851,7 +851,7 @@
     "href": "slides/slides-01.html#discord",
     "title": "Welcome!",
     "section": "Discord",
-    "text": "Discord\n\n\n\nOpen pos.it/joinconf26\nAccept the Discord invitation\nSet your display name to the name you used to register\nJoin us in TODO"
+    "text": "Discord\n\n\n\nOpen pos.it/joinconf26\nAccept the Discord invitation\nSet your display name to the name you used to register\nJoin us in workshop-llms-r-python"
   },
   {
     "objectID": "slides/slides-01.html#schedule",
@@ -889,6 +889,20 @@
     "text": "We’re using Positron\n\n\n\n\nRStudio and VS Code are great, too!"
   },
   {
+    "objectID": "slides/slides-01.html#set-up-your-posit-cloud-space",
+    "href": "slides/slides-01.html#set-up-your-posit-cloud-space",
+    "title": "Welcome!",
+    "section": "Set up your Posit Cloud space",
+    "text": "Set up your Posit Cloud space\nJoin us at https://bit.ly/conf26-llms\n\nPick: Positron or RStudio?"
+  },
+  {
+    "objectID": "slides/slides-01.html#positron-open-the-project",
+    "href": "slides/slides-01.html#positron-open-the-project",
+    "title": "Welcome!",
+    "section": "Positron: Open the project",
+    "text": "Positron: Open the project"
+  },
+  {
     "objectID": "slides/slides-01.html#file-organization",
     "href": "slides/slides-01.html#file-organization",
     "title": "Welcome!",
@@ -903,11 +917,11 @@
     "text": "Exercise Solutions\n\n👨‍💻 👩‍💻 _exercises/01_hello-llm/01_hello-llm.R\n   🫣    _solutions/01_hello-llm/01_hello-llm.R\n\n\nAlso in Python:\n👨‍💻 👩‍💻 _exercises/01_hello-llm/01_hello-llm.py\n   📓    _exercises/01_hello-llm/01_hello-llm.pynb\n   🫣    _solutions/01_hello-llm/01_hello-llm.py"
   },
   {
-    "objectID": "slides/slides-01.html#to-use-an-ai-api",
-    "href": "slides/slides-01.html#to-use-an-ai-api",
+    "objectID": "slides/slides-01.html#to-use-an-ai-api-you-need",
+    "href": "slides/slides-01.html#to-use-an-ai-api-you-need",
     "title": "Welcome!",
-    "section": "To use an AI API…",
-    "text": "To use an AI API…\n\n…you need an account with a provider!"
+    "section": "To use an AI API you need…",
+    "text": "To use an AI API you need…\n\nan account with a provider!"
   },
   {
     "objectID": "slides/slides-01.html#how-to-use-an-ai-provider-the-usual-way",
@@ -1584,7 +1598,7 @@
     "href": "slides/slides-00.html#welcome-to-programming-with-llm-apis",
     "title": "Welcome!",
     "section": "Welcome to Programming with LLM APIs !",
-    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nGet set up for the workshop:\nposit-conf-2026.github.io/llms\nJoin the Discord: pos.it/joinconf26\nwifi: TODO pwd: TODO\nConference details: conf.posit.co/2026"
+    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nGet set up for the workshop:\nposit-conf-2026.github.io/llms\nJoin the Discord: pos.it/joinconf26\nwifi: Posit Conf 2026 pwd: conf26\nConference details: conf.posit.co/2026"
   },
   {
     "objectID": "slides/slides-00.html#set-up-your-posit-cloud-space",
@@ -1592,6 +1606,13 @@
     "title": "Welcome!",
     "section": "Set up your Posit Cloud space",
     "text": "Set up your Posit Cloud space\nJoin us at https://bit.ly/conf26-llms\n\nPick: Positron or RStudio?"
+  },
+  {
+    "objectID": "slides/slides-00.html#positron-open-the-project",
+    "href": "slides/slides-00.html#positron-open-the-project",
+    "title": "Welcome!",
+    "section": "Positron: Open the project",
+    "text": "Positron: Open the project"
   },
   {
     "objectID": "slides/slides-00.html#positron-get-the-latest-updates",
