@@ -5,7 +5,7 @@ workshop:
   discord_channel: workshop-llms-r-python
   wifi:
     network: Posit Conf 2026
-    password: conf26
+    password: conf2026
 
 format:
   revealjs:

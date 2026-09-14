@@ -788,7 +788,7 @@
     "href": "slides/slides-01.html#welcome-to-programming-with-llm-apis",
     "title": "Welcome!",
     "section": "Welcome to Programming with LLM APIs !",
-    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2026.github.io/llms/setup.html\nJoin the Discord: pos.it/joinconf26\nwifi(  network=“Posit Conf 2026”,  password=“conf26”)\nConference details: conf.posit.co/2026"
+    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2026.github.io/llms/setup.html\nJoin the Discord: pos.it/joinconf26\nwifi(  network=“Posit Conf 2026”,  password=“conf2026”)\nConference details: conf.posit.co/2026"
   },
   {
     "objectID": "slides/slides-01.html#meet-us",
@@ -816,7 +816,7 @@
     "href": "slides/slides-01.html#wi-fi",
     "title": "Welcome!",
     "section": "Wi-Fi",
-    "text": "Wi-Fi\nwifi(“Posit Conf 2026”, password=“conf26”)"
+    "text": "Wi-Fi\nwifi(“Posit Conf 2026”, password=“conf2026”)"
   },
   {
     "objectID": "slides/slides-01.html#positconf2026-things-to-know",
@@ -1605,7 +1605,7 @@
     "href": "slides/slides-00.html#welcome-to-programming-with-llm-apis",
     "title": "Welcome!",
     "section": "Welcome to Programming with LLM APIs !",
-    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nGet set up for the workshop:\nposit-conf-2026.github.io/llms\nJoin the Discord: pos.it/joinconf26\nwifi: Posit Conf 2026 pwd: conf26\nConference details: conf.posit.co/2026"
+    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nGet set up for the workshop:\nposit-conf-2026.github.io/llms\nJoin the Discord: pos.it/joinconf26\nwifi: Posit Conf 2026 pwd: conf2026\nConference details: conf.posit.co/2026"
   },
   {
     "objectID": "slides/slides-00.html#set-up-your-posit-cloud-space",
