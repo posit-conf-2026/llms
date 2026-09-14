@@ -10,7 +10,9 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/tachyons.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="posit::conf(2026)">
@@ -169,7 +171,7 @@
 <p>Posit Assistant</p>
 </div>
 </section>
-<section id="should-your-agent-run-code-for-you" class="slide level2 center">
+<section id="should-your-agent-run-code-for-you" class="slide level2">
 <h2>Should your agent run code for you?</h2>
 <ul>
 <li class="fragment"><p>Agent writes, you run</p></li>
@@ -177,8 +179,8 @@
 <li class="fragment"><p>Agent writes, agent runs, you <span contenteditable="true">________</span></p></li>
 </ul>
 </section>
-<section id="what-could-go-wrong" class="slide level2">
-<h2>What could go wrong?</h2>
+<section id="your-agent-can-run-code.-what-could-go-wrong" class="slide level2">
+<h2>Your agent can run code.<br>What could go wrong?</h2>
 <div contenteditable="true">
 <ul>
 <li><hr></li>
@@ -207,12 +209,99 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="demo-posit-assistant" class="slide level2 slide-demo">
-<h2>Demo: Posit Assistant</h2>
-<p>👨‍💻 <span class="code b purple">_demos/23_demo_assistant/README.md</span></p>
+<section id="dangerous-means-hard-to-undo" class="slide level2 center tc">
+<h2><span class="red">Dangerous</span> means hard to undo</h2>
+<p>expensive, time-consuming or irreversible</p>
+</section>
+<section id="your-agent-can-run-code.-how-can-we-keep-it-safe" class="slide level2">
+<h2>Your agent can run code.<br>How can we keep it safe?</h2>
+<div contenteditable="true">
+<ul>
+<li><hr></li>
+<li><hr></li>
+</ul>
+</div>
+<aside class="notes">
+
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="three-ways-to-keep-an-agent-in-check" class="slide level2">
+<h2>Three ways to keep an agent in check</h2>
+<div style="font-size: 1.33em">
+<ol type="1">
+<li class="fragment"><p><strong>Ask for permission</strong></p></li>
+<li class="fragment"><p><strong>Sandbox</strong></p></li>
+<li class="fragment"><p><strong>Ask an LLM</strong> (auto mode)</p></li>
+</ol>
+</div>
+<div class="footer">
+<p><a href="https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code" data-preview-link="true">Help! My coding agent can run code</a></p>
+</div>
+<aside class="notes">
+<ul>
+<li>but 99% of approvals are safe, so people click yes without reading</li>
+<li>the OS constrains the process, but temp folders, package libraries, and network access all leak in</li>
+<li>run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation</li>
+</ul>
+<p>The three approaches, in the order real tools adopted them.</p>
+<p>Permission prompts become security theatre. Prefix allowlists fail: <code>git push</code> is safe, <code>git push --force</code> often isn’t.</p>
+<p>Sandboxing works but is fiddly: R needs a writable temp dir and a readable library path.</p>
+<p>The state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="spectrum-of-agent-harnesses" class="slide level2">
+<h2>Spectrum of agent harnesses</h2>
+<div style="margin-block: 2em">
+<p><img data-src="assets/agent-spectrum-01.excalidraw.svg" style="width:100.0%"></p>
+</div>
+</section>
+<section id="spectrum-of-agent-harnesses-1" class="slide level2">
+<h2>Spectrum of agent harnesses</h2>
+<div style="margin-block: 2em">
+<p><img data-src="assets/agent-spectrum-02.excalidraw.svg" style="width:100.0%"></p>
+</div>
+</section>
+<section id="spectrum-of-agent-harnesses-2" class="slide level2">
+<h2>Spectrum of agent harnesses</h2>
+<div style="margin-block: 2em">
+<p><img data-src="assets/agent-spectrum-03.excalidraw.svg" style="width:100.0%"></p>
+</div>
+</section>
+<section id="lets-start-an-airbnb-in-austin-tx" class="slide level2 center tc">
+<h2>Let’s start an Airbnb in Austin, TX</h2>
+
+<img data-src="assets/inside-airbnb.png" class="r-stretch"></section>
+<section id="using-posit-assistant" class="slide level2 slide-your-turn" style="font-size: 1.25em">
+<h2>Using Posit Assistant</h2>
+<p>👨‍💻 <span class="code b purple">data/airbnb-austin.csv</span></p>
 <blockquote>
-<p>Let’s look at <code>data/airbnb-austin.csv</code>, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.</p>
+<p>I want to buy a house to start an Airbnb in Austin, TX. Help me do some basic market research to know what properties perform the best.</p>
 </blockquote>
+<div class="mt5">
+<p>Start in <code>/restricted</code> mode</p>
+</div>
+<countdown-timer id="timer_99e21dffe7cf7ba298590d919807826c167088bc" minutes="02" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -0.25em;left: 300px;">
+ </countdown-timer>
 <aside class="notes">
 <p>Brings the day together: an agent with read, write, and skills — the same one attendees just built.</p>
 <p>Instructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.</p>
@@ -229,52 +318,59 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="should-your-assistant-run-code" class="slide level2 center">
-<h2>Should your assistant run code?</h2>
-<p>In the demo, Posit Assistant read the data, wrote scripts, and ran them.</p>
-<p>What keeps that from going wrong?</p>
-<aside class="notes">
-<p>The upside is a closed loop and self-repair: the assistant sees its own errors and fixes them.</p>
-<p>The risk is code with side effects against your real data and machine.</p>
-<p>Ask the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="three-ways-to-keep-an-agent-in-check" class="slide level2">
-<h2>Three ways to keep an agent in check</h2>
-<ol type="1">
-<li class="fragment"><p><strong>Ask for permission</strong> — but 99% of approvals are safe, so people click yes without reading</p></li>
-<li class="fragment"><p><strong>Sandbox</strong> — the OS constrains the process, but temp folders, package libraries, and network access all leak in</p></li>
-<li class="fragment"><p><strong>Ask an LLM</strong> — run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation</p></li>
-</ol>
-<div class="footer">
-<p><a href="https://tidydesign.substack.com/p/help-my-coding-agent-can-run-code" data-preview-link="true">Help! My coding agent can run code</a></p>
+<section id="using-posit-assistant-1" class="slide level2 slide-your-turn" style="font-size: 1.25em">
+<h2>Using Posit Assistant</h2>
+<p>👨‍💻 <span class="code b purple">data/airbnb-austin.csv</span></p>
+<blockquote>
+<p>I want to buy a house to start an Airbnb in Austin, TX. Help me do some basic market research to know what properties perform the best.</p>
+</blockquote>
+<div class="mt5">
+<p>Exit <code>/restricted</code> mode and switch to <span class="b orange">Ask mode</span></p>
 </div>
-<aside class="notes">
-<p>The three approaches, in the order real tools adopted them.</p>
-<p>Permission prompts become security theatre. Prefix allowlists fail: <code>git push</code> is safe, <code>git push --force</code> often isn’t.</p>
-<p>Sandboxing works but is fiddly: R needs a writable temp dir and a readable library path.</p>
-<p>The state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<countdown-timer id="timer_99e21dffe7cf7ba298590d919807826c167088bc" minutes="02" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -0.25em;left: 300px;">
+ </countdown-timer>
+</section>
+<section id="using-posit-assistant-2" class="slide level2 slide-your-turn" style="font-size: 1.25em">
+<h2>Using Posit Assistant</h2>
+<p>👨‍💻 <span class="code b purple">data/airbnb-austin.csv</span></p>
+<blockquote>
+<p>I want to buy a house to start an Airbnb in Austin, TX. Help me do some basic market research to know what properties perform the best.</p>
+</blockquote>
+<div class="mt5">
+<p>Switch from <strong>Ask mode</strong> to <span class="orange b">Auto mode</span></p>
+</div>
+<countdown-timer id="timer_99e21dffe7cf7ba298590d919807826c167088bc" minutes="02" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -0.25em;left: 300px;">
+ </countdown-timer>
+</section>
+<section id="spectrum-of-posit-assistant" class="slide level2">
+<h2>Spectrum of Posit Assistant</h2>
+<div style="margin-block: 2em">
+<p><img data-src="assets/agent-spectrum-04.excalidraw.svg" style="width:100.0%"></p>
+</div>
+</section>
+<section id="spectrum-of-posit-assistant-1" class="slide level2">
+<h2>Spectrum of Posit Assistant</h2>
+<div style="margin-block: 2em">
+<p><img data-src="assets/agent-spectrum-05.excalidraw.svg" style="width:100.0%"></p>
+</div>
+</section>
+<section id="spectrum-of-posit-assistant-2" class="slide level2">
+<h2>Spectrum of Posit Assistant</h2>
+<div style="margin-block: 2em">
+<p><img data-src="assets/agent-spectrum-06.excalidraw.svg" style="width:100.0%"></p>
+</div>
+</section>
+<section id="spectrum-of-posit-assistant-3" class="slide level2">
+<h2>Spectrum of Posit Assistant</h2>
+<div style="margin-block: 2em">
+<p><img data-src="assets/agent-spectrum-07.excalidraw.svg" style="width:100.0%"></p>
+</div>
+</section>
+<section id="spectrum-of-posit-assistant-4" class="slide level2">
+<h2>Spectrum of Posit Assistant</h2>
+<div style="margin-block: 2em">
+<p><img data-src="assets/agent-spectrum-08.excalidraw.svg" style="width:100.0%"></p>
+</div>
 </section>
 <section id="auto-mode-knows-its-dangerous" class="slide level2 center">
 <h2>Auto mode knows it’s dangerous</h2>

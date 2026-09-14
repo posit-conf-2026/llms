@@ -2014,32 +2014,116 @@
     "text": "Should your agent run code for you?\n\nAgent writes, you run\nAgent writes, you verify, agent runs\nAgent writes, agent runs, you ________"
   },
   {
-    "objectID": "slides/slides-10.html#what-could-go-wrong",
-    "href": "slides/slides-10.html#what-could-go-wrong",
+    "objectID": "slides/slides-10.html#your-agent-can-run-code.-what-could-go-wrong",
+    "href": "slides/slides-10.html#your-agent-can-run-code.-what-could-go-wrong",
     "title": "Posit Assistant",
-    "section": "What could go wrong?",
-    "text": "What could go wrong?\n\n\n\n\n\n\n\nHadley’s framing from “Help! My coding agent can run code”: dangerous means hard to undo. Danger = expensive, time-consuming, or impossible to undo\n\ndelete a file\ndrop your production database\nspend money\nsend an email\nLeak a secret or personal data\n\nIn the demo, running a script touched only a disposable, local fixture. Sending an email or spending money leaves the sandbox and reaches the real world."
+    "section": "Your agent can run code.What could go wrong?",
+    "text": "Your agent can run code.What could go wrong?\n\n\n\n\n\n\n\nHadley’s framing from “Help! My coding agent can run code”: dangerous means hard to undo. Danger = expensive, time-consuming, or impossible to undo\n\ndelete a file\ndrop your production database\nspend money\nsend an email\nLeak a secret or personal data\n\nIn the demo, running a script touched only a disposable, local fixture. Sending an email or spending money leaves the sandbox and reaches the real world."
   },
   {
-    "objectID": "slides/slides-10.html#demo-posit-assistant",
-    "href": "slides/slides-10.html#demo-posit-assistant",
+    "objectID": "slides/slides-10.html#dangerous-means-hard-to-undo",
+    "href": "slides/slides-10.html#dangerous-means-hard-to-undo",
     "title": "Posit Assistant",
-    "section": "Demo: Posit Assistant",
-    "text": "Demo: Posit Assistant\n👨‍💻 _demos/23_demo_assistant/README.md\n\nLet’s look at data/airbnb-austin.csv, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Austin, TX.\n\n\nBrings the day together: an agent with read, write, and skills — the same one attendees just built.\nInstructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.\nWatch for: the loop (each step chosen from the last result), read and write actions, permission prompts, and skills firing when relevant."
+    "section": "Dangerous means hard to undo",
+    "text": "Dangerous means hard to undo\nexpensive, time-consuming or irreversible"
   },
   {
-    "objectID": "slides/slides-10.html#should-your-assistant-run-code",
-    "href": "slides/slides-10.html#should-your-assistant-run-code",
+    "objectID": "slides/slides-10.html#your-agent-can-run-code.-how-can-we-keep-it-safe",
+    "href": "slides/slides-10.html#your-agent-can-run-code.-how-can-we-keep-it-safe",
     "title": "Posit Assistant",
-    "section": "Should your assistant run code?",
-    "text": "Should your assistant run code?\nIn the demo, Posit Assistant read the data, wrote scripts, and ran them.\nWhat keeps that from going wrong?\n\nThe upside is a closed loop and self-repair: the assistant sees its own errors and fixes them.\nThe risk is code with side effects against your real data and machine.\nAsk the room what they would require first: a disposable copy, read-only data, dry-run flags, allow-listed commands, or approval prompts."
+    "section": "Your agent can run code.How can we keep it safe?",
+    "text": "Your agent can run code.How can we keep it safe?"
   },
   {
     "objectID": "slides/slides-10.html#three-ways-to-keep-an-agent-in-check",
     "href": "slides/slides-10.html#three-ways-to-keep-an-agent-in-check",
     "title": "Posit Assistant",
     "section": "Three ways to keep an agent in check",
-    "text": "Three ways to keep an agent in check\n\nAsk for permission — but 99% of approvals are safe, so people click yes without reading\nSandbox — the OS constrains the process, but temp folders, package libraries, and network access all leak in\nAsk an LLM — run in the sandbox, and when it rejects a call, have an LLM review the code and the conversation\n\n\nHelp! My coding agent can run code\n\n\nThe three approaches, in the order real tools adopted them.\nPermission prompts become security theatre. Prefix allowlists fail: git push is safe, git push --force often isn’t.\nSandboxing works but is fiddly: R needs a writable temp dir and a readable library path.\nThe state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly."
+    "text": "Three ways to keep an agent in check\n\n\nAsk for permission\nSandbox\nAsk an LLM (auto mode)\n\n\n\nHelp! My coding agent can run code\n\n\n\nbut 99% of approvals are safe, so people click yes without reading\nthe OS constrains the process, but temp folders, package libraries, and network access all leak in\nrun in the sandbox, and when it rejects a call, have an LLM review the code and the conversation\n\nThe three approaches, in the order real tools adopted them.\nPermission prompts become security theatre. Prefix allowlists fail: git push is safe, git push --force often isn’t.\nSandboxing works but is fiddly: R needs a writable temp dir and a readable library path.\nThe state of the art is sandbox plus LLM review — which is what Posit Assistant does when it declines to run something risky. Some actions stay off-limits even when you ask for them explicitly."
+  },
+  {
+    "objectID": "slides/slides-10.html#spectrum-of-agent-harnesses",
+    "href": "slides/slides-10.html#spectrum-of-agent-harnesses",
+    "title": "Posit Assistant",
+    "section": "Spectrum of agent harnesses",
+    "text": "Spectrum of agent harnesses"
+  },
+  {
+    "objectID": "slides/slides-10.html#spectrum-of-agent-harnesses-1",
+    "href": "slides/slides-10.html#spectrum-of-agent-harnesses-1",
+    "title": "Posit Assistant",
+    "section": "Spectrum of agent harnesses",
+    "text": "Spectrum of agent harnesses"
+  },
+  {
+    "objectID": "slides/slides-10.html#spectrum-of-agent-harnesses-2",
+    "href": "slides/slides-10.html#spectrum-of-agent-harnesses-2",
+    "title": "Posit Assistant",
+    "section": "Spectrum of agent harnesses",
+    "text": "Spectrum of agent harnesses"
+  },
+  {
+    "objectID": "slides/slides-10.html#lets-start-an-airbnb-in-austin-tx",
+    "href": "slides/slides-10.html#lets-start-an-airbnb-in-austin-tx",
+    "title": "Posit Assistant",
+    "section": "Let’s start an Airbnb in Austin, TX",
+    "text": "Let’s start an Airbnb in Austin, TX"
+  },
+  {
+    "objectID": "slides/slides-10.html#using-posit-assistant",
+    "href": "slides/slides-10.html#using-posit-assistant",
+    "title": "Posit Assistant",
+    "section": "Using Posit Assistant",
+    "text": "Using Posit Assistant\n👨‍💻 data/airbnb-austin.csv\n\nI want to buy a house to start an Airbnb in Austin, TX. Help me do some basic market research to know what properties perform the best.\n\n\nStart in /restricted mode\n\n\n \n\nBrings the day together: an agent with read, write, and skills — the same one attendees just built.\nInstructor sets up the conversation, then everyone explores on their own. The README has the full run sheet.\nWatch for: the loop (each step chosen from the last result), read and write actions, permission prompts, and skills firing when relevant."
+  },
+  {
+    "objectID": "slides/slides-10.html#using-posit-assistant-1",
+    "href": "slides/slides-10.html#using-posit-assistant-1",
+    "title": "Posit Assistant",
+    "section": "Using Posit Assistant",
+    "text": "Using Posit Assistant\n👨‍💻 data/airbnb-austin.csv\n\nI want to buy a house to start an Airbnb in Austin, TX. Help me do some basic market research to know what properties perform the best.\n\n\nExit /restricted mode and switch to Ask mode"
+  },
+  {
+    "objectID": "slides/slides-10.html#using-posit-assistant-2",
+    "href": "slides/slides-10.html#using-posit-assistant-2",
+    "title": "Posit Assistant",
+    "section": "Using Posit Assistant",
+    "text": "Using Posit Assistant\n👨‍💻 data/airbnb-austin.csv\n\nI want to buy a house to start an Airbnb in Austin, TX. Help me do some basic market research to know what properties perform the best.\n\n\nSwitch from Ask mode to Auto mode"
+  },
+  {
+    "objectID": "slides/slides-10.html#spectrum-of-posit-assistant",
+    "href": "slides/slides-10.html#spectrum-of-posit-assistant",
+    "title": "Posit Assistant",
+    "section": "Spectrum of Posit Assistant",
+    "text": "Spectrum of Posit Assistant"
+  },
+  {
+    "objectID": "slides/slides-10.html#spectrum-of-posit-assistant-1",
+    "href": "slides/slides-10.html#spectrum-of-posit-assistant-1",
+    "title": "Posit Assistant",
+    "section": "Spectrum of Posit Assistant",
+    "text": "Spectrum of Posit Assistant"
+  },
+  {
+    "objectID": "slides/slides-10.html#spectrum-of-posit-assistant-2",
+    "href": "slides/slides-10.html#spectrum-of-posit-assistant-2",
+    "title": "Posit Assistant",
+    "section": "Spectrum of Posit Assistant",
+    "text": "Spectrum of Posit Assistant"
+  },
+  {
+    "objectID": "slides/slides-10.html#spectrum-of-posit-assistant-3",
+    "href": "slides/slides-10.html#spectrum-of-posit-assistant-3",
+    "title": "Posit Assistant",
+    "section": "Spectrum of Posit Assistant",
+    "text": "Spectrum of Posit Assistant"
+  },
+  {
+    "objectID": "slides/slides-10.html#spectrum-of-posit-assistant-4",
+    "href": "slides/slides-10.html#spectrum-of-posit-assistant-4",
+    "title": "Posit Assistant",
+    "section": "Spectrum of Posit Assistant",
+    "text": "Spectrum of Posit Assistant"
   },
   {
     "objectID": "slides/slides-10.html#auto-mode-knows-its-dangerous",
