@@ -13,7 +13,6 @@ duration: 50min
 
 - (35m) Prompt engineering
   - Activity (`12_plot-image-1`): ask an LLM to interpret a scatter plot
-  - Activity (`13_plot-image-2`): replace the plot with random noise and improve the prompt
   - System and user prompts, examples, prompt structure, and interpolation
   - Activity (`14_quiz-game-1`): write the system prompt for a quiz game
 
@@ -21,4 +20,4 @@ duration: 50min
   - Datasets, solvers, and scorers
   - Evals with vitals in R and Inspect with chatlas in Python
   - Scorer options and the bluffbench example
-  - Activity (`15_evals`): compare three prompts on two plots
+  - Activity (`15_evals`): compare two models and inspect the grader's decisions
