@@ -1,5 +1,5 @@
 ---
-title: Prompt Engineering
+title: Evals and Prompt Engineering
 subtitle: Programming with LLMs in R and Python
 author: <code>posit::conf(2026)</code>
 date: 2026-09-14
@@ -8,7 +8,11 @@ editor:
   render-on-save: true
 ---
 
-# [Prompt engineering]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}
+# [Evals]{.dib style="text-align: center; width: 100%; margin-top: 3em;"} {.no-invert-dark-mode background-image="assets/markus-spiske-O4Au-cQNuqg-unsplash.jpg" background-size="cover" background-position="center"}
+
+::: {.footer style="color: rgba(0,0,0,0.4);"}
+Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(0,0,0,0.4);">Markus Spiske</a> on <a href="https://unsplash.com/photos/O4Au-cQNuqg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(0,0,0,0.4);">Unsplash</a>
+:::
 
 # Your Turn `12_plot-image-1` {.slide-your-turn}
 

@@ -977,7 +977,7 @@
     "href": "workshop.html",
     "title": "Overview",
     "section": "",
-    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\nAgents\n\n\n \n\n\nBuilding agents from tools\n\n\n\n\n\n\nAgent Skills\n\n\n \n\n\nTeaching agents new skills\n\n\n\n\n\n\nPosit Assistant\n\n\n \n\n\nPosit Assistant and agent safety\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nshinychat and querychat\n\n\n \n\n\nshinychat and querychat\n\n\n\n\n\n\nWrap-up\n\n\n \n\n\nThe future of AI and goodbye\n\n\n\n\n\n\nNo matching items",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nEvals and Prompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\nAgents\n\n\n \n\n\nBuilding agents from tools\n\n\n\n\n\n\nAgent Skills\n\n\n \n\n\nTeaching agents new skills\n\n\n\n\n\n\nPosit Assistant\n\n\n \n\n\nPosit Assistant and agent safety\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nshinychat and querychat\n\n\n \n\n\nshinychat and querychat\n\n\n\n\n\n\nWrap-up\n\n\n \n\n\nThe future of AI and goodbye\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Workshop",
       "Overview"
@@ -988,7 +988,7 @@
     "href": "workshop.html#schedule",
     "title": "Overview",
     "section": "",
-    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\nAgents\n\n\n \n\n\nBuilding agents from tools\n\n\n\n\n\n\nAgent Skills\n\n\n \n\n\nTeaching agents new skills\n\n\n\n\n\n\nPosit Assistant\n\n\n \n\n\nPosit Assistant and agent safety\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nshinychat and querychat\n\n\n \n\n\nshinychat and querychat\n\n\n\n\n\n\nWrap-up\n\n\n \n\n\nThe future of AI and goodbye\n\n\n\n\n\n\nNo matching items",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nEvals and Prompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\nAgents\n\n\n \n\n\nBuilding agents from tools\n\n\n\n\n\n\nAgent Skills\n\n\n \n\n\nTeaching agents new skills\n\n\n\n\n\n\nPosit Assistant\n\n\n \n\n\nPosit Assistant and agent safety\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nshinychat and querychat\n\n\n \n\n\nshinychat and querychat\n\n\n\n\n\n\nWrap-up\n\n\n \n\n\nThe future of AI and goodbye\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Workshop",
       "Overview"
@@ -1417,34 +1417,34 @@
   {
     "objectID": "workshop-05.html",
     "href": "workshop-05.html",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Evals and Prompt Engineering"
     ]
   },
   {
     "objectID": "workshop-05.html#slides",
     "href": "workshop-05.html#slides",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Evals and Prompt Engineering"
     ]
   },
   {
     "objectID": "workshop-05.html#outline",
     "href": "workshop-05.html#outline",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "Outline",
     "text": "Outline\n\n(15m) Evals\n\nDatasets, solvers, and scorers\nEvals with vitals in R and Inspect with chatlas in Python\nScorer options and the bluffbench example\nYour Turn _exercises/15_evals: compare model behavior\n\n(35m) Prompt engineering\n\nYour Turn _exercises/12_plot-image-1: ask an LLM to interpret a scatter plot",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Evals and Prompt Engineering"
     ]
   },
   {
@@ -1869,91 +1869,91 @@
   {
     "objectID": "slides/slides-05.html#section",
     "href": "slides/slides-05.html#section",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "",
     "text": "The left plot is a jittered grid wearing the same title and labels.\nAsk the model to interpret both.\nIf it sees a relationship in the left plot, it is describing what it expects, not what it sees.\nThis is the failure mode bluffbench tests for, coming up next."
   },
   {
     "objectID": "slides/slides-05.html#bluffbench",
     "href": "slides/slides-05.html#bluffbench",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "bluffbench",
     "text": "bluffbench\n\n\nplot mpg vs hp in mtcars and tell me what you see.\n\n\n\n\n\n\nbluffbench\n\n\nbluffbench secretly changes a familiar dataset, then asks a model to plot and describe it. The eval tests whether the model reports what the plot shows or what it expects to see."
   },
   {
     "objectID": "slides/slides-05.html#bluffbench-results",
     "href": "slides/slides-05.html#bluffbench-results",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "",
     "text": "Correct      Incorrect\n\n\n\nbluffbench"
   },
   {
     "objectID": "slides/slides-05.html#how-do-you-know",
     "href": "slides/slides-05.html#how-do-you-know",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "How do you know…",
     "text": "How do you know…\n\n\n\nWhich model should you use?\nWhich prompt works best?\nIf one agent is better than another?\n\n\n\nTrying each option once and deciding based on vibes is probably not enough.\nAn eval runs the same test cases for each model, prompt, or agent and scores the results."
   },
   {
-    "objectID": "slides/slides-05.html#evals",
-    "href": "slides/slides-05.html#evals",
-    "title": "Prompt Engineering",
+    "objectID": "slides/slides-05.html#evals-1",
+    "href": "slides/slides-05.html#evals-1",
+    "title": "Evals and Prompt Engineering",
     "section": "Evals",
     "text": "Evals\n\n\n\n\nvitals\n\nInspect\n\n\n\nIn R, we use vitals.\nIn Python, we use Inspect. chatlas can turn a chat object into an Inspect solver. Both approaches use the same core ideas. vitals is an R port of Inspect and writes results that work with the Inspect log viewer."
   },
   {
     "objectID": "slides/slides-05.html#three-parts-to-an-eval",
     "href": "slides/slides-05.html#three-parts-to-an-eval",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "Three parts to an eval",
     "text": "Three parts to an eval\n\n\nDataset\nA set of test cases.\nEach case contains:\n\nan input, such as a prompt and image\na target answer or grading guide\n\n\nSolver\nThe code that takes each input and produces an output.\nIt may make one model call or run a multi-step agent with tools.\n\nScorer\nThe grading rule for each output.\nIt may compare the output with the target or use another grading method.\n\n\nuse realistic inputs The target is not always one correct answer. For open-ended tasks, it can describe what a good response must contain.\nThe solver should reproduce the behavior you want to test. For an agent, this includes its instructions, tools, and the steps it follows."
   },
   {
     "objectID": "slides/slides-05.html#eval-task-code",
     "href": "slides/slides-05.html#eval-task-code",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "",
     "text": "Task combines a dataset, solver, and scorer into an eval you can run.\n\n\nR: vitals\nchat &lt;- chat_posit()\n\ntask &lt;- Task$new(\n  dataset = cases,\n  solver = generate(chat),\n  scorer = model_graded_qa()\n)\n\ntask$eval()\n\nPython: Inspect\nchat = ChatPosit()\n\ntask = Task(\n    dataset=cases,\n    solver=chat.to_solver(),\n    scorer=model_graded_qa_posit(),\n)\n\neval(task)\n\n\nvitals · chatlas evals\n\n\nA task is the complete eval specification. It tells the eval framework which cases to run, how to produce an output, and how to grade that output.\nThe dataset contains the inputs and targets.\nIn R, generate() turns an ellmer chat into a vitals solver. In Python, chat.to_solver() turns a chatlas chat into an Inspect solver.\nAnother model grades the response against the target criteria."
   },
   {
     "objectID": "slides/slides-05.html#scorers",
     "href": "slides/slides-05.html#scorers",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "Scorers",
     "text": "Scorers\n\n\n\n\n\n\n\n\n\nMethod\nHow it works\nTradeoff\n\n\n\n\nDeterministic\nMatch text, check a number, run tests.\nFast, deterministic, may be too narrow.\n\n\nModel-graded\nAnother LLM judges the output against grading criteria.\nFlexible, but the grader must be validated.\n\n\nHuman review\nA person reads and grades the output.\nHigh control for you, but slow and expensive at scale.\n\n\n\n\n\nHuman review is really useful when creating the dataset, checking the scorer, and investigating failures."
   },
   {
     "objectID": "slides/slides-05.html#bluffbench-logs",
     "href": "slides/slides-05.html#bluffbench-logs",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "",
     "text": "The aggregate result tells us how often the model passed. The log lets us inspect individual cases.\nFor each case, we can compare the input, target, model answer, and score."
   },
   {
     "objectID": "slides/slides-05.html#section-1",
     "href": "slides/slides-05.html#section-1",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "",
     "text": "Each case plants one subtle data-quality artifact, described to the models only in the grading criteria.\n\nSensor log: six consecutive identical readings of 54.1 °F in an otherwise smooth cooling curve – a stuck sensor.\nRoom comparison: room B reads near 70 “°C” – those are Fahrenheit values, so the rooms are actually similar in temperature.\nFertilizer trial: each plant appears three times, so there are three plants per group, not nine independent measurements – pseudoreplication.\n\nMost models summarize the data nicely and flag none of these."
   },
   {
     "objectID": "slides/slides-05.html#three-best-practices",
     "href": "slides/slides-05.html#three-best-practices",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "Three best practices",
     "text": "Three best practices\n\nPut prompts in markdown files.\nClearly explain what you want the model to do in the system prompt.\nProvide examples of what you want.\n\n\nStart by trying a stronger model. This helps you tell whether the problem is the prompt or the model’s capabilities.\nNext, check whether the system prompt clearly describes the behavior you want.\nIf the model still struggles, add examples of good responses."
   },
   {
     "objectID": "slides/slides-05.html#keep-large-prompts-in-separate-files",
     "href": "slides/slides-05.html#keep-large-prompts-in-separate-files",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "Keep large prompts in separate files",
     "text": "Keep large prompts in separate files\n\n\nR\nprompt &lt;- interpolate_file(\n  \"prompt.md\"\n)\n\nchat_posit(\n  system_prompt = prompt\n)\n\nPython\nfrom pathlib import Path\n\nprompt = Path(\n    \"prompt.md\"\n).read_text()\n\nChatPosit(\n    system_prompt=prompt\n)\n\nPrompts in files are easier to read, review, and compare in version control.\n\nIn R, interpolate_file() reads the file and replaces any { } expressions.\nIn Python, Path.read_text() reads the prompt before passing it to ChatPosit().\nThe quiz-game exercises use this pattern."
   },
   {
     "objectID": "slides/slides-05.html#system-prompt-vs.-user-prompt",
     "href": "slides/slides-05.html#system-prompt-vs.-user-prompt",
-    "title": "Prompt Engineering",
+    "title": "Evals and Prompt Engineering",
     "section": "System prompt vs. user prompt",
     "text": "System prompt vs. user prompt\nShort answer: Put instructions and background knowledge in the system prompt.\nPut the current task in the user prompt.\n\nAnthropic’s Prompt Engineering Overview and OpenAI’s OpenAI Cookbook are excellent, and contain lots of tips and examples.\nGoogle’s Prompt Design Strategies may also be useful."
   },
