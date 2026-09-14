@@ -23,6 +23,8 @@ Imports:
     cli,
     digest,
     dplyr,
+    DT,
+    duckdb,
     ellmer (>= 0.4.2),
     fontawesome,
     forcats,
