@@ -1153,7 +1153,7 @@
     "href": "workshop-04.html#outline",
     "title": "Programming with LLMs",
     "section": "Outline",
-    "text": "Outline\n\n(15m) Providers and models\n\nOverview of providers and models\nTradeoffs: context, speed, cost, intelligence, and capabilities\nActivity (07_models): compare responses from two models\n\n(15m) Multimodal input\n\nImages and PDFs from local files and URLs\nActivity (08_vision): show images of food to an LLM\nActivity (09_pdf): convert a recipe PDF to Markdown\n\n(15m) Structured output\n\nellmer::type_*() and Pydantic models in chatlas\nActivity (10_structured-output): extract structured recipe data\n\n(10m) Parallel and batch calls\n\nDifferences between parallel requests and provider batch APIs\nActivity (11_parallel): extract all recipes in parallel and open them in the recipe app",
+    "text": "Outline\n\n(15m) Providers and models\n\nOverview of providers and models\nTradeoffs: context, speed, cost, intelligence, and capabilities\nYour Turn _exercises/07_models: compare responses from two models\n\n(15m) Multimodal input\n\nImages and PDFs from local files and URLs\nYour Turn _exercises/08_vision: show images of food to an LLM\nYour Turn _exercises/09_pdf: convert a recipe PDF to Markdown\n\n(15m) Structured output\n\nellmer::type_*() and Pydantic models in chatlas\nYour Turn _exercises/10_structured-output: extract structured recipe data\n\n(10m) Parallel and batch calls\n\nDifferences between parallel requests and provider batch APIs\nYour Turn _exercises/11_parallel: extract all recipes in parallel and open them in the recipe app",
     "crumbs": [
       "Workshop",
       "Programming with LLMs"
@@ -1186,7 +1186,7 @@
     "href": "workshop-02.html#outline",
     "title": "Anatomy of a conversation",
     "section": "Outline",
-    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nThe same conversation from R and Python with ellmer and chatlas\nMessage roles: system, user, assistant\nActivity (02_conversation): Same question with and without a system prompt\nHow does the LLM remember the conversation? _demos/03_clearbot\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides\nTokens as the fundamental unit\nExample: _demos/04_token-possibilities\n\n(20m) Shinychat basics\n\nlive_console() and live_browser() (or chat.console() and chat.app())\nActivity (05_live): Write a roast of Hadley Wickham with live_console()\nMaking your own shinychat app: chat_app() for a quick app, page_chat() + chat_server() in R or Chat(client=) in Python for an app others can use\nActivity (06_word-games): 20-questions-style game — the model picks a word, you guess",
+    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nThe same conversation from R and Python with ellmer and chatlas\nMessage roles: system, user, assistant\nYour Turn _exercises/02_conversation: same question with and without a system prompt\nHow does the LLM remember the conversation? _demos/03_clearbot\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides\nTokens as the fundamental unit\nExample: _demos/04_token-possibilities\n\n(20m) Shinychat basics\n\nlive_console() and live_browser() (or chat.console() and chat.app())\nYour Turn _exercises/05_live: write a roast of Hadley Wickham with live_console()\nMaking your own shinychat app: chat_app() for a quick app, page_chat() + chat_server() in R or Chat(client=) in Python for an app others can use\nYour Turn _exercises/06_word-games: 20-questions-style game — the model picks a word, you guess",
     "crumbs": [
       "Workshop",
       "Anatomy of a conversation"
@@ -1441,7 +1441,7 @@
     "href": "workshop-05.html#outline",
     "title": "Prompt Engineering",
     "section": "Outline",
-    "text": "Outline\n\n(35m) Prompt engineering\n\nActivity (12_plot-image-1): ask an LLM to interpret a scatter plot\nSystem and user prompts, examples, prompt structure, and interpolation\nActivity (14_quiz-game-1): write the system prompt for a quiz game\n\n(15m) Evals\n\nDatasets, solvers, and scorers\nEvals with vitals in R and Inspect with chatlas in Python\nScorer options and the bluffbench example\nActivity (15_evals): compare two models and inspect the grader’s decisions",
+    "text": "Outline\n\n(15m) Evals\n\nDatasets, solvers, and scorers\nEvals with vitals in R and Inspect with chatlas in Python\nScorer options and the bluffbench example\nYour Turn _exercises/15_evals: compare model behavior\n\n(35m) Prompt engineering\n\nYour Turn _exercises/12_plot-image-1: ask an LLM to interpret a scatter plot",
     "crumbs": [
       "Workshop",
       "Prompt Engineering"
