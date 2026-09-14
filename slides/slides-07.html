@@ -244,8 +244,15 @@
 <li class="fragment"><p>The LLM writes some more words</p></li>
 <li class="fragment"><p>You <em>use those words</em></p></li>
 </ol>
-<div class="fragment">
-<p><em>On their own, can LLMs… access the internet? send an email? interact with the world?</em></p>
+</section>
+<section id="on-its-own-can-a-word-writing-model" class="slide level2 center">
+<h2>On its own, can a word-writing model…</h2>
+<div style="font-size: 1.5em">
+<ul>
+<li class="fragment"><p>Access the internet?</p></li>
+<li class="fragment"><p>Send an email?</p></li>
+<li class="fragment"><p>Interact with the world?</p></li>
+</ul>
 </div>
 </section>
 <section id="lets-try-it" class="slide level2">
@@ -368,13 +375,12 @@
 </section>
 <section id="human-in-the-loop" class="slide level2 center">
 <h2>Human in the loop</h2>
-<p>👨‍💻 <span class="code b purple">_demos/15_demo_manual-tools/15_demo_manual-tools-app.R</span></p>
+<p>👨‍💻 <span class="code b purple">_demos/15_demo_manual-tools</span></p>
 </section>
 <section id="wait-i-can-write-code" class="slide level2 center">
 <h2>Wait… I can write code!</h2>
 <p>👨‍💻 Work through the script to register the tool, then run the app to see it in action</p>
-<p>👨‍💻 <span class="code b purple">_demos/16_demo_tools/16_weather-tool-01-start.R</span> → <span class="code b purple">_demos/16_demo_tools/16_weather-tool-app.R</span></p>
-<p>👨‍💻 <span class="code b purple">_demos/16_demo_tools/16_weather-tool-01-start.py</span> → <span class="code b purple">_demos/16_demo_tools/16_weather-tool-app.py</span></p>
+<p>👨‍💻 <span class="code b purple">16_weather-tool-01-start.R</span> → <span class="code b purple">16_weather-tool-app.R</span></p>
 <aside class="notes">
 <p>Live-code the demo script from <code>-start</code> to <code>-end</code> to register the tool with ellmer or chatlas, then just run the Shiny app (R or Python) so everyone sees the tool calls happening in the chat UI.</p>
 <style type="text/css">
@@ -561,7 +567,7 @@
 <li><p>Your job: teach the model to play sounds in the Quiz Show game we made earlier today.</p></li>
 <li><p><em>You can use your prompt or switch <code>_exercises</code> → <code>_solutions</code> to use ours.</em></p></li>
 </ol>
-<countdown-timer id="timer_2ec4e3f10603abaf0d81e546276ade4fbab32ef2" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<countdown-timer id="timer_899396ff2edab64ded224ae9f6f2c58ee9712a9d" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Follow up question: why send a string back to the LLM that says the sound was played?</p>
@@ -594,8 +600,8 @@
 <li><p><a href="https://modelcontextprotocol.io/specification/2025-06-18/schema#toolannotations" data-preview-link="true">MCP Tool Annotations Spec</a></p></li>
 </ul>
 </section>
-<section id="key-properties" class="slide level2">
-<h2>Key Properties</h2>
+<section id="key-annotations" class="slide level2">
+<h2>Key Annotations</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 30%">
@@ -613,18 +619,22 @@
 <td style="text-align: left;">Human-readable tool name</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"><strong><code>icon</code></strong></td>
+<td style="text-align: left;">Icon shown next to the tool (shinychat only)</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"><strong><code>readOnlyHint</code></strong></td>
 <td style="text-align: left;">Tool doesn’t modify environment</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>destructiveHint</code></strong></td>
 <td style="text-align: left;">May perform destructive updates</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>idempotentHint</code></strong></td>
 <td style="text-align: left;">Repeated calls with same arguments return same</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>openWorldHint</code></strong></td>
 <td style="text-align: left;">Interacts with external entities vs.&nbsp;closed domain</td>
 </tr>
@@ -668,7 +678,7 @@
 <li><p>Add tool annotations to our <code>play_sound</code> tools.</p></li>
 <li><p>Pick an icon from <a href="https://fontawesome.com/search?q=speaker&amp;ic=free&amp;o=r">FontAwesome free icons</a></p></li>
 </ol>
-<countdown-timer id="timer_2ec4e3f10603abaf0d81e546276ade4fbab32ef2" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<countdown-timer id="timer_899396ff2edab64ded224ae9f6f2c58ee9712a9d" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
  </countdown-timer>
 </section>
 <section id="tools-in-shiny" class="slide level2">
@@ -677,6 +687,7 @@
 <li class="fragment"><p>Define the tool function <strong>inside the server</strong></p></li>
 <li class="fragment"><p>You can <strong>update reactive values</strong> in the tool function!</p></li>
 <li class="fragment"><p>You can <strong>read reactive values</strong>, <em>if you <code>isolate()</code> reads</em>. (Be careful!)</p></li>
+<li class="fragment"><p><em>We will come back to this later</em> 😉</p></li>
 </ul>
 
 

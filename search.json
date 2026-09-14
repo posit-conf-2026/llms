@@ -284,7 +284,14 @@
     "href": "slides/slides-07.html#recall-how-do-llms-work",
     "title": "Tool Calling",
     "section": "Recall: How do LLMs work?",
-    "text": "Recall: How do LLMs work?\n\nYou write some words\nThe LLM writes some more words\nYou use those words\n\n\nOn their own, can LLMs… access the internet? send an email? interact with the world?"
+    "text": "Recall: How do LLMs work?\n\nYou write some words\nThe LLM writes some more words\nYou use those words"
+  },
+  {
+    "objectID": "slides/slides-07.html#on-its-own-can-a-word-writing-model",
+    "href": "slides/slides-07.html#on-its-own-can-a-word-writing-model",
+    "title": "Tool Calling",
+    "section": "On its own, can a word-writing model…",
+    "text": "On its own, can a word-writing model…\n\n\nAccess the internet?\nSend an email?\nInteract with the world?"
   },
   {
     "objectID": "slides/slides-07.html#lets-try-it",
@@ -319,14 +326,14 @@
     "href": "slides/slides-07.html#human-in-the-loop",
     "title": "Tool Calling",
     "section": "Human in the loop",
-    "text": "Human in the loop\n👨‍💻 _demos/15_demo_manual-tools/15_demo_manual-tools-app.R"
+    "text": "Human in the loop\n👨‍💻 _demos/15_demo_manual-tools"
   },
   {
     "objectID": "slides/slides-07.html#wait-i-can-write-code",
     "href": "slides/slides-07.html#wait-i-can-write-code",
     "title": "Tool Calling",
     "section": "Wait… I can write code!",
-    "text": "Wait… I can write code!\n👨‍💻 Work through the script to register the tool, then run the app to see it in action\n👨‍💻 _demos/16_demo_tools/16_weather-tool-01-start.R → _demos/16_demo_tools/16_weather-tool-app.R\n👨‍💻 _demos/16_demo_tools/16_weather-tool-01-start.py → _demos/16_demo_tools/16_weather-tool-app.py\n\nLive-code the demo script from -start to -end to register the tool with ellmer or chatlas, then just run the Shiny app (R or Python) so everyone sees the tool calls happening in the chat UI.\n\n\nellmer: ContentToolResult · chatlas: ContentToolResult · Tool calling UI in shinychat"
+    "text": "Wait… I can write code!\n👨‍💻 Work through the script to register the tool, then run the app to see it in action\n👨‍💻 16_weather-tool-01-start.R → 16_weather-tool-app.R\n\nLive-code the demo script from -start to -end to register the tool with ellmer or chatlas, then just run the Shiny app (R or Python) so everyone sees the tool calls happening in the chat UI.\n\n\nellmer: ContentToolResult · chatlas: ContentToolResult · Tool calling UI in shinychat"
   },
   {
     "objectID": "slides/slides-07.html#section-9",
@@ -406,11 +413,11 @@
     "text": "Tool Annotations\n\nProvide hints to clients about tool behavior\nHelp humans and AI systems make informed decisions about tool usage\nAll properties are hints only - not guaranteed to be accurate\nMCP Tool Annotations Spec"
   },
   {
-    "objectID": "slides/slides-07.html#key-properties",
-    "href": "slides/slides-07.html#key-properties",
+    "objectID": "slides/slides-07.html#key-annotations",
+    "href": "slides/slides-07.html#key-annotations",
     "title": "Tool Calling",
-    "section": "Key Properties",
-    "text": "Key Properties\n\n\n\n\n\n\n\nProperty\nDescription\n\n\n\n\ntitle\nHuman-readable tool name\n\n\nreadOnlyHint\nTool doesn’t modify environment\n\n\ndestructiveHint\nMay perform destructive updates\n\n\nidempotentHint\nRepeated calls with same arguments return same\n\n\nopenWorldHint\nInteracts with external entities vs. closed domain"
+    "section": "Key Annotations",
+    "text": "Key Annotations\n\n\n\n\n\n\n\nProperty\nDescription\n\n\n\n\ntitle\nHuman-readable tool name\n\n\nicon\nIcon shown next to the tool (shinychat only)\n\n\nreadOnlyHint\nTool doesn’t modify environment\n\n\ndestructiveHint\nMay perform destructive updates\n\n\nidempotentHint\nRepeated calls with same arguments return same\n\n\nopenWorldHint\nInteracts with external entities vs. closed domain"
   },
   {
     "objectID": "slides/slides-07.html#tool-annotations-in-r",
@@ -438,7 +445,7 @@
     "href": "slides/slides-07.html#tools-in-shiny",
     "title": "Tool Calling",
     "section": "Tools in Shiny",
-    "text": "Tools in Shiny\n\nDefine the tool function inside the server\nYou can update reactive values in the tool function!\nYou can read reactive values, if you isolate() reads. (Be careful!)"
+    "text": "Tools in Shiny\n\nDefine the tool function inside the server\nYou can update reactive values in the tool function!\nYou can read reactive values, if you isolate() reads. (Be careful!)\nWe will come back to this later 😉"
   },
   {
     "objectID": "slides/slides-04.html#section",

@@ -24,8 +24,14 @@ A robot wearing a tool belt, selects a tool from a wall of futuristic space tool
 3. You _use those words_
 :::
 
-::: fragment
-_On their own, can LLMs... access the internet? send an email? interact with the world?_
+## On its own, can a word-writing model... {.center}
+
+::: {.incremental style="font-size: 1.5em"}
+* Access the internet?
+
+* Send an email?
+
+* Interact with the world?
 :::
 
 ## Let's try it
@@ -141,15 +147,13 @@ So how do we connect the LLM to the code that this data scientist has written (o
 
 ## Human in the loop {.center}
 
-👨‍💻 [_demos/15_demo_manual-tools/15_demo_manual-tools-app.R]{.code .b .purple}
+👨‍💻 [_demos/15_demo_manual-tools]{.code .b .purple}
 
 ## Wait... I can write code! {.center}
 
 👨‍💻 Work through the script to register the tool, then run the app to see it in action
 
-👨‍💻 [_demos/16_demo_tools/16_weather-tool-01-start.R]{.code .b .purple} → [_demos/16_demo_tools/16_weather-tool-app.R]{.code .b .purple}
-
-👨‍💻 [_demos/16_demo_tools/16_weather-tool-01-start.py]{.code .b .purple} → [_demos/16_demo_tools/16_weather-tool-app.py]{.code .b .purple}
+👨‍💻 [16_weather-tool-01-start.R]{.code .b .purple} → [16_weather-tool-app.R]{.code .b .purple}
 
 ::: notes
 Live-code the demo script from `-start` to `-end` to register the tool with ellmer or chatlas, then just run the Shiny app (R or Python) so everyone sees the tool calls happening in the chat UI.
@@ -315,11 +319,12 @@ A robot is standing in front of a display case, pointing at a holographic interf
 
 * [MCP Tool Annotations Spec](https://modelcontextprotocol.io/specification/2025-06-18/schema#toolannotations){preview-link=true}
 
-## Key Properties
+## Key Annotations
 
 | Property | Description |
 |:---------|:------------|
 | **`title`** | Human-readable tool name |
+| **`icon`** | Icon shown next to the tool (shinychat only) |
 | **`readOnlyHint`** | Tool doesn't modify environment |
 | **`destructiveHint`** | May perform destructive updates |
 | **`idempotentHint`** | Repeated calls with same arguments return same |
@@ -381,4 +386,6 @@ chat.register_tool(
 * You can **update reactive values** in the tool function!
 
 * You can **read reactive values**, _if you `isolate()` reads_. (Be careful!)
+
+* _We will come back to this later_ 😉
 :::
